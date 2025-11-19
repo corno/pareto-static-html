@@ -1,0 +1,342 @@
+(
+    'operations': {
+    }
+    'schema tree': | 'set' {
+        `html-print`: | 'schema' (
+            'complexity': | 'unconstrained' ~
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'number types': {
+                    `Position`: (
+                        'precision': | 'exact' (
+                            'decimal separator offset': ~
+                            'type': | 'natural' ~
+                        )
+                    )
+                }
+                'text types': {
+                    `Text Value`: (
+                        'type': | 'single line' ~
+                    )
+                }
+            )
+            'imports': {
+            }
+            'types': {
+                `Classes`: (
+                    'node': | 'list' (
+                        'node': | 'text' | 'local' (
+                            'type': | 'single line' ~
+                        )
+                    )
+                    'type parameters': {
+                    }
+                )
+                `Span`: (
+                    'node': | 'group' {
+                        `classes`: (
+                            'description': ~
+                            'node': | 'component' | 'internal' `Classes`
+                        )
+                        `title`: (
+                            'description': ~
+                            'node': | 'optional' | 'text' | 'local' (
+                                'type': | 'single line' ~
+                            )
+                        )
+                        `children`: (
+                            'description': ~
+                            'node': | 'list' (
+                                'node': | 'group' {
+                                    `classes`: (
+                                        'description': ~
+                                        'node': | 'component' | 'internal' `Classes`
+                                    )
+                                    `type`: (
+                                        'description': ~
+                                        'node': | 'state group' {
+                                            `span`: (
+                                                'description': ~
+                                                'node': | 'component' | 'internal cyclic' `Span`
+                                            )
+                                            `a`: (
+                                                'description': ~
+                                                'node': | 'group' {
+                                                    `text`: (
+                                                        'description': ~
+                                                        'node': | 'text' | 'local' (
+                                                            'type': | 'single line' ~
+                                                        )
+                                                    )
+                                                    `href`: (
+                                                        'description': ~
+                                                        'node': | 'text' | 'local' (
+                                                            'type': | 'single line' ~
+                                                        )
+                                                    )
+                                                }
+                                            )
+                                            `p`: (
+                                                'description': ~
+                                                'node': | 'group' {
+                                                    `text`: (
+                                                        'description': ~
+                                                        'node': | 'text' | 'local' (
+                                                            'type': | 'single line' ~
+                                                        )
+                                                    )
+                                                }
+                                            )
+                                        }
+                                    )
+                                }
+                            )
+                        )
+                    }
+                    'type parameters': {
+                    }
+                )
+                `Div`: (
+                    'node': | 'group' {
+                        `classes`: (
+                            'description': ~
+                            'node': | 'component' | 'internal' `Classes`
+                        )
+                        `width`: (
+                            'description': ~
+                            'node': | 'optional' | 'number' | 'local' (
+                                'precision': | 'exact' (
+                                    'decimal separator offset': ~
+                                    'type': | 'natural' ~
+                                )
+                            )
+                        )
+                        `height`: (
+                            'description': ~
+                            'node': | 'optional' | 'number' | 'local' (
+                                'precision': | 'exact' (
+                                    'decimal separator offset': ~
+                                    'type': | 'natural' ~
+                                )
+                            )
+                        )
+                        `children`: (
+                            'description': ~
+                            'node': | 'list' (
+                                'node': | 'group' {
+                                    `type`: (
+                                        'description': ~
+                                        'node': | 'state group' {
+                                            `div`: (
+                                                'description': ~
+                                                'node': | 'component' | 'internal cyclic' `Div`
+                                            )
+                                            `table`: (
+                                                'description': ~
+                                                'node': | 'group' {
+                                                    `classes`: (
+                                                        'description': ~
+                                                        'node': | 'component' | 'internal' `Classes`
+                                                    )
+                                                    `children`: (
+                                                        'description': ~
+                                                        'node': | 'list' (
+                                                            'node': | 'group' {
+                                                                `classes`: (
+                                                                    'description': ~
+                                                                    'node': | 'component' | 'internal' `Classes`
+                                                                )
+                                                                `type`: (
+                                                                    'description': ~
+                                                                    'node': | 'state group' {
+                                                                        `header`: (
+                                                                            'description': ~
+                                                                            'node': | 'nothing' ~
+                                                                        )
+                                                                        `body`: (
+                                                                            'description': ~
+                                                                            'node': | 'nothing' ~
+                                                                        )
+                                                                        `footer`: (
+                                                                            'description': ~
+                                                                            'node': | 'nothing' ~
+                                                                        )
+                                                                    }
+                                                                )
+                                                                `rows`: (
+                                                                    'description': ~
+                                                                    'node': | 'list' (
+                                                                        'node': | 'group' {
+                                                                            `classes`: (
+                                                                                'description': ~
+                                                                                'node': | 'component' | 'internal' `Classes`
+                                                                            )
+                                                                            `type`: (
+                                                                                'description': ~
+                                                                                'node': | 'state group' {
+                                                                                    `th`: (
+                                                                                        'description': ~
+                                                                                        'node': | 'nothing' ~
+                                                                                    )
+                                                                                    `td`: (
+                                                                                        'description': ~
+                                                                                        'node': | 'nothing' ~
+                                                                                    )
+                                                                                }
+                                                                            )
+                                                                            `height`: (
+                                                                                'description': ~
+                                                                                'node': | 'optional' | 'number' | 'local' (
+                                                                                    'precision': | 'exact' (
+                                                                                        'decimal separator offset': ~
+                                                                                        'type': | 'natural' ~
+                                                                                    )
+                                                                                )
+                                                                            )
+                                                                            `cells`: (
+                                                                                'description': ~
+                                                                                'node': | 'list' (
+                                                                                    'node': | 'group' {
+                                                                                        `classes`: (
+                                                                                            'description': ~
+                                                                                            'node': | 'component' | 'internal' `Classes`
+                                                                                        )
+                                                                                        `div`: (
+                                                                                            'description': ~
+                                                                                            'node': | 'component' | 'internal cyclic' `Div`
+                                                                                        )
+                                                                                    }
+                                                                                )
+                                                                            )
+                                                                        }
+                                                                    )
+                                                                )
+                                                            }
+                                                        )
+                                                    )
+                                                }
+                                            )
+                                            `span`: (
+                                                'description': ~
+                                                'node': | 'component' | 'internal' `Span`
+                                            )
+                                            `label`: (
+                                                'description': ~
+                                                'node': | 'group' {
+                                                    `classes`: (
+                                                        'description': ~
+                                                        'node': | 'component' | 'internal' `Classes`
+                                                    )
+                                                    `text`: (
+                                                        'description': ~
+                                                        'node': | 'text' | 'local' (
+                                                            'type': | 'single line' ~
+                                                        )
+                                                    )
+                                                    `div`: (
+                                                        'description': ~
+                                                        'node': | 'component' | 'internal cyclic' `Div`
+                                                    )
+                                                }
+                                            )
+                                            `img`: (
+                                                'description': ~
+                                                'node': | 'group' {
+                                                    `classes`: (
+                                                        'description': ~
+                                                        'node': | 'component' | 'internal' `Classes`
+                                                    )
+                                                    `src`: (
+                                                        'description': ~
+                                                        'node': | 'text' | 'local' (
+                                                            'type': | 'single line' ~
+                                                        )
+                                                    )
+                                                    `alt`: (
+                                                        'description': ~
+                                                        'node': | 'text' | 'local' (
+                                                            'type': | 'single line' ~
+                                                        )
+                                                    )
+                                                    `width`: (
+                                                        'description': ~
+                                                        'node': | 'optional' | 'number' | 'local' (
+                                                            'precision': | 'exact' (
+                                                                'decimal separator offset': ~
+                                                                'type': | 'natural' ~
+                                                            )
+                                                        )
+                                                    )
+                                                    `height`: (
+                                                        'description': ~
+                                                        'node': | 'optional' | 'number' | 'local' (
+                                                            'precision': | 'exact' (
+                                                                'decimal separator offset': ~
+                                                                'type': | 'natural' ~
+                                                            )
+                                                        )
+                                                    )
+                                                }
+                                            )
+                                            `svg`: (
+                                                'description': ~
+                                                'node': | 'group' {
+                                                    `classes`: (
+                                                        'description': ~
+                                                        'node': | 'component' | 'internal' `Classes`
+                                                    )
+                                                    `content`: (
+                                                        'description': ~
+                                                        'node': | 'text' | 'local' (
+                                                            'type': | 'multi line' ~
+                                                        )
+                                                    )
+                                                    `width`: (
+                                                        'description': ~
+                                                        'node': | 'optional' | 'number' | 'local' (
+                                                            'precision': | 'exact' (
+                                                                'decimal separator offset': ~
+                                                                'type': | 'natural' ~
+                                                            )
+                                                        )
+                                                    )
+                                                    `height`: (
+                                                        'description': ~
+                                                        'node': | 'optional' | 'number' | 'local' (
+                                                            'precision': | 'exact' (
+                                                                'decimal separator offset': ~
+                                                                'type': | 'natural' ~
+                                                            )
+                                                        )
+                                                    )
+                                                }
+                                            )
+                                        }
+                                    )
+                                }
+                            )
+                        )
+                    }
+                    'type parameters': {
+                    }
+                )
+                `Document`: (
+                    'node': | 'group' {
+                        `css`: (
+                            'description': ~
+                            'node': | 'text' | 'local' (
+                                'type': | 'multi line' ~
+                            )
+                        )
+                        `root`: (
+                            'description': ~
+                            'node': | 'component' | 'internal' `Div`
+                        )
+                    }
+                    'type parameters': {
+                    }
+                )
+            }
+        )
+    }
+)
