@@ -1,19 +1,18 @@
 import * as _et from 'exupery-core-types'
 import * as _ea from 'exupery-core-alg'
-import * as _ed from 'exupery-core-dev'
 
 import * as d_in from "../../../modules/pareto-test/interface/data/generic_testset"
 import * as d_out from "../../../modules/pareto-test/interface/data/test_result"
 
 export const Test_Result: _et.Transformer<d_out.Test_Group_Result, d_in.Test_Group> = ($) => {
     return _ea.dictionary_literal({
-        "static html": ['group', $.__get_entry("static html").transform(
+        "static-html": ['group', $.__get_entry("static-html").transform(
             ($) => _ea.cc($, ($): d_out.Test_Group_Child_Result => {
                 switch ($[0]) {
                     case 'group': return _ea.ss($, ($): d_out.Test_Group_Child_Result => _ea.cc($, ($) => {
                         switch ($[0]) {
                             case 'valid': return _ea.ss($, ($) => ['valid', _ea.dictionary_literal({
-                                "fountain pen": ['group', $.__get_entry("fountain pen").transform(
+                                "fountain-pen": ['group', $.__get_entry("fountain-pen").transform(
                                     ($) => _ea.cc($, ($): d_out.Test_Group_Child_Result => {
                                         switch ($[0]) {
                                             case 'group': return _ea.ss($, ($): d_out.Test_Group_Child_Result => _ea.cc($, ($) => {
@@ -24,7 +23,6 @@ export const Test_Result: _et.Transformer<d_out.Test_Group_Result, d_in.Test_Gro
                                                             case 'test': return _ea.ss($, ($): d_out.Individual_Test_Result => _ea.cc($, ($) => {
                                                                 switch ($[0]) {
                                                                     case 'valid': return _ea.ss($, ($) => {
-                                                                        _ed.log_debug_message("FIXME: implement test comparison logic", () => {})
                                                                         return $.input === $.expected
                                                                             ? ['passed', null]
                                                                             : ['failed', {

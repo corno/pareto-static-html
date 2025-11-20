@@ -5,8 +5,8 @@ import * as d_in from "../../../interface/data/directory_content"
 import * as d_out from "../../../interface/data/generic_testset"
 
 export const Test_Group: _et.Transformer_With_Parameters<d_out.Test_Group, d_in.Directory, d_in.Directory> = ($, $p) => {
-    return $.map(($) => {
-        const bottom_node = $p.__get_entry($[0])
+    return $.map(($, key) => {
+        const bottom_node = $p.__get_entry(key)
         return _ea.cc($, ($): d_out.Test_Node => {
             switch ($[0]) {
                 case 'file': return _ea.ss($, ($): d_out.Test_Node => {
