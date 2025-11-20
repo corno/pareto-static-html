@@ -22,7 +22,10 @@ export const Test_Group_Result = ($: d_in.Test_Group_Result): d_out.Group_Part =
                 case 'individual test': return _ea.ss($, ($) => {
                     switch ($[0]) {
                         case 'passed': return sh.b.snippet(GREEN + "✅ PASS" + ENDCOLOR)
-                        case 'failed': return sh.b.snippet(RED + "❌ FAIL" + ENDCOLOR)
+                        case 'failed': return _ea.ss($, ($) => sh.b.sub([
+                            sh.b.snippet(RED + "❌ FAIL" + ENDCOLOR),
+                            sh.b.snippet($.actual)
+                        ]))
                         case 'not an individual test': return sh.b.snippet(YELLOW + "⚠️ NOT A TEST" + ENDCOLOR)
                         case 'expected is missing': return sh.b.snippet(YELLOW + "⚠️ NO EXPECTED" + ENDCOLOR)
                         case 'expected is not an individual test': return sh.b.snippet(YELLOW + "⚠️ EXPECTED NOT TEST" + ENDCOLOR)

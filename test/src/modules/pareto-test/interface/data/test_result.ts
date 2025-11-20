@@ -18,6 +18,7 @@ export type Individual_Test_Result =
     | ['passed', null]
     | ['failed', {
         'expected': string,
+        'actual': string,
     }]
     | ['expected is missing', null]
     | ['expected is not an individual test', null]

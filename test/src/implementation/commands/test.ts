@@ -27,6 +27,7 @@ import * as t_test_result_to_summary from "../../modules/pareto-test/implementat
 import { $$ as o_flatten } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/list/flatten"
 
 const RED = "\x1b[31m"
+const GREEN = "\x1b[32m"
 const ENDCOLOR = "\x1b[0m"
 
 export type Query_Resources = {
@@ -57,7 +58,7 @@ export const $$: Procedure = _easync.create_command_procedure(
         _easync.p.create_error_handling_context<d_main.Error, My_Error>(
             [
 
-                _easync.p.stage_with_error_transformation(
+                _easync.p.refine_with_error_transformation(
                     r_test_command_refiner.Parameters($p.arguments),
                     ($): My_Error => ['command line', null],
                     ($v) => [
@@ -69,7 +70,7 @@ export const $$: Procedure = _easync.create_command_procedure(
                         ),
 
                         //read input dir
-                        _easync.p.stage_stacked(
+                        _easync.p.query_stacked(
                             $qr['read directory content'](
                                 {
                                     'path': $v['path to test data'] + "/input",
@@ -82,7 +83,7 @@ export const $$: Procedure = _easync.create_command_procedure(
 
 
                                     //read expected dir
-                                    _easync.p.stage_stacked(
+                                    _easync.p.query_stacked(
                                         $qr['read directory content'](
                                             {
                                                 'path': $parent['path to test data'] + "/expected",
@@ -116,9 +117,6 @@ export const $$: Procedure = _easync.create_command_procedure(
                                                         $cr['log'].execute(
                                                             {
                                                                 'lines': o_flatten(_ea.list_literal([
-                                                                    _ea.list_literal([`All tests passed!`]),
-                                                                    _ea.list_literal([``]),
-                                                                    _ea.list_literal([`Detailed results:`]),
                                                                     t_fountain_pen_to_lines.Group_Part(
                                                                         t_test_result_to_fountain_pen.Test_Group_Result(
                                                                             test_results
@@ -126,7 +124,9 @@ export const $$: Procedure = _easync.create_command_procedure(
                                                                         {
                                                                             'indentation': `   `
                                                                         }
-                                                                    )
+                                                                    ),
+                                                                    _ea.list_literal([``]),
+                                                                    _ea.list_literal([`${GREEN}All tests passed!${ENDCOLOR}`]),
                                                                 ]))
 
                                                             },

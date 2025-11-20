@@ -16,21 +16,21 @@ export const $$: d.Query = _easync.create_query_procedure(
             },
         },
         ($): d.Error => ['read directory', $],
-    ).stage_without_error_transformation(
+    ).query_without_error_transformation(
         ($) => {
             return _easync.q.dictionary.parallel(
-                $.map(($): _et.Staging_Result<d_directory_content.Node, d.Node_Error> => {
+                $.map(($): _et.Query_Result<d_directory_content.Node, d.Node_Error> => {
                     const path = $['concatenated path']
                     return _ea.cc($['node type'], ($) => {
                         switch ($[0]) {
-                            case 'file': return _ea.ss($, ($): _et.Staging_Result<d_directory_content.Node, d.Node_Error> => $r['read file'](
+                            case 'file': return _ea.ss($, ($): _et.Query_Result<d_directory_content.Node, d.Node_Error> => $r['read file'](
                                 {
                                     'path': path,
                                     'escape spaces in path': true,
                                 },
                                 ($): d.Node_Error => ['file', $],
-                            ).transform<d_directory_content.Node>(($) => ['file', $]))
-                            case 'directory': return _ea.ss($, ($): _et.Staging_Result<d_directory_content.Node, d.Node_Error> => {
+                            ).transform_result<d_directory_content.Node>(($) => ['file', $]))
+                            case 'directory': return _ea.ss($, ($): _et.Query_Result<d_directory_content.Node, d.Node_Error> => {
                                 return $$(
                                     $r,
                                 )(
@@ -38,7 +38,7 @@ export const $$: d.Query = _easync.create_query_procedure(
                                         'path': path,
                                     },
                                     ($): d.Node_Error => ['directory', $]
-                                ).transform(($): d_directory_content.Node => ['directory', $])
+                                ).transform_result<d_directory_content.Node>(($): d_directory_content.Node => ['directory', $])
                             })
                             default: return _ea.au($[0])
                         }

@@ -12,7 +12,8 @@ export type Parameters = {
 
 export const Test_Group_Result: _et.Transformer_With_Parameters<d_out.Test_count, d_in.Test_Group_Result, Parameters> = ($, $p) => {
     const structural_problem_amount = $p['include structural problems'] ? 1 : 0
-    return $.map(($): number => _ea.cc($, ($) => {
+    let count = 0
+    $.map(($): number => _ea.cc($, ($) => {
         switch ($[0]) {
             case 'group': return _ea.ss($, ($) => _ea.cc($, ($) => {
                 switch ($[0]) {
@@ -30,12 +31,13 @@ export const Test_Group_Result: _et.Transformer_With_Parameters<d_out.Test_count
 
                     case 'passed': return _ea.ss($, ($) => $p['include passed tests'] ? 1 : 0)
                     case 'failed': return _ea.ss($, ($) => 1)
-                    
+
                     case 'expected is not an individual test': return _ea.ss($, ($) => structural_problem_amount)
                     default: return _ea.au($[0])
                 }
             }))
             default: return _ea.au($[0])
         }
-    })).__get_number_of_entries()
+    })).map(($) => count += $)
+    return count
 }

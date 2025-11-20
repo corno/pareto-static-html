@@ -1,0 +1,10 @@
+(
+    'css': "",
+    'root': (
+        'classes': [],
+        'width': * 10,
+        'height': * 10,
+        'children': [
+        ]
+    )
+)
