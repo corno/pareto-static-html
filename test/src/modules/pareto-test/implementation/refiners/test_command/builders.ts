@@ -1,8 +1,8 @@
 import * as _ea from 'exupery-core-alg'
 
-import * as d from "../../../interface/test_command"
+import * as d from "../../../interface/data/test_command"
 
-import * as core from "../../temp_core"
+import * as core from "../../../../../temp_core"
 
 export const Parameters = (
     abort: core.Abort<string>,
