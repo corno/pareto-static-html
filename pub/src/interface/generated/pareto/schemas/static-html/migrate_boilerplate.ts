@@ -10,15 +10,15 @@ export type _T_Classes = (
     $$_p: null,
 ) => _i_out._T_Classes
 
-export type _T_Span = (
-    $$_: _i_in._T_Span,
+export type _T_Phrasing_Content = (
+    $$_: _i_in._T_Phrasing_Content,
     $$_p: null,
-) => _i_out._T_Span
+) => _i_out._T_Phrasing_Content
 
-export type _T_Div = (
-    $$_: _i_in._T_Div,
+export type _T_Flow_Content = (
+    $$_: _i_in._T_Flow_Content,
     $$_p: null,
-) => _i_out._T_Div
+) => _i_out._T_Flow_Content
 
 export type _T_Document = (
     $$_: _i_in._T_Document,
@@ -29,9 +29,9 @@ export type _T_Document = (
 
 export type Classes = _T_Classes
 
-export type Span = _T_Span
+export type Phrasing_Content = _T_Phrasing_Content
 
-export type Div = _T_Div
+export type Flow_Content = _T_Flow_Content
 
 export type Document = _T_Document
 
@@ -51,32 +51,32 @@ export namespace _T_Classes {
     export type RESULT = _i_out._T_Classes
 }
 
-export namespace _T_Span {
+export namespace _T_Phrasing_Content {
     
     export namespace CONTEXT {
     }
-    export type CONTEXT = _i_in._T_Span
+    export type CONTEXT = _i_in._T_Phrasing_Content
     
     export namespace PARAMS {
     }
     
     export namespace RESULT {
     }
-    export type RESULT = _i_out._T_Span
+    export type RESULT = _i_out._T_Phrasing_Content
 }
 
-export namespace _T_Div {
+export namespace _T_Flow_Content {
     
     export namespace CONTEXT {
     }
-    export type CONTEXT = _i_in._T_Div
+    export type CONTEXT = _i_in._T_Flow_Content
     
     export namespace PARAMS {
     }
     
     export namespace RESULT {
     }
-    export type RESULT = _i_out._T_Div
+    export type RESULT = _i_out._T_Flow_Content
 }
 
 export namespace _T_Document {
@@ -109,32 +109,32 @@ export namespace Classes {
     export type RESULT = _i_out._T_Classes
 }
 
-export namespace Span {
+export namespace Phrasing_Content {
     
     export namespace CONTEXT {
     }
-    export type CONTEXT = _i_in._T_Span
+    export type CONTEXT = _i_in._T_Phrasing_Content
     
     export namespace PARAMS {
     }
     
     export namespace RESULT {
     }
-    export type RESULT = _i_out._T_Span
+    export type RESULT = _i_out._T_Phrasing_Content
 }
 
-export namespace Div {
+export namespace Flow_Content {
     
     export namespace CONTEXT {
     }
-    export type CONTEXT = _i_in._T_Div
+    export type CONTEXT = _i_in._T_Flow_Content
     
     export namespace PARAMS {
     }
     
     export namespace RESULT {
     }
-    export type RESULT = _i_out._T_Div
+    export type RESULT = _i_out._T_Flow_Content
 }
 
 export namespace Document {

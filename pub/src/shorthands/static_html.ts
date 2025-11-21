@@ -1,6 +1,6 @@
 import * as _edata from 'exupery-core-data'
 
-import * as target from "../interface/generated/pareto/schemas/html-print/data_types/target"
+import * as target from "../interface/generated/pareto/schemas/static-html/data_types/target"
 
 import {
     Raw_Or_Normal_Dictionary,

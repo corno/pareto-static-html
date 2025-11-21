@@ -4,7 +4,7 @@ import * as _easync from 'exupery-core-async'
 import * as _ei from 'exupery-core-internals'
 
 import { parse as r_parse } from "pub/dist/implementation/generated/pareto/generic/parse/parse"
-import * as r_unmarshall_static_html from "pub/dist/implementation/generated/pareto/schemas/html-print/unmarshall"
+import * as r_unmarshall_static_html from "pub/dist/implementation/generated/pareto/schemas/static-html/unmarshall"
 
 import * as t_static_html_to_fountain_pen from "pub/dist/implementation/algorithms/transformations/html/fountain_pen"
 import * as t_fountain_pen_to_text from "pareto-fountain-pen/dist/implementation/algorithms/transformations/block/text"
