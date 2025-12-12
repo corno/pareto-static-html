@@ -143,14 +143,14 @@ export const Flow_Content: d.Flow_Content = ($) => sh.b.indent([
                             _ea.cc(section.type, ($) => {
                                 switch ($[0]) {
                                     case 'header': return _ea.ss($, () => sh.b.sub([
-                                        sh.b.snippet(`</thead`),
+                                        sh.b.snippet(`</thead>`),
 
                                     ]))
                                     case 'body': return _ea.ss($, () => sh.b.sub([
-                                        sh.b.snippet(`</tbody`),
+                                        sh.b.snippet(`</tbody>`),
                                     ]))
                                     case 'footer': return _ea.ss($, () => sh.b.sub([
-                                        sh.b.snippet(`</tfoot`),
+                                        sh.b.snippet(`</tfoot>`),
                                     ]))
                                     default: return _ea.au($[0])
                                 }
@@ -161,9 +161,8 @@ export const Flow_Content: d.Flow_Content = ($) => sh.b.indent([
                 ]))
                 case 'span': return _ea.ss($, ($) => sh.b.sub([
                     sh.b.snippet(`<span`),
-                    // Classes($.classes),
                     sh.b.snippet(`>`),
-                    // Phrasing_Content($.content),
+                    Phrasing_Content($),
                     sh.b.snippet(`</span>`)
                 ]))
                 case 'label': return _ea.ss($, ($) => sh.b.sub([
@@ -233,9 +232,8 @@ export const Phrasing_Content: d.Phrasing_Content = ($) => sh.b.indent([
             switch ($[0]) {
                 case 'span': return _ea.ss($, ($) => sh.b.sub([
                     sh.b.snippet(`<span`),
-                    // Classes($.classes),
                     sh.b.snippet(`>`),
-                    // Phrasing_Content($.content),
+                    Phrasing_Content($),
                     sh.b.snippet(`</span>`)
                 ]))
                 case 'classified span': return _ea.ss($, ($) => sh.b.sub([
