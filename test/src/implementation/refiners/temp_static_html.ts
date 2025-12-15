@@ -22,7 +22,7 @@ export const Temp_Static_HTML: _et.Refiner<string, Error, string> = ($) => {
         {
             'tab size': 4,
         }
-    ).transform_error_temp(
+    ).deprecated_transform_error(
         (): Error => ['parse error', null],
     ).refine(
         ($) => _ei.__create_success_refinement_result(r_unmarshall_static_html.Document(

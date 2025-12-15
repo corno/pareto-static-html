@@ -7,7 +7,7 @@ import * as d from "../../interface/queries/directory_content"
 import * as d_directory_content from "../../interface/data/directory_content"
 
 
-export const $$: d.Query = _easync.create_query_procedure(
+export const $$: d.Query = _easync.create_query_function(
     ($p, $r) => $r['read directory'](
         {
             'path': {

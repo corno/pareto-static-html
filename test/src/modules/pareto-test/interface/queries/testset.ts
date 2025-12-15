@@ -26,4 +26,4 @@ export type Resources = {
 
 }
 
-export type Query = _et.Query_Procedure<Result, Error, Parameters, Resources>
+export type Query = _et.Query_Function<Result, Error, Parameters, Resources>
