@@ -4,9 +4,10 @@ import * as _easync from 'exupery-core-async'
 import * as d_read_directory from "exupery-resources/dist/interface/generated/pareto/schemas/read_directory/data_types/source"
 import * as d_read_file from "exupery-resources/dist/interface/generated/pareto/schemas/read_file/data_types/source"
 import * as d from "../../interface/data/directory_content"
+import * as d_path from "exupery-resources/dist/interface/generated/pareto/schemas/path/data_types/source"
 
 export type Parameters = {
-    'path': string,
+    'path': d_path.Node_Path,
 }
 
 export type Result = d.Directory

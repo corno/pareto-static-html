@@ -23,6 +23,7 @@ import * as t_directory_content_to_fountain_pen from "../../modules/pareto-test/
 import * as t_test_result_to_fountain_pen from "../../modules/pareto-test/implementation/transformers/test_result/fountain_pen"
 import * as t_test_result_to_summary from "../../modules/pareto-test/implementation/transformers/test_result/summary"
 
+import * as t_path_to_path from "exupery-resources/dist/implementation/transformers/path/path"
 
 import { $$ as o_flatten } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/list/flatten"
 
@@ -65,7 +66,7 @@ export const $$: Procedure = _easync.create_command_procedure(
 
                         //write the path to stdout
                         $cr['write to stdout'].execute(
-                            `Testing with data from: ${($v)['path to test data']}\n`,
+                            `Testing with data from: ${$v['path to test data']}\n`,
                             ($): My_Error => ['writing to stdout', null]
                         ),
 
@@ -73,7 +74,10 @@ export const $$: Procedure = _easync.create_command_procedure(
                         _easync.p.query_stacked(
                             $qr['read directory content'](
                                 {
-                                    'path': $v['path to test data'] + "/input",
+                                    'path': t_path_to_path.create_node_path(
+                                        $v['path to test data'],
+                                        `input`,
+                                    ),
                                 },
                                 ($): My_Error => ['read directory content', $]
                             ),
@@ -86,7 +90,10 @@ export const $$: Procedure = _easync.create_command_procedure(
                                     _easync.p.query_stacked(
                                         $qr['read directory content'](
                                             {
-                                                'path': $parent['path to test data'] + "/expected",
+                                                'path': t_path_to_path.create_node_path(
+                                                    $parent['path to test data'],
+                                                    `expected`,
+                                                ),
                                             },
                                             ($): My_Error => ['read directory content', $]
                                         ),
@@ -134,7 +141,7 @@ export const $$: Procedure = _easync.create_command_procedure(
                                                         )
                                                     ],
                                                     [
-       
+
                                                         _easync.p.fail(['failed tests', test_results])
                                                     ]
                                                 ),
@@ -169,7 +176,7 @@ export const $$: Procedure = _easync.create_command_procedure(
                                     }
                                 ),
                                 _ea.list_literal([`${RED}${t_test_result_to_summary.Test_Group_Result(
-                                    $, 
+                                    $,
                                     {
                                         'include passed tests': false,
                                         'include structural problems': true,
