@@ -9,6 +9,9 @@ export const Test_Group: _et.Transformer_With_Parameters<d_out.Test_Group, d_in.
         const bottom_node = $p.__get_entry(key)
         return _ea.cc($, ($): d_out.Test_Node => {
             switch ($[0]) {
+                case 'other': return _ea.ss($, ($): d_out.Test_Node => {
+                    return _ea.deprecated_panic(`expected a file or a directory`)
+                })
                 case 'file': return _ea.ss($, ($): d_out.Test_Node => {
                     const top_node = $
                     return ['test', bottom_node.transform<d_out.Test>(
@@ -19,6 +22,7 @@ export const Test_Group: _et.Transformer_With_Parameters<d_out.Test_Group, d_in.
                                     'expected': $
                                 }])
                                 case 'directory': return _ea.ss($, ($): d_out.Test => ['expected is not an individual test', null])
+                                case 'other': return _ea.ss($, ($): d_out.Test => ['expected is not an individual test', null])
                                 default: return _ea.au($[0])
                             }
                         }),
@@ -30,6 +34,7 @@ export const Test_Group: _et.Transformer_With_Parameters<d_out.Test_Group, d_in.
                     return ['group', bottom_node.transform(
                         ($): d_out.Test_Group_Node => _ea.cc($, ($) => {
                             switch ($[0]) {
+                                case 'other': return _ea.ss($, ($): d_out.Test_Group_Node => ['expected is not a group', null])
                                 case 'file': return _ea.ss($, ($): d_out.Test_Group_Node => ['expected is not a group', null])
                                 case 'directory': return _ea.ss($, ($) => ['valid', Test_Group(top_node, $)])
                                 default: return _ea.au($[0])
