@@ -6,7 +6,7 @@ import { $$ as procedure } from "../implementation/commands/test"
 
 import * as d_resources from "../implementation/commands/test"
 
-import { $$ as q_read_directory_content } from "../modules/pareto-test/implementation/queries/directory_content"
+import { $$ as q_read_directory_content } from "exupery-resources/dist/implementation/queries/directory_content"
 
 _eb.run_main_procedure(
     ($r) => {

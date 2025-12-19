@@ -1,7 +1,7 @@
 import * as _et from "exupery-core-types"
 import * as _ea from "exupery-core-alg"
 
-import * as d_in from "../../../interface/data/directory_content"
+import * as d_in from "exupery-resources/dist/interface/algorithms/queries/directory_content"
 import * as d_out from "../../../interface/data/generic_testset"
 
 export const Test_Group: _et.Transformer_With_Parameters<d_out.Test_Group, d_in.Directory, d_in.Directory> = ($, $p) => {

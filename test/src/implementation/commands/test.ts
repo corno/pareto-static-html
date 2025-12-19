@@ -10,7 +10,7 @@ import * as d_log from "exupery-resources/dist/interface/generated/pareto/schema
 import * as d_write_to_stdout from "exupery-resources/dist/interface/generated/pareto/schemas/write_to_stdout/data_types/source"
 import * as d_read_directory from "exupery-resources/dist/interface/generated/pareto/schemas/read_directory/data_types/source"
 import * as d_read_file from "exupery-resources/dist/interface/generated/pareto/schemas/read_file/data_types/source"
-import * as d_directory_content from "../../modules/pareto-test/interface/queries/directory_content"
+import * as d_directory_content from "exupery-resources/dist/interface/algorithms/queries/directory_content"
 import * as d_test_result from "../../modules/pareto-test/interface/data/test_result"
 
 import * as r_test_command_refiner from "../../modules/pareto-test/implementation/refiners/test_command/refiners"

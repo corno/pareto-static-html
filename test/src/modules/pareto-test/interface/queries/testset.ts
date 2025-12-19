@@ -3,7 +3,7 @@ import * as _easync from 'exupery-core-async'
 
 import * as d_read_directory from "exupery-resources/dist/interface/generated/pareto/schemas/read_directory/data_types/source"
 import * as d_read_file from "exupery-resources/dist/interface/generated/pareto/schemas/read_file/data_types/source"
-import * as d_directory_content from "./directory_content"
+import * as d_directory_content from "exupery-resources/dist/interface/algorithms/queries/directory_content"
 import * as d_test_result from "../../interface/data/test_result"
 
 export type Parameters = {
