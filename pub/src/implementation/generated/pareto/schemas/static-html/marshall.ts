@@ -145,7 +145,7 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => ['list', $
                         'value serializers': $p['value serializers'],
                     }
                 )),
-                'children': _pa.cc($['children'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
+                'sections': _pa.cc($['sections'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
                     'classes': _pa.cc($['classes'], ($) => Classes(
                         $,
                         {

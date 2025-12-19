@@ -238,10 +238,10 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => _i_generic
                                         'value deserializers': $p['value deserializers'],
                                     }
                                 )),
-                                'children': _pa.cc(_i_generic.get_entry(
+                                'sections': _pa.cc(_i_generic.get_entry(
                                     $,
                                     {
-                                        'key': "children",
+                                        'key': "sections",
                                     }
                                 ), ($) => _i_generic.process_unconstrained_list(
                                     $,
@@ -270,15 +270,15 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => _i_generic
                                                         $,
                                                         {
                                                             'states': _pa.dictionary_literal({
-                                                                'header': ($): _i_out._T_Flow_Content.L.SG.table.children.L._type.SG => ['header', _i_generic.process_nothing(
+                                                                'header': ($): _i_out._T_Flow_Content.L.SG.table.sections.L._type.SG => ['header', _i_generic.process_nothing(
                                                                     $,
                                                                     null
                                                                 )],
-                                                                'body': ($): _i_out._T_Flow_Content.L.SG.table.children.L._type.SG => ['body', _i_generic.process_nothing(
+                                                                'body': ($): _i_out._T_Flow_Content.L.SG.table.sections.L._type.SG => ['body', _i_generic.process_nothing(
                                                                     $,
                                                                     null
                                                                 )],
-                                                                'footer': ($): _i_out._T_Flow_Content.L.SG.table.children.L._type.SG => ['footer', _i_generic.process_nothing(
+                                                                'footer': ($): _i_out._T_Flow_Content.L.SG.table.sections.L._type.SG => ['footer', _i_generic.process_nothing(
                                                                     $,
                                                                     null
                                                                 )],
@@ -317,11 +317,11 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => _i_generic
                                                                             $,
                                                                             {
                                                                                 'states': _pa.dictionary_literal({
-                                                                                    'th': ($): _i_out._T_Flow_Content.L.SG.table.children.L.rows.L._type.SG => ['th', _i_generic.process_nothing(
+                                                                                    'th': ($): _i_out._T_Flow_Content.L.SG.table.sections.L.rows.L._type.SG => ['th', _i_generic.process_nothing(
                                                                                         $,
                                                                                         null
                                                                                     )],
-                                                                                    'td': ($): _i_out._T_Flow_Content.L.SG.table.children.L.rows.L._type.SG => ['td', _i_generic.process_nothing(
+                                                                                    'td': ($): _i_out._T_Flow_Content.L.SG.table.sections.L.rows.L._type.SG => ['td', _i_generic.process_nothing(
                                                                                         $,
                                                                                         null
                                                                                     )],

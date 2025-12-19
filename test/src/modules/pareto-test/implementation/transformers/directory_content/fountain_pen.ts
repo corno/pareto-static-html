@@ -13,7 +13,6 @@ import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 export const Error: _et.Transformer<d_out.Block_Part, d_in.Error> = ($) => _ea.cc($, ($) => {
     switch ($[0]) {
         case 'directory content processing': return _ea.ss($, ($) => sh.b.sub([
-            sh.b.snippet("❌ Directory content processing errors:"),
             sh.b.indent([
                 sh.g.sub($.deprecated_to_array(() => 0).map(($) => sh.g.nested_block([
                     sh.b.snippet($.key),

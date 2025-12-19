@@ -14,48 +14,48 @@ import {
 export namespace f { //flow
 
     export const div = (
-        children: Raw_Or_Normal_List<target.Flow_Content.L>,
+        sections: Raw_Or_Normal_List<target.Flow_Content.L>,
     ): target.Flow_Content.L => {
-        return ['div', wrap_list(children)]
+        return ['div', wrap_list(sections)]
     }
 
     export const dimensioned_div = (
         width: _et.Optional_Value<number>,
         height: _et.Optional_Value<number>,
-        children: Raw_Or_Normal_List<target.Flow_Content.L>,
+        sections: Raw_Or_Normal_List<target.Flow_Content.L>,
     ): target.Flow_Content.L => {
         return ['dimensioned div', {
             'width': width,
             'height': height,
-            'content': wrap_list(children),
+            'content': wrap_list(sections),
         }]
     }
 
     export const classified_div = (
         classes: Raw_Or_Normal_List<string>,
-        children: Raw_Or_Normal_List<target.Flow_Content.L>,
+        sections: Raw_Or_Normal_List<target.Flow_Content.L>,
     ): target.Flow_Content.L => {
         return ['classified div', {
             'classes': wrap_list(classes),
-            'content': wrap_list(children),
+            'content': wrap_list(sections),
         }]
     }
 
     export const span = (
-        children: Raw_Or_Normal_List<target.Phrasing_Content.L>,
+        sections: Raw_Or_Normal_List<target.Phrasing_Content.L>,
     ): target.Flow_Content.L => {
-        return ['span', wrap_list(children)]
+        return ['span', wrap_list(sections)]
     }
 
     export const label = (
         classes: Raw_Or_Normal_List<string>,
         text: string,
-        children: Raw_Or_Normal_List<target.Flow_Content.L>,
+        sections: Raw_Or_Normal_List<target.Flow_Content.L>,
     ): target.Flow_Content.L => {
         return ['label', {
             'classes': wrap_list(classes),
             'text': text,
-            'content': wrap_list(children),
+            'content': wrap_list(sections),
         }]
     }
 
@@ -91,11 +91,11 @@ export namespace f { //flow
 
     export const table = (
         classes: Raw_Or_Normal_List<string>,
-        children: Raw_Or_Normal_List<target.Flow_Content.L.SG.table.children.L>,
+        sections: Raw_Or_Normal_List<target.Flow_Content.L.SG.table.sections.L>,
     ): target.Flow_Content.L => {
         return ['table', {
             'classes': wrap_list(classes),
-            'children': wrap_list(children),
+            'sections': wrap_list(sections),
         }]
     }
 }
@@ -104,8 +104,8 @@ export namespace t { //table
 
     export const header = (
         classes: Raw_Or_Normal_List<string>,
-        rows: Raw_Or_Normal_List<target.Flow_Content.L.SG.table.children.L.rows.L>,
-    ): target.Flow_Content.L.SG.table.children.L => {
+        rows: Raw_Or_Normal_List<target.Flow_Content.L.SG.table.sections.L.rows.L>,
+    ): target.Flow_Content.L.SG.table.sections.L => {
         return {
             'classes': wrap_list(classes),
             'type': ['header', null],
@@ -115,8 +115,8 @@ export namespace t { //table
 
     export const body = (
         classes: Raw_Or_Normal_List<string>,
-        rows: Raw_Or_Normal_List<target.Flow_Content.L.SG.table.children.L.rows.L>,
-    ): target.Flow_Content.L.SG.table.children.L => {
+        rows: Raw_Or_Normal_List<target.Flow_Content.L.SG.table.sections.L.rows.L>,
+    ): target.Flow_Content.L.SG.table.sections.L => {
         return {
             'classes': wrap_list(classes),
             'type': ['body', null],
@@ -126,8 +126,8 @@ export namespace t { //table
 
     export const footer = (
         classes: Raw_Or_Normal_List<string>,
-        rows: Raw_Or_Normal_List<target.Flow_Content.L.SG.table.children.L.rows.L>,
-    ): target.Flow_Content.L.SG.table.children.L => {
+        rows: Raw_Or_Normal_List<target.Flow_Content.L.SG.table.sections.L.rows.L>,
+    ): target.Flow_Content.L.SG.table.sections.L => {
         return {
             'classes': wrap_list(classes),
             'type': ['footer', null],
@@ -138,8 +138,8 @@ export namespace t { //table
     export const th = (
         classes: Raw_Or_Normal_List<string>,
         height: _et.Optional_Value<number>,
-        cells: Raw_Or_Normal_List<target.Flow_Content.L.SG.table.children.L.rows.L.cells.L>,
-    ): target.Flow_Content.L.SG.table.children.L.rows.L => {
+        cells: Raw_Or_Normal_List<target.Flow_Content.L.SG.table.sections.L.rows.L.cells.L>,
+    ): target.Flow_Content.L.SG.table.sections.L.rows.L => {
         return {
             'classes': wrap_list(classes),
             'type': ['th', null],
@@ -152,8 +152,8 @@ export namespace t { //table
     export const td = (
         classes: Raw_Or_Normal_List<string>,
         height: _et.Optional_Value<number>,
-        cells: Raw_Or_Normal_List<target.Flow_Content.L.SG.table.children.L.rows.L.cells.L>,
-    ): target.Flow_Content.L.SG.table.children.L.rows.L => {
+        cells: Raw_Or_Normal_List<target.Flow_Content.L.SG.table.sections.L.rows.L.cells.L>,
+    ): target.Flow_Content.L.SG.table.sections.L.rows.L => {
         return {
             'classes': wrap_list(classes),
             'type': ['td', null],
@@ -165,7 +165,7 @@ export namespace t { //table
     export const cell = (
         classes: Raw_Or_Normal_List<string>,
         content: Raw_Or_Normal_List<target.Flow_Content.L>,
-    ): target.Flow_Content.L.SG.table.children.L.rows.L.cells.L => {
+    ): target.Flow_Content.L.SG.table.sections.L.rows.L.cells.L => {
         return {
             'classes': wrap_list(classes),
             'content': wrap_list(content),
@@ -175,28 +175,28 @@ export namespace t { //table
 
 export namespace p { //phrasing
     export const span = (
-        children: Raw_Or_Normal_List<target.Phrasing_Content.L>,
+        sections: Raw_Or_Normal_List<target.Phrasing_Content.L>,
     ): target.Phrasing_Content.L => {
-        return ['span', wrap_list(children)]
+        return ['span', wrap_list(sections)]
     }
 
     export const classified_span = (
         classes: Raw_Or_Normal_List<string>,
-        children: Raw_Or_Normal_List<target.Phrasing_Content.L>,
+        sections: Raw_Or_Normal_List<target.Phrasing_Content.L>,
     ): target.Phrasing_Content.L => {
         return ['classified span', {
             'classes': wrap_list(classes),
-            'content': wrap_list(children),
+            'content': wrap_list(sections),
         }]
     }
 
     export const titled_span = (
         title: string,
-        children: Raw_Or_Normal_List<target.Phrasing_Content.L>,
+        sections: Raw_Or_Normal_List<target.Phrasing_Content.L>,
     ): target.Phrasing_Content.L => {
         return ['titled span', {
             'title': title,
-            'content': wrap_list(children),
+            'content': wrap_list(sections),
         }]
     }
 

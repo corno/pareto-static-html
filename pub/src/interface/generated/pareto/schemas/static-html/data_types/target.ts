@@ -38,7 +38,7 @@ export type _T_Flow_Content = _i_core._T_List<null, _i_core._T_State_Group<null,
     }]
     | readonly ['table', {
         readonly 'classes': _T_Classes
-        readonly 'children': _i_core._T_List<null, {
+        readonly 'sections': _i_core._T_List<null, {
             readonly 'classes': _T_Classes
             readonly 'type': _i_core._T_State_Group<null, 
                 | readonly ['header', null]
@@ -245,7 +245,7 @@ export namespace _T_Flow_Content {
                 }
                 export type classes = _T_Classes
                 
-                export namespace children {
+                export namespace sections {
                     
                     export namespace L {
                         
@@ -368,7 +368,7 @@ export namespace _T_Flow_Content {
                         }>
                     }
                 }
-                export type children = _i_core._T_List<null, {
+                export type sections = _i_core._T_List<null, {
                     readonly 'classes': _T_Classes
                     readonly 'type': _i_core._T_State_Group<null, 
                         | readonly ['header', null]
@@ -391,7 +391,7 @@ export namespace _T_Flow_Content {
             }
             export type table = {
                 readonly 'classes': _T_Classes
-                readonly 'children': _i_core._T_List<null, {
+                readonly 'sections': _i_core._T_List<null, {
                     readonly 'classes': _T_Classes
                     readonly 'type': _i_core._T_State_Group<null, 
                         | readonly ['header', null]
@@ -497,7 +497,7 @@ export namespace _T_Flow_Content {
             }]
             | readonly ['table', {
                 readonly 'classes': _T_Classes
-                readonly 'children': _i_core._T_List<null, {
+                readonly 'sections': _i_core._T_List<null, {
                     readonly 'classes': _T_Classes
                     readonly 'type': _i_core._T_State_Group<null, 
                         | readonly ['header', null]
@@ -551,7 +551,7 @@ export namespace _T_Flow_Content {
         }]
         | readonly ['table', {
             readonly 'classes': _T_Classes
-            readonly 'children': _i_core._T_List<null, {
+            readonly 'sections': _i_core._T_List<null, {
                 readonly 'classes': _T_Classes
                 readonly 'type': _i_core._T_State_Group<null, 
                     | readonly ['header', null]
@@ -752,7 +752,7 @@ export namespace Flow_Content {
                 }
                 export type classes = _T_Classes
                 
-                export namespace children {
+                export namespace sections {
                     
                     export namespace L {
                         
@@ -875,7 +875,7 @@ export namespace Flow_Content {
                         }>
                     }
                 }
-                export type children = _i_core._T_List<null, {
+                export type sections = _i_core._T_List<null, {
                     readonly 'classes': _T_Classes
                     readonly 'type': _i_core._T_State_Group<null, 
                         | readonly ['header', null]
@@ -898,7 +898,7 @@ export namespace Flow_Content {
             }
             export type table = {
                 readonly 'classes': _T_Classes
-                readonly 'children': _i_core._T_List<null, {
+                readonly 'sections': _i_core._T_List<null, {
                     readonly 'classes': _T_Classes
                     readonly 'type': _i_core._T_State_Group<null, 
                         | readonly ['header', null]
@@ -1004,7 +1004,7 @@ export namespace Flow_Content {
             }]
             | readonly ['table', {
                 readonly 'classes': _T_Classes
-                readonly 'children': _i_core._T_List<null, {
+                readonly 'sections': _i_core._T_List<null, {
                     readonly 'classes': _T_Classes
                     readonly 'type': _i_core._T_State_Group<null, 
                         | readonly ['header', null]
@@ -1058,7 +1058,7 @@ export namespace Flow_Content {
         }]
         | readonly ['table', {
             readonly 'classes': _T_Classes
-            readonly 'children': _i_core._T_List<null, {
+            readonly 'sections': _i_core._T_List<null, {
                 readonly 'classes': _T_Classes
                 readonly 'type': _i_core._T_State_Group<null, 
                     | readonly ['header', null]

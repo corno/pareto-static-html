@@ -87,7 +87,7 @@ export const Flow_Content: d.Flow_Content = ($) => sh.b.indent([
                     Classes($.classes),
                     sh.b.snippet(`>`),
                     sh.b.indent([
-                        sh.g.sub($.children.map((section) => sh.g.nested_block([
+                        sh.g.sub($.sections.map((section) => sh.g.nested_block([
                             _ea.cc(section.type, ($) => {
                                 switch ($[0]) {
                                     case 'header': return _ea.ss($, () => sh.b.sub([
