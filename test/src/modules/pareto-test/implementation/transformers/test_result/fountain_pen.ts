@@ -19,32 +19,61 @@ export const Test_Group_Result = ($: d_in.Test_Group_Result): d_out.Group_Part =
         sh.b.snippet(": "),
         _ea.cc($.value, ($) => {
             switch ($[0]) {
-                case 'individual test': return _ea.ss($, ($) => {
+                case 'individual test': return _ea.ss($, ($) => _ea.cc($.result, ($) => {
                     switch ($[0]) {
-                        case 'passed': return sh.b.snippet(GREEN + "✅ PASS" + ENDCOLOR)
-                        case 'failed': return _ea.ss($, ($) => sh.b.sub([
-                            sh.b.snippet(RED + "❌ FAIL" + ENDCOLOR),
-                            sh.b.snippet($.actual)
-                        ]))
-                        case 'not an individual test': return sh.b.snippet(YELLOW + "⚠️ NOT A TEST" + ENDCOLOR)
-                        case 'expected is missing': return sh.b.snippet(YELLOW + "⚠️ NO EXPECTED" + ENDCOLOR)
-                        case 'expected is not an individual test': return sh.b.snippet(YELLOW + "⚠️ EXPECTED NOT TEST" + ENDCOLOR)
+                        case 'source invalid': return _ea.ss($, ($) => _ea.cc($, ($) => {
+                            switch ($[0]) {
+                                case 'not an individual test': return sh.b.snippet(YELLOW + "⚠️ NOT A TEST" + ENDCOLOR)
+                                case 'problem with expected': return _ea.ss($, ($) => _ea.cc($, ($) => {
+                                    switch ($[0]) {
+                                        case 'does not exist': return sh.b.snippet(YELLOW + "⚠️ NO EXPECTED" + ENDCOLOR)
+                                        case 'is not an individual test': return sh.b.snippet(YELLOW + "⚠️ EXPECTED NOT TEST" + ENDCOLOR)
+
+                                        default: return _ea.au($[0])
+                                    }
+                                }))
+                                default: return _ea.au($[0])
+                            }
+                        }))
+                        case 'tested': return _ea.ss($, ($) => _ea.cc($, ($) => {
+                            switch ($[0]) {
+                                case 'passed': return sh.b.snippet(GREEN + "✅ PASS" + ENDCOLOR)
+                                case 'failed': return _ea.ss($, ($) => sh.b.sub([
+                                    sh.b.snippet(RED + "❌ FAIL" + ENDCOLOR),
+                                    sh.b.snippet($.actual)
+                                ]))
+                                default: return _ea.au($[0])
+                            }
+                        }))
                         default: return _ea.au($[0])
                     }
-                })
-                case 'group': return _ea.ss($, ($) => {
+                }))
+                case 'group': return _ea.ss($, ($) => _ea.cc($.result, ($) => {
                     switch ($[0]) {
-                        case 'valid': return _ea.ss($, ($) => sh.b.sub([
+
+                        case 'tested': return _ea.ss($, ($) => sh.b.sub([
                             sh.b.indent([
                                 Test_Group_Result($)
                             ])
                         ]))
-                        case 'missing': return sh.b.snippet(YELLOW + "⚠️ MISSING" + ENDCOLOR)
-                        case 'not a group': return sh.b.snippet(YELLOW + "⚠️ NOT A GROUP" + ENDCOLOR)
-                        case 'expected is missing': return sh.b.snippet(YELLOW + "⚠️ NO EXPECTED" + ENDCOLOR)
+                        case 'source invalid': return _ea.ss($, ($) => _ea.cc($, ($) => {
+                            switch ($[0]) {
+                                case 'missing': return sh.b.snippet(YELLOW + "⚠️ MISSING" + ENDCOLOR)
+                                case 'problem with expected': return _ea.ss($, ($) => _ea.cc($, ($) => {
+                                    switch ($[0]) {
+
+                                        case 'expected is not a group': return sh.b.snippet(YELLOW + "⚠️ EXPECTED NOT A GROUP" + ENDCOLOR)
+                                        case 'expected does not exist': return sh.b.snippet(YELLOW + "⚠️ NO EXPECTED" + ENDCOLOR)
+                                        default: return _ea.au($[0])
+                                    }
+                                }))
+                                case 'not a group': return _ea.ss($, ($) => sh.b.snippet(YELLOW + "⚠️ NOT A GROUP" + ENDCOLOR))
+                                default: return _ea.au($[0])
+                            }
+                        }))
                         default: return _ea.au($[0])
                     }
-                })
+                }))
                 default: return _ea.au($[0])
             }
         })

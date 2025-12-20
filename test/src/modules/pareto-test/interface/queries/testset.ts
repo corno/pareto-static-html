@@ -10,7 +10,7 @@ export type Parameters = {
     'directory contents': d_directory_content.Result,
 }
 
-export type Result = d_test_result.Test_Group_Child_Result
+export type Result = d_test_result.Test_Node_Result__group
 
 export type Node_Error =
     | ['tbd', null]

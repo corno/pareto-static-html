@@ -101,8 +101,10 @@ export const $$: Procedure = _easync.create_command_procedure(
                                         ($v, $parent) => {
 
                                             const test_results = t_generic_testset_to_test_result.Test_Result(
-                                                t_directory_content_to_generic_testset.Test_Group(
-                                                    $parent, $v
+                                                t_directory_content_to_generic_testset.Group(
+                                                    $parent, {
+                                                        'expected': $v
+                                                    }
                                                 )
                                             )
 
