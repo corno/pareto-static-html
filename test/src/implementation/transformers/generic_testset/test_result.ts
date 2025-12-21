@@ -1,11 +1,11 @@
 import * as _et from 'exupery-core-types'
 import * as _ea from 'exupery-core-alg'
 
-import * as d_in from "../../../modules/pareto-test/interface/data/generic_testset"
-import * as d_out from "../../../modules/pareto-test/interface/data/test_result"
+import * as d_in from "pareto-test/dist/interface/data/generic_testset"
+import * as d_out from "pareto-test/dist/interface/data/test_result"
 
 import * as r_temp_static_html from "../../refiners/temp_static_html"
-import { test_group_shorthand } from '../../../modules/pareto-test/implementation/temp/helpers'
+import { test_group_shorthand } from "pareto-test/dist/implementation/temp/helpers"
 
 export const Test_Result: _et.Transformer<d_out.Test_Group_Result, d_in.Group> = ($) => {
     return test_group_shorthand(

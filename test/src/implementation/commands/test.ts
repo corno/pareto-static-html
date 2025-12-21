@@ -11,17 +11,17 @@ import * as d_write_to_stdout from "exupery-resources/dist/interface/generated/p
 import * as d_read_directory from "exupery-resources/dist/interface/generated/pareto/schemas/read_directory/data_types/source"
 import * as d_read_file from "exupery-resources/dist/interface/generated/pareto/schemas/read_file/data_types/source"
 import * as d_directory_content from "exupery-resources/dist/interface/algorithms/queries/directory_content"
-import * as d_test_result from "../../modules/pareto-test/interface/data/test_result"
+import * as d_test_result from "pareto-test/dist/interface/data/test_result"
 
-import * as r_test_command_refiner from "../../modules/pareto-test/implementation/refiners/test_command/refiners"
+import * as r_test_command_refiner from "pareto-test/dist/implementation/refiners/test_command/refiners"
 
-import * as t_directory_content_to_generic_testset from "../../modules/pareto-test/implementation/transformers/directory_content/generic_testset"
+import * as t_directory_content_to_generic_testset from "pareto-test/dist/implementation/transformers/directory_content/generic_testset"
 import * as t_generic_testset_to_test_result from "../transformers/generic_testset/test_result"
 import * as t_fountain_pen_to_lines from "pareto-fountain-pen/dist/implementation/algorithms/transformations/block/lines"
-import * as t_directory_content_to_fountain_pen from "../../modules/pareto-test/implementation/transformers/directory_content/fountain_pen"
+import * as t_directory_content_to_fountain_pen from "pareto-test/dist/implementation/transformers/directory_content/fountain_pen"
 
-import * as t_test_result_to_fountain_pen from "../../modules/pareto-test/implementation/transformers/test_result/fountain_pen"
-import * as t_test_result_to_summary from "../../modules/pareto-test/implementation/transformers/test_result/summary"
+import * as t_test_result_to_fountain_pen from "pareto-test/dist/implementation/transformers/test_result_2/fountain_pen"
+import * as t_test_result_to_summary from "pareto-test/dist/implementation/transformers/test_result_2/summary"
 
 import * as t_path_to_path from "exupery-resources/dist/implementation/transformers/path/path"
 
