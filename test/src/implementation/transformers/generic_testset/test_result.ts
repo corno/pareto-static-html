@@ -6,20 +6,19 @@ import * as d_out from "pareto-test/dist/interface/data/test_result"
 
 import * as r_temp_static_html from "../../refiners/temp_static_html"
 
-import * as sh from "pareto-test/dist/implementation/temp/higher_order_functions/generic_testset/testset"
+import * as sh from "pareto-test/dist/implementation/temp/higher_order_functions/generic_testset/testset_shorthands"
 
-export const Test_Result: _et.Transformer<d_out.Test_Group_Result, d_in.Group> = ($) => {
-    return sh.test_group_shorthand(
-        {
-            "static-html": sh.group({
+export const Test_Result = sh.test_group(
+    {
+        "static-html": sh.test_group(
+            {
                 "fountain-pen": sh.refiner(
                     ($, abort) => r_temp_static_html.Temp_Static_HTML($).transform(
                         ($) => $,
                         ($) => abort.refine("FIX: CREATE ERROR STRING")
                     ),
                 )
-            })
-        },
-        $
-    )
-}
+            }
+        )
+    },
+)
