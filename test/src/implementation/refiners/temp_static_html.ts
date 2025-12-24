@@ -16,7 +16,7 @@ export type Error =
     | ['parse error', null]
     | ['unmarshall error', null]
 
-export const Temp_Static_HTML: _et.Refiner<string, Error, string> = ($) => {
+export const Temp_Static_HTML: _et.Refiner_Old<string, Error, string> = ($) => {
     return r_parse(
         $,
         {
