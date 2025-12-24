@@ -1,8 +1,8 @@
 import * as _et from 'exupery-core-types'
 import * as _ea from 'exupery-core-alg'
 
-import * as d_in from "pareto-test/dist/interface/data/generic_testset"
-import * as d_out from "pareto-test/dist/interface/data/test_result"
+import * as d_in from "pareto-test/dist/interface/to_be_generated/generic_testset"
+import * as d_out from "pareto-test/dist/interface/to_be_generated/test_result"
 
 import * as r_temp_static_html from "../../refiners/temp_static_html"
 

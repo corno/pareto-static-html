@@ -7,7 +7,7 @@ import { parse as r_parse } from "pub/dist/implementation/generated/pareto/gener
 import * as r_unmarshall_static_html from "pub/dist/implementation/generated/pareto/schemas/static-html/unmarshall"
 
 import * as t_static_html_to_fountain_pen from "pub/dist/implementation/transformers/schemas/html/fountain_pen"
-import * as t_fountain_pen_to_text from "pareto-fountain-pen/dist/implementation/algorithms/transformations/block/text"
+import * as t_fountain_pen_to_text from "pareto-fountain-pen/dist/implementation/serializers/block"
 
 import { $$ as deser_boolean } from "pareto-standard-operations/dist/implementation/deserializers/primitives/boolean/true_false"
 import { $$ as deser_decimal } from "pareto-standard-operations/dist/implementation/deserializers/primitives/integer/decimal"
@@ -41,7 +41,7 @@ export const Temp_Static_HTML: _et.Deprecated_Refiner_Catcher<string, Error, str
     ).transform_result(
         ($): string => {
             const fp = t_static_html_to_fountain_pen.Document($)
-            const text = t_fountain_pen_to_text.Group(fp, { 'indentation': `    ` })
+            const text = t_fountain_pen_to_text.Group(fp, { 'indentation': `    `, 'newline': `\n` })
             return text
         }
     )
