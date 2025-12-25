@@ -4,7 +4,7 @@ import * as _ea from 'exupery-core-alg'
 import * as d_in from "pareto-test/dist/interface/to_be_generated/generic_testset"
 import * as d_out from "pareto-test/dist/interface/to_be_generated/test_result"
 
-import * as r_temp_static_html from "../../../../deserializers/primitives/text/temp_static_html"
+import * as r_temp_static_html from "../../../deserializers/primitives/text/temp_static_html"
 
 import * as sh from "pareto-test/dist/implementation/temp/higher_order_functions/generic_testset/testset_shorthands"
 
