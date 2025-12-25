@@ -8,9 +8,9 @@ import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 import { $$ as op_list_is_empty } from "pareto-standard-operations/dist/implementation/operations/impure/list/is_empty"
 import { $$ as op_enrich_list_elements_with_position_information } from "pareto-standard-operations/dist/implementation/operations/impure/list/enrich_with_position_information"
 
-import * as d from "../../../../interface/algorithms/transformations/html/fountain_pen"
+import * as signatures from "../../../../interface/signatures/transformers/html/fountain_pen"
 
-export const Document: d.Document = ($) => {
+export const Document: signatures.Document = ($) => {
     return sh.group([
         sh.g.nested_block([
             sh.b.snippet(`<!DOCTYPE html>`)
@@ -50,7 +50,7 @@ export const Document: d.Document = ($) => {
     ])
 }
 
-export const Flow_Content: d.Flow_Content = ($) => sh.b.indent([
+export const Flow_Content: signatures.Flow_Content = ($) => sh.b.indent([
     sh.g.sub($.map(($) => sh.g.nested_block([
 
         _ea.cc($, ($) => {
@@ -212,7 +212,7 @@ export const Flow_Content: d.Flow_Content = ($) => sh.b.indent([
     ])))
 ])
 
-export const Classes: d.Classes = ($) => {
+export const Classes: signatures.Classes = ($) => {
     return op_list_is_empty($)
         ? sh.b.nothing()
         : sh.b.sub([
@@ -226,7 +226,7 @@ export const Classes: d.Classes = ($) => {
         ])
 }
 
-export const Phrasing_Content: d.Phrasing_Content = ($) => sh.b.indent([
+export const Phrasing_Content:  signatures.Phrasing_Content = ($) => sh.b.indent([
     sh.g.sub($.map(($) => sh.g.nested_block([
         _ea.cc($, ($): d_out.Block_Part => {
             switch ($[0]) {
