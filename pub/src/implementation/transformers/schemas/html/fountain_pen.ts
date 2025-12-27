@@ -5,7 +5,6 @@ import * as d_out from "pareto-fountain-pen/dist/interface/generated/pareto/sche
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 
-import { $$ as op_list_is_empty } from "pareto-standard-operations/dist/implementation/operations/impure/list/is_empty"
 import { $$ as op_enrich_list_elements_with_position_information } from "pareto-fountain-pen/dist/implementation/temp/enrich_with_position_information"
 
 import * as signatures from "../../../../interface/signatures/transformers/html/fountain_pen"
@@ -213,7 +212,7 @@ export const Flow_Content: signatures.Flow_Content = ($) => sh.b.indent([
 ])
 
 export const Classes: signatures.Classes = ($) => {
-    return op_list_is_empty($)
+    return $.is_empty()
         ? sh.b.nothing()
         : sh.b.sub([
             sh.b.snippet(` class="`),
