@@ -1,6 +1,5 @@
 import * as _pi from 'pareto-core-interface'
 import * as _pt from 'pareto-core-transformer'
-import * as _easync from 'exupery-core-async'
 
 import { parse as r_parse } from "pub/dist/implementation/generated/pareto/generic/parse/parse"
 import * as r_unmarshall_static_html from "pub/dist/implementation/generated/pareto/schemas/static-html/unmarshall"

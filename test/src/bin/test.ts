@@ -1,6 +1,6 @@
 #!/usr/bin/env -S node --enable-source-maps
 
-import * as _eb from 'exupery-core-bin'
+import * as _pn from 'pareto-host-nodejs'
 
 import { $$ as procedure } from "../implementation/commands/test"
 
@@ -9,7 +9,7 @@ import * as d_resources from "../implementation/commands/test"
 import { $$ as q_read_directory_content } from "exupery-resources/dist/implementation/queries/read_directory_content"
 import { $$ as c_write_directory_content } from "exupery-resources/dist/implementation/commands/write_directory_content"
 
-_eb.run_main_procedure(
+_pn.run_main_procedure(
     ($r) => {
         return procedure(
             {
