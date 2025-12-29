@@ -1,5 +1,4 @@
-import * as _edata from 'exupery-core-data'
-import * as _et from 'exupery-core-types'
+import * as _pi from 'pareto-core-interface'
 
 import * as target from "../interface/generated/pareto/schemas/static-html/data_types/target"
 
@@ -9,7 +8,7 @@ import {
     wrap_dictionary,
     wrap_list,
     wrap_state_group,
-} from 'exupery-core-data/dist/shorthands/unconstrained'
+} from 'pareto-core-shorthands/dist/unconstrained'
 
 export namespace f { //flow
 
@@ -20,8 +19,8 @@ export namespace f { //flow
     }
 
     export const dimensioned_div = (
-        width: _et.Optional_Value<number>,
-        height: _et.Optional_Value<number>,
+        width: _pi.Optional_Value<number>,
+        height: _pi.Optional_Value<number>,
         sections: Raw_Or_Normal_List<target.Flow_Content.L>,
     ): target.Flow_Content.L => {
         return ['dimensioned div', {
@@ -63,8 +62,8 @@ export namespace f { //flow
         classes: Raw_Or_Normal_List<string>,
         src: string,
         alt: string,
-        width: _et.Optional_Value<number>,
-        height: _et.Optional_Value<number>,
+        width: _pi.Optional_Value<number>,
+        height: _pi.Optional_Value<number>,
     ): target.Flow_Content.L => {
         return ['img', {
             'classes': wrap_list(classes),
@@ -78,8 +77,8 @@ export namespace f { //flow
     export const svg = (
         classes: Raw_Or_Normal_List<string>,
         content: string,
-        width: _et.Optional_Value<number>,
-        height: _et.Optional_Value<number>,
+        width: _pi.Optional_Value<number>,
+        height: _pi.Optional_Value<number>,
     ): target.Flow_Content.L => {
         return ['svg', {
             'classes': wrap_list(classes),
@@ -137,7 +136,7 @@ export namespace t { //table
 
     export const th = (
         classes: Raw_Or_Normal_List<string>,
-        height: _et.Optional_Value<number>,
+        height: _pi.Optional_Value<number>,
         cells: Raw_Or_Normal_List<target.Flow_Content.L.SG.table.sections.L.rows.L.cells.L>,
     ): target.Flow_Content.L.SG.table.sections.L.rows.L => {
         return {
@@ -151,7 +150,7 @@ export namespace t { //table
 
     export const td = (
         classes: Raw_Or_Normal_List<string>,
-        height: _et.Optional_Value<number>,
+        height: _pi.Optional_Value<number>,
         cells: Raw_Or_Normal_List<target.Flow_Content.L.SG.table.sections.L.rows.L.cells.L>,
     ): target.Flow_Content.L.SG.table.sections.L.rows.L => {
         return {

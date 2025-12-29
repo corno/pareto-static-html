@@ -1,4 +1,4 @@
-import * as _ea from 'exupery-core-alg'
+import * as _pt from 'pareto-core-transformer'
 
 import * as d_in from "../../../../interface/generated/pareto/schemas/static-html/data_types/source"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/pareto/schemas/block/data_types/target"
@@ -52,15 +52,15 @@ export const Document: signatures.Document = ($) => {
 export const Flow_Content: signatures.Flow_Content = ($) => sh.b.indent([
     sh.g.sub($.map(($) => sh.g.nested_block([
 
-        _ea.cc($, ($) => {
+        _pt.cc($, ($) => {
             switch ($[0]) {
-                case 'div': return _ea.ss($, ($) => sh.b.sub([
+                case 'div': return _pt.ss($, ($) => sh.b.sub([
                     sh.b.snippet(`<div`),
                     sh.b.snippet(`>`),
                     Flow_Content($),
                     sh.b.snippet(`</div>`)
                 ]))
-                case 'dimensioned div': return _ea.ss($, ($) => sh.b.sub([
+                case 'dimensioned div': return _pt.ss($, ($) => sh.b.sub([
                     sh.b.snippet(`<div`),
                     $.width.transform(
                         ($) => sh.b.sub([sh.b.snippet(` width="`), sh.b.snippet(`${$}`), sh.b.snippet(`"`)]),
@@ -74,32 +74,32 @@ export const Flow_Content: signatures.Flow_Content = ($) => sh.b.indent([
                     Flow_Content($.content),
                     sh.b.snippet(`</div>`)
                 ]))
-                case 'classified div': return _ea.ss($, ($) => sh.b.sub([
+                case 'classified div': return _pt.ss($, ($) => sh.b.sub([
                     sh.b.snippet(`<div`),
                     Classes($.classes),
                     sh.b.snippet(`>`),
                     Flow_Content($.content),
                     sh.b.snippet(`</div>`)
                 ]))
-                case 'table': return _ea.ss($, ($) => sh.b.sub([
+                case 'table': return _pt.ss($, ($) => sh.b.sub([
                     sh.b.snippet(`<table`),
                     Classes($.classes),
                     sh.b.snippet(`>`),
                     sh.b.indent([
                         sh.g.sub($.sections.map((section) => sh.g.nested_block([
-                            _ea.cc(section.type, ($) => {
+                            _pt.cc(section.type, ($) => {
                                 switch ($[0]) {
-                                    case 'header': return _ea.ss($, () => sh.b.sub([
+                                    case 'header': return _pt.ss($, () => sh.b.sub([
                                         sh.b.snippet(`<thead`),
 
                                     ]))
-                                    case 'body': return _ea.ss($, () => sh.b.sub([
+                                    case 'body': return _pt.ss($, () => sh.b.sub([
                                         sh.b.snippet(`<tbody`),
                                     ]))
-                                    case 'footer': return _ea.ss($, () => sh.b.sub([
+                                    case 'footer': return _pt.ss($, () => sh.b.sub([
                                         sh.b.snippet(`<tfoot`),
                                     ]))
-                                    default: return _ea.au($[0])
+                                    default: return _pt.au($[0])
                                 }
                             }),
                             Classes(section.classes),
@@ -115,23 +115,23 @@ export const Flow_Content: signatures.Flow_Content = ($) => sh.b.indent([
                                     sh.b.snippet(`>`),
                                     sh.b.indent([
                                         sh.g.sub(row.cells.map((cell) => sh.g.nested_block([
-                                            _ea.cc(row.type, ($) => {
+                                            _pt.cc(row.type, ($) => {
                                                 switch ($[0]) {
-                                                    case 'th': return _ea.ss($, () => sh.b.sub([
+                                                    case 'th': return _pt.ss($, () => sh.b.sub([
                                                         sh.b.snippet(`<th`),
                                                         Classes(cell.classes),
                                                         sh.b.snippet(`>`),
                                                         Flow_Content(cell.content),
                                                         sh.b.snippet(`</th>`)
                                                     ]))
-                                                    case 'td': return _ea.ss($, () => sh.b.sub([
+                                                    case 'td': return _pt.ss($, () => sh.b.sub([
                                                         sh.b.snippet(`<td`),
                                                         Classes(cell.classes),
                                                         sh.b.snippet(`>`),
                                                         Flow_Content(cell.content),
                                                         sh.b.snippet(`</td>`)
                                                     ]))
-                                                    default: return _ea.au($[0])
+                                                    default: return _pt.au($[0])
                                                 }
                                             })
                                         ])))
@@ -139,32 +139,32 @@ export const Flow_Content: signatures.Flow_Content = ($) => sh.b.indent([
                                     sh.b.snippet(`</tr>`)
                                 ])))
                             ]),
-                            _ea.cc(section.type, ($) => {
+                            _pt.cc(section.type, ($) => {
                                 switch ($[0]) {
-                                    case 'header': return _ea.ss($, () => sh.b.sub([
+                                    case 'header': return _pt.ss($, () => sh.b.sub([
                                         sh.b.snippet(`</thead>`),
 
                                     ]))
-                                    case 'body': return _ea.ss($, () => sh.b.sub([
+                                    case 'body': return _pt.ss($, () => sh.b.sub([
                                         sh.b.snippet(`</tbody>`),
                                     ]))
-                                    case 'footer': return _ea.ss($, () => sh.b.sub([
+                                    case 'footer': return _pt.ss($, () => sh.b.sub([
                                         sh.b.snippet(`</tfoot>`),
                                     ]))
-                                    default: return _ea.au($[0])
+                                    default: return _pt.au($[0])
                                 }
                             })
                         ])))
                     ]),
                     sh.b.snippet(`</table>`)
                 ]))
-                case 'span': return _ea.ss($, ($) => sh.b.sub([
+                case 'span': return _pt.ss($, ($) => sh.b.sub([
                     sh.b.snippet(`<span`),
                     sh.b.snippet(`>`),
                     Phrasing_Content($),
                     sh.b.snippet(`</span>`)
                 ]))
-                case 'label': return _ea.ss($, ($) => sh.b.sub([
+                case 'label': return _pt.ss($, ($) => sh.b.sub([
                     sh.b.snippet(`<label`),
                     Classes($.classes),
                     sh.b.snippet(`>`),
@@ -172,7 +172,7 @@ export const Flow_Content: signatures.Flow_Content = ($) => sh.b.indent([
                     Flow_Content($.content),
                     sh.b.snippet(`</label>`)
                 ]))
-                case 'img': return _ea.ss($, ($) => sh.b.sub([
+                case 'img': return _pt.ss($, ($) => sh.b.sub([
                     sh.b.snippet(`<img`),
                     Classes($.classes),
                     sh.b.snippet(` src="`),
@@ -190,7 +190,7 @@ export const Flow_Content: signatures.Flow_Content = ($) => sh.b.indent([
                     ),
                     sh.b.snippet(` />`)
                 ]))
-                case 'svg': return _ea.ss($, ($) => sh.b.sub([
+                case 'svg': return _pt.ss($, ($) => sh.b.sub([
                     sh.b.snippet(`<svg`),
                     Classes($.classes),
                     $.width.transform(
@@ -205,7 +205,7 @@ export const Flow_Content: signatures.Flow_Content = ($) => sh.b.indent([
                     sh.b.snippet($.content),
                     sh.b.snippet(`</svg>`)
                 ]))
-                default: return _ea.au($[0])
+                default: return _pt.au($[0])
             }
         })
     ])))
@@ -227,29 +227,29 @@ export const Classes: signatures.Classes = ($) => {
 
 export const Phrasing_Content:  signatures.Phrasing_Content = ($) => sh.b.indent([
     sh.g.sub($.map(($) => sh.g.nested_block([
-        _ea.cc($, ($): d_out.Block_Part => {
+        _pt.cc($, ($): d_out.Block_Part => {
             switch ($[0]) {
-                case 'span': return _ea.ss($, ($) => sh.b.sub([
+                case 'span': return _pt.ss($, ($) => sh.b.sub([
                     sh.b.snippet(`<span`),
                     sh.b.snippet(`>`),
                     Phrasing_Content($),
                     sh.b.snippet(`</span>`)
                 ]))
-                case 'classified span': return _ea.ss($, ($) => sh.b.sub([
+                case 'classified span': return _pt.ss($, ($) => sh.b.sub([
                     sh.b.snippet(`<span`),
                     Classes($.classes),
                     sh.b.snippet(`>`),
                     Phrasing_Content($.content),
                     sh.b.snippet(`</span>`)
                 ]))
-                case 'titled span': return _ea.ss($, ($) => sh.b.sub([
+                case 'titled span': return _pt.ss($, ($) => sh.b.sub([
                     sh.b.snippet(`<span`),
                     sh.b.sub([sh.b.snippet(` title="`), sh.b.snippet($.title), sh.b.snippet(`"`)]),
                     sh.b.snippet(`>`),
                     Phrasing_Content($.content),
                     sh.b.snippet(`</span>`)
                 ]))
-                case 'a': return _ea.ss($, ($) => sh.b.sub([
+                case 'a': return _pt.ss($, ($) => sh.b.sub([
                     sh.b.snippet(`<a`),
                     // Classes($.classes),
                     sh.b.snippet(` href="`),
@@ -258,14 +258,14 @@ export const Phrasing_Content:  signatures.Phrasing_Content = ($) => sh.b.indent
                     sh.b.snippet($.text),
                     sh.b.snippet(`</a>`)
                 ]))
-                case 'p': return _ea.ss($, ($) => sh.b.sub([
+                case 'p': return _pt.ss($, ($) => sh.b.sub([
                     sh.b.snippet(`<p`),
                     // Classes($.classes),
                     sh.b.snippet(`>`),
                     sh.b.snippet($.text),
                     sh.b.snippet(`</p>`)
                 ]))
-                default: return _ea.au($[0])
+                default: return _pt.au($[0])
             }
         })
     ])))

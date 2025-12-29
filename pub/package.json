@@ -1,6 +1,6 @@
 {
   "name": "pareto-static-html",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "a library for creating static HTML documents using Pareto",
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,10 +8,6 @@
     "dist"
   ],
   "dependencies": {
-    "exupery-core-alg": "^0.5.19",
-    "exupery-core-bin": "^0.3.43",
-    "exupery-core-data": "^0.3.3",
-    "exupery-core-dev": "^0.3.3",
-    "pareto-fountain-pen": "^0.3.18"
+    "pareto-fountain-pen": "^0.3.19"
   }
 }
