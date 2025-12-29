@@ -8,6 +8,6 @@
     "dist"
   ],
   "dependencies": {
-    "pareto-fountain-pen": "^0.3.20"
+    "pareto-fountain-pen": "^0.3.22"
   }
 }
