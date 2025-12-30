@@ -1,13 +1,13 @@
 import * as _pt from 'pareto-core-transformer'
 
-import * as d_in from "../../../../interface/generated/pareto/schemas/static-html/data_types/source"
+import * as d_in from "../../../../../interface/generated/pareto/schemas/static-html/data_types/source"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/pareto/schemas/block/data_types/target"
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 
 import { $$ as op_enrich_list_elements_with_position_information } from "pareto-fountain-pen/dist/implementation/temp/enrich_with_position_information"
 
-import * as signatures from "../../../../interface/signatures/transformers/html/fountain_pen"
+import * as signatures from "../../../../../interface/signatures/transformers/html/fountain_pen"
 
 export const Document: signatures.Document = ($) => {
     return sh.group([
