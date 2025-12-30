@@ -1,5 +1,6 @@
 import * as _pi from 'pareto-core-interface'
 import * as _pt from 'pareto-core-transformer'
+import * as _pinternals from 'pareto-core-internals'
 
 import { parse as r_parse } from "pub/dist/implementation/generated/pareto/generic/parse/parse"
 import * as r_unmarshall_static_html from "pub/dist/implementation/generated/pareto/schemas/static-html/unmarshall"
@@ -27,10 +28,10 @@ export const Temp_Static_HTML: _pi.Deserializer<string, Error> = ($, abort) => {
         x.content,
         {
             'value deserializers': {
-                'boolean': ($) => deser_boolean($, () => _pt.deprecated_panic("boolean deserializer error in temp static html test")),
-                'default number': ($) => deser_decimal($, () => _pt.deprecated_panic("decimal deserializer error in temp static html test")),
+                'boolean': ($) => deser_boolean($, () => _pinternals.panic("boolean deserializer error in temp static html test")),
+                'default number': ($) => deser_decimal($, () => _pinternals.panic("decimal deserializer error in temp static html test")),
                 'custom numbers': {
-                    'Position': ($) => deser_decimal($, () => _pt.deprecated_panic("decimal deserializer error in temp static html test")),
+                    'Position': ($) => deser_decimal($, () => _pinternals.panic("decimal deserializer error in temp static html test")),
                 }
             }
         },
