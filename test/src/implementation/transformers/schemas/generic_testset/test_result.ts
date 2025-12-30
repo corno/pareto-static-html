@@ -1,4 +1,3 @@
-import * as _pi from 'pareto-core-interface'
 import * as _pt from 'pareto-core-transformer'
 
 import * as d_in from "pareto-test/dist/interface/to_be_generated/generic_testset"
