@@ -1,6 +1,6 @@
 {
   "name": "pareto-static-html",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "a library for creating static HTML documents using Pareto",
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,6 +8,6 @@
     "dist"
   ],
   "dependencies": {
-    "pareto-fountain-pen": "^0.3.22"
+    "pareto-fountain-pen": "^0.3.23"
   }
 }

@@ -5,11 +5,11 @@ import * as _pinternals from 'pareto-core-internals'
 import { parse as r_parse } from "pub/dist/implementation/generated/pareto/generic/parse/parse"
 import * as r_unmarshall_static_html from "pub/dist/implementation/generated/pareto/schemas/static-html/unmarshall"
 
-import * as t_static_html_to_fountain_pen from "pub/dist/implementation/transformers/schemas/html/fountain_pen"
-import * as t_fountain_pen_to_text from "pareto-fountain-pen/dist/implementation/serializers/schemas/block"
+import * as t_static_html_to_fountain_pen from "pub/dist/implementation/manual/schemas/html/transformers/fountain_pen"
+import * as t_fountain_pen_to_text from "pareto-fountain-pen/dist/implementation/manual/schemas/block/serializers"
 
-import { $$ as deser_boolean } from "pareto-standard-operations/dist/implementation/deserializers/primitives/boolean/true_false"
-import { $$ as deser_decimal } from "pareto-standard-operations/dist/implementation/deserializers/primitives/integer/decimal"
+import { $$ as deser_boolean } from "pareto-standard-operations/dist/implementation/manual/primitives/boolean/deserializers/true_false"
+import { $$ as deser_decimal } from "pareto-standard-operations/dist/implementation/manual/primitives/integer/deserializers/decimal"
 
 export type Error =
     | ['parse error', null]
