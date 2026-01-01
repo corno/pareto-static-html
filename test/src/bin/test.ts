@@ -6,8 +6,8 @@ import { $$ as procedure } from "../implementation/commands/test"
 
 import * as d_resources from "../implementation/commands/test"
 
-import { $$ as q_read_directory_content } from "exupery-resources/dist/implementation/queries/read_directory_content"
-import { $$ as c_write_directory_content } from "exupery-resources/dist/implementation/commands/write_directory_content"
+import { $$ as q_read_directory_content } from "pareto-resources/dist/implementation/manual/queries/read_directory_content"
+import { $$ as c_write_directory_content } from "pareto-resources/dist/implementation/manual/commands/write_directory_content"
 
 _pn.run_main_procedure(
     ($r) => {
