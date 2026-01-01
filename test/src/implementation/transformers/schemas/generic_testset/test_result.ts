@@ -13,9 +13,9 @@ export const Test_Result = sh.test_group(
             {
                 "fountain-pen": sh.refiner(
                     ($, abort) => {
-                        return r_temp_static_html.Temp_Static_HTML(
+                        return r_temp_static_html.Static_HTML(
                             $,
-                            ($) => abort.refine("FIX: CREATE ERROR STRING")
+                            ($) => abort.refine($)
                         )
                     },
                 )
