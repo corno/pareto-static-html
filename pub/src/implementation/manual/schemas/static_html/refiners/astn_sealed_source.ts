@@ -1,6 +1,5 @@
 import * as _p from 'pareto-core-refiner'
 import * as _pi from 'pareto-core-interface'
-import * as _pinternals from 'pareto-core-internals'
 
 import * as d_out from "../../../../../interface/generated/pareto/schemas/static-html/data_types/target"
 import * as d_unmarshall from "../../../../../interface/generated/pareto/core/unmarshall"
