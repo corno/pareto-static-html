@@ -22,7 +22,7 @@ export const Phrasing_Content: _i_signatures._T_Phrasing_Content = ($, $p) => _i
         'value': ($) => _i_generic.process_unconstrained_state_group(
             $,
             {
-                'states': _pa.dictionary_literal({
+                'states': _pa.dictionary.literal({
                     'span': ($): _i_out._T_Phrasing_Content.L.SG => ['span', Phrasing_Content(
                         $,
                         {
@@ -137,7 +137,7 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => _i_generic
         'value': ($) => _i_generic.process_unconstrained_state_group(
             $,
             {
-                'states': _pa.dictionary_literal({
+                'states': _pa.dictionary.literal({
                     'div': ($): _i_out._T_Flow_Content.L.SG => ['div', Flow_Content(
                         $,
                         {
@@ -269,7 +269,7 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => _i_generic
                                                     ), ($) => _i_generic.process_unconstrained_state_group(
                                                         $,
                                                         {
-                                                            'states': _pa.dictionary_literal({
+                                                            'states': _pa.dictionary.literal({
                                                                 'header': ($): _i_out._T_Flow_Content.L.SG.table.sections.L._type.SG => ['header', _i_generic.process_nothing(
                                                                     $,
                                                                     null
@@ -316,7 +316,7 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => _i_generic
                                                                         ), ($) => _i_generic.process_unconstrained_state_group(
                                                                             $,
                                                                             {
-                                                                                'states': _pa.dictionary_literal({
+                                                                                'states': _pa.dictionary.literal({
                                                                                     'th': ($): _i_out._T_Flow_Content.L.SG.table.sections.L.rows.L._type.SG => ['th', _i_generic.process_nothing(
                                                                                         $,
                                                                                         null

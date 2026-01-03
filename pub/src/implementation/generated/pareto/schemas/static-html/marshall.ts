@@ -22,7 +22,7 @@ export const Phrasing_Content: _i_signatures._T_Phrasing_Content = ($, $p) => ['
         }))
         case 'classified span': return _pa.ss($, ($) => ({
             'state': "classified span",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
                 'classes': _pa.cc($['classes'], ($) => Classes(
                     $,
                     {
@@ -39,7 +39,7 @@ export const Phrasing_Content: _i_signatures._T_Phrasing_Content = ($, $p) => ['
         }))
         case 'titled span': return _pa.ss($, ($) => ({
             'state': "titled span",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
                 'title': _pa.cc($['title'], ($) => ['text', ({
                     'delimiter': ['quote', null],
                     'value': $,
@@ -54,7 +54,7 @@ export const Phrasing_Content: _i_signatures._T_Phrasing_Content = ($, $p) => ['
         }))
         case 'a': return _pa.ss($, ($) => ({
             'state': "a",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
                 'text': _pa.cc($['text'], ($) => ['text', ({
                     'delimiter': ['quote', null],
                     'value': $,
@@ -67,7 +67,7 @@ export const Phrasing_Content: _i_signatures._T_Phrasing_Content = ($, $p) => ['
         }))
         case 'p': return _pa.ss($, ($) => ({
             'state': "p",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
                 'text': _pa.cc($['text'], ($) => ['text', ({
                     'delimiter': ['quote', null],
                     'value': $,
@@ -90,7 +90,7 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => ['list', $
         }))
         case 'dimensioned div': return _pa.ss($, ($) => ({
             'state': "dimensioned div",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
                 'width': _pa.cc($['width'], ($) => ['optional', $.transform(
                     ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
                         'delimiter': ['backtick', null],
@@ -121,7 +121,7 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => ['list', $
         }))
         case 'classified div': return _pa.ss($, ($) => ({
             'state': "classified div",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
                 'classes': _pa.cc($['classes'], ($) => Classes(
                     $,
                     {
@@ -138,14 +138,14 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => ['list', $
         }))
         case 'table': return _pa.ss($, ($) => ({
             'state': "table",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
                 'classes': _pa.cc($['classes'], ($) => Classes(
                     $,
                     {
                         'value serializers': $p['value serializers'],
                     }
                 )),
-                'sections': _pa.cc($['sections'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
+                'sections': _pa.cc($['sections'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary.literal({
                     'classes': _pa.cc($['classes'], ($) => Classes(
                         $,
                         {
@@ -169,7 +169,7 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => ['list', $
                             default: return _pa.au($[0])
                         }
                     })]),
-                    'rows': _pa.cc($['rows'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
+                    'rows': _pa.cc($['rows'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary.literal({
                         'classes': _pa.cc($['classes'], ($) => Classes(
                             $,
                             {
@@ -199,7 +199,7 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => ['list', $
                             })]],
                             () => ['not set', null]
                         )]),
-                        'cells': _pa.cc($['cells'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
+                        'cells': _pa.cc($['cells'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary.literal({
                             'classes': _pa.cc($['classes'], ($) => Classes(
                                 $,
                                 {
@@ -228,7 +228,7 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => ['list', $
         }))
         case 'label': return _pa.ss($, ($) => ({
             'state': "label",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
                 'classes': _pa.cc($['classes'], ($) => Classes(
                     $,
                     {
@@ -249,7 +249,7 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => ['list', $
         }))
         case 'img': return _pa.ss($, ($) => ({
             'state': "img",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
                 'classes': _pa.cc($['classes'], ($) => Classes(
                     $,
                     {
@@ -288,7 +288,7 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => ['list', $
         }))
         case 'svg': return _pa.ss($, ($) => ({
             'state': "svg",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
                 'classes': _pa.cc($['classes'], ($) => Classes(
                     $,
                     {
@@ -324,7 +324,7 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => ['list', $
         default: return _pa.au($[0])
     }
 })])]
-export const Document: _i_signatures._T_Document = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Document: _i_signatures._T_Document = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'css': _pa.cc($['css'], ($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
