@@ -9,45 +9,43 @@ import { $$ as op_enrich_list_elements_with_position_information } from "pareto-
 
 import * as signatures from "../../../../../interface/signatures/transformers/html/fountain_pen"
 
-export const Document: signatures.Document = ($) => {
-    return sh.group([
-        sh.g.nested_block([
-            sh.b.snippet(`<!DOCTYPE html>`)
-        ]),
-        sh.g.nested_block([
-            sh.b.snippet(`<html>`)
-        ]),
-        sh.g.nested_block([
-            sh.b.snippet(`<head>`),
-            sh.b.indent([
-                sh.g.nested_block([
-                    sh.b.snippet(`<meta charset="UTF-8">`),
-                ]),
-                sh.g.nested_block([
-                    sh.b.snippet(`<meta name="viewport" content="width=device-width, initial-scale=1.0">`),
-                ]),
-                sh.g.nested_block([
-                    sh.b.snippet(`<style>`),
-                    sh.b.indent([
-                        sh.g.nested_block([
-                            sh.b.snippet($.css)
-                        ])
-                    ]),
-                    sh.b.snippet(`</style>`)
-                ])
+export const Document: signatures.Document = ($) => sh.group([
+    sh.g.nested_block([
+        sh.b.snippet(`<!DOCTYPE html>`)
+    ]),
+    sh.g.nested_block([
+        sh.b.snippet(`<html>`)
+    ]),
+    sh.g.nested_block([
+        sh.b.snippet(`<head>`),
+        sh.b.indent([
+            sh.g.nested_block([
+                sh.b.snippet(`<meta charset="UTF-8">`),
             ]),
-            sh.b.snippet(`</head>`)
+            sh.g.nested_block([
+                sh.b.snippet(`<meta name="viewport" content="width=device-width, initial-scale=1.0">`),
+            ]),
+            sh.g.nested_block([
+                sh.b.snippet(`<style>`),
+                sh.b.indent([
+                    sh.g.nested_block([
+                        sh.b.snippet($.css)
+                    ])
+                ]),
+                sh.b.snippet(`</style>`)
+            ])
         ]),
-        sh.g.nested_block([
-            sh.b.snippet(`<body>`),
-            Flow_Content($.root),
-            sh.b.snippet(`</body>`)
-        ]),
-        sh.g.nested_block([
-            sh.b.snippet(`</html>`)
-        ])
+        sh.b.snippet(`</head>`)
+    ]),
+    sh.g.nested_block([
+        sh.b.snippet(`<body>`),
+        Flow_Content($.root),
+        sh.b.snippet(`</body>`)
+    ]),
+    sh.g.nested_block([
+        sh.b.snippet(`</html>`)
     ])
-}
+])
 
 export const Flow_Content: signatures.Flow_Content = ($) => sh.b.indent([
     sh.g.sub($.map(($) => sh.g.nested_block([
@@ -211,21 +209,19 @@ export const Flow_Content: signatures.Flow_Content = ($) => sh.b.indent([
     ])))
 ])
 
-export const Classes: signatures.Classes = ($) => {
-    return $.is_empty()
-        ? sh.b.nothing()
-        : sh.b.sub([
-            sh.b.snippet(` class="`),
-            sh.b.sub(op_enrich_list_elements_with_position_information($).map(($) =>
-                $['is first']
-                    ? sh.b.snippet($.value)
-                    : sh.b.sub([sh.b.snippet(` `), sh.b.snippet($.value)])
-            )),
-            sh.b.snippet(`"`)
-        ])
-}
+export const Classes: signatures.Classes = ($) => $.is_empty()
+    ? sh.b.nothing()
+    : sh.b.sub([
+        sh.b.snippet(` class="`),
+        sh.b.sub(op_enrich_list_elements_with_position_information($).map(($) =>
+            $['is first']
+                ? sh.b.snippet($.value)
+                : sh.b.sub([sh.b.snippet(` `), sh.b.snippet($.value)])
+        )),
+        sh.b.snippet(`"`)
+    ])
 
-export const Phrasing_Content:  signatures.Phrasing_Content = ($) => sh.b.indent([
+export const Phrasing_Content: signatures.Phrasing_Content = ($) => sh.b.indent([
     sh.g.sub($.map(($) => sh.g.nested_block([
         _p.cc($, ($): d_out.Block_Part => {
             switch ($[0]) {

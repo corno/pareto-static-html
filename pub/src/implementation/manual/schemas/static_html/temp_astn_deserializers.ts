@@ -9,15 +9,13 @@ import * as r_static_html_from_astn_sealed_source from "./refiners/astn_sealed_s
 import { parse as r_parse } from "../../../generated/pareto/generic/parse/parse"
 
 
-export const Document: _pi.Deserializer<d_out.Document, d_unmarshall.Error> = ($, abort) => {
-    const x = r_parse(
+export const Document: _pi.Deserializer<d_out.Document, d_unmarshall.Error> = ($, abort) => r_static_html_from_astn_sealed_source.Document(
+    r_parse(
         $,
         {
             'tab size': 4,
         },
         ($) => abort(['parse error', null])
-    )
-
-    return r_static_html_from_astn_sealed_source.Document(x, abort)
-
-}
+    ),
+    abort
+)

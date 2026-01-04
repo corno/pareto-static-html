@@ -12,18 +12,15 @@ import { $$ as deser_boolean } from "pareto-standard-operations/dist/implementat
 import { $$ as deser_decimal } from "pareto-standard-operations/dist/implementation/manual/primitives/integer/deserializers/decimal"
 
 
-export const Document: _pi.Refiner<d_out.Document, d_unmarshall.Error, d_astn_sealed_source._T_Document> = ($, abort) => {
-    return r_unmarshall_static_html.Document(
-        $.content,
-        {
-            'value deserializers': {
-                'boolean': ($) => deser_boolean($, () => abort(['primitive deserialization', null])),
-                'default number': ($) => deser_decimal($, () => abort(['primitive deserialization', null])),
-                'custom numbers': {
-                    'Position': ($) => deser_decimal($, () => abort(['primitive deserialization', null])),
-                }
+export const Document: _pi.Refiner<d_out.Document, d_unmarshall.Error, d_astn_sealed_source._T_Document> = ($, abort) => r_unmarshall_static_html.Document(
+    $.content,
+    {
+        'value deserializers': {
+            'boolean': ($) => deser_boolean($, () => abort(['primitive deserialization', null])),
+            'default number': ($) => deser_decimal($, () => abort(['primitive deserialization', null])),
+            'custom numbers': {
+                'Position': ($) => deser_decimal($, () => abort(['primitive deserialization', null])),
             }
-        },
-    )
-
-}
+        }
+    },
+)
