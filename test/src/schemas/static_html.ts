@@ -9,13 +9,21 @@ import * as s_static_html from "pub/dist/implementation/manual/schemas/static_ht
 
 import * as s_unmarshall from "pub/dist/implementation/generated/pareto/serialize_unmarshall_error"
 
-export const $$ = sh.schema({
-    'serializers': {
-        "Document": sh.serializer(
-            `.html`,
-            s_static_html.Document,
-            ds_static_html.Document,
-            s_unmarshall.Error,
-        )
-    }
-})
+export const $$ = sh.schema(
+
+    {},
+    {},
+    {},
+    {},
+    {},
+    // {
+    //     'serializers': {
+    //         "Document": sh.serializer(
+    //             `.html`,
+    //             s_static_html.Document,
+    //             ($, abort) => ds_static_html.Document($, abort, { 'uri': "FIXME" }),
+    //             s_unmarshall.Error,
+    //         )
+    //     }
+    // }
+)
