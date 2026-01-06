@@ -50,7 +50,7 @@ export const Document: signatures.Document = ($) => sh.group([
 export const Flow_Content: signatures.Flow_Content = ($) => sh.b.indent([
     sh.g.sub($.map(($) => sh.g.nested_block([
 
-        _p.cc($, ($) => {
+        _p.sg($, ($) => {
             switch ($[0]) {
                 case 'div': return _p.ss($, ($) => sh.b.sub([
                     sh.b.snippet(`<div`),
@@ -85,7 +85,7 @@ export const Flow_Content: signatures.Flow_Content = ($) => sh.b.indent([
                     sh.b.snippet(`>`),
                     sh.b.indent([
                         sh.g.sub($.sections.map((section) => sh.g.nested_block([
-                            _p.cc(section.type, ($) => {
+                            _p.sg(section.type, ($) => {
                                 switch ($[0]) {
                                     case 'header': return _p.ss($, () => sh.b.sub([
                                         sh.b.snippet(`<thead`),
@@ -113,7 +113,7 @@ export const Flow_Content: signatures.Flow_Content = ($) => sh.b.indent([
                                     sh.b.snippet(`>`),
                                     sh.b.indent([
                                         sh.g.sub(row.cells.map((cell) => sh.g.nested_block([
-                                            _p.cc(row.type, ($) => {
+                                            _p.sg(row.type, ($) => {
                                                 switch ($[0]) {
                                                     case 'th': return _p.ss($, () => sh.b.sub([
                                                         sh.b.snippet(`<th`),
@@ -137,7 +137,7 @@ export const Flow_Content: signatures.Flow_Content = ($) => sh.b.indent([
                                     sh.b.snippet(`</tr>`)
                                 ])))
                             ]),
-                            _p.cc(section.type, ($) => {
+                            _p.sg(section.type, ($) => {
                                 switch ($[0]) {
                                     case 'header': return _p.ss($, () => sh.b.sub([
                                         sh.b.snippet(`</thead>`),
@@ -209,7 +209,7 @@ export const Flow_Content: signatures.Flow_Content = ($) => sh.b.indent([
     ])))
 ])
 
-export const Classes: signatures.Classes = ($) => $.is_empty()
+export const Classes: signatures.Classes = ($) => _p.boolean.list_is_empty($)
     ? sh.b.nothing()
     : sh.b.sub([
         sh.b.snippet(` class="`),
@@ -223,7 +223,7 @@ export const Classes: signatures.Classes = ($) => $.is_empty()
 
 export const Phrasing_Content: signatures.Phrasing_Content = ($) => sh.b.indent([
     sh.g.sub($.map(($) => sh.g.nested_block([
-        _p.cc($, ($): d_out.Block_Part => {
+        _p.sg($, ($): d_out.Block_Part => {
             switch ($[0]) {
                 case 'span': return _p.ss($, ($) => sh.b.sub([
                     sh.b.snippet(`<span`),

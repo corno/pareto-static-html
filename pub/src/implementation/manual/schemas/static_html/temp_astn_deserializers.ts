@@ -6,16 +6,17 @@ import * as d_unmarshall from "../../../../interface/generated/pareto/core/unmar
 
 //dependencies
 import * as r_static_html_from_astn_sealed_source from "./refiners/astn_sealed_source"
-import { parse as r_parse } from "../../../generated/pareto/generic/parse/parse"
+import { Document as r_parse } from "astn-sealed/dist/implementation/schemas/astn_source/deserializers"
 
 
-export const Document: _pi.Deserializer<d_out.Document, d_unmarshall.Error> = ($, abort) => r_static_html_from_astn_sealed_source.Document(
+export const Document: _pi.Deserializer_With_Parameters<d_out.Document, d_unmarshall.Error, { 'uri': string }> = ($, abort, $p) => r_static_html_from_astn_sealed_source.Document(
     r_parse(
         $,
+        ($) => abort(['parse error', null]),
         {
             'tab size': 4,
+            'uri': $p.uri
         },
-        ($) => abort(['parse error', null])
     ),
     abort
 )
