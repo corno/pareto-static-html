@@ -1,4 +1,4 @@
-import * as _et from 'pareto-core-interface'
+import * as _pi from 'pareto-core-interface'
 
 import * as _i_core from "../../../core/unconstrained"
 
@@ -28,8 +28,8 @@ export type _T_Phrasing_Content = _i_core._T_List<null, _i_core._T_State_Group<n
 export type _T_Flow_Content = _i_core._T_List<null, _i_core._T_State_Group<null, 
     | readonly ['div', _T_Flow_Content]
     | readonly ['dimensioned div', {
-        readonly 'width': _et.Optional_Value<number>
-        readonly 'height': _et.Optional_Value<number>
+        readonly 'width': _pi.Optional_Value<number>
+        readonly 'height': _pi.Optional_Value<number>
         readonly 'content': _T_Flow_Content
     }]
     | readonly ['classified div', {
@@ -51,7 +51,7 @@ export type _T_Flow_Content = _i_core._T_List<null, _i_core._T_State_Group<null,
                     | readonly ['th', null]
                     | readonly ['td', null]
                 >
-                readonly 'height': _et.Optional_Value<number>
+                readonly 'height': _pi.Optional_Value<number>
                 readonly 'cells': _i_core._T_List<null, {
                     readonly 'classes': _T_Classes
                     readonly 'content': _T_Flow_Content
@@ -69,14 +69,14 @@ export type _T_Flow_Content = _i_core._T_List<null, _i_core._T_State_Group<null,
         readonly 'classes': _T_Classes
         readonly 'src': string
         readonly 'alt': string
-        readonly 'width': _et.Optional_Value<number>
-        readonly 'height': _et.Optional_Value<number>
+        readonly 'width': _pi.Optional_Value<number>
+        readonly 'height': _pi.Optional_Value<number>
     }]
     | readonly ['svg', {
         readonly 'classes': _T_Classes
         readonly 'content': string
-        readonly 'width': _et.Optional_Value<number>
-        readonly 'height': _et.Optional_Value<number>
+        readonly 'width': _pi.Optional_Value<number>
+        readonly 'height': _pi.Optional_Value<number>
     }]
 >>
 
@@ -207,20 +207,20 @@ export namespace _T_Flow_Content {
                 export namespace width {
                     export type O = number
                 }
-                export type width = _et.Optional_Value<number>
+                export type width = _pi.Optional_Value<number>
                 
                 export namespace height {
                     export type O = number
                 }
-                export type height = _et.Optional_Value<number>
+                export type height = _pi.Optional_Value<number>
                 
                 export namespace content {
                 }
                 export type content = _T_Flow_Content
             }
             export type dimensioned_div = {
-                readonly 'width': _et.Optional_Value<number>
-                readonly 'height': _et.Optional_Value<number>
+                readonly 'width': _pi.Optional_Value<number>
+                readonly 'height': _pi.Optional_Value<number>
                 readonly 'content': _T_Flow_Content
             }
             
@@ -297,7 +297,7 @@ export namespace _T_Flow_Content {
                                 export namespace height {
                                     export type O = number
                                 }
-                                export type height = _et.Optional_Value<number>
+                                export type height = _pi.Optional_Value<number>
                                 
                                 export namespace cells {
                                     
@@ -327,7 +327,7 @@ export namespace _T_Flow_Content {
                                     | readonly ['th', null]
                                     | readonly ['td', null]
                                 >
-                                readonly 'height': _et.Optional_Value<number>
+                                readonly 'height': _pi.Optional_Value<number>
                                 readonly 'cells': _i_core._T_List<null, {
                                     readonly 'classes': _T_Classes
                                     readonly 'content': _T_Flow_Content
@@ -340,7 +340,7 @@ export namespace _T_Flow_Content {
                                 | readonly ['th', null]
                                 | readonly ['td', null]
                             >
-                            readonly 'height': _et.Optional_Value<number>
+                            readonly 'height': _pi.Optional_Value<number>
                             readonly 'cells': _i_core._T_List<null, {
                                 readonly 'classes': _T_Classes
                                 readonly 'content': _T_Flow_Content
@@ -360,7 +360,7 @@ export namespace _T_Flow_Content {
                                 | readonly ['th', null]
                                 | readonly ['td', null]
                             >
-                            readonly 'height': _et.Optional_Value<number>
+                            readonly 'height': _pi.Optional_Value<number>
                             readonly 'cells': _i_core._T_List<null, {
                                 readonly 'classes': _T_Classes
                                 readonly 'content': _T_Flow_Content
@@ -381,7 +381,7 @@ export namespace _T_Flow_Content {
                             | readonly ['th', null]
                             | readonly ['td', null]
                         >
-                        readonly 'height': _et.Optional_Value<number>
+                        readonly 'height': _pi.Optional_Value<number>
                         readonly 'cells': _i_core._T_List<null, {
                             readonly 'classes': _T_Classes
                             readonly 'content': _T_Flow_Content
@@ -404,7 +404,7 @@ export namespace _T_Flow_Content {
                             | readonly ['th', null]
                             | readonly ['td', null]
                         >
-                        readonly 'height': _et.Optional_Value<number>
+                        readonly 'height': _pi.Optional_Value<number>
                         readonly 'cells': _i_core._T_List<null, {
                             readonly 'classes': _T_Classes
                             readonly 'content': _T_Flow_Content
@@ -445,19 +445,19 @@ export namespace _T_Flow_Content {
                 export namespace width {
                     export type O = number
                 }
-                export type width = _et.Optional_Value<number>
+                export type width = _pi.Optional_Value<number>
                 
                 export namespace height {
                     export type O = number
                 }
-                export type height = _et.Optional_Value<number>
+                export type height = _pi.Optional_Value<number>
             }
             export type img = {
                 readonly 'classes': _T_Classes
                 readonly 'src': string
                 readonly 'alt': string
-                readonly 'width': _et.Optional_Value<number>
-                readonly 'height': _et.Optional_Value<number>
+                readonly 'width': _pi.Optional_Value<number>
+                readonly 'height': _pi.Optional_Value<number>
             }
             
             export namespace svg {
@@ -470,25 +470,25 @@ export namespace _T_Flow_Content {
                 export namespace width {
                     export type O = number
                 }
-                export type width = _et.Optional_Value<number>
+                export type width = _pi.Optional_Value<number>
                 
                 export namespace height {
                     export type O = number
                 }
-                export type height = _et.Optional_Value<number>
+                export type height = _pi.Optional_Value<number>
             }
             export type svg = {
                 readonly 'classes': _T_Classes
                 readonly 'content': string
-                readonly 'width': _et.Optional_Value<number>
-                readonly 'height': _et.Optional_Value<number>
+                readonly 'width': _pi.Optional_Value<number>
+                readonly 'height': _pi.Optional_Value<number>
             }
         }
         export type SG = 
             | readonly ['div', _T_Flow_Content]
             | readonly ['dimensioned div', {
-                readonly 'width': _et.Optional_Value<number>
-                readonly 'height': _et.Optional_Value<number>
+                readonly 'width': _pi.Optional_Value<number>
+                readonly 'height': _pi.Optional_Value<number>
                 readonly 'content': _T_Flow_Content
             }]
             | readonly ['classified div', {
@@ -510,7 +510,7 @@ export namespace _T_Flow_Content {
                             | readonly ['th', null]
                             | readonly ['td', null]
                         >
-                        readonly 'height': _et.Optional_Value<number>
+                        readonly 'height': _pi.Optional_Value<number>
                         readonly 'cells': _i_core._T_List<null, {
                             readonly 'classes': _T_Classes
                             readonly 'content': _T_Flow_Content
@@ -528,21 +528,21 @@ export namespace _T_Flow_Content {
                 readonly 'classes': _T_Classes
                 readonly 'src': string
                 readonly 'alt': string
-                readonly 'width': _et.Optional_Value<number>
-                readonly 'height': _et.Optional_Value<number>
+                readonly 'width': _pi.Optional_Value<number>
+                readonly 'height': _pi.Optional_Value<number>
             }]
             | readonly ['svg', {
                 readonly 'classes': _T_Classes
                 readonly 'content': string
-                readonly 'width': _et.Optional_Value<number>
-                readonly 'height': _et.Optional_Value<number>
+                readonly 'width': _pi.Optional_Value<number>
+                readonly 'height': _pi.Optional_Value<number>
             }]
     }
     export type L = _i_core._T_State_Group<null, 
         | readonly ['div', _T_Flow_Content]
         | readonly ['dimensioned div', {
-            readonly 'width': _et.Optional_Value<number>
-            readonly 'height': _et.Optional_Value<number>
+            readonly 'width': _pi.Optional_Value<number>
+            readonly 'height': _pi.Optional_Value<number>
             readonly 'content': _T_Flow_Content
         }]
         | readonly ['classified div', {
@@ -564,7 +564,7 @@ export namespace _T_Flow_Content {
                         | readonly ['th', null]
                         | readonly ['td', null]
                     >
-                    readonly 'height': _et.Optional_Value<number>
+                    readonly 'height': _pi.Optional_Value<number>
                     readonly 'cells': _i_core._T_List<null, {
                         readonly 'classes': _T_Classes
                         readonly 'content': _T_Flow_Content
@@ -582,14 +582,14 @@ export namespace _T_Flow_Content {
             readonly 'classes': _T_Classes
             readonly 'src': string
             readonly 'alt': string
-            readonly 'width': _et.Optional_Value<number>
-            readonly 'height': _et.Optional_Value<number>
+            readonly 'width': _pi.Optional_Value<number>
+            readonly 'height': _pi.Optional_Value<number>
         }]
         | readonly ['svg', {
             readonly 'classes': _T_Classes
             readonly 'content': string
-            readonly 'width': _et.Optional_Value<number>
-            readonly 'height': _et.Optional_Value<number>
+            readonly 'width': _pi.Optional_Value<number>
+            readonly 'height': _pi.Optional_Value<number>
         }]
     >
 }
@@ -714,20 +714,20 @@ export namespace Flow_Content {
                 export namespace width {
                     export type O = number
                 }
-                export type width = _et.Optional_Value<number>
+                export type width = _pi.Optional_Value<number>
                 
                 export namespace height {
                     export type O = number
                 }
-                export type height = _et.Optional_Value<number>
+                export type height = _pi.Optional_Value<number>
                 
                 export namespace content {
                 }
                 export type content = _T_Flow_Content
             }
             export type dimensioned_div = {
-                readonly 'width': _et.Optional_Value<number>
-                readonly 'height': _et.Optional_Value<number>
+                readonly 'width': _pi.Optional_Value<number>
+                readonly 'height': _pi.Optional_Value<number>
                 readonly 'content': _T_Flow_Content
             }
             
@@ -804,7 +804,7 @@ export namespace Flow_Content {
                                 export namespace height {
                                     export type O = number
                                 }
-                                export type height = _et.Optional_Value<number>
+                                export type height = _pi.Optional_Value<number>
                                 
                                 export namespace cells {
                                     
@@ -834,7 +834,7 @@ export namespace Flow_Content {
                                     | readonly ['th', null]
                                     | readonly ['td', null]
                                 >
-                                readonly 'height': _et.Optional_Value<number>
+                                readonly 'height': _pi.Optional_Value<number>
                                 readonly 'cells': _i_core._T_List<null, {
                                     readonly 'classes': _T_Classes
                                     readonly 'content': _T_Flow_Content
@@ -847,7 +847,7 @@ export namespace Flow_Content {
                                 | readonly ['th', null]
                                 | readonly ['td', null]
                             >
-                            readonly 'height': _et.Optional_Value<number>
+                            readonly 'height': _pi.Optional_Value<number>
                             readonly 'cells': _i_core._T_List<null, {
                                 readonly 'classes': _T_Classes
                                 readonly 'content': _T_Flow_Content
@@ -867,7 +867,7 @@ export namespace Flow_Content {
                                 | readonly ['th', null]
                                 | readonly ['td', null]
                             >
-                            readonly 'height': _et.Optional_Value<number>
+                            readonly 'height': _pi.Optional_Value<number>
                             readonly 'cells': _i_core._T_List<null, {
                                 readonly 'classes': _T_Classes
                                 readonly 'content': _T_Flow_Content
@@ -888,7 +888,7 @@ export namespace Flow_Content {
                             | readonly ['th', null]
                             | readonly ['td', null]
                         >
-                        readonly 'height': _et.Optional_Value<number>
+                        readonly 'height': _pi.Optional_Value<number>
                         readonly 'cells': _i_core._T_List<null, {
                             readonly 'classes': _T_Classes
                             readonly 'content': _T_Flow_Content
@@ -911,7 +911,7 @@ export namespace Flow_Content {
                             | readonly ['th', null]
                             | readonly ['td', null]
                         >
-                        readonly 'height': _et.Optional_Value<number>
+                        readonly 'height': _pi.Optional_Value<number>
                         readonly 'cells': _i_core._T_List<null, {
                             readonly 'classes': _T_Classes
                             readonly 'content': _T_Flow_Content
@@ -952,19 +952,19 @@ export namespace Flow_Content {
                 export namespace width {
                     export type O = number
                 }
-                export type width = _et.Optional_Value<number>
+                export type width = _pi.Optional_Value<number>
                 
                 export namespace height {
                     export type O = number
                 }
-                export type height = _et.Optional_Value<number>
+                export type height = _pi.Optional_Value<number>
             }
             export type img = {
                 readonly 'classes': _T_Classes
                 readonly 'src': string
                 readonly 'alt': string
-                readonly 'width': _et.Optional_Value<number>
-                readonly 'height': _et.Optional_Value<number>
+                readonly 'width': _pi.Optional_Value<number>
+                readonly 'height': _pi.Optional_Value<number>
             }
             
             export namespace svg {
@@ -977,25 +977,25 @@ export namespace Flow_Content {
                 export namespace width {
                     export type O = number
                 }
-                export type width = _et.Optional_Value<number>
+                export type width = _pi.Optional_Value<number>
                 
                 export namespace height {
                     export type O = number
                 }
-                export type height = _et.Optional_Value<number>
+                export type height = _pi.Optional_Value<number>
             }
             export type svg = {
                 readonly 'classes': _T_Classes
                 readonly 'content': string
-                readonly 'width': _et.Optional_Value<number>
-                readonly 'height': _et.Optional_Value<number>
+                readonly 'width': _pi.Optional_Value<number>
+                readonly 'height': _pi.Optional_Value<number>
             }
         }
         export type SG = 
             | readonly ['div', _T_Flow_Content]
             | readonly ['dimensioned div', {
-                readonly 'width': _et.Optional_Value<number>
-                readonly 'height': _et.Optional_Value<number>
+                readonly 'width': _pi.Optional_Value<number>
+                readonly 'height': _pi.Optional_Value<number>
                 readonly 'content': _T_Flow_Content
             }]
             | readonly ['classified div', {
@@ -1017,7 +1017,7 @@ export namespace Flow_Content {
                             | readonly ['th', null]
                             | readonly ['td', null]
                         >
-                        readonly 'height': _et.Optional_Value<number>
+                        readonly 'height': _pi.Optional_Value<number>
                         readonly 'cells': _i_core._T_List<null, {
                             readonly 'classes': _T_Classes
                             readonly 'content': _T_Flow_Content
@@ -1035,21 +1035,21 @@ export namespace Flow_Content {
                 readonly 'classes': _T_Classes
                 readonly 'src': string
                 readonly 'alt': string
-                readonly 'width': _et.Optional_Value<number>
-                readonly 'height': _et.Optional_Value<number>
+                readonly 'width': _pi.Optional_Value<number>
+                readonly 'height': _pi.Optional_Value<number>
             }]
             | readonly ['svg', {
                 readonly 'classes': _T_Classes
                 readonly 'content': string
-                readonly 'width': _et.Optional_Value<number>
-                readonly 'height': _et.Optional_Value<number>
+                readonly 'width': _pi.Optional_Value<number>
+                readonly 'height': _pi.Optional_Value<number>
             }]
     }
     export type L = _i_core._T_State_Group<null, 
         | readonly ['div', _T_Flow_Content]
         | readonly ['dimensioned div', {
-            readonly 'width': _et.Optional_Value<number>
-            readonly 'height': _et.Optional_Value<number>
+            readonly 'width': _pi.Optional_Value<number>
+            readonly 'height': _pi.Optional_Value<number>
             readonly 'content': _T_Flow_Content
         }]
         | readonly ['classified div', {
@@ -1071,7 +1071,7 @@ export namespace Flow_Content {
                         | readonly ['th', null]
                         | readonly ['td', null]
                     >
-                    readonly 'height': _et.Optional_Value<number>
+                    readonly 'height': _pi.Optional_Value<number>
                     readonly 'cells': _i_core._T_List<null, {
                         readonly 'classes': _T_Classes
                         readonly 'content': _T_Flow_Content
@@ -1089,14 +1089,14 @@ export namespace Flow_Content {
             readonly 'classes': _T_Classes
             readonly 'src': string
             readonly 'alt': string
-            readonly 'width': _et.Optional_Value<number>
-            readonly 'height': _et.Optional_Value<number>
+            readonly 'width': _pi.Optional_Value<number>
+            readonly 'height': _pi.Optional_Value<number>
         }]
         | readonly ['svg', {
             readonly 'classes': _T_Classes
             readonly 'content': string
-            readonly 'width': _et.Optional_Value<number>
-            readonly 'height': _et.Optional_Value<number>
+            readonly 'width': _pi.Optional_Value<number>
+            readonly 'height': _pi.Optional_Value<number>
         }]
     >
 }
