@@ -9,6 +9,6 @@
   ],
   "dependencies": {
     "astn-sealed": "^0.1.1",
-    "pareto-fountain-pen": "^0.3.29"
+    "pareto-fountain-pen": "^0.3.30"
   }
 }
