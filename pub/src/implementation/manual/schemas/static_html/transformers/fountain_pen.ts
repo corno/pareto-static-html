@@ -48,7 +48,7 @@ export const Document: signatures.Document = ($) => sh.group([
 ])
 
 export const Flow_Content: signatures.Flow_Content = ($) => sh.b.indent([
-    sh.g.sub($.map(($) => sh.g.nested_block([
+    sh.g.sub($.__l_map(($) => sh.g.nested_block([
 
         _p.sg($, ($) => {
             switch ($[0]) {
@@ -84,7 +84,7 @@ export const Flow_Content: signatures.Flow_Content = ($) => sh.b.indent([
                     Classes($.classes),
                     sh.b.snippet(`>`),
                     sh.b.indent([
-                        sh.g.sub($.sections.map((section) => sh.g.nested_block([
+                        sh.g.sub($.sections.__l_map((section) => sh.g.nested_block([
                             _p.sg(section.type, ($) => {
                                 switch ($[0]) {
                                     case 'header': return _p.ss($, () => sh.b.sub([
@@ -103,7 +103,7 @@ export const Flow_Content: signatures.Flow_Content = ($) => sh.b.indent([
                             Classes(section.classes),
                             sh.b.snippet(`>`),
                             sh.b.indent([
-                                sh.g.sub(section.rows.map((row) => sh.g.nested_block([
+                                sh.g.sub(section.rows.__l_map((row) => sh.g.nested_block([
                                     sh.b.snippet(`<tr`),
                                     Classes(row.classes),
                                     row.height.__decide(
@@ -112,7 +112,7 @@ export const Flow_Content: signatures.Flow_Content = ($) => sh.b.indent([
                                     ),
                                     sh.b.snippet(`>`),
                                     sh.b.indent([
-                                        sh.g.sub(row.cells.map((cell) => sh.g.nested_block([
+                                        sh.g.sub(row.cells.__l_map((cell) => sh.g.nested_block([
                                             _p.sg(row.type, ($) => {
                                                 switch ($[0]) {
                                                     case 'th': return _p.ss($, () => sh.b.sub([
@@ -213,7 +213,7 @@ export const Classes: signatures.Classes = ($) => _p.boolean.list_is_empty($)
     ? sh.b.nothing()
     : sh.b.sub([
         sh.b.snippet(` class="`),
-        sh.b.sub(op_enrich_list_elements_with_position_information($).map(($) =>
+        sh.b.sub(op_enrich_list_elements_with_position_information($).__l_map(($) =>
             $['is first']
                 ? sh.b.snippet($.value)
                 : sh.b.sub([sh.b.snippet(` `), sh.b.snippet($.value)])
@@ -222,7 +222,7 @@ export const Classes: signatures.Classes = ($) => _p.boolean.list_is_empty($)
     ])
 
 export const Phrasing_Content: signatures.Phrasing_Content = ($) => sh.b.indent([
-    sh.g.sub($.map(($) => sh.g.nested_block([
+    sh.g.sub($.__l_map(($) => sh.g.nested_block([
         _p.sg($, ($): d_out.Block_Part => {
             switch ($[0]) {
                 case 'span': return _p.ss($, ($) => sh.b.sub([

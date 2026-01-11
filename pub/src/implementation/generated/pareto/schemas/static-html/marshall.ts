@@ -5,11 +5,11 @@ import * as _i_signatures from "../../../../../interface/generated/pareto/schema
 import * as _i_out from "../../../../../interface/generated/pareto/core/astn_target"
 
 
-export const Classes: _i_signatures._T_Classes = ($, $p) => ['list', $.map(($) => ['text', ({
+export const Classes: _i_signatures._T_Classes = ($, $p) => ['list', $.__l_map(($) => ['text', ({
     'delimiter': ['quote', null],
     'value': $,
 })])]
-export const Phrasing_Content: _i_signatures._T_Phrasing_Content = ($, $p) => ['list', $.map(($) => ['state', _p.deprecated_cc($, ($): _i_out._T_Value.SG.state => {
+export const Phrasing_Content: _i_signatures._T_Phrasing_Content = ($, $p) => ['list', $.__l_map(($) => ['state', _p.deprecated_cc($, ($): _i_out._T_Value.SG.state => {
     switch ($[0]) {
         case 'span': return _p.ss($, ($) => ({
             'state': "span",
@@ -77,7 +77,7 @@ export const Phrasing_Content: _i_signatures._T_Phrasing_Content = ($, $p) => ['
         default: return _p.au($[0])
     }
 })])]
-export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => ['list', $.map(($) => ['state', _p.deprecated_cc($, ($): _i_out._T_Value.SG.state => {
+export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => ['list', $.__l_map(($) => ['state', _p.deprecated_cc($, ($): _i_out._T_Value.SG.state => {
     switch ($[0]) {
         case 'div': return _p.ss($, ($) => ({
             'state': "div",
@@ -145,7 +145,7 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => ['list', $
                         'value serializers': $p['value serializers'],
                     }
                 )),
-                'sections': _p.deprecated_cc($['sections'], ($) => ['list', $.map(($) => ['verbose group', _p.dictionary.literal({
+                'sections': _p.deprecated_cc($['sections'], ($) => ['list', $.__l_map(($) => ['verbose group', _p.dictionary.literal({
                     'classes': _p.deprecated_cc($['classes'], ($) => Classes(
                         $,
                         {
@@ -169,7 +169,7 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => ['list', $
                             default: return _p.au($[0])
                         }
                     })]),
-                    'rows': _p.deprecated_cc($['rows'], ($) => ['list', $.map(($) => ['verbose group', _p.dictionary.literal({
+                    'rows': _p.deprecated_cc($['rows'], ($) => ['list', $.__l_map(($) => ['verbose group', _p.dictionary.literal({
                         'classes': _p.deprecated_cc($['classes'], ($) => Classes(
                             $,
                             {
@@ -199,7 +199,7 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => ['list', $
                             })]],
                             () => ['not set', null]
                         )]),
-                        'cells': _p.deprecated_cc($['cells'], ($) => ['list', $.map(($) => ['verbose group', _p.dictionary.literal({
+                        'cells': _p.deprecated_cc($['cells'], ($) => ['list', $.__l_map(($) => ['verbose group', _p.dictionary.literal({
                             'classes': _p.deprecated_cc($['classes'], ($) => Classes(
                                 $,
                                 {
