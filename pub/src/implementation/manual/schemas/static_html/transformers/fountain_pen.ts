@@ -60,11 +60,11 @@ export const Flow_Content: signatures.Flow_Content = ($) => sh.b.indent([
                 ]))
                 case 'dimensioned div': return _p.ss($, ($) => sh.b.sub([
                     sh.b.snippet(`<div`),
-                    $.width.transform(
+                    $.width.__decide(
                         ($) => sh.b.sub([sh.b.snippet(` width="`), sh.b.snippet(`${$}`), sh.b.snippet(`"`)]),
                         () => sh.b.nothing()
                     ),
-                    $.height.transform(
+                    $.height.__decide(
                         ($) => sh.b.sub([sh.b.snippet(` height="`), sh.b.snippet(`${$}`), sh.b.snippet(`"`)]),
                         () => sh.b.nothing()
                     ),
@@ -106,7 +106,7 @@ export const Flow_Content: signatures.Flow_Content = ($) => sh.b.indent([
                                 sh.g.sub(section.rows.map((row) => sh.g.nested_block([
                                     sh.b.snippet(`<tr`),
                                     Classes(row.classes),
-                                    row.height.transform(
+                                    row.height.__decide(
                                         ($) => sh.b.sub([sh.b.snippet(` height="`), sh.b.snippet(`${$}`), sh.b.snippet(`"`)]),
                                         () => sh.b.nothing()
                                     ),
@@ -178,11 +178,11 @@ export const Flow_Content: signatures.Flow_Content = ($) => sh.b.indent([
                     sh.b.snippet(`" alt="`),
                     sh.b.snippet($.alt),
                     sh.b.snippet(`"`),
-                    $.width.transform(
+                    $.width.__decide(
                         ($) => sh.b.sub([sh.b.snippet(` width="`), sh.b.snippet(`${$}`), sh.b.snippet(`"`)]),
                         () => sh.b.nothing()
                     ),
-                    $.height.transform(
+                    $.height.__decide(
                         ($) => sh.b.sub([sh.b.snippet(` height="`), sh.b.snippet(`${$}`), sh.b.snippet(`"`)]),
                         () => sh.b.nothing()
                     ),
@@ -191,11 +191,11 @@ export const Flow_Content: signatures.Flow_Content = ($) => sh.b.indent([
                 case 'svg': return _p.ss($, ($) => sh.b.sub([
                     sh.b.snippet(`<svg`),
                     Classes($.classes),
-                    $.width.transform(
+                    $.width.__decide(
                         ($) => sh.b.sub([sh.b.snippet(` width="`), sh.b.snippet(`${$}`), sh.b.snippet(`"`)]),
                         () => sh.b.nothing()
                     ),
-                    $.height.transform(
+                    $.height.__decide(
                         ($) => sh.b.sub([sh.b.snippet(` height="`), sh.b.snippet(`${$}`), sh.b.snippet(`"`)]),
                         () => sh.b.nothing()
                     ),

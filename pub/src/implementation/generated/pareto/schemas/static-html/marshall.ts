@@ -91,7 +91,7 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => ['list', $
         case 'dimensioned div': return _p.ss($, ($) => ({
             'state': "dimensioned div",
             'value': ['verbose group', _p.dictionary.literal({
-                'width': _p.deprecated_cc($['width'], ($) => ['optional', $.transform(
+                'width': _p.deprecated_cc($['width'], ($) => ['optional', $.__decide(
                     ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
                         'delimiter': ['backtick', null],
                         'value': $p['value serializers']['default number'](
@@ -101,7 +101,7 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => ['list', $
                     })]],
                     () => ['not set', null]
                 )]),
-                'height': _p.deprecated_cc($['height'], ($) => ['optional', $.transform(
+                'height': _p.deprecated_cc($['height'], ($) => ['optional', $.__decide(
                     ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
                         'delimiter': ['backtick', null],
                         'value': $p['value serializers']['default number'](
@@ -189,7 +189,7 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => ['list', $
                                 default: return _p.au($[0])
                             }
                         })]),
-                        'height': _p.deprecated_cc($['height'], ($) => ['optional', $.transform(
+                        'height': _p.deprecated_cc($['height'], ($) => ['optional', $.__decide(
                             ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
                                 'delimiter': ['backtick', null],
                                 'value': $p['value serializers']['default number'](
@@ -264,7 +264,7 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => ['list', $
                     'delimiter': ['quote', null],
                     'value': $,
                 })]),
-                'width': _p.deprecated_cc($['width'], ($) => ['optional', $.transform(
+                'width': _p.deprecated_cc($['width'], ($) => ['optional', $.__decide(
                     ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
                         'delimiter': ['backtick', null],
                         'value': $p['value serializers']['default number'](
@@ -274,7 +274,7 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => ['list', $
                     })]],
                     () => ['not set', null]
                 )]),
-                'height': _p.deprecated_cc($['height'], ($) => ['optional', $.transform(
+                'height': _p.deprecated_cc($['height'], ($) => ['optional', $.__decide(
                     ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
                         'delimiter': ['backtick', null],
                         'value': $p['value serializers']['default number'](
@@ -299,7 +299,7 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => ['list', $
                     'delimiter': ['quote', null],
                     'value': $,
                 })]),
-                'width': _p.deprecated_cc($['width'], ($) => ['optional', $.transform(
+                'width': _p.deprecated_cc($['width'], ($) => ['optional', $.__decide(
                     ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
                         'delimiter': ['backtick', null],
                         'value': $p['value serializers']['default number'](
@@ -309,7 +309,7 @@ export const Flow_Content: _i_signatures._T_Flow_Content = ($, $p) => ['list', $
                     })]],
                     () => ['not set', null]
                 )]),
-                'height': _p.deprecated_cc($['height'], ($) => ['optional', $.transform(
+                'height': _p.deprecated_cc($['height'], ($) => ['optional', $.__decide(
                     ($): _i_out._T_Value.SG.optional => ['set', ['text', ({
                         'delimiter': ['backtick', null],
                         'value': $p['value serializers']['default number'](
