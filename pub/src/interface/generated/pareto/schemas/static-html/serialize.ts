@@ -1,168 +1,168 @@
-import * as _pi from 'pareto-core-interface'
-
-import * as _i_in from "./data_types/source"
-import * as _i_vs from "./value_serializers"
-
-// **** TYPES
-
-export type _T_Classes = (
-    $$_: _i_in._T_Classes,
-    $$_p: {
-        readonly 'value serializers': _i_vs._T_Value_Serializers
-    },
-) => string
-
-export type _T_Phrasing_Content = (
-    $$_: _i_in._T_Phrasing_Content,
-    $$_p: {
-        readonly 'value serializers': _i_vs._T_Value_Serializers
-    },
-) => string
-
-export type _T_Flow_Content = (
-    $$_: _i_in._T_Flow_Content,
-    $$_p: {
-        readonly 'value serializers': _i_vs._T_Value_Serializers
-    },
-) => string
-
-export type _T_Document = (
-    $$_: _i_in._T_Document,
-    $$_p: {
-        readonly 'value serializers': _i_vs._T_Value_Serializers
-    },
-) => string
-
-// **** FRIENDLY NAMES FOR THE GLOBAL TYPES
-
-export type Classes = _T_Classes
-
-export type Phrasing_Content = _T_Phrasing_Content
-
-export type Flow_Content = _T_Flow_Content
-
-export type Document = _T_Document
-
-// **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES
-
-export namespace _T_Classes {
+import * as _pi from "pareto-core-interface"
     
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Classes
+    import * as _i_in from "./data_types/source"
+    import * as _i_vs from "./value_serializers"
     
-    export namespace PARAMS {
+    // **** TYPES
+    
+    export type _T_Classes = (
+        $$_: _i_in._T_Classes,
+        $$_p: {
+            readonly 'value serializers': _i_vs._T_Value_Serializers
+        },
+    ) => string
+    
+    export type _T_Phrasing_Content = (
+        $$_: _i_in._T_Phrasing_Content,
+        $$_p: {
+            readonly 'value serializers': _i_vs._T_Value_Serializers
+        },
+    ) => string
+    
+    export type _T_Flow_Content = (
+        $$_: _i_in._T_Flow_Content,
+        $$_p: {
+            readonly 'value serializers': _i_vs._T_Value_Serializers
+        },
+    ) => string
+    
+    export type _T_Document = (
+        $$_: _i_in._T_Document,
+        $$_p: {
+            readonly 'value serializers': _i_vs._T_Value_Serializers
+        },
+    ) => string
+    
+    // **** FRIENDLY NAMES FOR THE GLOBAL TYPES
+    
+    export type Classes = _T_Classes
+    
+    export type Phrasing_Content = _T_Phrasing_Content
+    
+    export type Flow_Content = _T_Flow_Content
+    
+    export type Document = _T_Document
+    
+    // **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES
+    
+    export namespace _T_Classes {
         
-        export namespace value_serializers {
+        export namespace CONTEXT {
         }
-        export type value_serializers = _i_vs._T_Value_Serializers
-    }
-    export type RESULT = string
-}
-
-export namespace _T_Phrasing_Content {
-    
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Phrasing_Content
-    
-    export namespace PARAMS {
+        export type CONTEXT = _i_in._T_Classes
         
-        export namespace value_serializers {
+        export namespace PARAMS {
+            
+            export namespace value_serializers {
+            }
+            export type value_serializers = _i_vs._T_Value_Serializers
         }
-        export type value_serializers = _i_vs._T_Value_Serializers
+        export type RESULT = string
     }
-    export type RESULT = string
-}
-
-export namespace _T_Flow_Content {
     
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Flow_Content
-    
-    export namespace PARAMS {
+    export namespace _T_Phrasing_Content {
         
-        export namespace value_serializers {
+        export namespace CONTEXT {
         }
-        export type value_serializers = _i_vs._T_Value_Serializers
-    }
-    export type RESULT = string
-}
-
-export namespace _T_Document {
-    
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Document
-    
-    export namespace PARAMS {
+        export type CONTEXT = _i_in._T_Phrasing_Content
         
-        export namespace value_serializers {
+        export namespace PARAMS {
+            
+            export namespace value_serializers {
+            }
+            export type value_serializers = _i_vs._T_Value_Serializers
         }
-        export type value_serializers = _i_vs._T_Value_Serializers
+        export type RESULT = string
     }
-    export type RESULT = string
-}
-
-// *** ALIASES FOR NESTED TYPES
-
-export namespace Classes {
     
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Classes
-    
-    export namespace PARAMS {
+    export namespace _T_Flow_Content {
         
-        export namespace value_serializers {
+        export namespace CONTEXT {
         }
-        export type value_serializers = _i_vs._T_Value_Serializers
-    }
-    export type RESULT = string
-}
-
-export namespace Phrasing_Content {
-    
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Phrasing_Content
-    
-    export namespace PARAMS {
+        export type CONTEXT = _i_in._T_Flow_Content
         
-        export namespace value_serializers {
+        export namespace PARAMS {
+            
+            export namespace value_serializers {
+            }
+            export type value_serializers = _i_vs._T_Value_Serializers
         }
-        export type value_serializers = _i_vs._T_Value_Serializers
+        export type RESULT = string
     }
-    export type RESULT = string
-}
-
-export namespace Flow_Content {
     
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Flow_Content
-    
-    export namespace PARAMS {
+    export namespace _T_Document {
         
-        export namespace value_serializers {
+        export namespace CONTEXT {
         }
-        export type value_serializers = _i_vs._T_Value_Serializers
-    }
-    export type RESULT = string
-}
-
-export namespace Document {
-    
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Document
-    
-    export namespace PARAMS {
+        export type CONTEXT = _i_in._T_Document
         
-        export namespace value_serializers {
+        export namespace PARAMS {
+            
+            export namespace value_serializers {
+            }
+            export type value_serializers = _i_vs._T_Value_Serializers
         }
-        export type value_serializers = _i_vs._T_Value_Serializers
+        export type RESULT = string
     }
-    export type RESULT = string
-}
+    
+    // *** ALIASES FOR NESTED TYPES
+    
+    export namespace Classes {
+        
+        export namespace CONTEXT {
+        }
+        export type CONTEXT = _i_in._T_Classes
+        
+        export namespace PARAMS {
+            
+            export namespace value_serializers {
+            }
+            export type value_serializers = _i_vs._T_Value_Serializers
+        }
+        export type RESULT = string
+    }
+    
+    export namespace Phrasing_Content {
+        
+        export namespace CONTEXT {
+        }
+        export type CONTEXT = _i_in._T_Phrasing_Content
+        
+        export namespace PARAMS {
+            
+            export namespace value_serializers {
+            }
+            export type value_serializers = _i_vs._T_Value_Serializers
+        }
+        export type RESULT = string
+    }
+    
+    export namespace Flow_Content {
+        
+        export namespace CONTEXT {
+        }
+        export type CONTEXT = _i_in._T_Flow_Content
+        
+        export namespace PARAMS {
+            
+            export namespace value_serializers {
+            }
+            export type value_serializers = _i_vs._T_Value_Serializers
+        }
+        export type RESULT = string
+    }
+    
+    export namespace Document {
+        
+        export namespace CONTEXT {
+        }
+        export type CONTEXT = _i_in._T_Document
+        
+        export namespace PARAMS {
+            
+            export namespace value_serializers {
+            }
+            export type value_serializers = _i_vs._T_Value_Serializers
+        }
+        export type RESULT = string
+    }
