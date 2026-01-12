@@ -1,11 +1,15 @@
 (
-    'operations': {
-    }
     'schema tree': | 'set' {
         `static-html`: | 'schema' (
-            'complexity': | 'unconstrained' ~
+            'imports': {
+            }
             'globals': (
                 'complexity': | 'unconstrained' ~
+                'text types': {
+                    `Text Value`: (
+                        'type': | 'single line' ~
+                    )
+                }
                 'number types': {
                     `Position`: (
                         'precision': | 'exact' (
@@ -14,25 +18,20 @@
                         )
                     )
                 }
-                'text types': {
-                    `Text Value`: (
-                        'type': | 'single line' ~
-                    )
-                }
             )
-            'imports': {
-            }
             'types': {
                 `Classes`: (
+                    'type parameters': {
+                    }
                     'node': | 'list' (
                         'node': | 'text' | 'local' (
                             'type': | 'single line' ~
                         )
                     )
-                    'type parameters': {
-                    }
                 )
                 `Phrasing Content`: (
+                    'type parameters': {
+                    }
                     'node': | 'list' (
                         'node': | 'state group' {
                             `span`: (
@@ -97,10 +96,10 @@
                             )
                         }
                     )
-                    'type parameters': {
-                    }
                 )
                 `Flow Content`: (
+                    'type parameters': {
+                    }
                     'node': | 'list' (
                         'node': | 'state group' {
                             `div`: (
@@ -329,10 +328,10 @@
                             )
                         }
                     )
-                    'type parameters': {
-                    }
                 )
                 `Document`: (
+                    'type parameters': {
+                    }
                     'node': | 'group' {
                         `css`: (
                             'description': ~
@@ -345,10 +344,11 @@
                             'node': | 'component' | 'internal' `Flow Content`
                         )
                     }
-                    'type parameters': {
-                    }
                 )
             }
+            'complexity': | 'unconstrained' ~
         )
+    }
+    'operations': {
     }
 )
