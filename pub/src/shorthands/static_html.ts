@@ -1,7 +1,7 @@
 import * as _p from 'pareto-core-shorthands/dist/unconstrained'
 import * as _pi from 'pareto-core-interface'
 
-import * as target from "../interface/generated/pareto/schemas/static-html/data_types/target"
+import * as target from "../interface/generated/pareto/schemas/static-html/data"
 
 
 export namespace f { //flow
@@ -70,7 +70,7 @@ export namespace f { //flow
 
     export const table = (
         classes: _p.Raw_Or_Normal_List<string>,
-        sections: _p.Raw_Or_Normal_List<target.Flow_Content.L.SG.table.sections.L>,
+        sections: _p.Raw_Or_Normal_List<target.Flow_Content.L.table.sections.L>,
     ): target.Flow_Content.L => ['table', {
         'classes': _p.list.literal(classes),
         'sections': _p.list.literal(sections),
@@ -81,8 +81,8 @@ export namespace t { //table
 
     export const header = (
         classes: _p.Raw_Or_Normal_List<string>,
-        rows: _p.Raw_Or_Normal_List<target.Flow_Content.L.SG.table.sections.L.rows.L>,
-    ): target.Flow_Content.L.SG.table.sections.L => ({
+        rows: _p.Raw_Or_Normal_List<target.Flow_Content.L.table.sections.L.rows.L>,
+    ): target.Flow_Content.L.table.sections.L => ({
         'classes': _p.list.literal(classes),
         'type': ['header', null],
         'rows': _p.list.literal(rows),
@@ -90,8 +90,8 @@ export namespace t { //table
 
     export const body = (
         classes: _p.Raw_Or_Normal_List<string>,
-        rows: _p.Raw_Or_Normal_List<target.Flow_Content.L.SG.table.sections.L.rows.L>,
-    ): target.Flow_Content.L.SG.table.sections.L => ({
+        rows: _p.Raw_Or_Normal_List<target.Flow_Content.L.table.sections.L.rows.L>,
+    ): target.Flow_Content.L.table.sections.L => ({
         'classes': _p.list.literal(classes),
         'type': ['body', null],
         'rows': _p.list.literal(rows),
@@ -99,8 +99,8 @@ export namespace t { //table
 
     export const footer = (
         classes: _p.Raw_Or_Normal_List<string>,
-        rows: _p.Raw_Or_Normal_List<target.Flow_Content.L.SG.table.sections.L.rows.L>,
-    ): target.Flow_Content.L.SG.table.sections.L => ({
+        rows: _p.Raw_Or_Normal_List<target.Flow_Content.L.table.sections.L.rows.L>,
+    ): target.Flow_Content.L.table.sections.L => ({
         'classes': _p.list.literal(classes),
         'type': ['footer', null],
         'rows': _p.list.literal(rows),
@@ -109,8 +109,8 @@ export namespace t { //table
     export const th = (
         classes: _p.Raw_Or_Normal_List<string>,
         height: _pi.Optional_Value<number>,
-        cells: _p.Raw_Or_Normal_List<target.Flow_Content.L.SG.table.sections.L.rows.L.cells.L>,
-    ): target.Flow_Content.L.SG.table.sections.L.rows.L => ({
+        cells: _p.Raw_Or_Normal_List<target.Flow_Content.L.table.sections.L.rows.L.cells.L>,
+    ): target.Flow_Content.L.table.sections.L.rows.L => ({
         'classes': _p.list.literal(classes),
         'type': ['th', null],
         'height': height,
@@ -120,8 +120,8 @@ export namespace t { //table
     export const td = (
         classes: _p.Raw_Or_Normal_List<string>,
         height: _pi.Optional_Value<number>,
-        cells: _p.Raw_Or_Normal_List<target.Flow_Content.L.SG.table.sections.L.rows.L.cells.L>,
-    ): target.Flow_Content.L.SG.table.sections.L.rows.L => ({
+        cells: _p.Raw_Or_Normal_List<target.Flow_Content.L.table.sections.L.rows.L.cells.L>,
+    ): target.Flow_Content.L.table.sections.L.rows.L => ({
         'classes': _p.list.literal(classes),
         'type': ['td', null],
         'height': height,
@@ -131,7 +131,7 @@ export namespace t { //table
     export const cell = (
         classes: _p.Raw_Or_Normal_List<string>,
         content: _p.Raw_Or_Normal_List<target.Flow_Content.L>,
-    ): target.Flow_Content.L.SG.table.sections.L.rows.L.cells.L => ({
+    ): target.Flow_Content.L.table.sections.L.rows.L.cells.L => ({
         'classes': _p.list.literal(classes),
         'content': _p.list.literal(content),
     })

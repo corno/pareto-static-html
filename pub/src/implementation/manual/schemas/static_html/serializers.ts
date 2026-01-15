@@ -1,6 +1,6 @@
 import * as _pi from 'pareto-core-interface'
 
-import * as d_in from "../../../../interface/generated/pareto/schemas/static-html/data_types/source"
+import * as d_in from "../../../../interface/generated/pareto/schemas/static-html/data"
 
 
 //dependencies

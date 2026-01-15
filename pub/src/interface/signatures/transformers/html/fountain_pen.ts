@@ -1,6 +1,6 @@
 import * as _pi from 'pareto-core-interface'
 
-import * as d_in from "../../../generated/pareto/schemas/static-html/data_types/source"
+import * as d_in from "../../../generated/pareto/schemas/static-html/data"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/pareto/schemas/block/data_types/target"
 
 export type Document = _pi.Transformer<d_in.Document, d_out.Group>
