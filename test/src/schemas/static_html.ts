@@ -3,7 +3,6 @@ import * as _pt from 'pareto-core-transformer'
 
 import * as sh from "pareto-test/dist/temporary_testset_generator/shorthands"
 
-import * as ds_static_html from "pub/dist/implementation/manual/schemas/static_html/temp_astn_deserializers"
 import * as s_static_html from "pub/dist/implementation/manual/schemas/static_html/serializers"
 
 
