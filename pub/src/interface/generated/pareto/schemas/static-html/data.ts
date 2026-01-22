@@ -136,7 +136,7 @@ export namespace Flow_Content_ {
                     
                     export type classes = Classes_
                     
-                    export namespace _type {
+                    export namespace type_ {
                         
                         export type header = null
                         
@@ -146,10 +146,10 @@ export namespace Flow_Content_ {
                         
                     }
                     
-                    export type _type = 
-                        | readonly ['header', _type.header]
-                        | readonly ['body', _type.body]
-                        | readonly ['footer', _type.footer]
+                    export type type_ = 
+                        | readonly ['header', type_.header]
+                        | readonly ['body', type_.body]
+                        | readonly ['footer', type_.footer]
                     
                     export namespace rows {
                         
@@ -157,7 +157,7 @@ export namespace Flow_Content_ {
                             
                             export type classes = Classes_
                             
-                            export namespace _type {
+                            export namespace type_ {
                                 
                                 export type th = null
                                 
@@ -165,9 +165,9 @@ export namespace Flow_Content_ {
                                 
                             }
                             
-                            export type _type = 
-                                | readonly ['th', _type.th]
-                                | readonly ['td', _type.td]
+                            export type type_ = 
+                                | readonly ['th', type_.th]
+                                | readonly ['td', type_.td]
                             
                             export namespace height {
                                 
@@ -200,7 +200,7 @@ export namespace Flow_Content_ {
                         
                         export type L = {
                             readonly 'classes': L.classes
-                            readonly 'type': L._type
+                            readonly 'type': L.type_
                             readonly 'height': L.height
                             readonly 'cells': L.cells
                         }
@@ -213,7 +213,7 @@ export namespace Flow_Content_ {
                 
                 export type L = {
                     readonly 'classes': L.classes
-                    readonly 'type': L._type
+                    readonly 'type': L.type_
                     readonly 'rows': L.rows
                 }
                 
