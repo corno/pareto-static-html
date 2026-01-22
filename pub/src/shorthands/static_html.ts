@@ -1,7 +1,7 @@
 import * as _p from 'pareto-core-shorthands/dist/unconstrained'
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as target from "../interface/generated/pareto/schemas/static-html/data"
+import * as target from "../interface/generated/liana/schemas/static-html/data"
 
 
 export namespace f { //flow

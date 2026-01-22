@@ -1,12 +1,12 @@
 // import * as _p from 'pareto-core/dist/refiner'
 // import * as _pi from 'pareto-core/dist/interface'
 
-// import * as d_out from "../../../../../interface/generated/pareto/schemas/static-html/data"
+// import * as d_out from "../../../../../interface/generated/liana/schemas/static-html/data"
 // import * as d_unmarshall from "../../../../../interface/to_be_generated/unmarshall"
-// import * as d_astn_sealed_source from "astn-core/dist/interface/generated/pareto/schemas/parse_tree/data"
+// import * as d_astn_sealed_source from "astn-core/dist/interface/generated/liana/schemas/parse_tree/data"
 
 // //dependencies
-// // import * as r_unmarshall_static_html from "../../../../generated/pareto/schemas/static-html/unmarshall"
+// // import * as r_unmarshall_static_html from "../../../../generated/liana/schemas/static-html/unmarshall"
 // import { $$ as deser_boolean } from "pareto-standard-operations/dist/implementation/manual/primitives/boolean/deserializers/true_false"
 // import { $$ as deser_decimal } from "pareto-standard-operations/dist/implementation/manual/primitives/integer/deserializers/decimal"
 
