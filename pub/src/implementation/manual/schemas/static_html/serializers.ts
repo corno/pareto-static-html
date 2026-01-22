@@ -1,4 +1,4 @@
-import * as _pi from 'pareto-core-interface'
+import * as _pi from 'pareto-core/dist/interface'
 
 import * as d_in from "../../../../interface/generated/pareto/schemas/static-html/data"
 

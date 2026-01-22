@@ -1,5 +1,5 @@
-// import * as _p from 'pareto-core-refiner'
-// import * as _pi from 'pareto-core-interface'
+// import * as _p from 'pareto-core/dist/refiner'
+// import * as _pi from 'pareto-core/dist/interface'
 
 // import * as d_out from "../../../../../interface/generated/pareto/schemas/static-html/data"
 // import * as d_unmarshall from "../../../../../interface/to_be_generated/unmarshall"
