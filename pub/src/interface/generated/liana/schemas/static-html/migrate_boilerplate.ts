@@ -18,7 +18,7 @@ export namespace Classes_ {
 }
 
 export type Classes_ = (
-    $$_: Classes_.I,
+    context: Classes_.I,
 ) => Classes_.O
 
 export namespace Phrasing_Content_ {
@@ -34,7 +34,7 @@ export namespace Phrasing_Content_ {
 }
 
 export type Phrasing_Content_ = (
-    $$_: Phrasing_Content_.I,
+    context: Phrasing_Content_.I,
 ) => Phrasing_Content_.O
 
 export namespace Flow_Content_ {
@@ -50,7 +50,7 @@ export namespace Flow_Content_ {
 }
 
 export type Flow_Content_ = (
-    $$_: Flow_Content_.I,
+    context: Flow_Content_.I,
 ) => Flow_Content_.O
 
 export namespace Document_ {
@@ -66,7 +66,7 @@ export namespace Document_ {
 }
 
 export type Document_ = (
-    $$_: Document_.I,
+    context: Document_.I,
 ) => Document_.O
 
 export { 
