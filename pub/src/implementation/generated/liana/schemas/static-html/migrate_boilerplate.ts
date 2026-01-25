@@ -4,130 +4,114 @@ import * as _p from "pareto-core/dist/transformer"
 import * as t_signatures from "../../../../../interface/generated/liana/schemas/static-html/migrate_boilerplate"
 
 import * as t_out from "../../../../../interface/generated/liana/schemas/static-html/data"
-export const Classes: t_signatures.Classes = ($) => $.__l_map(($) => $)
-export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => $.__l_map(($) => _p.deprecated_cc($, ($): t_out.Phrasing_Content.L => {
+export const Classes: t_signatures.Classes = ($,) => $.__l_map(($,) => $)
+export const Phrasing_Content: t_signatures.Phrasing_Content = ($,) => $.__l_map(($,) => _p.decide.state($, ($,): t_out.Phrasing_Content.L => {
     switch ($[0]) {
-        case 'span': return _p.ss($, ($) => ['span', Phrasing_Content(
-            $
-        )])
-        case 'classified span': return _p.ss($, ($) => ['classified span', ({
-            'classes': _p.deprecated_cc($['classes'], ($) => Classes(
-                $
-            )),
-            'content': _p.deprecated_cc($['content'], ($) => Phrasing_Content(
-                $
-            )),
-        })])
-        case 'titled span': return _p.ss($, ($) => ['titled span', ({
-            'title': _p.deprecated_cc($['title'], ($) => $),
-            'content': _p.deprecated_cc($['content'], ($) => Phrasing_Content(
-                $
-            )),
-        })])
-        case 'a': return _p.ss($, ($) => ['a', ({
-            'text': _p.deprecated_cc($['text'], ($) => $),
-            'href': _p.deprecated_cc($['href'], ($) => $),
-        })])
-        case 'p': return _p.ss($, ($) => ['p', ({
-            'text': _p.deprecated_cc($['text'], ($) => $),
-        })])
-        default: return _p.au($[0])
+        case 'span':
+            return _p.ss($, ($,) => ['span', Phrasing_Content($)])
+        case 'classified span':
+            return _p.ss($, ($,) => ['classified span', ({
+                'classes': _p.deprecated_cc($['classes'], ($,) => Classes($)),
+                'content': _p.deprecated_cc($['content'], ($,) => Phrasing_Content($)),
+            })])
+        case 'titled span':
+            return _p.ss($, ($,) => ['titled span', ({
+                'title': _p.deprecated_cc($['title'], ($,) => $),
+                'content': _p.deprecated_cc($['content'], ($,) => Phrasing_Content($)),
+            })])
+        case 'a':
+            return _p.ss($, ($,) => ['a', ({
+                'text': _p.deprecated_cc($['text'], ($,) => $),
+                'href': _p.deprecated_cc($['href'], ($,) => $),
+            })])
+        case 'p':
+            return _p.ss($, ($,) => ['p', ({
+                'text': _p.deprecated_cc($['text'], ($,) => $),
+            })])
+        default:
+            return _p.au($[0])
     }
 }))
-export const Flow_Content: t_signatures.Flow_Content = ($) => $.__l_map(($) => _p.deprecated_cc($, ($): t_out.Flow_Content.L => {
+export const Flow_Content: t_signatures.Flow_Content = ($,) => $.__l_map(($,) => _p.decide.state($, ($,): t_out.Flow_Content.L => {
     switch ($[0]) {
-        case 'div': return _p.ss($, ($) => ['div', Flow_Content(
-            $
-        )])
-        case 'dimensioned div': return _p.ss($, ($) => ['dimensioned div', ({
-            'width': _p.deprecated_cc($['width'], ($) => $.__o_map(($) => $)),
-            'height': _p.deprecated_cc($['height'], ($) => $.__o_map(($) => $)),
-            'content': _p.deprecated_cc($['content'], ($) => Flow_Content(
-                $
-            )),
-        })])
-        case 'classified div': return _p.ss($, ($) => ['classified div', ({
-            'classes': _p.deprecated_cc($['classes'], ($) => Classes(
-                $
-            )),
-            'content': _p.deprecated_cc($['content'], ($) => Flow_Content(
-                $
-            )),
-        })])
-        case 'table': return _p.ss($, ($) => ['table', ({
-            'classes': _p.deprecated_cc($['classes'], ($) => Classes(
-                $
-            )),
-            'sections': _p.deprecated_cc($['sections'], ($) => $.__l_map(($) => ({
-                'classes': _p.deprecated_cc($['classes'], ($) => Classes(
-                    $
-                )),
-                'type': _p.deprecated_cc($['type'], ($) => _p.deprecated_cc($, ($): t_out.Flow_Content.L.table.sections.L.type_ => {
-                    switch ($[0]) {
-                        case 'header': return _p.ss($, ($) => ['header', null])
-                        case 'body': return _p.ss($, ($) => ['body', null])
-                        case 'footer': return _p.ss($, ($) => ['footer', null])
-                        default: return _p.au($[0])
-                    }
-                })),
-                'rows': _p.deprecated_cc($['rows'], ($) => $.__l_map(($) => ({
-                    'classes': _p.deprecated_cc($['classes'], ($) => Classes(
-                        $
-                    )),
-                    'type': _p.deprecated_cc($['type'], ($) => _p.deprecated_cc($, ($): t_out.Flow_Content.L.table.sections.L.rows.L.type_ => {
+        case 'div':
+            return _p.ss($, ($,) => ['div', Flow_Content($)])
+        case 'dimensioned div':
+            return _p.ss($, ($,) => ['dimensioned div', ({
+                'width': _p.deprecated_cc($['width'], ($,) => $.__o_map(($,) => $)),
+                'height': _p.deprecated_cc($['height'], ($,) => $.__o_map(($,) => $)),
+                'content': _p.deprecated_cc($['content'], ($,) => Flow_Content($)),
+            })])
+        case 'classified div':
+            return _p.ss($, ($,) => ['classified div', ({
+                'classes': _p.deprecated_cc($['classes'], ($,) => Classes($)),
+                'content': _p.deprecated_cc($['content'], ($,) => Flow_Content($)),
+            })])
+        case 'table':
+            return _p.ss($, ($,) => ['table', ({
+                'classes': _p.deprecated_cc($['classes'], ($,) => Classes($)),
+                'sections': _p.deprecated_cc($['sections'], ($,) => $.__l_map(($,) => ({
+                    'classes': _p.deprecated_cc($['classes'], ($,) => Classes($)),
+                    'type': _p.deprecated_cc($['type'], ($,) => _p.decide.state($, ($,): t_out.Flow_Content.L.table.sections.L.type_ => {
                         switch ($[0]) {
-                            case 'th': return _p.ss($, ($) => ['th', null])
-                            case 'td': return _p.ss($, ($) => ['td', null])
-                            default: return _p.au($[0])
+                            case 'header':
+                                return _p.ss($, ($,) => ['header', null])
+                            case 'body':
+                                return _p.ss($, ($,) => ['body', null])
+                            case 'footer':
+                                return _p.ss($, ($,) => ['footer', null])
+                            default:
+                                return _p.au($[0])
                         }
                     })),
-                    'height': _p.deprecated_cc($['height'], ($) => $.__o_map(($) => $)),
-                    'cells': _p.deprecated_cc($['cells'], ($) => $.__l_map(($) => ({
-                        'classes': _p.deprecated_cc($['classes'], ($) => Classes(
-                            $
-                        )),
-                        'content': _p.deprecated_cc($['content'], ($) => Flow_Content(
-                            $
-                        )),
+                    'rows': _p.deprecated_cc($['rows'], ($,) => $.__l_map(($,) => ({
+                        'classes': _p.deprecated_cc($['classes'], ($,) => Classes($)),
+                        'type': _p.deprecated_cc($['type'], ($,) => _p.decide.state($, ($,): t_out.Flow_Content.L.table.sections.L.rows.L.type_ => {
+                            switch ($[0]) {
+                                case 'th':
+                                    return _p.ss($, ($,) => ['th', null])
+                                case 'td':
+                                    return _p.ss($, ($,) => ['td', null])
+                                default:
+                                    return _p.au($[0])
+                            }
+                        })),
+                        'height': _p.deprecated_cc($['height'], ($,) => $.__o_map(($,) => $)),
+                        'cells': _p.deprecated_cc($['cells'], ($,) => $.__l_map(($,) => ({
+                            'classes': _p.deprecated_cc($['classes'], ($,) => Classes($)),
+                            'content': _p.deprecated_cc($['content'], ($,) => Flow_Content($)),
+                        }))),
                     }))),
                 }))),
-            }))),
-        })])
-        case 'span': return _p.ss($, ($) => ['span', Phrasing_Content(
-            $
-        )])
-        case 'label': return _p.ss($, ($) => ['label', ({
-            'classes': _p.deprecated_cc($['classes'], ($) => Classes(
-                $
-            )),
-            'text': _p.deprecated_cc($['text'], ($) => $),
-            'content': _p.deprecated_cc($['content'], ($) => Flow_Content(
-                $
-            )),
-        })])
-        case 'img': return _p.ss($, ($) => ['img', ({
-            'classes': _p.deprecated_cc($['classes'], ($) => Classes(
-                $
-            )),
-            'src': _p.deprecated_cc($['src'], ($) => $),
-            'alt': _p.deprecated_cc($['alt'], ($) => $),
-            'width': _p.deprecated_cc($['width'], ($) => $.__o_map(($) => $)),
-            'height': _p.deprecated_cc($['height'], ($) => $.__o_map(($) => $)),
-        })])
-        case 'svg': return _p.ss($, ($) => ['svg', ({
-            'classes': _p.deprecated_cc($['classes'], ($) => Classes(
-                $
-            )),
-            'content': _p.deprecated_cc($['content'], ($) => $),
-            'width': _p.deprecated_cc($['width'], ($) => $.__o_map(($) => $)),
-            'height': _p.deprecated_cc($['height'], ($) => $.__o_map(($) => $)),
-        })])
-        default: return _p.au($[0])
+            })])
+        case 'span':
+            return _p.ss($, ($,) => ['span', Phrasing_Content($)])
+        case 'label':
+            return _p.ss($, ($,) => ['label', ({
+                'classes': _p.deprecated_cc($['classes'], ($,) => Classes($)),
+                'text': _p.deprecated_cc($['text'], ($,) => $),
+                'content': _p.deprecated_cc($['content'], ($,) => Flow_Content($)),
+            })])
+        case 'img':
+            return _p.ss($, ($,) => ['img', ({
+                'classes': _p.deprecated_cc($['classes'], ($,) => Classes($)),
+                'src': _p.deprecated_cc($['src'], ($,) => $),
+                'alt': _p.deprecated_cc($['alt'], ($,) => $),
+                'width': _p.deprecated_cc($['width'], ($,) => $.__o_map(($,) => $)),
+                'height': _p.deprecated_cc($['height'], ($,) => $.__o_map(($,) => $)),
+            })])
+        case 'svg':
+            return _p.ss($, ($,) => ['svg', ({
+                'classes': _p.deprecated_cc($['classes'], ($,) => Classes($)),
+                'content': _p.deprecated_cc($['content'], ($,) => $),
+                'width': _p.deprecated_cc($['width'], ($,) => $.__o_map(($,) => $)),
+                'height': _p.deprecated_cc($['height'], ($,) => $.__o_map(($,) => $)),
+            })])
+        default:
+            return _p.au($[0])
     }
 }))
-export const Document: t_signatures.Document = ($) => ({
-    'css': _p.deprecated_cc($['css'], ($) => $),
-    'root': _p.deprecated_cc($['root'], ($) => Flow_Content(
-        $
-    )),
+export const Document: t_signatures.Document = ($,) => ({
+    'css': _p.deprecated_cc($['css'], ($,) => $),
+    'root': _p.deprecated_cc($['root'], ($,) => Flow_Content($)),
 })
