@@ -16,12 +16,12 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($,) => ['list', 
     switch ($[0]) {
         case 'span':
             return _p.ss($, ($,) => ({
-                'option': "span",
+                'option': 'span',
                 'value': Phrasing_Content($),
             }))
         case 'classified span':
             return _p.ss($, ($,) => ({
-                'option': "classified span",
+                'option': 'classified span',
                 'value': ['group', ['verbose', _p.dictionary.literal(({
                     'classes': _p.deprecated_cc($['classes'], ($,) => Classes($)),
                     'content': _p.deprecated_cc($['content'], ($,) => Phrasing_Content($)),
@@ -29,7 +29,7 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($,) => ['list', 
             }))
         case 'titled span':
             return _p.ss($, ($,) => ({
-                'option': "titled span",
+                'option': 'titled span',
                 'value': ['group', ['verbose', _p.dictionary.literal(({
                     'title': _p.deprecated_cc($['title'], ($,) => ['text', ({
                         'delimiter': ['quote', null],
@@ -40,7 +40,7 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($,) => ['list', 
             }))
         case 'a':
             return _p.ss($, ($,) => ({
-                'option': "a",
+                'option': 'a',
                 'value': ['group', ['verbose', _p.dictionary.literal(({
                     'text': _p.deprecated_cc($['text'], ($,) => ['text', ({
                         'delimiter': ['quote', null],
@@ -54,7 +54,7 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($,) => ['list', 
             }))
         case 'p':
             return _p.ss($, ($,) => ({
-                'option': "p",
+                'option': 'p',
                 'value': ['group', ['verbose', _p.dictionary.literal(({
                     'text': _p.deprecated_cc($['text'], ($,) => ['text', ({
                         'delimiter': ['quote', null],
@@ -70,19 +70,19 @@ export const Flow_Content: t_signatures.Flow_Content = ($,) => ['list', $.__l_ma
     switch ($[0]) {
         case 'div':
             return _p.ss($, ($,) => ({
-                'option': "div",
+                'option': 'div',
                 'value': Flow_Content($),
             }))
         case 'dimensioned div':
             return _p.ss($, ($,) => ({
-                'option': "dimensioned div",
+                'option': 'dimensioned div',
                 'value': ['group', ['verbose', _p.dictionary.literal(({
                     'width': _p.deprecated_cc($['width'], ($,) => ['optional', $.__decide(($,): t_out.Value.optional => ['set', ['text', ({
-                        'delimiter': ['backtick', null],
+                        'delimiter': ['none', null],
                         'value': v_serialize_number.serialize($),
                     })]], () => ['not set', null])]),
                     'height': _p.deprecated_cc($['height'], ($,) => ['optional', $.__decide(($,): t_out.Value.optional => ['set', ['text', ({
-                        'delimiter': ['backtick', null],
+                        'delimiter': ['none', null],
                         'value': v_serialize_number.serialize($),
                     })]], () => ['not set', null])]),
                     'content': _p.deprecated_cc($['content'], ($,) => Flow_Content($)),
@@ -90,7 +90,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($,) => ['list', $.__l_ma
             }))
         case 'classified div':
             return _p.ss($, ($,) => ({
-                'option': "classified div",
+                'option': 'classified div',
                 'value': ['group', ['verbose', _p.dictionary.literal(({
                     'classes': _p.deprecated_cc($['classes'], ($,) => Classes($)),
                     'content': _p.deprecated_cc($['content'], ($,) => Flow_Content($)),
@@ -98,7 +98,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($,) => ['list', $.__l_ma
             }))
         case 'table':
             return _p.ss($, ($,) => ({
-                'option': "table",
+                'option': 'table',
                 'value': ['group', ['verbose', _p.dictionary.literal(({
                     'classes': _p.deprecated_cc($['classes'], ($,) => Classes($)),
                     'sections': _p.deprecated_cc($['sections'], ($,) => ['list', $.__l_map(($,) => ['group', ['verbose', _p.dictionary.literal(({
@@ -107,17 +107,17 @@ export const Flow_Content: t_signatures.Flow_Content = ($,) => ['list', $.__l_ma
                             switch ($[0]) {
                                 case 'header':
                                     return _p.ss($, ($,) => ({
-                                        'option': "header",
+                                        'option': 'header',
                                         'value': ['nothing', null],
                                     }))
                                 case 'body':
                                     return _p.ss($, ($,) => ({
-                                        'option': "body",
+                                        'option': 'body',
                                         'value': ['nothing', null],
                                     }))
                                 case 'footer':
                                     return _p.ss($, ($,) => ({
-                                        'option': "footer",
+                                        'option': 'footer',
                                         'value': ['nothing', null],
                                     }))
                                 default:
@@ -130,12 +130,12 @@ export const Flow_Content: t_signatures.Flow_Content = ($,) => ['list', $.__l_ma
                                 switch ($[0]) {
                                     case 'th':
                                         return _p.ss($, ($,) => ({
-                                            'option': "th",
+                                            'option': 'th',
                                             'value': ['nothing', null],
                                         }))
                                     case 'td':
                                         return _p.ss($, ($,) => ({
-                                            'option': "td",
+                                            'option': 'td',
                                             'value': ['nothing', null],
                                         }))
                                     default:
@@ -143,7 +143,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($,) => ['list', $.__l_ma
                                 }
                             })]),
                             'height': _p.deprecated_cc($['height'], ($,) => ['optional', $.__decide(($,): t_out.Value.optional => ['set', ['text', ({
-                                'delimiter': ['backtick', null],
+                                'delimiter': ['none', null],
                                 'value': v_serialize_number.serialize($),
                             })]], () => ['not set', null])]),
                             'cells': _p.deprecated_cc($['cells'], ($,) => ['list', $.__l_map(($,) => ['group', ['verbose', _p.dictionary.literal(({
@@ -156,12 +156,12 @@ export const Flow_Content: t_signatures.Flow_Content = ($,) => ['list', $.__l_ma
             }))
         case 'span':
             return _p.ss($, ($,) => ({
-                'option': "span",
+                'option': 'span',
                 'value': Phrasing_Content($),
             }))
         case 'label':
             return _p.ss($, ($,) => ({
-                'option': "label",
+                'option': 'label',
                 'value': ['group', ['verbose', _p.dictionary.literal(({
                     'classes': _p.deprecated_cc($['classes'], ($,) => Classes($)),
                     'text': _p.deprecated_cc($['text'], ($,) => ['text', ({
@@ -173,7 +173,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($,) => ['list', $.__l_ma
             }))
         case 'img':
             return _p.ss($, ($,) => ({
-                'option': "img",
+                'option': 'img',
                 'value': ['group', ['verbose', _p.dictionary.literal(({
                     'classes': _p.deprecated_cc($['classes'], ($,) => Classes($)),
                     'src': _p.deprecated_cc($['src'], ($,) => ['text', ({
@@ -185,18 +185,18 @@ export const Flow_Content: t_signatures.Flow_Content = ($,) => ['list', $.__l_ma
                         'value': $,
                     })]),
                     'width': _p.deprecated_cc($['width'], ($,) => ['optional', $.__decide(($,): t_out.Value.optional => ['set', ['text', ({
-                        'delimiter': ['backtick', null],
+                        'delimiter': ['none', null],
                         'value': v_serialize_number.serialize($),
                     })]], () => ['not set', null])]),
                     'height': _p.deprecated_cc($['height'], ($,) => ['optional', $.__decide(($,): t_out.Value.optional => ['set', ['text', ({
-                        'delimiter': ['backtick', null],
+                        'delimiter': ['none', null],
                         'value': v_serialize_number.serialize($),
                     })]], () => ['not set', null])]),
                 }))]],
             }))
         case 'svg':
             return _p.ss($, ($,) => ({
-                'option': "svg",
+                'option': 'svg',
                 'value': ['group', ['verbose', _p.dictionary.literal(({
                     'classes': _p.deprecated_cc($['classes'], ($,) => Classes($)),
                     'content': _p.deprecated_cc($['content'], ($,) => ['text', ({
@@ -204,11 +204,11 @@ export const Flow_Content: t_signatures.Flow_Content = ($,) => ['list', $.__l_ma
                         'value': $,
                     })]),
                     'width': _p.deprecated_cc($['width'], ($,) => ['optional', $.__decide(($,): t_out.Value.optional => ['set', ['text', ({
-                        'delimiter': ['backtick', null],
+                        'delimiter': ['none', null],
                         'value': v_serialize_number.serialize($),
                     })]], () => ['not set', null])]),
                     'height': _p.deprecated_cc($['height'], ($,) => ['optional', $.__decide(($,): t_out.Value.optional => ['set', ['text', ({
-                        'delimiter': ['backtick', null],
+                        'delimiter': ['none', null],
                         'value': v_serialize_number.serialize($),
                     })]], () => ['not set', null])]),
                 }))]],
