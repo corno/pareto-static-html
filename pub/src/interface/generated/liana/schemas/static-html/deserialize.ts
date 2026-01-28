@@ -15,6 +15,10 @@ export namespace Classes_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -22,6 +26,10 @@ export namespace Classes_ {
 export type Classes_ = (
     context: Classes_.I,
     abort: _pi.Abort<Classes_.E>,
+    parameters: {
+        readonly 'document resource identifier': Classes_.P.document_resource_identifier
+        readonly 'indentation': Classes_.P.indentation
+    },
 ) => Classes_.O
 
 export namespace Phrasing_Content_ {
@@ -34,6 +42,10 @@ export namespace Phrasing_Content_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -41,6 +53,10 @@ export namespace Phrasing_Content_ {
 export type Phrasing_Content_ = (
     context: Phrasing_Content_.I,
     abort: _pi.Abort<Phrasing_Content_.E>,
+    parameters: {
+        readonly 'document resource identifier': Phrasing_Content_.P.document_resource_identifier
+        readonly 'indentation': Phrasing_Content_.P.indentation
+    },
 ) => Phrasing_Content_.O
 
 export namespace Flow_Content_ {
@@ -53,6 +69,10 @@ export namespace Flow_Content_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -60,6 +80,10 @@ export namespace Flow_Content_ {
 export type Flow_Content_ = (
     context: Flow_Content_.I,
     abort: _pi.Abort<Flow_Content_.E>,
+    parameters: {
+        readonly 'document resource identifier': Flow_Content_.P.document_resource_identifier
+        readonly 'indentation': Flow_Content_.P.indentation
+    },
 ) => Flow_Content_.O
 
 export namespace Document_ {
@@ -72,6 +96,10 @@ export namespace Document_ {
     
     export namespace P {
         
+        export type document_resource_identifier = string
+        
+        export type indentation = number
+        
     }
     
 }
@@ -79,6 +107,10 @@ export namespace Document_ {
 export type Document_ = (
     context: Document_.I,
     abort: _pi.Abort<Document_.E>,
+    parameters: {
+        readonly 'document resource identifier': Document_.P.document_resource_identifier
+        readonly 'indentation': Document_.P.indentation
+    },
 ) => Document_.O
 
 export { 
