@@ -28,7 +28,7 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => $.__l_map(
                 case 'classified span':
                     return _p.ss(
                         $,
-                        ($) => ['classified span', ({
+                        ($) => ['classified span', {
                             'classes': _p_cc(
                                 $['classes'],
                                 ($) => Classes(
@@ -41,12 +41,12 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => $.__l_map(
                                     $
                                 )
                             ),
-                        })]
+                        }]
                     )
                 case 'titled span':
                     return _p.ss(
                         $,
-                        ($) => ['titled span', ({
+                        ($) => ['titled span', {
                             'title': _p_cc(
                                 $['title'],
                                 ($) => $
@@ -57,12 +57,12 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => $.__l_map(
                                     $
                                 )
                             ),
-                        })]
+                        }]
                     )
                 case 'a':
                     return _p.ss(
                         $,
-                        ($) => ['a', ({
+                        ($) => ['a', {
                             'text': _p_cc(
                                 $['text'],
                                 ($) => $
@@ -71,17 +71,17 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => $.__l_map(
                                 $['href'],
                                 ($) => $
                             ),
-                        })]
+                        }]
                     )
                 case 'p':
                     return _p.ss(
                         $,
-                        ($) => ['p', ({
+                        ($) => ['p', {
                             'text': _p_cc(
                                 $['text'],
                                 ($) => $
                             ),
-                        })]
+                        }]
                     )
                 default:
                     return _p.au(
@@ -107,7 +107,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => $.__l_map(
                 case 'dimensioned div':
                     return _p.ss(
                         $,
-                        ($) => ['dimensioned div', ({
+                        ($) => ['dimensioned div', {
                             'width': _p_cc(
                                 $['width'],
                                 ($) => $.__o_map(
@@ -126,12 +126,12 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => $.__l_map(
                                     $
                                 )
                             ),
-                        })]
+                        }]
                     )
                 case 'classified div':
                     return _p.ss(
                         $,
-                        ($) => ['classified div', ({
+                        ($) => ['classified div', {
                             'classes': _p_cc(
                                 $['classes'],
                                 ($) => Classes(
@@ -144,12 +144,12 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => $.__l_map(
                                     $
                                 )
                             ),
-                        })]
+                        }]
                     )
                 case 'table':
                     return _p.ss(
                         $,
-                        ($) => ['table', ({
+                        ($) => ['table', {
                             'classes': _p_cc(
                                 $['classes'],
                                 ($) => Classes(
@@ -260,7 +260,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => $.__l_map(
                                     })
                                 )
                             ),
-                        })]
+                        }]
                     )
                 case 'span':
                     return _p.ss(
@@ -272,7 +272,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => $.__l_map(
                 case 'label':
                     return _p.ss(
                         $,
-                        ($) => ['label', ({
+                        ($) => ['label', {
                             'classes': _p_cc(
                                 $['classes'],
                                 ($) => Classes(
@@ -289,12 +289,12 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => $.__l_map(
                                     $
                                 )
                             ),
-                        })]
+                        }]
                     )
                 case 'img':
                     return _p.ss(
                         $,
-                        ($) => ['img', ({
+                        ($) => ['img', {
                             'classes': _p_cc(
                                 $['classes'],
                                 ($) => Classes(
@@ -321,12 +321,12 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => $.__l_map(
                                     ($) => $
                                 )
                             ),
-                        })]
+                        }]
                     )
                 case 'svg':
                     return _p.ss(
                         $,
-                        ($) => ['svg', ({
+                        ($) => ['svg', {
                             'classes': _p_cc(
                                 $['classes'],
                                 ($) => Classes(
@@ -349,7 +349,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => $.__l_map(
                                     ($) => $
                                 )
                             ),
-                        })]
+                        }]
                     )
                 default:
                     return _p.au(

@@ -14,10 +14,10 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 
 export const Classes: t_signatures.Classes = ($) => ['list', $.__l_map(
-    ($) => ['text', ({
+    ($) => ['text', {
         'delimiter': ['quote', null],
         'value': $,
-    })]
+    }]
 )]
 
 export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => ['list', $.__l_map(
@@ -41,7 +41,7 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => ['list', $
                         ($) => ({
                             'option': 'classified span',
                             'value': ['group', ['verbose', _p.dictionary.literal(
-                                ({
+                                {
                                     'classes': _p_cc(
                                         $['classes'],
                                         ($) => Classes(
@@ -54,7 +54,7 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => ['list', $
                                             $
                                         )
                                     ),
-                                })
+                                }
                             )]],
                         })
                     )
@@ -64,13 +64,13 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => ['list', $
                         ($) => ({
                             'option': 'titled span',
                             'value': ['group', ['verbose', _p.dictionary.literal(
-                                ({
+                                {
                                     'title': _p_cc(
                                         $['title'],
-                                        ($) => ['text', ({
+                                        ($) => ['text', {
                                             'delimiter': ['quote', null],
                                             'value': $,
-                                        })]
+                                        }]
                                     ),
                                     'content': _p_cc(
                                         $['content'],
@@ -78,7 +78,7 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => ['list', $
                                             $
                                         )
                                     ),
-                                })
+                                }
                             )]],
                         })
                     )
@@ -88,22 +88,22 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => ['list', $
                         ($) => ({
                             'option': 'a',
                             'value': ['group', ['verbose', _p.dictionary.literal(
-                                ({
+                                {
                                     'text': _p_cc(
                                         $['text'],
-                                        ($) => ['text', ({
+                                        ($) => ['text', {
                                             'delimiter': ['quote', null],
                                             'value': $,
-                                        })]
+                                        }]
                                     ),
                                     'href': _p_cc(
                                         $['href'],
-                                        ($) => ['text', ({
+                                        ($) => ['text', {
                                             'delimiter': ['quote', null],
                                             'value': $,
-                                        })]
+                                        }]
                                     ),
-                                })
+                                }
                             )]],
                         })
                     )
@@ -113,15 +113,15 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => ['list', $
                         ($) => ({
                             'option': 'p',
                             'value': ['group', ['verbose', _p.dictionary.literal(
-                                ({
+                                {
                                     'text': _p_cc(
                                         $['text'],
-                                        ($) => ['text', ({
+                                        ($) => ['text', {
                                             'delimiter': ['quote', null],
                                             'value': $,
-                                        })]
+                                        }]
                                     ),
-                                })
+                                }
                             )]],
                         })
                     )
@@ -155,28 +155,28 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                         ($) => ({
                             'option': 'dimensioned div',
                             'value': ['group', ['verbose', _p.dictionary.literal(
-                                ({
+                                {
                                     'width': _p_cc(
                                         $['width'],
                                         ($) => ['optional', $.__decide(
-                                            ($): t_out.Value.optional => ['set', ['text', ({
+                                            ($): t_out.Value.optional => ['set', ['text', {
                                                 'delimiter': ['none', null],
                                                 'value': v_serialize_number.serialize(
                                                     $
                                                 ),
-                                            })]],
+                                            }]],
                                             () => ['not set', null]
                                         )]
                                     ),
                                     'height': _p_cc(
                                         $['height'],
                                         ($) => ['optional', $.__decide(
-                                            ($): t_out.Value.optional => ['set', ['text', ({
+                                            ($): t_out.Value.optional => ['set', ['text', {
                                                 'delimiter': ['none', null],
                                                 'value': v_serialize_number.serialize(
                                                     $
                                                 ),
-                                            })]],
+                                            }]],
                                             () => ['not set', null]
                                         )]
                                     ),
@@ -186,7 +186,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                                             $
                                         )
                                     ),
-                                })
+                                }
                             )]],
                         })
                     )
@@ -196,7 +196,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                         ($) => ({
                             'option': 'classified div',
                             'value': ['group', ['verbose', _p.dictionary.literal(
-                                ({
+                                {
                                     'classes': _p_cc(
                                         $['classes'],
                                         ($) => Classes(
@@ -209,7 +209,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                                             $
                                         )
                                     ),
-                                })
+                                }
                             )]],
                         })
                     )
@@ -219,7 +219,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                         ($) => ({
                             'option': 'table',
                             'value': ['group', ['verbose', _p.dictionary.literal(
-                                ({
+                                {
                                     'classes': _p_cc(
                                         $['classes'],
                                         ($) => Classes(
@@ -230,7 +230,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                                         $['sections'],
                                         ($) => ['list', $.__l_map(
                                             ($) => ['group', ['verbose', _p.dictionary.literal(
-                                                ({
+                                                {
                                                     'classes': _p_cc(
                                                         $['classes'],
                                                         ($) => Classes(
@@ -279,7 +279,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                                                         $['rows'],
                                                         ($) => ['list', $.__l_map(
                                                             ($) => ['group', ['verbose', _p.dictionary.literal(
-                                                                ({
+                                                                {
                                                                     'classes': _p_cc(
                                                                         $['classes'],
                                                                         ($) => Classes(
@@ -319,12 +319,12 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                                                                     'height': _p_cc(
                                                                         $['height'],
                                                                         ($) => ['optional', $.__decide(
-                                                                            ($): t_out.Value.optional => ['set', ['text', ({
+                                                                            ($): t_out.Value.optional => ['set', ['text', {
                                                                                 'delimiter': ['none', null],
                                                                                 'value': v_serialize_number.serialize(
                                                                                     $
                                                                                 ),
-                                                                            })]],
+                                                                            }]],
                                                                             () => ['not set', null]
                                                                         )]
                                                                     ),
@@ -332,7 +332,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                                                                         $['cells'],
                                                                         ($) => ['list', $.__l_map(
                                                                             ($) => ['group', ['verbose', _p.dictionary.literal(
-                                                                                ({
+                                                                                {
                                                                                     'classes': _p_cc(
                                                                                         $['classes'],
                                                                                         ($) => Classes(
@@ -345,19 +345,19 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                                                                                             $
                                                                                         )
                                                                                     ),
-                                                                                })
+                                                                                }
                                                                             )]]
                                                                         )]
                                                                     ),
-                                                                })
+                                                                }
                                                             )]]
                                                         )]
                                                     ),
-                                                })
+                                                }
                                             )]]
                                         )]
                                     ),
-                                })
+                                }
                             )]],
                         })
                     )
@@ -377,7 +377,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                         ($) => ({
                             'option': 'label',
                             'value': ['group', ['verbose', _p.dictionary.literal(
-                                ({
+                                {
                                     'classes': _p_cc(
                                         $['classes'],
                                         ($) => Classes(
@@ -386,10 +386,10 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                                     ),
                                     'text': _p_cc(
                                         $['text'],
-                                        ($) => ['text', ({
+                                        ($) => ['text', {
                                             'delimiter': ['quote', null],
                                             'value': $,
-                                        })]
+                                        }]
                                     ),
                                     'content': _p_cc(
                                         $['content'],
@@ -397,7 +397,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                                             $
                                         )
                                     ),
-                                })
+                                }
                             )]],
                         })
                     )
@@ -407,7 +407,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                         ($) => ({
                             'option': 'img',
                             'value': ['group', ['verbose', _p.dictionary.literal(
-                                ({
+                                {
                                     'classes': _p_cc(
                                         $['classes'],
                                         ($) => Classes(
@@ -416,43 +416,43 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                                     ),
                                     'src': _p_cc(
                                         $['src'],
-                                        ($) => ['text', ({
+                                        ($) => ['text', {
                                             'delimiter': ['quote', null],
                                             'value': $,
-                                        })]
+                                        }]
                                     ),
                                     'alt': _p_cc(
                                         $['alt'],
-                                        ($) => ['text', ({
+                                        ($) => ['text', {
                                             'delimiter': ['quote', null],
                                             'value': $,
-                                        })]
+                                        }]
                                     ),
                                     'width': _p_cc(
                                         $['width'],
                                         ($) => ['optional', $.__decide(
-                                            ($): t_out.Value.optional => ['set', ['text', ({
+                                            ($): t_out.Value.optional => ['set', ['text', {
                                                 'delimiter': ['none', null],
                                                 'value': v_serialize_number.serialize(
                                                     $
                                                 ),
-                                            })]],
+                                            }]],
                                             () => ['not set', null]
                                         )]
                                     ),
                                     'height': _p_cc(
                                         $['height'],
                                         ($) => ['optional', $.__decide(
-                                            ($): t_out.Value.optional => ['set', ['text', ({
+                                            ($): t_out.Value.optional => ['set', ['text', {
                                                 'delimiter': ['none', null],
                                                 'value': v_serialize_number.serialize(
                                                     $
                                                 ),
-                                            })]],
+                                            }]],
                                             () => ['not set', null]
                                         )]
                                     ),
-                                })
+                                }
                             )]],
                         })
                     )
@@ -462,7 +462,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                         ($) => ({
                             'option': 'svg',
                             'value': ['group', ['verbose', _p.dictionary.literal(
-                                ({
+                                {
                                     'classes': _p_cc(
                                         $['classes'],
                                         ($) => Classes(
@@ -471,36 +471,36 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                                     ),
                                     'content': _p_cc(
                                         $['content'],
-                                        ($) => ['text', ({
+                                        ($) => ['text', {
                                             'delimiter': ['quote', null],
                                             'value': $,
-                                        })]
+                                        }]
                                     ),
                                     'width': _p_cc(
                                         $['width'],
                                         ($) => ['optional', $.__decide(
-                                            ($): t_out.Value.optional => ['set', ['text', ({
+                                            ($): t_out.Value.optional => ['set', ['text', {
                                                 'delimiter': ['none', null],
                                                 'value': v_serialize_number.serialize(
                                                     $
                                                 ),
-                                            })]],
+                                            }]],
                                             () => ['not set', null]
                                         )]
                                     ),
                                     'height': _p_cc(
                                         $['height'],
                                         ($) => ['optional', $.__decide(
-                                            ($): t_out.Value.optional => ['set', ['text', ({
+                                            ($): t_out.Value.optional => ['set', ['text', {
                                                 'delimiter': ['none', null],
                                                 'value': v_serialize_number.serialize(
                                                     $
                                                 ),
-                                            })]],
+                                            }]],
                                             () => ['not set', null]
                                         )]
                                     ),
-                                })
+                                }
                             )]],
                         })
                     )
@@ -514,13 +514,13 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
 )]
 
 export const Document: t_signatures.Document = ($) => ['group', ['verbose', _p.dictionary.literal(
-    ({
+    {
         'css': _p_cc(
             $['css'],
-            ($) => ['text', ({
+            ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
-            })]
+            }]
         ),
         'root': _p_cc(
             $['root'],
@@ -528,5 +528,5 @@ export const Document: t_signatures.Document = ($) => ['group', ['verbose', _p.d
                 $
             )
         ),
-    })
+    }
 )]]
