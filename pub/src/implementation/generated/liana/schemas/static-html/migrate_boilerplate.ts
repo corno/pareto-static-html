@@ -9,11 +9,13 @@ import * as t_signatures from "../../../../../interface/generated/liana/schemas/
 
 import * as t_out from "../../../../../interface/generated/liana/schemas/static-html/data"
 
-export const Classes: t_signatures.Classes = ($) => $.__l_map(
+export const Classes: t_signatures.Classes = ($) => _p.list.map(
+    $,
     ($) => $
 )
 
-export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => $.__l_map(
+export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => _p.list.map(
+    $,
     ($) => _p.decide.state(
         $,
         ($): t_out.Phrasing_Content.L => {
@@ -92,7 +94,8 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => $.__l_map(
     )
 )
 
-export const Flow_Content: t_signatures.Flow_Content = ($) => $.__l_map(
+export const Flow_Content: t_signatures.Flow_Content = ($) => _p.list.map(
+    $,
     ($) => _p.decide.state(
         $,
         ($): t_out.Flow_Content.L => {
@@ -110,13 +113,15 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => $.__l_map(
                         ($) => ['dimensioned div', {
                             'width': _p_cc(
                                 $['width'],
-                                ($) => $.__o_map(
+                                ($) => _p.optional.map(
+                                    $,
                                     ($) => $
                                 )
                             ),
                             'height': _p_cc(
                                 $['height'],
-                                ($) => $.__o_map(
+                                ($) => _p.optional.map(
+                                    $,
                                     ($) => $
                                 )
                             ),
@@ -158,7 +163,8 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => $.__l_map(
                             ),
                             'sections': _p_cc(
                                 $['sections'],
-                                ($) => $.__l_map(
+                                ($) => _p.list.map(
+                                    $,
                                     ($) => ({
                                         'classes': _p_cc(
                                             $['classes'],
@@ -197,7 +203,8 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => $.__l_map(
                                         ),
                                         'rows': _p_cc(
                                             $['rows'],
-                                            ($) => $.__l_map(
+                                            ($) => _p.list.map(
+                                                $,
                                                 ($) => ({
                                                     'classes': _p_cc(
                                                         $['classes'],
@@ -231,13 +238,15 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => $.__l_map(
                                                     ),
                                                     'height': _p_cc(
                                                         $['height'],
-                                                        ($) => $.__o_map(
+                                                        ($) => _p.optional.map(
+                                                            $,
                                                             ($) => $
                                                         )
                                                     ),
                                                     'cells': _p_cc(
                                                         $['cells'],
-                                                        ($) => $.__l_map(
+                                                        ($) => _p.list.map(
+                                                            $,
                                                             ($) => ({
                                                                 'classes': _p_cc(
                                                                     $['classes'],
@@ -311,13 +320,15 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => $.__l_map(
                             ),
                             'width': _p_cc(
                                 $['width'],
-                                ($) => $.__o_map(
+                                ($) => _p.optional.map(
+                                    $,
                                     ($) => $
                                 )
                             ),
                             'height': _p_cc(
                                 $['height'],
-                                ($) => $.__o_map(
+                                ($) => _p.optional.map(
+                                    $,
                                     ($) => $
                                 )
                             ),
@@ -339,13 +350,15 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => $.__l_map(
                             ),
                             'width': _p_cc(
                                 $['width'],
-                                ($) => $.__o_map(
+                                ($) => _p.optional.map(
+                                    $,
                                     ($) => $
                                 )
                             ),
                             'height': _p_cc(
                                 $['height'],
-                                ($) => $.__o_map(
+                                ($) => _p.optional.map(
+                                    $,
                                     ($) => $
                                 )
                             ),

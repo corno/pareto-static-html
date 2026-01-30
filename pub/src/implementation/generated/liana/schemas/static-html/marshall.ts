@@ -13,14 +13,16 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 
-export const Classes: t_signatures.Classes = ($) => ['list', $.__l_map(
+export const Classes: t_signatures.Classes = ($) => ['list', _p.list.map(
+    $,
     ($) => ['text', {
         'delimiter': ['quote', null],
         'value': $,
     }]
 )]
 
-export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => ['list', $.__l_map(
+export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => ['list', _p.list.map(
+    $,
     ($) => ['state', _p.decide.state(
         $,
         ($): t_out.Value.state => {
@@ -134,7 +136,8 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => ['list', $
     )]
 )]
 
-export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map(
+export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', _p.list.map(
+    $,
     ($) => ['state', _p.decide.state(
         $,
         ($): t_out.Value.state => {
@@ -158,7 +161,8 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                                 {
                                     'width': _p_cc(
                                         $['width'],
-                                        ($) => ['optional', $.__decide(
+                                        ($) => ['optional', _p.decide.optional(
+                                            $,
                                             ($): t_out.Value.optional => ['set', ['text', {
                                                 'delimiter': ['none', null],
                                                 'value': v_serialize_number.serialize(
@@ -170,7 +174,8 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                                     ),
                                     'height': _p_cc(
                                         $['height'],
-                                        ($) => ['optional', $.__decide(
+                                        ($) => ['optional', _p.decide.optional(
+                                            $,
                                             ($): t_out.Value.optional => ['set', ['text', {
                                                 'delimiter': ['none', null],
                                                 'value': v_serialize_number.serialize(
@@ -228,7 +233,8 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                                     ),
                                     'sections': _p_cc(
                                         $['sections'],
-                                        ($) => ['list', $.__l_map(
+                                        ($) => ['list', _p.list.map(
+                                            $,
                                             ($) => ['group', ['verbose', _p.dictionary.literal(
                                                 {
                                                     'classes': _p_cc(
@@ -277,7 +283,8 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                                                     ),
                                                     'rows': _p_cc(
                                                         $['rows'],
-                                                        ($) => ['list', $.__l_map(
+                                                        ($) => ['list', _p.list.map(
+                                                            $,
                                                             ($) => ['group', ['verbose', _p.dictionary.literal(
                                                                 {
                                                                     'classes': _p_cc(
@@ -318,7 +325,8 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                                                                     ),
                                                                     'height': _p_cc(
                                                                         $['height'],
-                                                                        ($) => ['optional', $.__decide(
+                                                                        ($) => ['optional', _p.decide.optional(
+                                                                            $,
                                                                             ($): t_out.Value.optional => ['set', ['text', {
                                                                                 'delimiter': ['none', null],
                                                                                 'value': v_serialize_number.serialize(
@@ -330,7 +338,8 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                                                                     ),
                                                                     'cells': _p_cc(
                                                                         $['cells'],
-                                                                        ($) => ['list', $.__l_map(
+                                                                        ($) => ['list', _p.list.map(
+                                                                            $,
                                                                             ($) => ['group', ['verbose', _p.dictionary.literal(
                                                                                 {
                                                                                     'classes': _p_cc(
@@ -430,7 +439,8 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                                     ),
                                     'width': _p_cc(
                                         $['width'],
-                                        ($) => ['optional', $.__decide(
+                                        ($) => ['optional', _p.decide.optional(
+                                            $,
                                             ($): t_out.Value.optional => ['set', ['text', {
                                                 'delimiter': ['none', null],
                                                 'value': v_serialize_number.serialize(
@@ -442,7 +452,8 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                                     ),
                                     'height': _p_cc(
                                         $['height'],
-                                        ($) => ['optional', $.__decide(
+                                        ($) => ['optional', _p.decide.optional(
+                                            $,
                                             ($): t_out.Value.optional => ['set', ['text', {
                                                 'delimiter': ['none', null],
                                                 'value': v_serialize_number.serialize(
@@ -478,7 +489,8 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                                     ),
                                     'width': _p_cc(
                                         $['width'],
-                                        ($) => ['optional', $.__decide(
+                                        ($) => ['optional', _p.decide.optional(
+                                            $,
                                             ($): t_out.Value.optional => ['set', ['text', {
                                                 'delimiter': ['none', null],
                                                 'value': v_serialize_number.serialize(
@@ -490,7 +502,8 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', $.__l_map
                                     ),
                                     'height': _p_cc(
                                         $['height'],
-                                        ($) => ['optional', $.__decide(
+                                        ($) => ['optional', _p.decide.optional(
+                                            $,
                                             ($): t_out.Value.optional => ['set', ['text', {
                                                 'delimiter': ['none', null],
                                                 'value': v_serialize_number.serialize(

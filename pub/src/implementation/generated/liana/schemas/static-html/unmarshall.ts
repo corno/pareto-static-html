@@ -17,12 +17,13 @@ import * as v_unmarshalled_from_parse_tree from "astn-core/dist/implementation/m
 
 import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/schemas/parse_tree/transformers/location"
 
-export const Classes: t_signatures.Classes = ($, abort) => v_unmarshalled_from_parse_tree.List(
-    $,
-    ($) => abort(
-        ['expected a list', null]
-    )
-).__l_map(
+export const Classes: t_signatures.Classes = ($, abort) => _p.list.map(
+    v_unmarshalled_from_parse_tree.List(
+        $,
+        ($) => abort(
+            ['expected a list', null]
+        )
+    ),
     ($) => v_unmarshalled_from_parse_tree.Text(
         $,
         ($) => abort(
@@ -31,12 +32,13 @@ export const Classes: t_signatures.Classes = ($, abort) => v_unmarshalled_from_p
     )
 )
 
-export const Phrasing_Content: t_signatures.Phrasing_Content = ($, abort) => v_unmarshalled_from_parse_tree.List(
-    $,
-    ($) => abort(
-        ['expected a list', null]
-    )
-).__l_map(
+export const Phrasing_Content: t_signatures.Phrasing_Content = ($, abort) => _p.list.map(
+    v_unmarshalled_from_parse_tree.List(
+        $,
+        ($) => abort(
+            ['expected a list', null]
+        )
+    ),
     ($) => _p_cc(
         v_unmarshalled_from_parse_tree.State(
             $,
@@ -222,12 +224,13 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($, abort) => v_u
     )
 )
 
-export const Flow_Content: t_signatures.Flow_Content = ($, abort) => v_unmarshalled_from_parse_tree.List(
-    $,
-    ($) => abort(
-        ['expected a list', null]
-    )
-).__l_map(
+export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map(
+    v_unmarshalled_from_parse_tree.List(
+        $,
+        ($) => abort(
+            ['expected a list', null]
+        )
+    ),
     ($) => _p_cc(
         v_unmarshalled_from_parse_tree.State(
             $,
@@ -267,12 +270,13 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => v_unmarshal
                                                 ['no such entry', "width"]
                                             )
                                         ),
-                                        ($) => v_unmarshalled_from_parse_tree.Optional(
-                                            $,
-                                            ($) => abort(
-                                                ['expected an optional', null]
-                                            )
-                                        ).__o_map(
+                                        ($) => _p.optional.map(
+                                            v_unmarshalled_from_parse_tree.Optional(
+                                                $,
+                                                ($) => abort(
+                                                    ['expected an optional', null]
+                                                )
+                                            ),
                                             ($) => v_deserialize_number.deserialize(
                                                 v_unmarshalled_from_parse_tree.Text(
                                                     $,
@@ -293,12 +297,13 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => v_unmarshal
                                                 ['no such entry', "height"]
                                             )
                                         ),
-                                        ($) => v_unmarshalled_from_parse_tree.Optional(
-                                            $,
-                                            ($) => abort(
-                                                ['expected an optional', null]
-                                            )
-                                        ).__o_map(
+                                        ($) => _p.optional.map(
+                                            v_unmarshalled_from_parse_tree.Optional(
+                                                $,
+                                                ($) => abort(
+                                                    ['expected an optional', null]
+                                                )
+                                            ),
                                             ($) => v_deserialize_number.deserialize(
                                                 v_unmarshalled_from_parse_tree.Text(
                                                     $,
@@ -403,12 +408,13 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => v_unmarshal
                                                 ['no such entry', "sections"]
                                             )
                                         ),
-                                        ($) => v_unmarshalled_from_parse_tree.List(
-                                            $,
-                                            ($) => abort(
-                                                ['expected a list', null]
-                                            )
-                                        ).__l_map(
+                                        ($) => _p.list.map(
+                                            v_unmarshalled_from_parse_tree.List(
+                                                $,
+                                                ($) => abort(
+                                                    ['expected a list', null]
+                                                )
+                                            ),
                                             ($) => _p_cc(
                                                 v_unmarshalled_from_parse_tree.Group(
                                                     $,
@@ -495,12 +501,13 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => v_unmarshal
                                                                 ['no such entry', "rows"]
                                                             )
                                                         ),
-                                                        ($) => v_unmarshalled_from_parse_tree.List(
-                                                            $,
-                                                            ($) => abort(
-                                                                ['expected a list', null]
-                                                            )
-                                                        ).__l_map(
+                                                        ($) => _p.list.map(
+                                                            v_unmarshalled_from_parse_tree.List(
+                                                                $,
+                                                                ($) => abort(
+                                                                    ['expected a list', null]
+                                                                )
+                                                            ),
                                                             ($) => _p_cc(
                                                                 v_unmarshalled_from_parse_tree.Group(
                                                                     $,
@@ -577,12 +584,13 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => v_unmarshal
                                                                                 ['no such entry', "height"]
                                                                             )
                                                                         ),
-                                                                        ($) => v_unmarshalled_from_parse_tree.Optional(
-                                                                            $,
-                                                                            ($) => abort(
-                                                                                ['expected an optional', null]
-                                                                            )
-                                                                        ).__o_map(
+                                                                        ($) => _p.optional.map(
+                                                                            v_unmarshalled_from_parse_tree.Optional(
+                                                                                $,
+                                                                                ($) => abort(
+                                                                                    ['expected an optional', null]
+                                                                                )
+                                                                            ),
                                                                             ($) => v_deserialize_number.deserialize(
                                                                                 v_unmarshalled_from_parse_tree.Text(
                                                                                     $,
@@ -603,12 +611,13 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => v_unmarshal
                                                                                 ['no such entry', "cells"]
                                                                             )
                                                                         ),
-                                                                        ($) => v_unmarshalled_from_parse_tree.List(
-                                                                            $,
-                                                                            ($) => abort(
-                                                                                ['expected a list', null]
-                                                                            )
-                                                                        ).__l_map(
+                                                                        ($) => _p.list.map(
+                                                                            v_unmarshalled_from_parse_tree.List(
+                                                                                $,
+                                                                                ($) => abort(
+                                                                                    ['expected a list', null]
+                                                                                )
+                                                                            ),
                                                                             ($) => _p_cc(
                                                                                 v_unmarshalled_from_parse_tree.Group(
                                                                                     $,
@@ -786,12 +795,13 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => v_unmarshal
                                                 ['no such entry', "width"]
                                             )
                                         ),
-                                        ($) => v_unmarshalled_from_parse_tree.Optional(
-                                            $,
-                                            ($) => abort(
-                                                ['expected an optional', null]
-                                            )
-                                        ).__o_map(
+                                        ($) => _p.optional.map(
+                                            v_unmarshalled_from_parse_tree.Optional(
+                                                $,
+                                                ($) => abort(
+                                                    ['expected an optional', null]
+                                                )
+                                            ),
                                             ($) => v_deserialize_number.deserialize(
                                                 v_unmarshalled_from_parse_tree.Text(
                                                     $,
@@ -812,12 +822,13 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => v_unmarshal
                                                 ['no such entry', "height"]
                                             )
                                         ),
-                                        ($) => v_unmarshalled_from_parse_tree.Optional(
-                                            $,
-                                            ($) => abort(
-                                                ['expected an optional', null]
-                                            )
-                                        ).__o_map(
+                                        ($) => _p.optional.map(
+                                            v_unmarshalled_from_parse_tree.Optional(
+                                                $,
+                                                ($) => abort(
+                                                    ['expected an optional', null]
+                                                )
+                                            ),
                                             ($) => v_deserialize_number.deserialize(
                                                 v_unmarshalled_from_parse_tree.Text(
                                                     $,
@@ -880,12 +891,13 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => v_unmarshal
                                                 ['no such entry', "width"]
                                             )
                                         ),
-                                        ($) => v_unmarshalled_from_parse_tree.Optional(
-                                            $,
-                                            ($) => abort(
-                                                ['expected an optional', null]
-                                            )
-                                        ).__o_map(
+                                        ($) => _p.optional.map(
+                                            v_unmarshalled_from_parse_tree.Optional(
+                                                $,
+                                                ($) => abort(
+                                                    ['expected an optional', null]
+                                                )
+                                            ),
                                             ($) => v_deserialize_number.deserialize(
                                                 v_unmarshalled_from_parse_tree.Text(
                                                     $,
@@ -906,12 +918,13 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => v_unmarshal
                                                 ['no such entry', "height"]
                                             )
                                         ),
-                                        ($) => v_unmarshalled_from_parse_tree.Optional(
-                                            $,
-                                            ($) => abort(
-                                                ['expected an optional', null]
-                                            )
-                                        ).__o_map(
+                                        ($) => _p.optional.map(
+                                            v_unmarshalled_from_parse_tree.Optional(
+                                                $,
+                                                ($) => abort(
+                                                    ['expected an optional', null]
+                                                )
+                                            ),
                                             ($) => v_deserialize_number.deserialize(
                                                 v_unmarshalled_from_parse_tree.Text(
                                                     $,
