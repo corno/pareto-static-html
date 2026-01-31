@@ -5,6 +5,60 @@ import * as i_generic from "../../generic/deserialize"
 
 import * as i_out from "./data"
 
+export namespace Document_ {
+    
+    export type I = string
+    
+    export type O = i_out.Document
+    
+    export type E = i_generic.Error
+    
+    export namespace P {
+        
+        export type document_resource_identifier = string
+        
+        export type tab_size = number
+        
+    }
+    
+}
+
+export type Document_ = (
+    context: Document_.I,
+    abort: _pi.Abort<Document_.E>,
+    parameters: {
+        readonly 'document resource identifier': Document_.P.document_resource_identifier
+        readonly 'tab size': Document_.P.tab_size
+    },
+) => Document_.O
+
+export namespace Flow_Content_ {
+    
+    export type I = string
+    
+    export type O = i_out.Flow_Content
+    
+    export type E = i_generic.Error
+    
+    export namespace P {
+        
+        export type document_resource_identifier = string
+        
+        export type tab_size = number
+        
+    }
+    
+}
+
+export type Flow_Content_ = (
+    context: Flow_Content_.I,
+    abort: _pi.Abort<Flow_Content_.E>,
+    parameters: {
+        readonly 'document resource identifier': Flow_Content_.P.document_resource_identifier
+        readonly 'tab size': Flow_Content_.P.tab_size
+    },
+) => Flow_Content_.O
+
 export namespace Classes_ {
     
     export type I = string
@@ -59,63 +113,9 @@ export type Phrasing_Content_ = (
     },
 ) => Phrasing_Content_.O
 
-export namespace Flow_Content_ {
-    
-    export type I = string
-    
-    export type O = i_out.Flow_Content
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
-        
-        export type document_resource_identifier = string
-        
-        export type tab_size = number
-        
-    }
-    
-}
-
-export type Flow_Content_ = (
-    context: Flow_Content_.I,
-    abort: _pi.Abort<Flow_Content_.E>,
-    parameters: {
-        readonly 'document resource identifier': Flow_Content_.P.document_resource_identifier
-        readonly 'tab size': Flow_Content_.P.tab_size
-    },
-) => Flow_Content_.O
-
-export namespace Document_ {
-    
-    export type I = string
-    
-    export type O = i_out.Document
-    
-    export type E = i_generic.Error
-    
-    export namespace P {
-        
-        export type document_resource_identifier = string
-        
-        export type tab_size = number
-        
-    }
-    
-}
-
-export type Document_ = (
-    context: Document_.I,
-    abort: _pi.Abort<Document_.E>,
-    parameters: {
-        readonly 'document resource identifier': Document_.P.document_resource_identifier
-        readonly 'tab size': Document_.P.tab_size
-    },
-) => Document_.O
-
 export { 
+    Document_ as Document, 
+    Flow_Content_ as Flow_Content, 
     Classes_ as Classes, 
     Phrasing_Content_ as Phrasing_Content, 
-    Flow_Content_ as Flow_Content, 
-    Document_ as Document, 
 }

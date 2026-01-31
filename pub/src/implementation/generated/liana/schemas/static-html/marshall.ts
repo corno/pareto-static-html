@@ -13,128 +13,23 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 
-export const Classes: t_signatures.Classes = ($) => ['list', _p.list.map(
-    $,
-    ($) => ['text', {
-        'delimiter': ['quote', null],
-        'value': $,
-    }]
-)]
-
-export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => ['list', _p.list.map(
-    $,
-    ($) => ['state', _p.decide.state(
-        $,
-        ($): t_out.Value.state => {
-            switch ($[0]) {
-                case 'span':
-                    return _p.ss(
-                        $,
-                        ($) => ({
-                            'option': 'span',
-                            'value': Phrasing_Content(
-                                $
-                            ),
-                        })
-                    )
-                case 'classified span':
-                    return _p.ss(
-                        $,
-                        ($) => ({
-                            'option': 'classified span',
-                            'value': ['group', ['verbose', _p.dictionary.literal(
-                                {
-                                    'classes': _p_cc(
-                                        $['classes'],
-                                        ($) => Classes(
-                                            $
-                                        )
-                                    ),
-                                    'content': _p_cc(
-                                        $['content'],
-                                        ($) => Phrasing_Content(
-                                            $
-                                        )
-                                    ),
-                                }
-                            )]],
-                        })
-                    )
-                case 'titled span':
-                    return _p.ss(
-                        $,
-                        ($) => ({
-                            'option': 'titled span',
-                            'value': ['group', ['verbose', _p.dictionary.literal(
-                                {
-                                    'title': _p_cc(
-                                        $['title'],
-                                        ($) => ['text', {
-                                            'delimiter': ['quote', null],
-                                            'value': $,
-                                        }]
-                                    ),
-                                    'content': _p_cc(
-                                        $['content'],
-                                        ($) => Phrasing_Content(
-                                            $
-                                        )
-                                    ),
-                                }
-                            )]],
-                        })
-                    )
-                case 'a':
-                    return _p.ss(
-                        $,
-                        ($) => ({
-                            'option': 'a',
-                            'value': ['group', ['verbose', _p.dictionary.literal(
-                                {
-                                    'text': _p_cc(
-                                        $['text'],
-                                        ($) => ['text', {
-                                            'delimiter': ['quote', null],
-                                            'value': $,
-                                        }]
-                                    ),
-                                    'href': _p_cc(
-                                        $['href'],
-                                        ($) => ['text', {
-                                            'delimiter': ['quote', null],
-                                            'value': $,
-                                        }]
-                                    ),
-                                }
-                            )]],
-                        })
-                    )
-                case 'p':
-                    return _p.ss(
-                        $,
-                        ($) => ({
-                            'option': 'p',
-                            'value': ['group', ['verbose', _p.dictionary.literal(
-                                {
-                                    'text': _p_cc(
-                                        $['text'],
-                                        ($) => ['text', {
-                                            'delimiter': ['quote', null],
-                                            'value': $,
-                                        }]
-                                    ),
-                                }
-                            )]],
-                        })
-                    )
-                default:
-                    return _p.au(
-                        $[0]
-                    )
-            }
-        }
-    )]
-)]
+export const Document: t_signatures.Document = ($) => ['group', ['verbose', _p.dictionary.literal(
+    {
+        'css': _p_cc(
+            $['css'],
+            ($) => ['text', {
+                'delimiter': ['quote', null],
+                'value': $,
+            }]
+        ),
+        'root': _p_cc(
+            $['root'],
+            ($) => Flow_Content(
+                $
+            )
+        ),
+    }
+)]]
 
 export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', _p.list.map(
     $,
@@ -526,20 +421,125 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', _p.list.m
     )]
 )]
 
-export const Document: t_signatures.Document = ($) => ['group', ['verbose', _p.dictionary.literal(
-    {
-        'css': _p_cc(
-            $['css'],
-            ($) => ['text', {
-                'delimiter': ['quote', null],
-                'value': $,
-            }]
-        ),
-        'root': _p_cc(
-            $['root'],
-            ($) => Flow_Content(
-                $
-            )
-        ),
-    }
-)]]
+export const Classes: t_signatures.Classes = ($) => ['list', _p.list.map(
+    $,
+    ($) => ['text', {
+        'delimiter': ['quote', null],
+        'value': $,
+    }]
+)]
+
+export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => ['list', _p.list.map(
+    $,
+    ($) => ['state', _p.decide.state(
+        $,
+        ($): t_out.Value.state => {
+            switch ($[0]) {
+                case 'span':
+                    return _p.ss(
+                        $,
+                        ($) => ({
+                            'option': 'span',
+                            'value': Phrasing_Content(
+                                $
+                            ),
+                        })
+                    )
+                case 'classified span':
+                    return _p.ss(
+                        $,
+                        ($) => ({
+                            'option': 'classified span',
+                            'value': ['group', ['verbose', _p.dictionary.literal(
+                                {
+                                    'classes': _p_cc(
+                                        $['classes'],
+                                        ($) => Classes(
+                                            $
+                                        )
+                                    ),
+                                    'content': _p_cc(
+                                        $['content'],
+                                        ($) => Phrasing_Content(
+                                            $
+                                        )
+                                    ),
+                                }
+                            )]],
+                        })
+                    )
+                case 'titled span':
+                    return _p.ss(
+                        $,
+                        ($) => ({
+                            'option': 'titled span',
+                            'value': ['group', ['verbose', _p.dictionary.literal(
+                                {
+                                    'title': _p_cc(
+                                        $['title'],
+                                        ($) => ['text', {
+                                            'delimiter': ['quote', null],
+                                            'value': $,
+                                        }]
+                                    ),
+                                    'content': _p_cc(
+                                        $['content'],
+                                        ($) => Phrasing_Content(
+                                            $
+                                        )
+                                    ),
+                                }
+                            )]],
+                        })
+                    )
+                case 'a':
+                    return _p.ss(
+                        $,
+                        ($) => ({
+                            'option': 'a',
+                            'value': ['group', ['verbose', _p.dictionary.literal(
+                                {
+                                    'text': _p_cc(
+                                        $['text'],
+                                        ($) => ['text', {
+                                            'delimiter': ['quote', null],
+                                            'value': $,
+                                        }]
+                                    ),
+                                    'href': _p_cc(
+                                        $['href'],
+                                        ($) => ['text', {
+                                            'delimiter': ['quote', null],
+                                            'value': $,
+                                        }]
+                                    ),
+                                }
+                            )]],
+                        })
+                    )
+                case 'p':
+                    return _p.ss(
+                        $,
+                        ($) => ({
+                            'option': 'p',
+                            'value': ['group', ['verbose', _p.dictionary.literal(
+                                {
+                                    'text': _p_cc(
+                                        $['text'],
+                                        ($) => ['text', {
+                                            'delimiter': ['quote', null],
+                                            'value': $,
+                                        }]
+                                    ),
+                                }
+                            )]],
+                        })
+                    )
+                default:
+                    return _p.au(
+                        $[0]
+                    )
+            }
+        }
+    )]
+)]

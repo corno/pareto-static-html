@@ -1,81 +1,18 @@
 
 import * as _pi from "pareto-core/dist/interface"
 
-export namespace Classes_ {
+export namespace Document_ {
     
-    export type L = string
+    export type css = string
     
-}
-
-export type Classes_ = _pi.List<Classes_.L>
-
-export namespace Phrasing_Content_ {
-    
-    export namespace L {
-        
-        export type span = Phrasing_Content_
-        
-        export namespace classified_span {
-            
-            export type classes = Classes_
-            
-            export type content = Phrasing_Content_
-            
-        }
-        
-        export type classified_span = {
-            readonly 'classes': classified_span.classes
-            readonly 'content': classified_span.content
-        }
-        
-        export namespace titled_span {
-            
-            export type title = string
-            
-            export type content = Phrasing_Content_
-            
-        }
-        
-        export type titled_span = {
-            readonly 'title': titled_span.title
-            readonly 'content': titled_span.content
-        }
-        
-        export namespace a {
-            
-            export type text = string
-            
-            export type href = string
-            
-        }
-        
-        export type a = {
-            readonly 'text': a.text
-            readonly 'href': a.href
-        }
-        
-        export namespace p {
-            
-            export type text = string
-            
-        }
-        
-        export type p = {
-            readonly 'text': p.text
-        }
-        
-    }
-    
-    export type L = 
-        | readonly ['span', L.span]
-        | readonly ['classified span', L.classified_span]
-        | readonly ['titled span', L.titled_span]
-        | readonly ['a', L.a]
-        | readonly ['p', L.p]
+    export type root = Flow_Content_
     
 }
 
-export type Phrasing_Content_ = _pi.List<Phrasing_Content_.L>
+export type Document_ = {
+    readonly 'css': Document_.css
+    readonly 'root': Document_.root
+}
 
 export namespace Flow_Content_ {
     
@@ -325,22 +262,85 @@ export namespace Flow_Content_ {
 
 export type Flow_Content_ = _pi.List<Flow_Content_.L>
 
-export namespace Document_ {
+export namespace Classes_ {
     
-    export type css = string
-    
-    export type root = Flow_Content_
+    export type L = string
     
 }
 
-export type Document_ = {
-    readonly 'css': Document_.css
-    readonly 'root': Document_.root
+export type Classes_ = _pi.List<Classes_.L>
+
+export namespace Phrasing_Content_ {
+    
+    export namespace L {
+        
+        export type span = Phrasing_Content_
+        
+        export namespace classified_span {
+            
+            export type classes = Classes_
+            
+            export type content = Phrasing_Content_
+            
+        }
+        
+        export type classified_span = {
+            readonly 'classes': classified_span.classes
+            readonly 'content': classified_span.content
+        }
+        
+        export namespace titled_span {
+            
+            export type title = string
+            
+            export type content = Phrasing_Content_
+            
+        }
+        
+        export type titled_span = {
+            readonly 'title': titled_span.title
+            readonly 'content': titled_span.content
+        }
+        
+        export namespace a {
+            
+            export type text = string
+            
+            export type href = string
+            
+        }
+        
+        export type a = {
+            readonly 'text': a.text
+            readonly 'href': a.href
+        }
+        
+        export namespace p {
+            
+            export type text = string
+            
+        }
+        
+        export type p = {
+            readonly 'text': p.text
+        }
+        
+    }
+    
+    export type L = 
+        | readonly ['span', L.span]
+        | readonly ['classified span', L.classified_span]
+        | readonly ['titled span', L.titled_span]
+        | readonly ['a', L.a]
+        | readonly ['p', L.p]
+    
 }
+
+export type Phrasing_Content_ = _pi.List<Phrasing_Content_.L>
 
 export { 
+    Document_ as Document, 
+    Flow_Content_ as Flow_Content, 
     Classes_ as Classes, 
     Phrasing_Content_ as Phrasing_Content, 
-    Flow_Content_ as Flow_Content, 
-    Document_ as Document, 
 }

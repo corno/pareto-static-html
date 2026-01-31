@@ -17,211 +17,43 @@ import * as v_unmarshalled_from_parse_tree from "astn-core/dist/implementation/m
 
 import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/schemas/parse_tree/transformers/location"
 
-export const Classes: t_signatures.Classes = ($, abort) => _p.list.map(
-    v_unmarshalled_from_parse_tree.List(
+export const Document: t_signatures.Document = ($, abort) => _p_cc(
+    v_unmarshalled_from_parse_tree.Group(
         $,
         ($) => abort(
-            ['expected a list', null]
+            ['expected a group', null]
         )
     ),
-    ($) => v_unmarshalled_from_parse_tree.Text(
-        $,
-        ($) => abort(
-            ['expected a text', null]
-        )
-    )
-)
-
-export const Phrasing_Content: t_signatures.Phrasing_Content = ($, abort) => _p.list.map(
-    v_unmarshalled_from_parse_tree.List(
-        $,
-        ($) => abort(
-            ['expected a list', null]
-        )
-    ),
-    ($) => _p_cc(
-        v_unmarshalled_from_parse_tree.State(
-            $,
-            ($) => abort(
-                ['expected a state', null]
+    ($) => ({
+        'css': _p_cc(
+            $.__get_entry(
+                'css',
+                ($) => abort(
+                    ['no such entry', "css"]
+                )
+            ),
+            ($) => v_unmarshalled_from_parse_tree.Text(
+                $,
+                ($) => abort(
+                    ['expected a text', null]
+                )
             )
         ),
-        ($) => _p.decide.text(
-            $['option']['value'],
-            ($t): t_out.Phrasing_Content.L => {
-                switch ($t) {
-                    case 'span':
-                        return _p_cc(
-                            $['value'],
-                            ($) => ['span', Phrasing_Content(
-                                $,
-                                ($) => abort(
-                                    $
-                                )
-                            )]
-                        )
-                    case 'classified span':
-                        return _p_cc(
-                            $['value'],
-                            ($) => ['classified span', _p_cc(
-                                v_unmarshalled_from_parse_tree.Group(
-                                    $,
-                                    ($) => abort(
-                                        ['expected a group', null]
-                                    )
-                                ),
-                                ($) => ({
-                                    'classes': _p_cc(
-                                        $.__get_entry(
-                                            'classes',
-                                            ($) => abort(
-                                                ['no such entry', "classes"]
-                                            )
-                                        ),
-                                        ($) => Classes(
-                                            $,
-                                            ($) => abort(
-                                                $
-                                            )
-                                        )
-                                    ),
-                                    'content': _p_cc(
-                                        $.__get_entry(
-                                            'content',
-                                            ($) => abort(
-                                                ['no such entry', "content"]
-                                            )
-                                        ),
-                                        ($) => Phrasing_Content(
-                                            $,
-                                            ($) => abort(
-                                                $
-                                            )
-                                        )
-                                    ),
-                                })
-                            )]
-                        )
-                    case 'titled span':
-                        return _p_cc(
-                            $['value'],
-                            ($) => ['titled span', _p_cc(
-                                v_unmarshalled_from_parse_tree.Group(
-                                    $,
-                                    ($) => abort(
-                                        ['expected a group', null]
-                                    )
-                                ),
-                                ($) => ({
-                                    'title': _p_cc(
-                                        $.__get_entry(
-                                            'title',
-                                            ($) => abort(
-                                                ['no such entry', "title"]
-                                            )
-                                        ),
-                                        ($) => v_unmarshalled_from_parse_tree.Text(
-                                            $,
-                                            ($) => abort(
-                                                ['expected a text', null]
-                                            )
-                                        )
-                                    ),
-                                    'content': _p_cc(
-                                        $.__get_entry(
-                                            'content',
-                                            ($) => abort(
-                                                ['no such entry', "content"]
-                                            )
-                                        ),
-                                        ($) => Phrasing_Content(
-                                            $,
-                                            ($) => abort(
-                                                $
-                                            )
-                                        )
-                                    ),
-                                })
-                            )]
-                        )
-                    case 'a':
-                        return _p_cc(
-                            $['value'],
-                            ($) => ['a', _p_cc(
-                                v_unmarshalled_from_parse_tree.Group(
-                                    $,
-                                    ($) => abort(
-                                        ['expected a group', null]
-                                    )
-                                ),
-                                ($) => ({
-                                    'text': _p_cc(
-                                        $.__get_entry(
-                                            'text',
-                                            ($) => abort(
-                                                ['no such entry', "text"]
-                                            )
-                                        ),
-                                        ($) => v_unmarshalled_from_parse_tree.Text(
-                                            $,
-                                            ($) => abort(
-                                                ['expected a text', null]
-                                            )
-                                        )
-                                    ),
-                                    'href': _p_cc(
-                                        $.__get_entry(
-                                            'href',
-                                            ($) => abort(
-                                                ['no such entry', "href"]
-                                            )
-                                        ),
-                                        ($) => v_unmarshalled_from_parse_tree.Text(
-                                            $,
-                                            ($) => abort(
-                                                ['expected a text', null]
-                                            )
-                                        )
-                                    ),
-                                })
-                            )]
-                        )
-                    case 'p':
-                        return _p_cc(
-                            $['value'],
-                            ($) => ['p', _p_cc(
-                                v_unmarshalled_from_parse_tree.Group(
-                                    $,
-                                    ($) => abort(
-                                        ['expected a group', null]
-                                    )
-                                ),
-                                ($) => ({
-                                    'text': _p_cc(
-                                        $.__get_entry(
-                                            'text',
-                                            ($) => abort(
-                                                ['no such entry', "text"]
-                                            )
-                                        ),
-                                        ($) => v_unmarshalled_from_parse_tree.Text(
-                                            $,
-                                            ($) => abort(
-                                                ['expected a text', null]
-                                            )
-                                        )
-                                    ),
-                                })
-                            )]
-                        )
-                    default:
-                        return abort(
-                            ['unknown option', $['option']['value']]
-                        )
-                }
-            }
-        )
-    )
+        'root': _p_cc(
+            $.__get_entry(
+                'root',
+                ($) => abort(
+                    ['no such entry', "root"]
+                )
+            ),
+            ($) => Flow_Content(
+                $,
+                ($) => abort(
+                    $
+                )
+            )
+        ),
+    })
 )
 
 export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map(
@@ -951,41 +783,209 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
     )
 )
 
-export const Document: t_signatures.Document = ($, abort) => _p_cc(
-    v_unmarshalled_from_parse_tree.Group(
+export const Classes: t_signatures.Classes = ($, abort) => _p.list.map(
+    v_unmarshalled_from_parse_tree.List(
         $,
         ($) => abort(
-            ['expected a group', null]
+            ['expected a list', null]
         )
     ),
-    ($) => ({
-        'css': _p_cc(
-            $.__get_entry(
-                'css',
-                ($) => abort(
-                    ['no such entry', "css"]
-                )
-            ),
-            ($) => v_unmarshalled_from_parse_tree.Text(
-                $,
-                ($) => abort(
-                    ['expected a text', null]
-                )
+    ($) => v_unmarshalled_from_parse_tree.Text(
+        $,
+        ($) => abort(
+            ['expected a text', null]
+        )
+    )
+)
+
+export const Phrasing_Content: t_signatures.Phrasing_Content = ($, abort) => _p.list.map(
+    v_unmarshalled_from_parse_tree.List(
+        $,
+        ($) => abort(
+            ['expected a list', null]
+        )
+    ),
+    ($) => _p_cc(
+        v_unmarshalled_from_parse_tree.State(
+            $,
+            ($) => abort(
+                ['expected a state', null]
             )
         ),
-        'root': _p_cc(
-            $.__get_entry(
-                'root',
-                ($) => abort(
-                    ['no such entry', "root"]
-                )
-            ),
-            ($) => Flow_Content(
-                $,
-                ($) => abort(
-                    $
-                )
-            )
-        ),
-    })
+        ($) => _p.decide.text(
+            $['option']['value'],
+            ($t): t_out.Phrasing_Content.L => {
+                switch ($t) {
+                    case 'span':
+                        return _p_cc(
+                            $['value'],
+                            ($) => ['span', Phrasing_Content(
+                                $,
+                                ($) => abort(
+                                    $
+                                )
+                            )]
+                        )
+                    case 'classified span':
+                        return _p_cc(
+                            $['value'],
+                            ($) => ['classified span', _p_cc(
+                                v_unmarshalled_from_parse_tree.Group(
+                                    $,
+                                    ($) => abort(
+                                        ['expected a group', null]
+                                    )
+                                ),
+                                ($) => ({
+                                    'classes': _p_cc(
+                                        $.__get_entry(
+                                            'classes',
+                                            ($) => abort(
+                                                ['no such entry', "classes"]
+                                            )
+                                        ),
+                                        ($) => Classes(
+                                            $,
+                                            ($) => abort(
+                                                $
+                                            )
+                                        )
+                                    ),
+                                    'content': _p_cc(
+                                        $.__get_entry(
+                                            'content',
+                                            ($) => abort(
+                                                ['no such entry', "content"]
+                                            )
+                                        ),
+                                        ($) => Phrasing_Content(
+                                            $,
+                                            ($) => abort(
+                                                $
+                                            )
+                                        )
+                                    ),
+                                })
+                            )]
+                        )
+                    case 'titled span':
+                        return _p_cc(
+                            $['value'],
+                            ($) => ['titled span', _p_cc(
+                                v_unmarshalled_from_parse_tree.Group(
+                                    $,
+                                    ($) => abort(
+                                        ['expected a group', null]
+                                    )
+                                ),
+                                ($) => ({
+                                    'title': _p_cc(
+                                        $.__get_entry(
+                                            'title',
+                                            ($) => abort(
+                                                ['no such entry', "title"]
+                                            )
+                                        ),
+                                        ($) => v_unmarshalled_from_parse_tree.Text(
+                                            $,
+                                            ($) => abort(
+                                                ['expected a text', null]
+                                            )
+                                        )
+                                    ),
+                                    'content': _p_cc(
+                                        $.__get_entry(
+                                            'content',
+                                            ($) => abort(
+                                                ['no such entry', "content"]
+                                            )
+                                        ),
+                                        ($) => Phrasing_Content(
+                                            $,
+                                            ($) => abort(
+                                                $
+                                            )
+                                        )
+                                    ),
+                                })
+                            )]
+                        )
+                    case 'a':
+                        return _p_cc(
+                            $['value'],
+                            ($) => ['a', _p_cc(
+                                v_unmarshalled_from_parse_tree.Group(
+                                    $,
+                                    ($) => abort(
+                                        ['expected a group', null]
+                                    )
+                                ),
+                                ($) => ({
+                                    'text': _p_cc(
+                                        $.__get_entry(
+                                            'text',
+                                            ($) => abort(
+                                                ['no such entry', "text"]
+                                            )
+                                        ),
+                                        ($) => v_unmarshalled_from_parse_tree.Text(
+                                            $,
+                                            ($) => abort(
+                                                ['expected a text', null]
+                                            )
+                                        )
+                                    ),
+                                    'href': _p_cc(
+                                        $.__get_entry(
+                                            'href',
+                                            ($) => abort(
+                                                ['no such entry', "href"]
+                                            )
+                                        ),
+                                        ($) => v_unmarshalled_from_parse_tree.Text(
+                                            $,
+                                            ($) => abort(
+                                                ['expected a text', null]
+                                            )
+                                        )
+                                    ),
+                                })
+                            )]
+                        )
+                    case 'p':
+                        return _p_cc(
+                            $['value'],
+                            ($) => ['p', _p_cc(
+                                v_unmarshalled_from_parse_tree.Group(
+                                    $,
+                                    ($) => abort(
+                                        ['expected a group', null]
+                                    )
+                                ),
+                                ($) => ({
+                                    'text': _p_cc(
+                                        $.__get_entry(
+                                            'text',
+                                            ($) => abort(
+                                                ['no such entry', "text"]
+                                            )
+                                        ),
+                                        ($) => v_unmarshalled_from_parse_tree.Text(
+                                            $,
+                                            ($) => abort(
+                                                ['expected a text', null]
+                                            )
+                                        )
+                                    ),
+                                })
+                            )]
+                        )
+                    default:
+                        return abort(
+                            ['unknown option', $['option']['value']]
+                        )
+                }
+            }
+        )
+    )
 )

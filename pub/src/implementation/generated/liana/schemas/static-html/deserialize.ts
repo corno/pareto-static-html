@@ -7,23 +7,7 @@ import * as v_deserialize from "astn-core/dist/implementation/manual/schemas/par
 
 import * as v_unmarshall from "./unmarshall"
 
-export const Classes: t_signatures.Classes = ($, abort, $p) => v_unmarshall.Classes(
-    v_deserialize.Document(
-        $,
-        ($) => abort(
-            ['tbd', null]
-        ),
-        {
-            'document resource identifier': $p['document resource identifier'],
-            'tab size': $p['tab size'],
-        }
-    )['content'],
-    ($) => abort(
-        ['tbd', null]
-    )
-)
-
-export const Phrasing_Content: t_signatures.Phrasing_Content = ($, abort, $p) => v_unmarshall.Phrasing_Content(
+export const Document: t_signatures.Document = ($, abort, $p) => v_unmarshall.Document(
     v_deserialize.Document(
         $,
         ($) => abort(
@@ -55,7 +39,23 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort, $p) => v_unmar
     )
 )
 
-export const Document: t_signatures.Document = ($, abort, $p) => v_unmarshall.Document(
+export const Classes: t_signatures.Classes = ($, abort, $p) => v_unmarshall.Classes(
+    v_deserialize.Document(
+        $,
+        ($) => abort(
+            ['tbd', null]
+        ),
+        {
+            'document resource identifier': $p['document resource identifier'],
+            'tab size': $p['tab size'],
+        }
+    )['content'],
+    ($) => abort(
+        ['tbd', null]
+    )
+)
+
+export const Phrasing_Content: t_signatures.Phrasing_Content = ($, abort, $p) => v_unmarshall.Phrasing_Content(
     v_deserialize.Document(
         $,
         ($) => abort(

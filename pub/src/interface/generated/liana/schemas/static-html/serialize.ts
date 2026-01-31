@@ -3,6 +3,38 @@ import * as _pi from "pareto-core/dist/interface"
 
 import * as i_in from "./data"
 
+export namespace Document_ {
+    
+    export type I = i_in.Document
+    
+    export type O = string
+    
+    export namespace P {
+        
+    }
+    
+}
+
+export type Document_ = (
+    context: Document_.I,
+) => Document_.O
+
+export namespace Flow_Content_ {
+    
+    export type I = i_in.Flow_Content
+    
+    export type O = string
+    
+    export namespace P {
+        
+    }
+    
+}
+
+export type Flow_Content_ = (
+    context: Flow_Content_.I,
+) => Flow_Content_.O
+
 export namespace Classes_ {
     
     export type I = i_in.Classes
@@ -35,41 +67,9 @@ export type Phrasing_Content_ = (
     context: Phrasing_Content_.I,
 ) => Phrasing_Content_.O
 
-export namespace Flow_Content_ {
-    
-    export type I = i_in.Flow_Content
-    
-    export type O = string
-    
-    export namespace P {
-        
-    }
-    
-}
-
-export type Flow_Content_ = (
-    context: Flow_Content_.I,
-) => Flow_Content_.O
-
-export namespace Document_ {
-    
-    export type I = i_in.Document
-    
-    export type O = string
-    
-    export namespace P {
-        
-    }
-    
-}
-
-export type Document_ = (
-    context: Document_.I,
-) => Document_.O
-
 export { 
+    Document_ as Document, 
+    Flow_Content_ as Flow_Content, 
     Classes_ as Classes, 
     Phrasing_Content_ as Phrasing_Content, 
-    Flow_Content_ as Flow_Content, 
-    Document_ as Document, 
 }
