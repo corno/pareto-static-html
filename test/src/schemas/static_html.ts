@@ -3,8 +3,6 @@ import * as _pt from 'pareto-core/dist/expression'
 
 import * as sh from "pareto-test/dist/temporary_testset_generator/shorthands"
 
-import * as s_static_html from "pub/dist/implementation/manual/schemas/static_html/serializers"
-
 
 // import * as s_unmarshall from "pub/dist/implementation/generated/liana/serialize_unmarshall_error"
 
