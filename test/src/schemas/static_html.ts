@@ -1,5 +1,5 @@
 import * as _pi from 'pareto-core/dist/interface'
-import * as _pt from 'pareto-core/dist/transformer'
+import * as _pt from 'pareto-core/dist/expression'
 
 import * as sh from "pareto-test/dist/temporary_testset_generator/shorthands"
 
