@@ -8,7 +8,7 @@
     "dist"
   ],
   "dependencies": {
-    "astn-core": "^0.5.18",
-    "pareto-fountain-pen": "^0.4.15"
+    "astn-core": "^0.5.19",
+    "pareto-fountain-pen": "^0.4.18"
   }
 }
