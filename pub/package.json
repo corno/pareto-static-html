@@ -1,6 +1,6 @@
 {
   "name": "pareto-static-html",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "description": "a library for creating static HTML documents using Pareto",
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",
