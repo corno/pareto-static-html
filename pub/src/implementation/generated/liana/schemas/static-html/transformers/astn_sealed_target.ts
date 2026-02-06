@@ -1,9 +1,9 @@
     
-    import * as _p from "pareto-core/dist/expression"
+    import * as _p from 'pareto-core/dist/expression'
     
-    import _p_change_context from "pareto-core/dist/_p_change_context"
+    import _p_change_context from 'pareto-core/dist/_p_change_context'
     
-    import _p_text_from_list from "pareto-core/dist/_p_text_from_list"
+    import _p_text_from_list from 'pareto-core/dist/_p_text_from_list'
     
     import * as t_signatures from "../../../../../../interface/generated/liana/schemas/static-html/marshall"
     
@@ -15,14 +15,14 @@
     
     export const Document: t_signatures.Document = ($) => ['group', ['verbose', _p.dictionary.literal(
         {
-            'css': _p_change_context(
+            "css": _p_change_context(
                 $['css'],
                 ($) => ['text', {
                     'delimiter': ['quote', null],
                     'value': $,
                 }],
             ),
-            'root': _p_change_context(
+            "root": _p_change_context(
                 $['root'],
                 ($) => Flow_Content(
                     $,
@@ -54,7 +54,7 @@
                                 'option': 'dimensioned div',
                                 'value': ['group', ['verbose', _p.dictionary.literal(
                                     {
-                                        'width': _p_change_context(
+                                        "width": _p_change_context(
                                             $['width'],
                                             ($) => ['optional', _p.decide.optional(
                                                 $,
@@ -70,7 +70,7 @@
                                                 () => ['not set', null],
                                             )],
                                         ),
-                                        'height': _p_change_context(
+                                        "height": _p_change_context(
                                             $['height'],
                                             ($) => ['optional', _p.decide.optional(
                                                 $,
@@ -86,7 +86,7 @@
                                                 () => ['not set', null],
                                             )],
                                         ),
-                                        'content': _p_change_context(
+                                        "content": _p_change_context(
                                             $['content'],
                                             ($) => Flow_Content(
                                                 $,
@@ -103,13 +103,13 @@
                                 'option': 'classified div',
                                 'value': ['group', ['verbose', _p.dictionary.literal(
                                     {
-                                        'classes': _p_change_context(
+                                        "classes": _p_change_context(
                                             $['classes'],
                                             ($) => Classes(
                                                 $,
                                             ),
                                         ),
-                                        'content': _p_change_context(
+                                        "content": _p_change_context(
                                             $['content'],
                                             ($) => Flow_Content(
                                                 $,
@@ -126,25 +126,25 @@
                                 'option': 'table',
                                 'value': ['group', ['verbose', _p.dictionary.literal(
                                     {
-                                        'classes': _p_change_context(
+                                        "classes": _p_change_context(
                                             $['classes'],
                                             ($) => Classes(
                                                 $,
                                             ),
                                         ),
-                                        'sections': _p_change_context(
+                                        "sections": _p_change_context(
                                             $['sections'],
                                             ($) => ['list', _p.list.map(
                                                 $,
                                                 ($) => ['group', ['verbose', _p.dictionary.literal(
                                                     {
-                                                        'classes': _p_change_context(
+                                                        "classes": _p_change_context(
                                                             $['classes'],
                                                             ($) => Classes(
                                                                 $,
                                                             ),
                                                         ),
-                                                        'type': _p_change_context(
+                                                        "type": _p_change_context(
                                                             $['type'],
                                                             ($) => ['state', _p.decide.state(
                                                                 $,
@@ -182,19 +182,19 @@
                                                                 },
                                                             )],
                                                         ),
-                                                        'rows': _p_change_context(
+                                                        "rows": _p_change_context(
                                                             $['rows'],
                                                             ($) => ['list', _p.list.map(
                                                                 $,
                                                                 ($) => ['group', ['verbose', _p.dictionary.literal(
                                                                     {
-                                                                        'classes': _p_change_context(
+                                                                        "classes": _p_change_context(
                                                                             $['classes'],
                                                                             ($) => Classes(
                                                                                 $,
                                                                             ),
                                                                         ),
-                                                                        'type': _p_change_context(
+                                                                        "type": _p_change_context(
                                                                             $['type'],
                                                                             ($) => ['state', _p.decide.state(
                                                                                 $,
@@ -224,7 +224,7 @@
                                                                                 },
                                                                             )],
                                                                         ),
-                                                                        'height': _p_change_context(
+                                                                        "height": _p_change_context(
                                                                             $['height'],
                                                                             ($) => ['optional', _p.decide.optional(
                                                                                 $,
@@ -240,19 +240,19 @@
                                                                                 () => ['not set', null],
                                                                             )],
                                                                         ),
-                                                                        'cells': _p_change_context(
+                                                                        "cells": _p_change_context(
                                                                             $['cells'],
                                                                             ($) => ['list', _p.list.map(
                                                                                 $,
                                                                                 ($) => ['group', ['verbose', _p.dictionary.literal(
                                                                                     {
-                                                                                        'classes': _p_change_context(
+                                                                                        "classes": _p_change_context(
                                                                                             $['classes'],
                                                                                             ($) => Classes(
                                                                                                 $,
                                                                                             ),
                                                                                         ),
-                                                                                        'content': _p_change_context(
+                                                                                        "content": _p_change_context(
                                                                                             $['content'],
                                                                                             ($) => Flow_Content(
                                                                                                 $,
@@ -291,20 +291,20 @@
                                 'option': 'label',
                                 'value': ['group', ['verbose', _p.dictionary.literal(
                                     {
-                                        'classes': _p_change_context(
+                                        "classes": _p_change_context(
                                             $['classes'],
                                             ($) => Classes(
                                                 $,
                                             ),
                                         ),
-                                        'text': _p_change_context(
+                                        "text": _p_change_context(
                                             $['text'],
                                             ($) => ['text', {
                                                 'delimiter': ['quote', null],
                                                 'value': $,
                                             }],
                                         ),
-                                        'content': _p_change_context(
+                                        "content": _p_change_context(
                                             $['content'],
                                             ($) => Flow_Content(
                                                 $,
@@ -321,27 +321,27 @@
                                 'option': 'img',
                                 'value': ['group', ['verbose', _p.dictionary.literal(
                                     {
-                                        'classes': _p_change_context(
+                                        "classes": _p_change_context(
                                             $['classes'],
                                             ($) => Classes(
                                                 $,
                                             ),
                                         ),
-                                        'src': _p_change_context(
+                                        "src": _p_change_context(
                                             $['src'],
                                             ($) => ['text', {
                                                 'delimiter': ['quote', null],
                                                 'value': $,
                                             }],
                                         ),
-                                        'alt': _p_change_context(
+                                        "alt": _p_change_context(
                                             $['alt'],
                                             ($) => ['text', {
                                                 'delimiter': ['quote', null],
                                                 'value': $,
                                             }],
                                         ),
-                                        'width': _p_change_context(
+                                        "width": _p_change_context(
                                             $['width'],
                                             ($) => ['optional', _p.decide.optional(
                                                 $,
@@ -357,7 +357,7 @@
                                                 () => ['not set', null],
                                             )],
                                         ),
-                                        'height': _p_change_context(
+                                        "height": _p_change_context(
                                             $['height'],
                                             ($) => ['optional', _p.decide.optional(
                                                 $,
@@ -384,20 +384,20 @@
                                 'option': 'svg',
                                 'value': ['group', ['verbose', _p.dictionary.literal(
                                     {
-                                        'classes': _p_change_context(
+                                        "classes": _p_change_context(
                                             $['classes'],
                                             ($) => Classes(
                                                 $,
                                             ),
                                         ),
-                                        'content': _p_change_context(
+                                        "content": _p_change_context(
                                             $['content'],
                                             ($) => ['text', {
                                                 'delimiter': ['quote', null],
                                                 'value': $,
                                             }],
                                         ),
-                                        'width': _p_change_context(
+                                        "width": _p_change_context(
                                             $['width'],
                                             ($) => ['optional', _p.decide.optional(
                                                 $,
@@ -413,7 +413,7 @@
                                                 () => ['not set', null],
                                             )],
                                         ),
-                                        'height': _p_change_context(
+                                        "height": _p_change_context(
                                             $['height'],
                                             ($) => ['optional', _p.decide.optional(
                                                 $,
@@ -473,13 +473,13 @@
                                 'option': 'classified span',
                                 'value': ['group', ['verbose', _p.dictionary.literal(
                                     {
-                                        'classes': _p_change_context(
+                                        "classes": _p_change_context(
                                             $['classes'],
                                             ($) => Classes(
                                                 $,
                                             ),
                                         ),
-                                        'content': _p_change_context(
+                                        "content": _p_change_context(
                                             $['content'],
                                             ($) => Phrasing_Content(
                                                 $,
@@ -496,14 +496,14 @@
                                 'option': 'titled span',
                                 'value': ['group', ['verbose', _p.dictionary.literal(
                                     {
-                                        'title': _p_change_context(
+                                        "title": _p_change_context(
                                             $['title'],
                                             ($) => ['text', {
                                                 'delimiter': ['quote', null],
                                                 'value': $,
                                             }],
                                         ),
-                                        'content': _p_change_context(
+                                        "content": _p_change_context(
                                             $['content'],
                                             ($) => Phrasing_Content(
                                                 $,
@@ -520,14 +520,14 @@
                                 'option': 'a',
                                 'value': ['group', ['verbose', _p.dictionary.literal(
                                     {
-                                        'text': _p_change_context(
+                                        "text": _p_change_context(
                                             $['text'],
                                             ($) => ['text', {
                                                 'delimiter': ['quote', null],
                                                 'value': $,
                                             }],
                                         ),
-                                        'href': _p_change_context(
+                                        "href": _p_change_context(
                                             $['href'],
                                             ($) => ['text', {
                                                 'delimiter': ['quote', null],
@@ -545,7 +545,7 @@
                                 'option': 'p',
                                 'value': ['group', ['verbose', _p.dictionary.literal(
                                     {
-                                        'text': _p_change_context(
+                                        "text": _p_change_context(
                                             $['text'],
                                             ($) => ['text', {
                                                 'delimiter': ['quote', null],

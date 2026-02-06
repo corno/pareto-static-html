@@ -6,8 +6,6 @@ import * as d_text from "pareto-fountain-pen/dist/interface/to_be_generated/list
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 
-import { $$ as op_enrich_list_elements_with_position_information } from "pareto-fountain-pen/dist/implementation/temp/enrich_with_position_information"
-
 import * as signatures from "../../../../../interface/signatures/transformers/html/fountain_pen"
 
 const temp_serialize_number = (n: number): d_text.List_of_Characters => {
@@ -229,11 +227,13 @@ export const Classes: signatures.Classes = ($) => _p.boolean.list_is_empty($)
     ? sh.ph.nothing()
     : sh.ph.composed([
         sh.ph.literal(" class=\""),
-        sh.ph.composed(op_enrich_list_elements_with_position_information($).__l_map(($) =>
-            $['is first']
-                ? sh.ph.literal($.value)
-                : sh.ph.composed([sh.ph.literal(" "), sh.ph.literal($.value)])
-        )),
+        sh.ph.rich(
+            $.__l_map(($) => sh.ph.literal($)),
+            sh.ph.nothing(),
+            sh.ph.nothing(),
+            sh.ph.literal(" "),
+            sh.ph.nothing(),
+        ),
         sh.ph.literal("\"")
     ])
 
