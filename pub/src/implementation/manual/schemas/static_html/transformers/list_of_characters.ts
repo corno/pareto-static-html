@@ -13,7 +13,7 @@ export type Document = _pi.Transformer<d_in.Document, d_out.List_of_Characters>
 export const Document: Document = ($) => t_fp_to_text.Paragraph(
     t_static_html_to_fp.Document($),
     {
-        'indentation': `    `,
-        'newline': `\n`,
+        'indentation': "    ",
+        'newline': "\n",
     }
 )

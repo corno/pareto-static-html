@@ -1,4 +1,4 @@
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
 
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/block/data"
@@ -9,7 +9,7 @@ import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 import * as signatures from "../../../../../interface/signatures/transformers/html/fountain_pen"
 
 const temp_serialize_number = (n: number): d_text.List_of_Characters => {
-    return _p_list_from_text(`${n}`, ($) => $)
+    return _p_list_from_text(`${n}`, ($) => $)//convert number to string, then to list of characters
 }
 
 export const Document: signatures.Document = ($) => sh.pg.sentences([
@@ -223,7 +223,7 @@ export const Flow_Content: signatures.Flow_Content = ($) => sh.ph.indent(
     })))
 )
 
-export const Classes: signatures.Classes = ($) => _p.boolean.list_is_empty($)
+export const Classes: signatures.Classes = ($) => _p.boolean.from.list($).is_empty()
     ? sh.ph.nothing()
     : sh.ph.composed([
         sh.ph.literal(" class=\""),

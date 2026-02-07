@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -56,13 +56,14 @@ export const Document: t_signatures.Document = ($, abort) => _p_change_context(
     }),
 )
 
-export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map(
+export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.from.list(
     v_unmarshalled_from_parse_tree.List(
         $,
         ($) => abort(
             ['expected a list', null],
         ),
     ),
+).map(
     ($) => _p_change_context(
         v_unmarshalled_from_parse_tree.State(
             $,
@@ -102,13 +103,14 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                                 ['no such entry', "width"],
                                             ),
                                         ),
-                                        ($) => _p.optional.map(
+                                        ($) => _p.optional.from.optional(
                                             v_unmarshalled_from_parse_tree.Optional(
                                                 $,
                                                 ($) => abort(
                                                     ['expected an optional', null],
                                                 ),
                                             ),
+                                        ).map(
                                             ($) => v_deserialize_number.deserialize(
                                                 _p_list_from_text(
                                                     v_unmarshalled_from_parse_tree.Text(
@@ -132,13 +134,14 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                                 ['no such entry', "height"],
                                             ),
                                         ),
-                                        ($) => _p.optional.map(
+                                        ($) => _p.optional.from.optional(
                                             v_unmarshalled_from_parse_tree.Optional(
                                                 $,
                                                 ($) => abort(
                                                     ['expected an optional', null],
                                                 ),
                                             ),
+                                        ).map(
                                             ($) => v_deserialize_number.deserialize(
                                                 _p_list_from_text(
                                                     v_unmarshalled_from_parse_tree.Text(
@@ -246,13 +249,14 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                                 ['no such entry', "sections"],
                                             ),
                                         ),
-                                        ($) => _p.list.map(
+                                        ($) => _p.list.from.list(
                                             v_unmarshalled_from_parse_tree.List(
                                                 $,
                                                 ($) => abort(
                                                     ['expected a list', null],
                                                 ),
                                             ),
+                                        ).map(
                                             ($) => _p_change_context(
                                                 v_unmarshalled_from_parse_tree.Group(
                                                     $,
@@ -339,13 +343,14 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                                                 ['no such entry', "rows"],
                                                             ),
                                                         ),
-                                                        ($) => _p.list.map(
+                                                        ($) => _p.list.from.list(
                                                             v_unmarshalled_from_parse_tree.List(
                                                                 $,
                                                                 ($) => abort(
                                                                     ['expected a list', null],
                                                                 ),
                                                             ),
+                                                        ).map(
                                                             ($) => _p_change_context(
                                                                 v_unmarshalled_from_parse_tree.Group(
                                                                     $,
@@ -422,13 +427,14 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                                                                 ['no such entry', "height"],
                                                                             ),
                                                                         ),
-                                                                        ($) => _p.optional.map(
+                                                                        ($) => _p.optional.from.optional(
                                                                             v_unmarshalled_from_parse_tree.Optional(
                                                                                 $,
                                                                                 ($) => abort(
                                                                                     ['expected an optional', null],
                                                                                 ),
                                                                             ),
+                                                                        ).map(
                                                                             ($) => v_deserialize_number.deserialize(
                                                                                 _p_list_from_text(
                                                                                     v_unmarshalled_from_parse_tree.Text(
@@ -452,13 +458,14 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                                                                 ['no such entry', "cells"],
                                                                             ),
                                                                         ),
-                                                                        ($) => _p.list.map(
+                                                                        ($) => _p.list.from.list(
                                                                             v_unmarshalled_from_parse_tree.List(
                                                                                 $,
                                                                                 ($) => abort(
                                                                                     ['expected a list', null],
                                                                                 ),
                                                                             ),
+                                                                        ).map(
                                                                             ($) => _p_change_context(
                                                                                 v_unmarshalled_from_parse_tree.Group(
                                                                                     $,
@@ -636,13 +643,14 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                                 ['no such entry', "width"],
                                             ),
                                         ),
-                                        ($) => _p.optional.map(
+                                        ($) => _p.optional.from.optional(
                                             v_unmarshalled_from_parse_tree.Optional(
                                                 $,
                                                 ($) => abort(
                                                     ['expected an optional', null],
                                                 ),
                                             ),
+                                        ).map(
                                             ($) => v_deserialize_number.deserialize(
                                                 _p_list_from_text(
                                                     v_unmarshalled_from_parse_tree.Text(
@@ -666,13 +674,14 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                                 ['no such entry', "height"],
                                             ),
                                         ),
-                                        ($) => _p.optional.map(
+                                        ($) => _p.optional.from.optional(
                                             v_unmarshalled_from_parse_tree.Optional(
                                                 $,
                                                 ($) => abort(
                                                     ['expected an optional', null],
                                                 ),
                                             ),
+                                        ).map(
                                             ($) => v_deserialize_number.deserialize(
                                                 _p_list_from_text(
                                                     v_unmarshalled_from_parse_tree.Text(
@@ -738,13 +747,14 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                                 ['no such entry', "width"],
                                             ),
                                         ),
-                                        ($) => _p.optional.map(
+                                        ($) => _p.optional.from.optional(
                                             v_unmarshalled_from_parse_tree.Optional(
                                                 $,
                                                 ($) => abort(
                                                     ['expected an optional', null],
                                                 ),
                                             ),
+                                        ).map(
                                             ($) => v_deserialize_number.deserialize(
                                                 _p_list_from_text(
                                                     v_unmarshalled_from_parse_tree.Text(
@@ -768,13 +778,14 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                                 ['no such entry', "height"],
                                             ),
                                         ),
-                                        ($) => _p.optional.map(
+                                        ($) => _p.optional.from.optional(
                                             v_unmarshalled_from_parse_tree.Optional(
                                                 $,
                                                 ($) => abort(
                                                     ['expected an optional', null],
                                                 ),
                                             ),
+                                        ).map(
                                             ($) => v_deserialize_number.deserialize(
                                                 _p_list_from_text(
                                                     v_unmarshalled_from_parse_tree.Text(
@@ -804,13 +815,14 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
     ),
 )
 
-export const Classes: t_signatures.Classes = ($, abort) => _p.list.map(
+export const Classes: t_signatures.Classes = ($, abort) => _p.list.from.list(
     v_unmarshalled_from_parse_tree.List(
         $,
         ($) => abort(
             ['expected a list', null],
         ),
     ),
+).map(
     ($) => v_unmarshalled_from_parse_tree.Text(
         $,
         ($) => abort(
@@ -819,13 +831,14 @@ export const Classes: t_signatures.Classes = ($, abort) => _p.list.map(
     ),
 )
 
-export const Phrasing_Content: t_signatures.Phrasing_Content = ($, abort) => _p.list.map(
+export const Phrasing_Content: t_signatures.Phrasing_Content = ($, abort) => _p.list.from.list(
     v_unmarshalled_from_parse_tree.List(
         $,
         ($) => abort(
             ['expected a list', null],
         ),
     ),
+).map(
     ($) => _p_change_context(
         v_unmarshalled_from_parse_tree.State(
             $,

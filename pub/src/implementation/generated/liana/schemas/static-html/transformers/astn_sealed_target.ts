@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -31,8 +31,9 @@ export const Document: t_signatures.Document = ($) => ['group', ['verbose', _p.d
     },
 )]]
 
-export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', _p.list.map(
+export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', _p.list.from.list(
     $,
+).map(
     ($) => ['state', _p.decide.state(
         $,
         ($): t_out.Value.state => {
@@ -134,8 +135,9 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', _p.list.m
                                     ),
                                     "sections": _p_change_context(
                                         $['sections'],
-                                        ($) => ['list', _p.list.map(
+                                        ($) => ['list', _p.list.from.list(
                                             $,
+                                        ).map(
                                             ($) => ['group', ['verbose', _p.dictionary.literal(
                                                 {
                                                     "classes": _p_change_context(
@@ -184,8 +186,9 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', _p.list.m
                                                     ),
                                                     "rows": _p_change_context(
                                                         $['rows'],
-                                                        ($) => ['list', _p.list.map(
+                                                        ($) => ['list', _p.list.from.list(
                                                             $,
+                                                        ).map(
                                                             ($) => ['group', ['verbose', _p.dictionary.literal(
                                                                 {
                                                                     "classes": _p_change_context(
@@ -242,8 +245,9 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', _p.list.m
                                                                     ),
                                                                     "cells": _p_change_context(
                                                                         $['cells'],
-                                                                        ($) => ['list', _p.list.map(
+                                                                        ($) => ['list', _p.list.from.list(
                                                                             $,
+                                                                        ).map(
                                                                             ($) => ['group', ['verbose', _p.dictionary.literal(
                                                                                 {
                                                                                     "classes": _p_change_context(
@@ -442,16 +446,18 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', _p.list.m
     )],
 )]
 
-export const Classes: t_signatures.Classes = ($) => ['list', _p.list.map(
+export const Classes: t_signatures.Classes = ($) => ['list', _p.list.from.list(
     $,
+).map(
     ($) => ['text', {
         'delimiter': ['quote', null],
         'value': $,
     }],
 )]
 
-export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => ['list', _p.list.map(
+export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => ['list', _p.list.from.list(
     $,
+).map(
     ($) => ['state', _p.decide.state(
         $,
         ($): t_out.Value.state => {

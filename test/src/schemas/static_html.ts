@@ -1,5 +1,5 @@
 import * as _pi from 'pareto-core/dist/interface'
-import * as _pt from 'pareto-core/dist/expression'
+import * as _pt from 'pareto-core/dist/assign'
 
 import * as sh from "pareto-test/dist/temporary_testset_generator/shorthands"
 
@@ -16,7 +16,7 @@ export const $$ = sh.schema(
     // {
     //     'serializers': {
     //         "Document": sh.serializer(
-    //             `.html`,
+    //             ".html",
     //             s_static_html.Document,
     //             ($, abort) => ds_static_html.Document($, abort, { 'uri': "FIXME" }),
     //             s_unmarshall.Error,

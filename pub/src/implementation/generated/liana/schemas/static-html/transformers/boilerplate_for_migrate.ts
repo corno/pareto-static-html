@@ -1,5 +1,5 @@
 
-import * as _p from 'pareto-core/dist/expression'
+import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
@@ -20,8 +20,9 @@ export const Document: t_signatures.Document = ($) => ({
     ),
 })
 
-export const Flow_Content: t_signatures.Flow_Content = ($) => _p.list.map(
+export const Flow_Content: t_signatures.Flow_Content = ($) => _p.list.from.list(
     $,
+).map(
     ($) => _p.decide.state(
         $,
         ($): t_out.Flow_Content.L => {
@@ -39,15 +40,17 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => _p.list.map(
                         ($) => ['dimensioned div', {
                             'width': _p_change_context(
                                 $['width'],
-                                ($) => _p.optional.map(
+                                ($) => _p.optional.from.optional(
                                     $,
+                                ).map(
                                     ($) => $,
                                 ),
                             ),
                             'height': _p_change_context(
                                 $['height'],
-                                ($) => _p.optional.map(
+                                ($) => _p.optional.from.optional(
                                     $,
+                                ).map(
                                     ($) => $,
                                 ),
                             ),
@@ -89,8 +92,9 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => _p.list.map(
                             ),
                             'sections': _p_change_context(
                                 $['sections'],
-                                ($) => _p.list.map(
+                                ($) => _p.list.from.list(
                                     $,
+                                ).map(
                                     ($) => ({
                                         'classes': _p_change_context(
                                             $['classes'],
@@ -129,8 +133,9 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => _p.list.map(
                                         ),
                                         'rows': _p_change_context(
                                             $['rows'],
-                                            ($) => _p.list.map(
+                                            ($) => _p.list.from.list(
                                                 $,
+                                            ).map(
                                                 ($) => ({
                                                     'classes': _p_change_context(
                                                         $['classes'],
@@ -164,15 +169,17 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => _p.list.map(
                                                     ),
                                                     'height': _p_change_context(
                                                         $['height'],
-                                                        ($) => _p.optional.map(
+                                                        ($) => _p.optional.from.optional(
                                                             $,
+                                                        ).map(
                                                             ($) => $,
                                                         ),
                                                     ),
                                                     'cells': _p_change_context(
                                                         $['cells'],
-                                                        ($) => _p.list.map(
+                                                        ($) => _p.list.from.list(
                                                             $,
+                                                        ).map(
                                                             ($) => ({
                                                                 'classes': _p_change_context(
                                                                     $['classes'],
@@ -246,15 +253,17 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => _p.list.map(
                             ),
                             'width': _p_change_context(
                                 $['width'],
-                                ($) => _p.optional.map(
+                                ($) => _p.optional.from.optional(
                                     $,
+                                ).map(
                                     ($) => $,
                                 ),
                             ),
                             'height': _p_change_context(
                                 $['height'],
-                                ($) => _p.optional.map(
+                                ($) => _p.optional.from.optional(
                                     $,
+                                ).map(
                                     ($) => $,
                                 ),
                             ),
@@ -276,15 +285,17 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => _p.list.map(
                             ),
                             'width': _p_change_context(
                                 $['width'],
-                                ($) => _p.optional.map(
+                                ($) => _p.optional.from.optional(
                                     $,
+                                ).map(
                                     ($) => $,
                                 ),
                             ),
                             'height': _p_change_context(
                                 $['height'],
-                                ($) => _p.optional.map(
+                                ($) => _p.optional.from.optional(
                                     $,
+                                ).map(
                                     ($) => $,
                                 ),
                             ),
@@ -299,13 +310,15 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => _p.list.map(
     ),
 )
 
-export const Classes: t_signatures.Classes = ($) => _p.list.map(
+export const Classes: t_signatures.Classes = ($) => _p.list.from.list(
     $,
+).map(
     ($) => $,
 )
 
-export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => _p.list.map(
+export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => _p.list.from.list(
     $,
+).map(
     ($) => _p.decide.state(
         $,
         ($): t_out.Phrasing_Content.L => {
