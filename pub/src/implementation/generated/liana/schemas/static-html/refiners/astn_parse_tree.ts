@@ -26,7 +26,7 @@ export const Document: t_signatures.Document = ($, abort) => _p_change_context(
     ),
     ($) => ({
         'css': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'css',
                 ($) => abort(
                     ['no such entry', "css"],
@@ -40,7 +40,7 @@ export const Document: t_signatures.Document = ($, abort) => _p_change_context(
             ),
         ),
         'root': _p_change_context(
-            $.__get_entry(
+            $.__get_entry_deprecated(
                 'root',
                 ($) => abort(
                     ['no such entry', "root"],
@@ -96,7 +96,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                 ),
                                 ($) => ({
                                     'width': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'width',
                                             ($) => abort(
                                                 ['no such entry', "width"],
@@ -126,7 +126,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                         ),
                                     ),
                                     'height': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'height',
                                             ($) => abort(
                                                 ['no such entry', "height"],
@@ -156,7 +156,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                         ),
                                     ),
                                     'content': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'content',
                                             ($) => abort(
                                                 ['no such entry', "content"],
@@ -184,7 +184,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                 ),
                                 ($) => ({
                                     'classes': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'classes',
                                             ($) => abort(
                                                 ['no such entry', "classes"],
@@ -198,7 +198,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                         ),
                                     ),
                                     'content': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'content',
                                             ($) => abort(
                                                 ['no such entry', "content"],
@@ -226,7 +226,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                 ),
                                 ($) => ({
                                     'classes': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'classes',
                                             ($) => abort(
                                                 ['no such entry', "classes"],
@@ -240,7 +240,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                         ),
                                     ),
                                     'sections': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'sections',
                                             ($) => abort(
                                                 ['no such entry', "sections"],
@@ -262,7 +262,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                                 ),
                                                 ($) => ({
                                                     'classes': _p_change_context(
-                                                        $.__get_entry(
+                                                        $.__get_entry_deprecated(
                                                             'classes',
                                                             ($) => abort(
                                                                 ['no such entry', "classes"],
@@ -276,7 +276,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                                         ),
                                                     ),
                                                     'type': _p_change_context(
-                                                        $.__get_entry(
+                                                        $.__get_entry_deprecated(
                                                             'type',
                                                             ($) => abort(
                                                                 ['no such entry', "type"],
@@ -333,7 +333,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                                         ),
                                                     ),
                                                     'rows': _p_change_context(
-                                                        $.__get_entry(
+                                                        $.__get_entry_deprecated(
                                                             'rows',
                                                             ($) => abort(
                                                                 ['no such entry', "rows"],
@@ -355,7 +355,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                                                 ),
                                                                 ($) => ({
                                                                     'classes': _p_change_context(
-                                                                        $.__get_entry(
+                                                                        $.__get_entry_deprecated(
                                                                             'classes',
                                                                             ($) => abort(
                                                                                 ['no such entry', "classes"],
@@ -369,7 +369,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                                                         ),
                                                                     ),
                                                                     'type': _p_change_context(
-                                                                        $.__get_entry(
+                                                                        $.__get_entry_deprecated(
                                                                             'type',
                                                                             ($) => abort(
                                                                                 ['no such entry', "type"],
@@ -416,7 +416,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                                                         ),
                                                                     ),
                                                                     'height': _p_change_context(
-                                                                        $.__get_entry(
+                                                                        $.__get_entry_deprecated(
                                                                             'height',
                                                                             ($) => abort(
                                                                                 ['no such entry', "height"],
@@ -446,7 +446,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                                                         ),
                                                                     ),
                                                                     'cells': _p_change_context(
-                                                                        $.__get_entry(
+                                                                        $.__get_entry_deprecated(
                                                                             'cells',
                                                                             ($) => abort(
                                                                                 ['no such entry', "cells"],
@@ -468,7 +468,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                                                                 ),
                                                                                 ($) => ({
                                                                                     'classes': _p_change_context(
-                                                                                        $.__get_entry(
+                                                                                        $.__get_entry_deprecated(
                                                                                             'classes',
                                                                                             ($) => abort(
                                                                                                 ['no such entry', "classes"],
@@ -482,7 +482,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                                                                         ),
                                                                                     ),
                                                                                     'content': _p_change_context(
-                                                                                        $.__get_entry(
+                                                                                        $.__get_entry_deprecated(
                                                                                             'content',
                                                                                             ($) => abort(
                                                                                                 ['no such entry', "content"],
@@ -532,7 +532,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                 ),
                                 ($) => ({
                                     'classes': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'classes',
                                             ($) => abort(
                                                 ['no such entry', "classes"],
@@ -546,7 +546,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                         ),
                                     ),
                                     'text': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'text',
                                             ($) => abort(
                                                 ['no such entry', "text"],
@@ -560,7 +560,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                         ),
                                     ),
                                     'content': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'content',
                                             ($) => abort(
                                                 ['no such entry', "content"],
@@ -588,7 +588,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                 ),
                                 ($) => ({
                                     'classes': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'classes',
                                             ($) => abort(
                                                 ['no such entry', "classes"],
@@ -602,7 +602,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                         ),
                                     ),
                                     'src': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'src',
                                             ($) => abort(
                                                 ['no such entry', "src"],
@@ -616,7 +616,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                         ),
                                     ),
                                     'alt': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'alt',
                                             ($) => abort(
                                                 ['no such entry', "alt"],
@@ -630,7 +630,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                         ),
                                     ),
                                     'width': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'width',
                                             ($) => abort(
                                                 ['no such entry', "width"],
@@ -660,7 +660,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                         ),
                                     ),
                                     'height': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'height',
                                             ($) => abort(
                                                 ['no such entry', "height"],
@@ -704,7 +704,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                 ),
                                 ($) => ({
                                     'classes': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'classes',
                                             ($) => abort(
                                                 ['no such entry', "classes"],
@@ -718,7 +718,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                         ),
                                     ),
                                     'content': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'content',
                                             ($) => abort(
                                                 ['no such entry', "content"],
@@ -732,7 +732,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                         ),
                                     ),
                                     'width': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'width',
                                             ($) => abort(
                                                 ['no such entry', "width"],
@@ -762,7 +762,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.map
                                         ),
                                     ),
                                     'height': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'height',
                                             ($) => abort(
                                                 ['no such entry', "height"],
@@ -859,7 +859,7 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($, abort) => _p.
                                 ),
                                 ($) => ({
                                     'classes': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'classes',
                                             ($) => abort(
                                                 ['no such entry', "classes"],
@@ -873,7 +873,7 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($, abort) => _p.
                                         ),
                                     ),
                                     'content': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'content',
                                             ($) => abort(
                                                 ['no such entry', "content"],
@@ -901,7 +901,7 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($, abort) => _p.
                                 ),
                                 ($) => ({
                                     'title': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'title',
                                             ($) => abort(
                                                 ['no such entry', "title"],
@@ -915,7 +915,7 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($, abort) => _p.
                                         ),
                                     ),
                                     'content': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'content',
                                             ($) => abort(
                                                 ['no such entry', "content"],
@@ -943,7 +943,7 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($, abort) => _p.
                                 ),
                                 ($) => ({
                                     'text': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'text',
                                             ($) => abort(
                                                 ['no such entry', "text"],
@@ -957,7 +957,7 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($, abort) => _p.
                                         ),
                                     ),
                                     'href': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'href',
                                             ($) => abort(
                                                 ['no such entry', "href"],
@@ -985,7 +985,7 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($, abort) => _p.
                                 ),
                                 ($) => ({
                                     'text': _p_change_context(
-                                        $.__get_entry(
+                                        $.__get_entry_deprecated(
                                             'text',
                                             ($) => abort(
                                                 ['no such entry', "text"],
