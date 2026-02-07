@@ -1,77 +1,77 @@
+
+import * as _pi from 'pareto-core/dist/interface'
+
+import * as i_out from "astn-core/dist/interface/generated/liana/schemas/sealed_target/data"
+
+import * as i_in from "./data"
+
+export namespace Document_ {
     
-    import * as _pi from 'pareto-core/dist/interface'
+    export type I = i_in.Document
     
-    import * as i_out from "astn-core/dist/interface/generated/liana/schemas/sealed_target/data"
+    export type O = i_out.Value
     
-    import * as i_in from "./data"
-    
-    export namespace Document_ {
-        
-        export type I = i_in.Document
-        
-        export type O = i_out.Value
-        
-        export namespace P {
-            
-        }
+    export namespace P {
         
     }
     
-    export type Document_ = (
-        context: Document_.I,
-    ) => Document_.O
+}
+
+export type Document_ = (
+    context: Document_.I,
+) => Document_.O
+
+export namespace Flow_Content_ {
     
-    export namespace Flow_Content_ {
-        
-        export type I = i_in.Flow_Content
-        
-        export type O = i_out.Value
-        
-        export namespace P {
-            
-        }
+    export type I = i_in.Flow_Content
+    
+    export type O = i_out.Value
+    
+    export namespace P {
         
     }
     
-    export type Flow_Content_ = (
-        context: Flow_Content_.I,
-    ) => Flow_Content_.O
+}
+
+export type Flow_Content_ = (
+    context: Flow_Content_.I,
+) => Flow_Content_.O
+
+export namespace Classes_ {
     
-    export namespace Classes_ {
-        
-        export type I = i_in.Classes
-        
-        export type O = i_out.Value
-        
-        export namespace P {
-            
-        }
+    export type I = i_in.Classes
+    
+    export type O = i_out.Value
+    
+    export namespace P {
         
     }
     
-    export type Classes_ = (
-        context: Classes_.I,
-    ) => Classes_.O
+}
+
+export type Classes_ = (
+    context: Classes_.I,
+) => Classes_.O
+
+export namespace Phrasing_Content_ {
     
-    export namespace Phrasing_Content_ {
-        
-        export type I = i_in.Phrasing_Content
-        
-        export type O = i_out.Value
-        
-        export namespace P {
-            
-        }
+    export type I = i_in.Phrasing_Content
+    
+    export type O = i_out.Value
+    
+    export namespace P {
         
     }
     
-    export type Phrasing_Content_ = (
-        context: Phrasing_Content_.I,
-    ) => Phrasing_Content_.O
-    
-    export { 
-        Document_ as Document, 
-        Flow_Content_ as Flow_Content, 
-        Classes_ as Classes, 
-        Phrasing_Content_ as Phrasing_Content, 
-    }
+}
+
+export type Phrasing_Content_ = (
+    context: Phrasing_Content_.I,
+) => Phrasing_Content_.O
+
+export { 
+    Document_ as Document, 
+    Flow_Content_ as Flow_Content, 
+    Classes_ as Classes, 
+    Phrasing_Content_ as Phrasing_Content, 
+}
