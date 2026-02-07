@@ -10,6 +10,6 @@
   "dependencies": {
     "astn-core": "^0.5.30",
     "liana-core": "^0.0.15",
-    "pareto-fountain-pen": "^0.4.27"
+    "pareto-fountain-pen": "^0.4.28"
   }
 }
