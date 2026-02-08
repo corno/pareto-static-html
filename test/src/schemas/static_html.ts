@@ -18,7 +18,7 @@ export const $$ = sh.schema(
     //         "Document": sh.serializer(
     //             ".html",
     //             s_static_html.Document,
-    //             ($, abort) => ds_static_html.Document($, abort, { 'uri': "FIXME" }),
+    //             ($, abort) => ds_static_html.Document($, abort, { 'document resource identifier': "FIXME" }),
     //             s_unmarshall.Error,
     //         )
     //     }
