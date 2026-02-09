@@ -1,10 +1,10 @@
 import * as _p from 'pareto-core/dist/assign'
 import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
 
-import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/block/data"
+import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 import * as d_text from "pareto-fountain-pen/dist/interface/to_be_generated/list_of_characters"
 
-import * as sh from "pareto-fountain-pen/dist/shorthands/block"
+import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 import * as signatures from "../../../../../interface/signatures/transformers/html/fountain_pen"
 

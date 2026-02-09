@@ -1,7 +1,7 @@
 import * as _pi from 'pareto-core/dist/interface'
 
 import * as d_in from "../../../generated/liana/schemas/static-html/data"
-import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/block/data"
+import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
 export type Document = _pi.Transformer<d_in.Document, d_out.Paragraph>
 

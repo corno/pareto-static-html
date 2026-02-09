@@ -6,7 +6,7 @@ import * as d_out from "pareto-fountain-pen/dist/interface/to_be_generated/list_
 
 //dependencies
 import * as t_static_html_to_fp from "./fountain_pen"
-import * as t_fp_to_text from "pareto-fountain-pen/dist/implementation/manual/schemas/block/transformers/list_of_characters"
+import * as t_fp_to_text from "pareto-fountain-pen/dist/implementation/manual/schemas/prose/transformers/list_of_characters"
 
 export type Document = _pi.Transformer<d_in.Document, d_out.List_of_Characters>
 
