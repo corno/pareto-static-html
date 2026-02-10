@@ -1,4 +1,4 @@
-import * as d_write_to_directory from "pareto-fountain-pen-file-system/dist/interface/to_be_generated/write_to_dictionary"
+import * as d_write_to_directory from "pareto-fountain-pen-file-structure/dist/interface/to_be_generated/write_to_dictionary"
 import * as d_path from "pareto-resources/dist/interface/generated/liana/schemas/path/data"
 import * as d_fs from "./file_structure"
 

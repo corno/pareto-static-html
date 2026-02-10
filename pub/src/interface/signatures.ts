@@ -1,7 +1,7 @@
 import * as _pi from 'pareto-core/dist/interface'
 
 import * as resources from "./resources"
-import * as resoureces_fp from "pareto-fountain-pen-file-system/dist/interface/resources"
+import * as resoureces_fp from "pareto-fountain-pen-file-structure/dist/interface/resources"
 
 export namespace commands {
 

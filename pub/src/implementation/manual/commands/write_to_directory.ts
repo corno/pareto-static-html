@@ -18,12 +18,16 @@ export const $$: signatures.commands.write_to_directory = _p.command_procedure(
             {
                 'directory': t_file_structure_to_fp_file_structure.Directory($p.directory),
                 'path': $p.path,
-                'indentation': $p.indentation,
-                'newline': $p.newline,
-                'escape spaces in path': $p['escape spaces in path'],
+                'generic': {
+                    'prose serialize': {
+                        'indentation': $p.indentation,
+                        'newline': $p.newline,
+                    },
+                    'escape spaces in path': $p['escape spaces in path'],
+                },
                 'remove before creating': $p['remove before creating'],
             },
             ($) => $,
-        )   
+        )
     ]
 )
