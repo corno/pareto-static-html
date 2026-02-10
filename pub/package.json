@@ -1,6 +1,6 @@
 {
   "name": "pareto-static-html",
-  "version": "0.1.25",
+  "version": "0.1.26",
   "author": "Corno",
   "license": "Apache-2.0",
   "description": "a library for creating static HTML documents using Pareto",
