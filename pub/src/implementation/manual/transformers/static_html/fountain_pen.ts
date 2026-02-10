@@ -6,7 +6,7 @@ import * as d_text from "pareto-fountain-pen/dist/interface/to_be_generated/list
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
-import * as signatures from "../../../../../interface/signatures/transformers/html/fountain_pen"
+import * as signatures from "../../../../interface/signatures/transformers/html/fountain_pen"
 
 const temp_serialize_number = (n: number): d_text.List_of_Characters => {
     return _p_list_from_text(`${n}`, ($) => $)//convert number to string, then to list of characters
