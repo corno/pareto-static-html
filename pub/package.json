@@ -11,6 +11,7 @@
   ],
   "dependencies": {
     "liana-core": "^0.0.21",
-    "pareto-fountain-pen": "^0.4.43"
+    "pareto-fountain-pen": "^0.4.43",
+    "pareto-fountain-pen-file-system": "^0.0.1"
   }
 }
