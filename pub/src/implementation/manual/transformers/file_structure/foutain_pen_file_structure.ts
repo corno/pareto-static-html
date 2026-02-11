@@ -6,7 +6,7 @@ import * as d_in from "../../../../interface/to_be_generated/file_structure"
 import * as d_out from "pareto-fountain-pen-file-structure/dist/interface/to_be_generated/file-system"
 
 //dependencies
-import * as t_static_html_to_fountain_pen from "../static_html/fountain_pen"
+import * as t_static_html_to_fountain_pen from "../static_html/fountain_pen_direct"
 
 export type Diretory = _pi.Transformer<d_in.Directory, d_out.Directory>
 

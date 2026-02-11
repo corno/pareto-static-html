@@ -10,3 +10,4 @@ export type Flow_Content = _pi.Transformer<d_in.Flow_Content, d_out.Phrase>
 export type Classes = _pi.Transformer<d_in.Classes, d_out.Phrase>
 
 export type Phrasing_Content = _pi.Transformer<d_in.Phrasing_Content, d_out.Phrase>
+export type Phrasing_Element = _pi.Transformer<d_in.Phrasing_Element, d_out.Phrase>

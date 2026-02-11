@@ -30,3 +30,9 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => v_serializ
         $,
     ),
 )
+
+export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => v_serialize.Document(
+    v_marshall.Phrasing_Element(
+        $,
+    ),
+)

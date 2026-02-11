@@ -17,6 +17,8 @@ import * as v_unmarshalled_from_parse_tree from "astn-core/dist/implementation/m
 
 import * as v_parse_tree_to_location from "astn-core/dist/implementation/manual/transformers/parse_tree/location"
 
+import * as v_external_xml from "../../xml/refiners/astn_parse_tree"
+
 export const Document: t_signatures.Document = ($, abort) => _p_change_context(
     v_unmarshalled_from_parse_tree.Group(
         $,
@@ -789,10 +791,10 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.fro
                                                 ),
                                             },
                                         ),
-                                        ($) => v_unmarshalled_from_parse_tree.Text(
+                                        ($) => v_external_xml.Mixed_Content(
                                             $,
                                             ($) => abort(
-                                                ['expected a text', null],
+                                                $,
                                             ),
                                         ),
                                     ),
@@ -899,201 +901,208 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($, abort) => _p.
         ),
     ),
 ).map(
-    ($) => _p_change_context(
-        v_unmarshalled_from_parse_tree.State(
+    ($) => Phrasing_Element(
+        $,
+        ($) => abort(
             $,
-            ($) => abort(
-                ['expected a state', null],
-            ),
         ),
-        ($) => _p.decide.text(
-            $['option']['value'],
-            ($t): t_out.Phrasing_Content.L => {
-                switch ($t) {
-                    case 'span':
-                        return _p_change_context(
-                            $['value'],
-                            ($) => ['span', Phrasing_Content(
+    ),
+)
+
+export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_change_context(
+    v_unmarshalled_from_parse_tree.State(
+        $,
+        ($) => abort(
+            ['expected a state', null],
+        ),
+    ),
+    ($) => _p.decide.text(
+        $['option']['value'],
+        ($t): t_out.Phrasing_Element => {
+            switch ($t) {
+                case 'span':
+                    return _p_change_context(
+                        $['value'],
+                        ($) => ['span', Phrasing_Content(
+                            $,
+                            ($) => abort(
+                                $,
+                            ),
+                        )],
+                    )
+                case 'classified span':
+                    return _p_change_context(
+                        $['value'],
+                        ($) => ['classified span', _p_change_context(
+                            v_unmarshalled_from_parse_tree.Group(
                                 $,
                                 ($) => abort(
-                                    $,
+                                    ['expected a group', null],
                                 ),
-                            )],
-                        )
-                    case 'classified span':
-                        return _p_change_context(
-                            $['value'],
-                            ($) => ['classified span', _p_change_context(
-                                v_unmarshalled_from_parse_tree.Group(
-                                    $,
-                                    ($) => abort(
-                                        ['expected a group', null],
-                                    ),
-                                ),
-                                ($) => ({
-                                    'classes': _p_change_context(
-                                        $.__get_entry_deprecated(
-                                            'classes',
-                                            {
-                                                no_such_entry: ($) => abort(
-                                                    ['no such entry', "classes"],
-                                                ),
-                                            },
-                                        ),
-                                        ($) => Classes(
-                                            $,
-                                            ($) => abort(
-                                                $,
+                            ),
+                            ($) => ({
+                                'classes': _p_change_context(
+                                    $.__get_entry_deprecated(
+                                        'classes',
+                                        {
+                                            no_such_entry: ($) => abort(
+                                                ['no such entry', "classes"],
                                             ),
-                                        ),
+                                        },
                                     ),
-                                    'content': _p_change_context(
-                                        $.__get_entry_deprecated(
-                                            'content',
-                                            {
-                                                no_such_entry: ($) => abort(
-                                                    ['no such entry', "content"],
-                                                ),
-                                            },
-                                        ),
-                                        ($) => Phrasing_Content(
+                                    ($) => Classes(
+                                        $,
+                                        ($) => abort(
                                             $,
-                                            ($) => abort(
-                                                $,
-                                            ),
                                         ),
-                                    ),
-                                }),
-                            )],
-                        )
-                    case 'titled span':
-                        return _p_change_context(
-                            $['value'],
-                            ($) => ['titled span', _p_change_context(
-                                v_unmarshalled_from_parse_tree.Group(
-                                    $,
-                                    ($) => abort(
-                                        ['expected a group', null],
                                     ),
                                 ),
-                                ($) => ({
-                                    'title': _p_change_context(
-                                        $.__get_entry_deprecated(
-                                            'title',
-                                            {
-                                                no_such_entry: ($) => abort(
-                                                    ['no such entry', "title"],
-                                                ),
-                                            },
-                                        ),
-                                        ($) => v_unmarshalled_from_parse_tree.Text(
-                                            $,
-                                            ($) => abort(
-                                                ['expected a text', null],
+                                'content': _p_change_context(
+                                    $.__get_entry_deprecated(
+                                        'content',
+                                        {
+                                            no_such_entry: ($) => abort(
+                                                ['no such entry', "content"],
                                             ),
-                                        ),
+                                        },
                                     ),
-                                    'content': _p_change_context(
-                                        $.__get_entry_deprecated(
-                                            'content',
-                                            {
-                                                no_such_entry: ($) => abort(
-                                                    ['no such entry', "content"],
-                                                ),
-                                            },
-                                        ),
-                                        ($) => Phrasing_Content(
+                                    ($) => Phrasing_Content(
+                                        $,
+                                        ($) => abort(
                                             $,
-                                            ($) => abort(
-                                                $,
-                                            ),
                                         ),
-                                    ),
-                                }),
-                            )],
-                        )
-                    case 'a':
-                        return _p_change_context(
-                            $['value'],
-                            ($) => ['a', _p_change_context(
-                                v_unmarshalled_from_parse_tree.Group(
-                                    $,
-                                    ($) => abort(
-                                        ['expected a group', null],
                                     ),
                                 ),
-                                ($) => ({
-                                    'text': _p_change_context(
-                                        $.__get_entry_deprecated(
-                                            'text',
-                                            {
-                                                no_such_entry: ($) => abort(
-                                                    ['no such entry', "text"],
-                                                ),
-                                            },
-                                        ),
-                                        ($) => v_unmarshalled_from_parse_tree.Text(
-                                            $,
-                                            ($) => abort(
-                                                ['expected a text', null],
+                            }),
+                        )],
+                    )
+                case 'titled span':
+                    return _p_change_context(
+                        $['value'],
+                        ($) => ['titled span', _p_change_context(
+                            v_unmarshalled_from_parse_tree.Group(
+                                $,
+                                ($) => abort(
+                                    ['expected a group', null],
+                                ),
+                            ),
+                            ($) => ({
+                                'title': _p_change_context(
+                                    $.__get_entry_deprecated(
+                                        'title',
+                                        {
+                                            no_such_entry: ($) => abort(
+                                                ['no such entry', "title"],
                                             ),
-                                        ),
+                                        },
                                     ),
-                                    'href': _p_change_context(
-                                        $.__get_entry_deprecated(
-                                            'href',
-                                            {
-                                                no_such_entry: ($) => abort(
-                                                    ['no such entry', "href"],
-                                                ),
-                                            },
+                                    ($) => v_unmarshalled_from_parse_tree.Text(
+                                        $,
+                                        ($) => abort(
+                                            ['expected a text', null],
                                         ),
-                                        ($) => v_unmarshalled_from_parse_tree.Text(
-                                            $,
-                                            ($) => abort(
-                                                ['expected a text', null],
-                                            ),
-                                        ),
-                                    ),
-                                }),
-                            )],
-                        )
-                    case 'p':
-                        return _p_change_context(
-                            $['value'],
-                            ($) => ['p', _p_change_context(
-                                v_unmarshalled_from_parse_tree.Group(
-                                    $,
-                                    ($) => abort(
-                                        ['expected a group', null],
                                     ),
                                 ),
-                                ($) => ({
-                                    'text': _p_change_context(
-                                        $.__get_entry_deprecated(
-                                            'text',
-                                            {
-                                                no_such_entry: ($) => abort(
-                                                    ['no such entry', "text"],
-                                                ),
-                                            },
-                                        ),
-                                        ($) => v_unmarshalled_from_parse_tree.Text(
-                                            $,
-                                            ($) => abort(
-                                                ['expected a text', null],
+                                'content': _p_change_context(
+                                    $.__get_entry_deprecated(
+                                        'content',
+                                        {
+                                            no_such_entry: ($) => abort(
+                                                ['no such entry', "content"],
                                             ),
+                                        },
+                                    ),
+                                    ($) => Phrasing_Content(
+                                        $,
+                                        ($) => abort(
+                                            $,
                                         ),
                                     ),
-                                }),
-                            )],
-                        )
-                    default:
-                        return abort(
-                            ['unknown option', $['option']['value']],
-                        )
-                }
-            },
-        ),
+                                ),
+                            }),
+                        )],
+                    )
+                case 'a':
+                    return _p_change_context(
+                        $['value'],
+                        ($) => ['a', _p_change_context(
+                            v_unmarshalled_from_parse_tree.Group(
+                                $,
+                                ($) => abort(
+                                    ['expected a group', null],
+                                ),
+                            ),
+                            ($) => ({
+                                'text': _p_change_context(
+                                    $.__get_entry_deprecated(
+                                        'text',
+                                        {
+                                            no_such_entry: ($) => abort(
+                                                ['no such entry', "text"],
+                                            ),
+                                        },
+                                    ),
+                                    ($) => v_unmarshalled_from_parse_tree.Text(
+                                        $,
+                                        ($) => abort(
+                                            ['expected a text', null],
+                                        ),
+                                    ),
+                                ),
+                                'href': _p_change_context(
+                                    $.__get_entry_deprecated(
+                                        'href',
+                                        {
+                                            no_such_entry: ($) => abort(
+                                                ['no such entry', "href"],
+                                            ),
+                                        },
+                                    ),
+                                    ($) => v_unmarshalled_from_parse_tree.Text(
+                                        $,
+                                        ($) => abort(
+                                            ['expected a text', null],
+                                        ),
+                                    ),
+                                ),
+                            }),
+                        )],
+                    )
+                case 'p':
+                    return _p_change_context(
+                        $['value'],
+                        ($) => ['p', _p_change_context(
+                            v_unmarshalled_from_parse_tree.Group(
+                                $,
+                                ($) => abort(
+                                    ['expected a group', null],
+                                ),
+                            ),
+                            ($) => ({
+                                'text': _p_change_context(
+                                    $.__get_entry_deprecated(
+                                        'text',
+                                        {
+                                            no_such_entry: ($) => abort(
+                                                ['no such entry', "text"],
+                                            ),
+                                        },
+                                    ),
+                                    ($) => v_unmarshalled_from_parse_tree.Text(
+                                        $,
+                                        ($) => abort(
+                                            ['expected a text', null],
+                                        ),
+                                    ),
+                                ),
+                            }),
+                        )],
+                    )
+                default:
+                    return abort(
+                        ['unknown option', $['option']['value']],
+                    )
+            }
+        },
     ),
 )

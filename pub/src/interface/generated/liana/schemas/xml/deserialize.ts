@@ -34,11 +34,11 @@ export type Document_ = (
     },
 ) => Document_.O
 
-export namespace Flow_Content_ {
+export namespace Element_ {
     
     export type I = i_in.List_of_Characters
     
-    export type O = i_out.Flow_Content
+    export type O = i_out.Element
     
     export type E = i_generic.Error
     
@@ -52,20 +52,20 @@ export namespace Flow_Content_ {
     
 }
 
-export type Flow_Content_ = (
-    context: Flow_Content_.I,
-    abort: _pi.Abort<Flow_Content_.E>,
+export type Element_ = (
+    context: Element_.I,
+    abort: _pi.Abort<Element_.E>,
     parameters: {
-        readonly 'document resource identifier': Flow_Content_.P.document_resource_identifier
-        readonly 'tab size': Flow_Content_.P.tab_size
+        readonly 'document resource identifier': Element_.P.document_resource_identifier
+        readonly 'tab size': Element_.P.tab_size
     },
-) => Flow_Content_.O
+) => Element_.O
 
-export namespace Classes_ {
+export namespace Mixed_Content_ {
     
     export type I = i_in.List_of_Characters
     
-    export type O = i_out.Classes
+    export type O = i_out.Mixed_Content
     
     export type E = i_generic.Error
     
@@ -79,20 +79,20 @@ export namespace Classes_ {
     
 }
 
-export type Classes_ = (
-    context: Classes_.I,
-    abort: _pi.Abort<Classes_.E>,
+export type Mixed_Content_ = (
+    context: Mixed_Content_.I,
+    abort: _pi.Abort<Mixed_Content_.E>,
     parameters: {
-        readonly 'document resource identifier': Classes_.P.document_resource_identifier
-        readonly 'tab size': Classes_.P.tab_size
+        readonly 'document resource identifier': Mixed_Content_.P.document_resource_identifier
+        readonly 'tab size': Mixed_Content_.P.tab_size
     },
-) => Classes_.O
+) => Mixed_Content_.O
 
-export namespace Phrasing_Content_ {
+export namespace Qualified_Name_ {
     
     export type I = i_in.List_of_Characters
     
-    export type O = i_out.Phrasing_Content
+    export type O = i_out.Qualified_Name
     
     export type E = i_generic.Error
     
@@ -106,20 +106,20 @@ export namespace Phrasing_Content_ {
     
 }
 
-export type Phrasing_Content_ = (
-    context: Phrasing_Content_.I,
-    abort: _pi.Abort<Phrasing_Content_.E>,
+export type Qualified_Name_ = (
+    context: Qualified_Name_.I,
+    abort: _pi.Abort<Qualified_Name_.E>,
     parameters: {
-        readonly 'document resource identifier': Phrasing_Content_.P.document_resource_identifier
-        readonly 'tab size': Phrasing_Content_.P.tab_size
+        readonly 'document resource identifier': Qualified_Name_.P.document_resource_identifier
+        readonly 'tab size': Qualified_Name_.P.tab_size
     },
-) => Phrasing_Content_.O
+) => Qualified_Name_.O
 
-export namespace Phrasing_Element_ {
+export namespace Node_ {
     
     export type I = i_in.List_of_Characters
     
-    export type O = i_out.Phrasing_Element
+    export type O = i_out.Node
     
     export type E = i_generic.Error
     
@@ -133,19 +133,19 @@ export namespace Phrasing_Element_ {
     
 }
 
-export type Phrasing_Element_ = (
-    context: Phrasing_Element_.I,
-    abort: _pi.Abort<Phrasing_Element_.E>,
+export type Node_ = (
+    context: Node_.I,
+    abort: _pi.Abort<Node_.E>,
     parameters: {
-        readonly 'document resource identifier': Phrasing_Element_.P.document_resource_identifier
-        readonly 'tab size': Phrasing_Element_.P.tab_size
+        readonly 'document resource identifier': Node_.P.document_resource_identifier
+        readonly 'tab size': Node_.P.tab_size
     },
-) => Phrasing_Element_.O
+) => Node_.O
 
 export { 
     Document_ as Document, 
-    Flow_Content_ as Flow_Content, 
-    Classes_ as Classes, 
-    Phrasing_Content_ as Phrasing_Content, 
-    Phrasing_Element_ as Phrasing_Element, 
+    Element_ as Element, 
+    Mixed_Content_ as Mixed_Content, 
+    Qualified_Name_ as Qualified_Name, 
+    Node_ as Node, 
 }

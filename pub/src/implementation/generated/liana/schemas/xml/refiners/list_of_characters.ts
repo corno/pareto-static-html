@@ -1,7 +1,7 @@
 
 import * as _p from 'pareto-core/dist/assign'
 
-import * as t_signatures from "../../../../../../interface/generated/liana/schemas/static-html/deserialize"
+import * as t_signatures from "../../../../../../interface/generated/liana/schemas/xml/deserialize"
 
 import * as v_deserialize from "astn-core/dist/implementation/manual/refiners/parse_tree/list_of_characters"
 
@@ -23,7 +23,7 @@ export const Document: t_signatures.Document = ($, abort, $p) => v_unmarshall.Do
     ),
 )
 
-export const Flow_Content: t_signatures.Flow_Content = ($, abort, $p) => v_unmarshall.Flow_Content(
+export const Element: t_signatures.Element = ($, abort, $p) => v_unmarshall.Element(
     v_deserialize.Document(
         $,
         ($) => abort(
@@ -39,7 +39,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort, $p) => v_unmar
     ),
 )
 
-export const Classes: t_signatures.Classes = ($, abort, $p) => v_unmarshall.Classes(
+export const Mixed_Content: t_signatures.Mixed_Content = ($, abort, $p) => v_unmarshall.Mixed_Content(
     v_deserialize.Document(
         $,
         ($) => abort(
@@ -55,7 +55,7 @@ export const Classes: t_signatures.Classes = ($, abort, $p) => v_unmarshall.Clas
     ),
 )
 
-export const Phrasing_Content: t_signatures.Phrasing_Content = ($, abort, $p) => v_unmarshall.Phrasing_Content(
+export const Qualified_Name: t_signatures.Qualified_Name = ($, abort, $p) => v_unmarshall.Qualified_Name(
     v_deserialize.Document(
         $,
         ($) => abort(
@@ -71,7 +71,7 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($, abort, $p) =>
     ),
 )
 
-export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort, $p) => v_unmarshall.Phrasing_Element(
+export const Node: t_signatures.Node = ($, abort, $p) => v_unmarshall.Node(
     v_deserialize.Document(
         $,
         ($) => abort(

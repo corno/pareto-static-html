@@ -69,9 +69,26 @@ export type Phrasing_Content_ = (
     context: Phrasing_Content_.I,
 ) => Phrasing_Content_.O
 
+export namespace Phrasing_Element_ {
+    
+    export type I = i_in.Phrasing_Element
+    
+    export type O = i_out.Phrasing_Element
+    
+    export namespace P {
+        
+    }
+    
+}
+
+export type Phrasing_Element_ = (
+    context: Phrasing_Element_.I,
+) => Phrasing_Element_.O
+
 export { 
     Document_ as Document, 
     Flow_Content_ as Flow_Content, 
     Classes_ as Classes, 
     Phrasing_Content_ as Phrasing_Content, 
+    Phrasing_Element_ as Phrasing_Element, 
 }

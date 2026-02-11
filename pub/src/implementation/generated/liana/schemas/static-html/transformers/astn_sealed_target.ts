@@ -13,6 +13,8 @@ import * as v_serialize_number from "liana-core/dist/implementation/manual/primi
 
 import * as v_serialize_boolean from "liana-core/dist/implementation/manual/primitives/boolean/serializers/true_false"
 
+import * as v_external_xml from "../../xml/transformers/astn_sealed_target"
+
 export const Document: t_signatures.Document = ($) => ['group', ['verbose', _p.dictionary.literal(
     {
         "css": _p_change_context(
@@ -396,10 +398,9 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', _p.list.f
                                     ),
                                     "content": _p_change_context(
                                         $['content'],
-                                        ($) => ['text', {
-                                            'delimiter': ['quote', null],
-                                            'value': $,
-                                        }],
+                                        ($) => v_external_xml.Mixed_Content(
+                                            $,
+                                        ),
                                     ),
                                     "width": _p_change_context(
                                         $['width'],
@@ -458,115 +459,119 @@ export const Classes: t_signatures.Classes = ($) => ['list', _p.list.from.list(
 export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => ['list', _p.list.from.list(
     $,
 ).map(
-    ($) => ['state', _p.decide.state(
+    ($) => Phrasing_Element(
         $,
-        ($): t_out.Value.state => {
-            switch ($[0]) {
-                case 'span':
-                    return _p.ss(
-                        $,
-                        ($) => ({
-                            'option': 'span',
-                            'value': Phrasing_Content(
-                                $,
-                            ),
-                        }),
-                    )
-                case 'classified span':
-                    return _p.ss(
-                        $,
-                        ($) => ({
-                            'option': 'classified span',
-                            'value': ['group', ['verbose', _p.dictionary.literal(
-                                {
-                                    "classes": _p_change_context(
-                                        $['classes'],
-                                        ($) => Classes(
-                                            $,
-                                        ),
+    ),
+)]
+
+export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => ['state', _p.decide.state(
+    $,
+    ($): t_out.Value.state => {
+        switch ($[0]) {
+            case 'span':
+                return _p.ss(
+                    $,
+                    ($) => ({
+                        'option': 'span',
+                        'value': Phrasing_Content(
+                            $,
+                        ),
+                    }),
+                )
+            case 'classified span':
+                return _p.ss(
+                    $,
+                    ($) => ({
+                        'option': 'classified span',
+                        'value': ['group', ['verbose', _p.dictionary.literal(
+                            {
+                                "classes": _p_change_context(
+                                    $['classes'],
+                                    ($) => Classes(
+                                        $,
                                     ),
-                                    "content": _p_change_context(
-                                        $['content'],
-                                        ($) => Phrasing_Content(
-                                            $,
-                                        ),
+                                ),
+                                "content": _p_change_context(
+                                    $['content'],
+                                    ($) => Phrasing_Content(
+                                        $,
                                     ),
-                                },
-                            )]],
-                        }),
-                    )
-                case 'titled span':
-                    return _p.ss(
-                        $,
-                        ($) => ({
-                            'option': 'titled span',
-                            'value': ['group', ['verbose', _p.dictionary.literal(
-                                {
-                                    "title": _p_change_context(
-                                        $['title'],
-                                        ($) => ['text', {
-                                            'delimiter': ['quote', null],
-                                            'value': $,
-                                        }],
+                                ),
+                            },
+                        )]],
+                    }),
+                )
+            case 'titled span':
+                return _p.ss(
+                    $,
+                    ($) => ({
+                        'option': 'titled span',
+                        'value': ['group', ['verbose', _p.dictionary.literal(
+                            {
+                                "title": _p_change_context(
+                                    $['title'],
+                                    ($) => ['text', {
+                                        'delimiter': ['quote', null],
+                                        'value': $,
+                                    }],
+                                ),
+                                "content": _p_change_context(
+                                    $['content'],
+                                    ($) => Phrasing_Content(
+                                        $,
                                     ),
-                                    "content": _p_change_context(
-                                        $['content'],
-                                        ($) => Phrasing_Content(
-                                            $,
-                                        ),
-                                    ),
-                                },
-                            )]],
-                        }),
-                    )
-                case 'a':
-                    return _p.ss(
-                        $,
-                        ($) => ({
-                            'option': 'a',
-                            'value': ['group', ['verbose', _p.dictionary.literal(
-                                {
-                                    "text": _p_change_context(
-                                        $['text'],
-                                        ($) => ['text', {
-                                            'delimiter': ['quote', null],
-                                            'value': $,
-                                        }],
-                                    ),
-                                    "href": _p_change_context(
-                                        $['href'],
-                                        ($) => ['text', {
-                                            'delimiter': ['quote', null],
-                                            'value': $,
-                                        }],
-                                    ),
-                                },
-                            )]],
-                        }),
-                    )
-                case 'p':
-                    return _p.ss(
-                        $,
-                        ($) => ({
-                            'option': 'p',
-                            'value': ['group', ['verbose', _p.dictionary.literal(
-                                {
-                                    "text": _p_change_context(
-                                        $['text'],
-                                        ($) => ['text', {
-                                            'delimiter': ['quote', null],
-                                            'value': $,
-                                        }],
-                                    ),
-                                },
-                            )]],
-                        }),
-                    )
-                default:
-                    return _p.au(
-                        $[0],
-                    )
-            }
-        },
-    )],
+                                ),
+                            },
+                        )]],
+                    }),
+                )
+            case 'a':
+                return _p.ss(
+                    $,
+                    ($) => ({
+                        'option': 'a',
+                        'value': ['group', ['verbose', _p.dictionary.literal(
+                            {
+                                "text": _p_change_context(
+                                    $['text'],
+                                    ($) => ['text', {
+                                        'delimiter': ['quote', null],
+                                        'value': $,
+                                    }],
+                                ),
+                                "href": _p_change_context(
+                                    $['href'],
+                                    ($) => ['text', {
+                                        'delimiter': ['quote', null],
+                                        'value': $,
+                                    }],
+                                ),
+                            },
+                        )]],
+                    }),
+                )
+            case 'p':
+                return _p.ss(
+                    $,
+                    ($) => ({
+                        'option': 'p',
+                        'value': ['group', ['verbose', _p.dictionary.literal(
+                            {
+                                "text": _p_change_context(
+                                    $['text'],
+                                    ($) => ['text', {
+                                        'delimiter': ['quote', null],
+                                        'value': $,
+                                    }],
+                                ),
+                            },
+                        )]],
+                    }),
+                )
+            default:
+                return _p.au(
+                    $[0],
+                )
+        }
+    },
 )]

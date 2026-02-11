@@ -7,6 +7,8 @@ import * as t_signatures from "../../../../../../interface/generated/liana/schem
 
 import * as t_out from "../../../../../../interface/generated/liana/schemas/static-html/data"
 
+import * as v_xml from "../../xml/transformers/boilerplate_for_migrate"
+
 export const Document: t_signatures.Document = ($) => ({
     'css': _p_change_context(
         $['css'],
@@ -281,7 +283,9 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => _p.list.from.list(
                             ),
                             'content': _p_change_context(
                                 $['content'],
-                                ($) => $,
+                                ($) => v_xml.Mixed_Content(
+                                    $,
+                                ),
                             ),
                             'width': _p_change_context(
                                 $['width'],
@@ -319,80 +323,84 @@ export const Classes: t_signatures.Classes = ($) => _p.list.from.list(
 export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => _p.list.from.list(
     $,
 ).map(
-    ($) => _p.decide.state(
+    ($) => Phrasing_Element(
         $,
-        ($): t_out.Phrasing_Content.L => {
-            switch ($[0]) {
-                case 'span':
-                    return _p.ss(
-                        $,
-                        ($) => ['span', Phrasing_Content(
-                            $,
-                        )],
-                    )
-                case 'classified span':
-                    return _p.ss(
-                        $,
-                        ($) => ['classified span', {
-                            'classes': _p_change_context(
-                                $['classes'],
-                                ($) => Classes(
-                                    $,
-                                ),
-                            ),
-                            'content': _p_change_context(
-                                $['content'],
-                                ($) => Phrasing_Content(
-                                    $,
-                                ),
-                            ),
-                        }],
-                    )
-                case 'titled span':
-                    return _p.ss(
-                        $,
-                        ($) => ['titled span', {
-                            'title': _p_change_context(
-                                $['title'],
-                                ($) => $,
-                            ),
-                            'content': _p_change_context(
-                                $['content'],
-                                ($) => Phrasing_Content(
-                                    $,
-                                ),
-                            ),
-                        }],
-                    )
-                case 'a':
-                    return _p.ss(
-                        $,
-                        ($) => ['a', {
-                            'text': _p_change_context(
-                                $['text'],
-                                ($) => $,
-                            ),
-                            'href': _p_change_context(
-                                $['href'],
-                                ($) => $,
-                            ),
-                        }],
-                    )
-                case 'p':
-                    return _p.ss(
-                        $,
-                        ($) => ['p', {
-                            'text': _p_change_context(
-                                $['text'],
-                                ($) => $,
-                            ),
-                        }],
-                    )
-                default:
-                    return _p.au(
-                        $[0],
-                    )
-            }
-        },
     ),
+)
+
+export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => _p.decide.state(
+    $,
+    ($): t_out.Phrasing_Element => {
+        switch ($[0]) {
+            case 'span':
+                return _p.ss(
+                    $,
+                    ($) => ['span', Phrasing_Content(
+                        $,
+                    )],
+                )
+            case 'classified span':
+                return _p.ss(
+                    $,
+                    ($) => ['classified span', {
+                        'classes': _p_change_context(
+                            $['classes'],
+                            ($) => Classes(
+                                $,
+                            ),
+                        ),
+                        'content': _p_change_context(
+                            $['content'],
+                            ($) => Phrasing_Content(
+                                $,
+                            ),
+                        ),
+                    }],
+                )
+            case 'titled span':
+                return _p.ss(
+                    $,
+                    ($) => ['titled span', {
+                        'title': _p_change_context(
+                            $['title'],
+                            ($) => $,
+                        ),
+                        'content': _p_change_context(
+                            $['content'],
+                            ($) => Phrasing_Content(
+                                $,
+                            ),
+                        ),
+                    }],
+                )
+            case 'a':
+                return _p.ss(
+                    $,
+                    ($) => ['a', {
+                        'text': _p_change_context(
+                            $['text'],
+                            ($) => $,
+                        ),
+                        'href': _p_change_context(
+                            $['href'],
+                            ($) => $,
+                        ),
+                    }],
+                )
+            case 'p':
+                return _p.ss(
+                    $,
+                    ($) => ['p', {
+                        'text': _p_change_context(
+                            $['text'],
+                            ($) => $,
+                        ),
+                    }],
+                )
+            default:
+                return _p.au(
+                    $[0],
+                )
+        }
+    },
 )

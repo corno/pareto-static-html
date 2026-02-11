@@ -26,11 +26,11 @@ export type Document_ = (
     abort: _pi.Abort<Document_.E>,
 ) => Document_.O
 
-export namespace Flow_Content_ {
+export namespace Element_ {
     
     export type I = i_in.Value
     
-    export type O = i_out.Flow_Content
+    export type O = i_out.Element
     
     export type E = i_generic.Error
     
@@ -40,16 +40,16 @@ export namespace Flow_Content_ {
     
 }
 
-export type Flow_Content_ = (
-    context: Flow_Content_.I,
-    abort: _pi.Abort<Flow_Content_.E>,
-) => Flow_Content_.O
+export type Element_ = (
+    context: Element_.I,
+    abort: _pi.Abort<Element_.E>,
+) => Element_.O
 
-export namespace Classes_ {
+export namespace Mixed_Content_ {
     
     export type I = i_in.Value
     
-    export type O = i_out.Classes
+    export type O = i_out.Mixed_Content
     
     export type E = i_generic.Error
     
@@ -59,16 +59,16 @@ export namespace Classes_ {
     
 }
 
-export type Classes_ = (
-    context: Classes_.I,
-    abort: _pi.Abort<Classes_.E>,
-) => Classes_.O
+export type Mixed_Content_ = (
+    context: Mixed_Content_.I,
+    abort: _pi.Abort<Mixed_Content_.E>,
+) => Mixed_Content_.O
 
-export namespace Phrasing_Content_ {
+export namespace Qualified_Name_ {
     
     export type I = i_in.Value
     
-    export type O = i_out.Phrasing_Content
+    export type O = i_out.Qualified_Name
     
     export type E = i_generic.Error
     
@@ -78,16 +78,16 @@ export namespace Phrasing_Content_ {
     
 }
 
-export type Phrasing_Content_ = (
-    context: Phrasing_Content_.I,
-    abort: _pi.Abort<Phrasing_Content_.E>,
-) => Phrasing_Content_.O
+export type Qualified_Name_ = (
+    context: Qualified_Name_.I,
+    abort: _pi.Abort<Qualified_Name_.E>,
+) => Qualified_Name_.O
 
-export namespace Phrasing_Element_ {
+export namespace Node_ {
     
     export type I = i_in.Value
     
-    export type O = i_out.Phrasing_Element
+    export type O = i_out.Node
     
     export type E = i_generic.Error
     
@@ -97,15 +97,15 @@ export namespace Phrasing_Element_ {
     
 }
 
-export type Phrasing_Element_ = (
-    context: Phrasing_Element_.I,
-    abort: _pi.Abort<Phrasing_Element_.E>,
-) => Phrasing_Element_.O
+export type Node_ = (
+    context: Node_.I,
+    abort: _pi.Abort<Node_.E>,
+) => Node_.O
 
 export { 
     Document_ as Document, 
-    Flow_Content_ as Flow_Content, 
-    Classes_ as Classes, 
-    Phrasing_Content_ as Phrasing_Content, 
-    Phrasing_Element_ as Phrasing_Element, 
+    Element_ as Element, 
+    Mixed_Content_ as Mixed_Content, 
+    Qualified_Name_ as Qualified_Name, 
+    Node_ as Node, 
 }
