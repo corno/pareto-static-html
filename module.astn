@@ -1,0 +1,640 @@
+(
+    'omit (de)serializer': false
+    'schema tree': | 'set' {
+        `xml`: | 'schema' (
+            'schema imports': {}
+            'resolver imports': {}
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'text types': {
+                    `Text Value`: (
+                        'type': | 'single line' ~
+                    )
+                }
+                'number types': {
+                    `Position`: (
+                        'precision': | 'exact' (
+                            'decimal separator offset': ~
+                            'type': | 'natural' ~
+                        )
+                    )
+                }
+            )
+            'modules': {
+                `Document`: (
+                    'root value': | 'group' {
+                        `doc type`: (
+                            'description': ~
+                            'value': | 'optional' | 'group' {
+                                `name`: (
+                                    'description': ~
+                                    'value': | 'text' | 'local' (
+                                        'type': | 'single line' ~
+                                    )
+                                )
+                            }
+                        )
+                        `root`: (
+                            'description': ~
+                            'value': | 'component' (
+                                'type': | 'internal' `Element`
+                                'results': ~
+                            )
+                        )
+                    }
+                )
+                `Element`: (
+                    'root value': | 'group' {
+                        `name`: (
+                            'description': ~
+                            'value': | 'component' (
+                                'type': | 'internal' `Qualified Name`
+                                'results': ~
+                            )
+                        )
+                        `attributes`: (
+                            'description': ~
+                            'value': | 'list' (
+                                'value': | 'group' {
+                                    `name`: (
+                                        'description': ~
+                                        'value': | 'component' (
+                                            'type': | 'internal' `Qualified Name`
+                                            'results': ~
+                                        )
+                                    )
+                                    `value`: (
+                                        'description': ~
+                                        'value': | 'text' | 'local' (
+                                            'type': | 'single line' ~
+                                        )
+                                    )
+                                }
+                                'results': ~
+                            )
+                        )
+                        `content type`: (
+                            'description': ~
+                            'value': | 'state' (
+                                'options': {
+                                    `empty`: (
+                                        'constraints': ~
+                                        'description': ~
+                                        'value': | 'group' {}
+                                    )
+                                    `text only`: (
+                                        'constraints': ~
+                                        'description': ~
+                                        'value': | 'group' {
+                                            `value`: (
+                                                'description': ~
+                                                'value': | 'text' | 'local' (
+                                                    'type': | 'single line' ~
+                                                )
+                                            )
+                                        }
+                                    )
+                                    `mixed`: (
+                                        'constraints': ~
+                                        'description': ~
+                                        'value': | 'component' (
+                                            'type': | 'internal' `Mixed Content`
+                                            'results': ~
+                                        )
+                                    )
+                                    `nodes only`: (
+                                        'constraints': ~
+                                        'description': ~
+                                        'value': | 'group' {
+                                            `children`: (
+                                                'description': ~
+                                                'value': | 'list' (
+                                                    'value': | 'component' (
+                                                        'type': | 'internal' `Node`
+                                                        'results': ~
+                                                    )
+                                                    'results': ~
+                                                )
+                                            )
+                                        }
+                                    )
+                                }
+                                'results': ~
+                            )
+                        )
+                    }
+                )
+                `Mixed Content`: (
+                    'root value': | 'list' (
+                        'value': | 'state' (
+                            'options': {
+                                `node`: (
+                                    'constraints': ~
+                                    'description': ~
+                                    'value': | 'component' (
+                                        'type': | 'internal' `Node`
+                                        'results': ~
+                                    )
+                                )
+                                `text`: (
+                                    'constraints': ~
+                                    'description': ~
+                                    'value': | 'group' {
+                                        `value`: (
+                                            'description': ~
+                                            'value': | 'text' | 'local' (
+                                                'type': | 'single line' ~
+                                            )
+                                        )
+                                    }
+                                )
+                            }
+                            'results': ~
+                        )
+                        'results': ~
+                    )
+                )
+                `Qualified Name`: (
+                    'root value': | 'group' {
+                        `namespace prefix`: (
+                            'description': ~
+                            'value': | 'optional' | 'text' | 'local' (
+                                'type': | 'single line' ~
+                            )
+                        )
+                        `local name`: (
+                            'description': ~
+                            'value': | 'text' | 'local' (
+                                'type': | 'single line' ~
+                            )
+                        )
+                    }
+                )
+                `Node`: (
+                    'root value': | 'state' (
+                        'options': {
+                            `element`: (
+                                'constraints': ~
+                                'description': ~
+                                'value': | 'component' (
+                                    'type': | 'internal' `Element`
+                                    'results': ~
+                                )
+                            )
+                        }
+                        'results': ~
+                    )
+                )
+            }
+            'complexity': | 'unconstrained' ~
+        )
+        `static-html`: | 'schema' (
+            'schema imports': {
+                `xml`: (
+                    'schema set child': `xml`
+                    'schema': ~
+                )
+            }
+            'resolver imports': {}
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'text types': {
+                    `Text Value`: (
+                        'type': | 'single line' ~
+                    )
+                }
+                'number types': {
+                    `Position`: (
+                        'precision': | 'exact' (
+                            'decimal separator offset': ~
+                            'type': | 'natural' ~
+                        )
+                    )
+                }
+            )
+            'modules': {
+                `Document`: (
+                    'root value': | 'group' {
+                        `css`: (
+                            'description': ~
+                            'value': | 'text' | 'local' (
+                                'type': | 'multi line' ~
+                            )
+                        )
+                        `root`: (
+                            'description': ~
+                            'value': | 'component' (
+                                'type': | 'internal' `Flow Content`
+                                'results': ~
+                            )
+                        )
+                    }
+                )
+                `Flow Content`: (
+                    'root value': | 'list' (
+                        'value': | 'state' (
+                            'options': {
+                                `div`: (
+                                    'constraints': ~
+                                    'description': ~
+                                    'value': | 'component' (
+                                        'type': | 'internal' `Flow Content`
+                                        'results': ~
+                                    )
+                                )
+                                `dimensioned div`: (
+                                    'constraints': ~
+                                    'description': ~
+                                    'value': | 'group' {
+                                        `width`: (
+                                            'description': ~
+                                            'value': | 'optional' | 'number' | 'local' (
+                                                'precision': | 'exact' (
+                                                    'decimal separator offset': ~
+                                                    'type': | 'natural' ~
+                                                )
+                                            )
+                                        )
+                                        `height`: (
+                                            'description': ~
+                                            'value': | 'optional' | 'number' | 'local' (
+                                                'precision': | 'exact' (
+                                                    'decimal separator offset': ~
+                                                    'type': | 'natural' ~
+                                                )
+                                            )
+                                        )
+                                        `content`: (
+                                            'description': ~
+                                            'value': | 'component' (
+                                                'type': | 'internal' `Flow Content`
+                                                'results': ~
+                                            )
+                                        )
+                                    }
+                                )
+                                `classified div`: (
+                                    'constraints': ~
+                                    'description': ~
+                                    'value': | 'group' {
+                                        `classes`: (
+                                            'description': ~
+                                            'value': | 'component' (
+                                                'type': | 'internal' `Classes`
+                                                'results': ~
+                                            )
+                                        )
+                                        `content`: (
+                                            'description': ~
+                                            'value': | 'component' (
+                                                'type': | 'internal' `Flow Content`
+                                                'results': ~
+                                            )
+                                        )
+                                    }
+                                )
+                                `table`: (
+                                    'constraints': ~
+                                    'description': ~
+                                    'value': | 'group' {
+                                        `classes`: (
+                                            'description': ~
+                                            'value': | 'component' (
+                                                'type': | 'internal' `Classes`
+                                                'results': ~
+                                            )
+                                        )
+                                        `sections`: (
+                                            'description': ~
+                                            'value': | 'list' (
+                                                'value': | 'group' {
+                                                    `classes`: (
+                                                        'description': ~
+                                                        'value': | 'component' (
+                                                            'type': | 'internal' `Classes`
+                                                            'results': ~
+                                                        )
+                                                    )
+                                                    `type`: (
+                                                        'description': ~
+                                                        'value': | 'state' (
+                                                            'options': {
+                                                                `header`: (
+                                                                    'constraints': ~
+                                                                    'description': ~
+                                                                    'value': | 'nothing' ~
+                                                                )
+                                                                `body`: (
+                                                                    'constraints': ~
+                                                                    'description': ~
+                                                                    'value': | 'nothing' ~
+                                                                )
+                                                                `footer`: (
+                                                                    'constraints': ~
+                                                                    'description': ~
+                                                                    'value': | 'nothing' ~
+                                                                )
+                                                            }
+                                                            'results': ~
+                                                        )
+                                                    )
+                                                    `rows`: (
+                                                        'description': ~
+                                                        'value': | 'list' (
+                                                            'value': | 'group' {
+                                                                `classes`: (
+                                                                    'description': ~
+                                                                    'value': | 'component' (
+                                                                        'type': | 'internal' `Classes`
+                                                                        'results': ~
+                                                                    )
+                                                                )
+                                                                `type`: (
+                                                                    'description': ~
+                                                                    'value': | 'state' (
+                                                                        'options': {
+                                                                            `th`: (
+                                                                                'constraints': ~
+                                                                                'description': ~
+                                                                                'value': | 'nothing' ~
+                                                                            )
+                                                                            `td`: (
+                                                                                'constraints': ~
+                                                                                'description': ~
+                                                                                'value': | 'nothing' ~
+                                                                            )
+                                                                        }
+                                                                        'results': ~
+                                                                    )
+                                                                )
+                                                                `height`: (
+                                                                    'description': ~
+                                                                    'value': | 'optional' | 'number' | 'local' (
+                                                                        'precision': | 'exact' (
+                                                                            'decimal separator offset': ~
+                                                                            'type': | 'natural' ~
+                                                                        )
+                                                                    )
+                                                                )
+                                                                `cells`: (
+                                                                    'description': ~
+                                                                    'value': | 'list' (
+                                                                        'value': | 'group' {
+                                                                            `classes`: (
+                                                                                'description': ~
+                                                                                'value': | 'component' (
+                                                                                    'type': | 'internal' `Classes`
+                                                                                    'results': ~
+                                                                                )
+                                                                            )
+                                                                            `content`: (
+                                                                                'description': ~
+                                                                                'value': | 'component' (
+                                                                                    'type': | 'internal' `Flow Content`
+                                                                                    'results': ~
+                                                                                )
+                                                                            )
+                                                                        }
+                                                                        'results': ~
+                                                                    )
+                                                                )
+                                                            }
+                                                            'results': ~
+                                                        )
+                                                    )
+                                                }
+                                                'results': ~
+                                            )
+                                        )
+                                    }
+                                )
+                                `span`: (
+                                    'constraints': ~
+                                    'description': ~
+                                    'value': | 'component' (
+                                        'type': | 'internal' `Phrasing Content`
+                                        'results': ~
+                                    )
+                                )
+                                `label`: (
+                                    'constraints': ~
+                                    'description': ~
+                                    'value': | 'group' {
+                                        `classes`: (
+                                            'description': ~
+                                            'value': | 'component' (
+                                                'type': | 'internal' `Classes`
+                                                'results': ~
+                                            )
+                                        )
+                                        `text`: (
+                                            'description': ~
+                                            'value': | 'text' | 'local' (
+                                                'type': | 'single line' ~
+                                            )
+                                        )
+                                        `content`: (
+                                            'description': ~
+                                            'value': | 'component' (
+                                                'type': | 'internal' `Flow Content`
+                                                'results': ~
+                                            )
+                                        )
+                                    }
+                                )
+                                `img`: (
+                                    'constraints': ~
+                                    'description': ~
+                                    'value': | 'group' {
+                                        `classes`: (
+                                            'description': ~
+                                            'value': | 'component' (
+                                                'type': | 'internal' `Classes`
+                                                'results': ~
+                                            )
+                                        )
+                                        `src`: (
+                                            'description': ~
+                                            'value': | 'text' | 'local' (
+                                                'type': | 'single line' ~
+                                            )
+                                        )
+                                        `alt`: (
+                                            'description': ~
+                                            'value': | 'text' | 'local' (
+                                                'type': | 'single line' ~
+                                            )
+                                        )
+                                        `width`: (
+                                            'description': ~
+                                            'value': | 'optional' | 'number' | 'local' (
+                                                'precision': | 'exact' (
+                                                    'decimal separator offset': ~
+                                                    'type': | 'natural' ~
+                                                )
+                                            )
+                                        )
+                                        `height`: (
+                                            'description': ~
+                                            'value': | 'optional' | 'number' | 'local' (
+                                                'precision': | 'exact' (
+                                                    'decimal separator offset': ~
+                                                    'type': | 'natural' ~
+                                                )
+                                            )
+                                        )
+                                    }
+                                )
+                                `svg`: (
+                                    'constraints': ~
+                                    'description': ~
+                                    'value': | 'group' {
+                                        `classes`: (
+                                            'description': ~
+                                            'value': | 'component' (
+                                                'type': | 'internal' `Classes`
+                                                'results': ~
+                                            )
+                                        )
+                                        `content`: (
+                                            'description': ~
+                                            'value': | 'component' (
+                                                'type': | 'external' (
+                                                    'import': `xml`
+                                                    'module': `Mixed Content`
+                                                )
+                                                'results': ~
+                                            )
+                                        )
+                                        `width`: (
+                                            'description': ~
+                                            'value': | 'optional' | 'number' | 'local' (
+                                                'precision': | 'exact' (
+                                                    'decimal separator offset': ~
+                                                    'type': | 'natural' ~
+                                                )
+                                            )
+                                        )
+                                        `height`: (
+                                            'description': ~
+                                            'value': | 'optional' | 'number' | 'local' (
+                                                'precision': | 'exact' (
+                                                    'decimal separator offset': ~
+                                                    'type': | 'natural' ~
+                                                )
+                                            )
+                                        )
+                                    }
+                                )
+                            }
+                            'results': ~
+                        )
+                        'results': ~
+                    )
+                )
+                `Classes`: (
+                    'root value': | 'list' (
+                        'value': | 'text' | 'local' (
+                            'type': | 'single line' ~
+                        )
+                        'results': ~
+                    )
+                )
+                `Phrasing Content`: (
+                    'root value': | 'list' (
+                        'value': | 'component' (
+                            'type': | 'internal' `Phrasing Element`
+                            'results': ~
+                        )
+                        'results': ~
+                    )
+                )
+                `Phrasing Element`: (
+                    'root value': | 'state' (
+                        'options': {
+                            `span`: (
+                                'constraints': ~
+                                'description': ~
+                                'value': | 'component' (
+                                    'type': | 'internal' `Phrasing Content`
+                                    'results': ~
+                                )
+                            )
+                            `classified span`: (
+                                'constraints': ~
+                                'description': ~
+                                'value': | 'group' {
+                                    `classes`: (
+                                        'description': ~
+                                        'value': | 'component' (
+                                            'type': | 'internal' `Classes`
+                                            'results': ~
+                                        )
+                                    )
+                                    `content`: (
+                                        'description': ~
+                                        'value': | 'component' (
+                                            'type': | 'internal' `Phrasing Content`
+                                            'results': ~
+                                        )
+                                    )
+                                }
+                            )
+                            `titled span`: (
+                                'constraints': ~
+                                'description': ~
+                                'value': | 'group' {
+                                    `title`: (
+                                        'description': ~
+                                        'value': | 'text' | 'local' (
+                                            'type': | 'single line' ~
+                                        )
+                                    )
+                                    `content`: (
+                                        'description': ~
+                                        'value': | 'component' (
+                                            'type': | 'internal' `Phrasing Content`
+                                            'results': ~
+                                        )
+                                    )
+                                }
+                            )
+                            `a`: (
+                                'constraints': ~
+                                'description': ~
+                                'value': | 'group' {
+                                    `text`: (
+                                        'description': ~
+                                        'value': | 'text' | 'local' (
+                                            'type': | 'single line' ~
+                                        )
+                                    )
+                                    `href`: (
+                                        'description': ~
+                                        'value': | 'text' | 'local' (
+                                            'type': | 'single line' ~
+                                        )
+                                    )
+                                }
+                            )
+                            `p`: (
+                                'constraints': ~
+                                'description': ~
+                                'value': | 'group' {
+                                    `text`: (
+                                        'description': ~
+                                        'value': | 'text' | 'local' (
+                                            'type': | 'single line' ~
+                                        )
+                                    )
+                                }
+                            )
+                        }
+                        'results': ~
+                    )
+                )
+            }
+            'complexity': | 'unconstrained' ~
+        )
+    }
+)

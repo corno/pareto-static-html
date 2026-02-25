@@ -7,7 +7,7 @@ import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
 
 import _p_variables from 'pareto-core/dist/_p_variables'
 
-import * as t_signatures from "../../../../../../interface/generated/liana/schemas/static-html/unmarshall"
+import * as t_signatures from "../../../../../../interface/generated/liana/schemas/static-html/signatures/refiners/astn_parse_tree"
 
 import * as t_out from "../../../../../../interface/generated/liana/schemas/static-html/data"
 

@@ -1,7 +1,7 @@
 
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as i_in from "./data"
+import * as i_in from "../../data"
 
 import * as i_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
@@ -21,25 +21,9 @@ export type Document_ = (
     context: Document_.I,
 ) => Document_.O
 
-export namespace Element_ {
+export namespace Flow_Content_ {
     
-    export type I = i_in.Element
-    
-    export type O = i_out.Paragraph
-    
-    export namespace P {
-        
-    }
-    
-}
-
-export type Element_ = (
-    context: Element_.I,
-) => Element_.O
-
-export namespace Mixed_Content_ {
-    
-    export type I = i_in.Mixed_Content
+    export type I = i_in.Flow_Content
     
     export type O = i_out.Paragraph
     
@@ -49,13 +33,13 @@ export namespace Mixed_Content_ {
     
 }
 
-export type Mixed_Content_ = (
-    context: Mixed_Content_.I,
-) => Mixed_Content_.O
+export type Flow_Content_ = (
+    context: Flow_Content_.I,
+) => Flow_Content_.O
 
-export namespace Qualified_Name_ {
+export namespace Classes_ {
     
-    export type I = i_in.Qualified_Name
+    export type I = i_in.Classes
     
     export type O = i_out.Paragraph
     
@@ -65,13 +49,13 @@ export namespace Qualified_Name_ {
     
 }
 
-export type Qualified_Name_ = (
-    context: Qualified_Name_.I,
-) => Qualified_Name_.O
+export type Classes_ = (
+    context: Classes_.I,
+) => Classes_.O
 
-export namespace Node_ {
+export namespace Phrasing_Content_ {
     
-    export type I = i_in.Node
+    export type I = i_in.Phrasing_Content
     
     export type O = i_out.Paragraph
     
@@ -81,14 +65,30 @@ export namespace Node_ {
     
 }
 
-export type Node_ = (
-    context: Node_.I,
-) => Node_.O
+export type Phrasing_Content_ = (
+    context: Phrasing_Content_.I,
+) => Phrasing_Content_.O
+
+export namespace Phrasing_Element_ {
+    
+    export type I = i_in.Phrasing_Element
+    
+    export type O = i_out.Paragraph
+    
+    export namespace P {
+        
+    }
+    
+}
+
+export type Phrasing_Element_ = (
+    context: Phrasing_Element_.I,
+) => Phrasing_Element_.O
 
 export { 
     Document_ as Document, 
-    Element_ as Element, 
-    Mixed_Content_ as Mixed_Content, 
-    Qualified_Name_ as Qualified_Name, 
-    Node_ as Node, 
+    Flow_Content_ as Flow_Content, 
+    Classes_ as Classes, 
+    Phrasing_Content_ as Phrasing_Content, 
+    Phrasing_Element_ as Phrasing_Element, 
 }
