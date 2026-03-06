@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "pareto-host-nodejs": "^0.2.36",
-    "pareto-test": "^0.13.81",
+    "pareto-test": "^0.13.82",
     "pub": "file:../pub"
   }
 }
