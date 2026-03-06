@@ -229,6 +229,53 @@ export const Node: t_signatures.Node = ($) => ['state', _p.decide.state(
                         ),
                     }),
                 )
+            case 'comment':
+                return _p.ss(
+                    $,
+                    ($) => ({
+                        'option': 'comment',
+                        'value': ['text', {
+                            'delimiter': ['quote', null],
+                            'value': $,
+                        }],
+                    }),
+                )
+            case 'cdata':
+                return _p.ss(
+                    $,
+                    ($) => ({
+                        'option': 'cdata',
+                        'value': ['text', {
+                            'delimiter': ['quote', null],
+                            'value': $,
+                        }],
+                    }),
+                )
+            case 'processing instruction':
+                return _p.ss(
+                    $,
+                    ($) => ({
+                        'option': 'processing instruction',
+                        'value': ['group', ['verbose', _p.dictionary.literal(
+                            {
+                                "target": _p_change_context(
+                                    $['target'],
+                                    ($) => ['text', {
+                                        'delimiter': ['quote', null],
+                                        'value': $,
+                                    }],
+                                ),
+                                "data": _p_change_context(
+                                    $['data'],
+                                    ($) => ['text', {
+                                        'delimiter': ['quote', null],
+                                        'value': $,
+                                    }],
+                                ),
+                            },
+                        )]],
+                    }),
+                )
             default:
                 return _p.au(
                     $[0],

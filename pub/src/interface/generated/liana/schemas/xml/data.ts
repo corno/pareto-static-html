@@ -152,10 +152,30 @@ export namespace Node_ {
     
     export type element = Element_
     
+    export type comment = string
+    
+    export type cdata = string
+    
+    export namespace processing_instruction {
+        
+        export type target = string
+        
+        export type data = string
+        
+    }
+    
+    export type processing_instruction = {
+        readonly 'target': processing_instruction.target
+        readonly 'data': processing_instruction.data
+    }
+    
 }
 
 export type Node_ = 
     | readonly ['element', Node_.element]
+    | readonly ['comment', Node_.comment]
+    | readonly ['cdata', Node_.cdata]
+    | readonly ['processing instruction', Node_.processing_instruction]
 
 export { 
     Document_ as Document, 

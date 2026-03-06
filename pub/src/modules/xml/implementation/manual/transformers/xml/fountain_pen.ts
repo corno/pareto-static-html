@@ -60,14 +60,7 @@ export const Element: Element = ($) => sh.ph.composed(_p.list.nested_literal_old
                 case 'nodes only': return _p.ss($, ($) => sh.ph.indent(
                     sh.pg.sentences(_p.list.from.list(
                         $.children
-                    ).map(($) => _p.decide.state($, ($) => {
-                        switch ($[0]) {
-                            case 'element': return _p.ss($, ($) => sh.sentence([
-                                Element($)
-                            ]))
-                            default: return _p.au($[0])
-                        }
-                    }))
+                    ).map(($) => sh.sentence([Node($)]))
                     )))
                 case 'text only': return _p.ss($, ($) => sh.ph.literal($.value))
                 default: return _p.au($[0])
@@ -108,7 +101,26 @@ export const Qualified_Name: Qualified_Name = ($) => sh.ph.composed(_p.list.nest
 
 export const Node: Node = ($) => _p.decide.state($, ($) => {
     switch ($[0]) {
-        case 'element': return _p.ss($, ($) => Element($))
+        case 'cdata': return _p.ss($, ($) => sh.ph.composed([
+            sh.ph.literal("<![CDATA["),
+            sh.ph.literal($),
+            sh.ph.literal("]]>")
+        ]))
+        case 'comment': return _p.ss($, ($) => sh.ph.composed([
+            sh.ph.literal("<!--"),
+            sh.ph.literal($),
+            sh.ph.literal("-->")
+        ]))
+        case 'element': return _p.ss($, ($) => sh.ph.composed([
+            Element($)
+        ]))
+        case 'processing instruction': return _p.ss($, ($) => sh.ph.composed([
+            sh.ph.literal("<?"),
+            sh.ph.literal($.target),
+            sh.ph.literal(" "),
+            sh.ph.literal($.data),
+            sh.ph.literal("?>")
+        ]))
         default: return _p.au($[0])
     }
 })

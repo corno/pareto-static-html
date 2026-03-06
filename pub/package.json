@@ -1,6 +1,6 @@
 {
   "name": "pareto-static-html",
-  "version": "0.1.31",
+  "version": "0.1.32",
   "author": "Corno",
   "license": "Apache-2.0",
   "description": "a library for creating static HTML documents using Pareto",
@@ -11,7 +11,6 @@
   ],
   "dependencies": {
     "liana-core": "^0.1.1",
-    "pareto-fountain-pen": "^0.4.50",
-    "pareto-fountain-pen-file-structure": "^0.1.1"
+    "pareto-fountain-pen": "^0.4.51"
   }
 }

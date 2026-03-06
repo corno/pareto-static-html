@@ -608,6 +608,90 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
                             ),
                         )],
                     )
+                case 'comment':
+                    return _p_change_context(
+                        $['value'],
+                        ($) => ['comment', v_unmarshalled_from_parse_tree.Text(
+                            $,
+                            ($) => abort(
+                                $,
+                            ),
+                        )],
+                    )
+                case 'cdata':
+                    return _p_change_context(
+                        $['value'],
+                        ($) => ['cdata', v_unmarshalled_from_parse_tree.Text(
+                            $,
+                            ($) => abort(
+                                $,
+                            ),
+                        )],
+                    )
+                case 'processing instruction':
+                    return _p_change_context(
+                        $['value'],
+                        ($) => ['processing instruction', _p_change_context(
+                            v_unmarshalled_from_parse_tree.Verbose_Group(
+                                $,
+                                ($) => abort(
+                                    $,
+                                ),
+                                {
+                                    'expected properties': _p.dictionary.literal(
+                                        {
+                                            "target": null,
+                                            "data": null,
+                                        },
+                                    ),
+                                },
+                            ),
+                            ($) => _p_variables(
+                                () => {
+                                    
+                                    const var_verbose_group_range = v_parse_tree_to_location.Value(
+                                        $['value'],
+                                    )
+                                    return {
+                                        'target': _p_change_context(
+                                            v_unmarshalled_from_parse_tree.Property(
+                                                $,
+                                                ($) => abort(
+                                                    $,
+                                                ),
+                                                {
+                                                    'id': 'target',
+                                                },
+                                            ),
+                                            ($) => v_unmarshalled_from_parse_tree.Text(
+                                                $,
+                                                ($) => abort(
+                                                    $,
+                                                ),
+                                            ),
+                                        ),
+                                        'data': _p_change_context(
+                                            v_unmarshalled_from_parse_tree.Property(
+                                                $,
+                                                ($) => abort(
+                                                    $,
+                                                ),
+                                                {
+                                                    'id': 'data',
+                                                },
+                                            ),
+                                            ($) => v_unmarshalled_from_parse_tree.Text(
+                                                $,
+                                                ($) => abort(
+                                                    $,
+                                                ),
+                                            ),
+                                        ),
+                                    }
+                                },
+                            ),
+                        )],
+                    )
                 default:
                     return abort(
                         ['liana', {

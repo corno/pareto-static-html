@@ -168,6 +168,30 @@ export const Node: t_signatures.Node = ($) => _p.decide.state(
                         $,
                     )],
                 )
+            case 'comment':
+                return _p.ss(
+                    $,
+                    ($) => ['comment', $],
+                )
+            case 'cdata':
+                return _p.ss(
+                    $,
+                    ($) => ['cdata', $],
+                )
+            case 'processing instruction':
+                return _p.ss(
+                    $,
+                    ($) => ['processing instruction', {
+                        'target': _p_change_context(
+                            $['target'],
+                            ($) => $,
+                        ),
+                        'data': _p_change_context(
+                            $['data'],
+                            ($) => $,
+                        ),
+                    }],
+                )
             default:
                 return _p.au(
                     $[0],
