@@ -26,6 +26,25 @@ export type Document_ = (
     abort: _pi.Abort<Document_.E>,
 ) => Document_.O
 
+export namespace Flow_Element_ {
+    
+    export type I = i_in.Value
+    
+    export type O = i_out.Flow_Element
+    
+    export type E = i_generic.Error
+    
+    export namespace P {
+        
+    }
+    
+}
+
+export type Flow_Element_ = (
+    context: Flow_Element_.I,
+    abort: _pi.Abort<Flow_Element_.E>,
+) => Flow_Element_.O
+
 export namespace Flow_Content_ {
     
     export type I = i_in.Value
@@ -104,6 +123,7 @@ export type Phrasing_Element_ = (
 
 export { 
     Document_ as Document, 
+    Flow_Element_ as Flow_Element, 
     Flow_Content_ as Flow_Content, 
     Classes_ as Classes, 
     Phrasing_Content_ as Phrasing_Content, 

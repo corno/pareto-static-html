@@ -13,6 +13,12 @@ export const Document: t_signatures.Document = ($) => v_serialize.Document(
     ),
 )
 
+export const Flow_Element: t_signatures.Flow_Element = ($) => v_serialize.Document(
+    v_marshall.Flow_Element(
+        $,
+    ),
+)
+
 export const Flow_Content: t_signatures.Flow_Content = ($) => v_serialize.Document(
     v_marshall.Flow_Content(
         $,

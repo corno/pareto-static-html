@@ -23,6 +23,22 @@ export const Document: t_signatures.Document = ($, abort, $p) => v_unmarshall.Do
     ),
 )
 
+export const Flow_Element: t_signatures.Flow_Element = ($, abort, $p) => v_unmarshall.Flow_Element(
+    v_deserialize.Document(
+        $,
+        ($) => abort(
+            ['parse error', $],
+        ),
+        {
+            'document resource identifier': $p['document resource identifier'],
+            'tab size': $p['tab size'],
+        },
+    )['content'],
+    ($) => abort(
+        ['unmarshall error', $],
+    ),
+)
+
 export const Flow_Content: t_signatures.Flow_Content = ($, abort, $p) => v_unmarshall.Flow_Content(
     v_deserialize.Document(
         $,

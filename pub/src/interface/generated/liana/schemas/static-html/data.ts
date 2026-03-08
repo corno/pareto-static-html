@@ -7,7 +7,7 @@ export namespace Document_ {
     
     export type css = string
     
-    export type root = Flow_Content_
+    export type root = Flow_Element_
     
 }
 
@@ -16,249 +16,251 @@ export type Document_ = {
     readonly 'root': Document_.root
 }
 
-export namespace Flow_Content_ {
+export namespace Flow_Element_ {
     
-    export namespace L {
+    export type div = Flow_Content_
+    
+    export namespace dimensioned_div {
         
-        export type div = Flow_Content_
-        
-        export namespace dimensioned_div {
+        export namespace width {
             
-            export namespace width {
-                
-                export type O = number
-                
-            }
-            
-            export type width = _pi.Optional_Value<width.O>
-            
-            export namespace height {
-                
-                export type O = number
-                
-            }
-            
-            export type height = _pi.Optional_Value<height.O>
-            
-            export type content = Flow_Content_
+            export type O = number
             
         }
         
-        export type dimensioned_div = {
-            readonly 'width': dimensioned_div.width
-            readonly 'height': dimensioned_div.height
-            readonly 'content': dimensioned_div.content
-        }
+        export type width = _pi.Optional_Value<width.O>
         
-        export namespace classified_div {
+        export namespace height {
             
-            export type classes = Classes_
-            
-            export type content = Flow_Content_
+            export type O = number
             
         }
         
-        export type classified_div = {
-            readonly 'classes': classified_div.classes
-            readonly 'content': classified_div.content
-        }
+        export type height = _pi.Optional_Value<height.O>
         
-        export namespace table {
-            
-            export type classes = Classes_
-            
-            export namespace sections {
-                
-                export namespace L {
-                    
-                    export type classes = Classes_
-                    
-                    export namespace type_ {
-                        
-                        export type header = null
-                        
-                        export type body = null
-                        
-                        export type footer = null
-                        
-                    }
-                    
-                    export type type_ = 
-                        | readonly ['header', type_.header]
-                        | readonly ['body', type_.body]
-                        | readonly ['footer', type_.footer]
-                    
-                    export namespace rows {
-                        
-                        export namespace L {
-                            
-                            export type classes = Classes_
-                            
-                            export namespace type_ {
-                                
-                                export type th = null
-                                
-                                export type td = null
-                                
-                            }
-                            
-                            export type type_ = 
-                                | readonly ['th', type_.th]
-                                | readonly ['td', type_.td]
-                            
-                            export namespace height {
-                                
-                                export type O = number
-                                
-                            }
-                            
-                            export type height = _pi.Optional_Value<height.O>
-                            
-                            export namespace cells {
-                                
-                                export namespace L {
-                                    
-                                    export type classes = Classes_
-                                    
-                                    export type content = Flow_Content_
-                                    
-                                }
-                                
-                                export type L = {
-                                    readonly 'classes': L.classes
-                                    readonly 'content': L.content
-                                }
-                                
-                            }
-                            
-                            export type cells = _pi.List<cells.L>
-                            
-                        }
-                        
-                        export type L = {
-                            readonly 'classes': L.classes
-                            readonly 'type': L.type_
-                            readonly 'height': L.height
-                            readonly 'cells': L.cells
-                        }
-                        
-                    }
-                    
-                    export type rows = _pi.List<rows.L>
-                    
-                }
-                
-                export type L = {
-                    readonly 'classes': L.classes
-                    readonly 'type': L.type_
-                    readonly 'rows': L.rows
-                }
-                
-            }
-            
-            export type sections = _pi.List<sections.L>
-            
-        }
-        
-        export type table = {
-            readonly 'classes': table.classes
-            readonly 'sections': table.sections
-        }
-        
-        export type span = Phrasing_Content_
-        
-        export namespace label {
-            
-            export type classes = Classes_
-            
-            export type text = string
-            
-            export type content = Flow_Content_
-            
-        }
-        
-        export type label = {
-            readonly 'classes': label.classes
-            readonly 'text': label.text
-            readonly 'content': label.content
-        }
-        
-        export namespace img {
-            
-            export type classes = Classes_
-            
-            export type src = string
-            
-            export type alt = string
-            
-            export namespace width {
-                
-                export type O = number
-                
-            }
-            
-            export type width = _pi.Optional_Value<width.O>
-            
-            export namespace height {
-                
-                export type O = number
-                
-            }
-            
-            export type height = _pi.Optional_Value<height.O>
-            
-        }
-        
-        export type img = {
-            readonly 'classes': img.classes
-            readonly 'src': img.src
-            readonly 'alt': img.alt
-            readonly 'width': img.width
-            readonly 'height': img.height
-        }
-        
-        export namespace svg {
-            
-            export type classes = Classes_
-            
-            export type content = i__imports_xml.Mixed_Content
-            
-            export namespace width {
-                
-                export type O = number
-                
-            }
-            
-            export type width = _pi.Optional_Value<width.O>
-            
-            export namespace height {
-                
-                export type O = number
-                
-            }
-            
-            export type height = _pi.Optional_Value<height.O>
-            
-        }
-        
-        export type svg = {
-            readonly 'classes': svg.classes
-            readonly 'content': svg.content
-            readonly 'width': svg.width
-            readonly 'height': svg.height
-        }
+        export type content = Flow_Content_
         
     }
     
-    export type L = 
-        | readonly ['div', L.div]
-        | readonly ['dimensioned div', L.dimensioned_div]
-        | readonly ['classified div', L.classified_div]
-        | readonly ['table', L.table]
-        | readonly ['span', L.span]
-        | readonly ['label', L.label]
-        | readonly ['img', L.img]
-        | readonly ['svg', L.svg]
+    export type dimensioned_div = {
+        readonly 'width': dimensioned_div.width
+        readonly 'height': dimensioned_div.height
+        readonly 'content': dimensioned_div.content
+    }
+    
+    export namespace classified_div {
+        
+        export type classes = Classes_
+        
+        export type content = Flow_Content_
+        
+    }
+    
+    export type classified_div = {
+        readonly 'classes': classified_div.classes
+        readonly 'content': classified_div.content
+    }
+    
+    export namespace table {
+        
+        export type classes = Classes_
+        
+        export namespace sections {
+            
+            export namespace L {
+                
+                export type classes = Classes_
+                
+                export namespace type_ {
+                    
+                    export type header = null
+                    
+                    export type body = null
+                    
+                    export type footer = null
+                    
+                }
+                
+                export type type_ = 
+                    | readonly ['header', type_.header]
+                    | readonly ['body', type_.body]
+                    | readonly ['footer', type_.footer]
+                
+                export namespace rows {
+                    
+                    export namespace L {
+                        
+                        export type classes = Classes_
+                        
+                        export namespace type_ {
+                            
+                            export type th = null
+                            
+                            export type td = null
+                            
+                        }
+                        
+                        export type type_ = 
+                            | readonly ['th', type_.th]
+                            | readonly ['td', type_.td]
+                        
+                        export namespace height {
+                            
+                            export type O = number
+                            
+                        }
+                        
+                        export type height = _pi.Optional_Value<height.O>
+                        
+                        export namespace cells {
+                            
+                            export namespace L {
+                                
+                                export type classes = Classes_
+                                
+                                export type content = Flow_Content_
+                                
+                            }
+                            
+                            export type L = {
+                                readonly 'classes': L.classes
+                                readonly 'content': L.content
+                            }
+                            
+                        }
+                        
+                        export type cells = _pi.List<cells.L>
+                        
+                    }
+                    
+                    export type L = {
+                        readonly 'classes': L.classes
+                        readonly 'type': L.type_
+                        readonly 'height': L.height
+                        readonly 'cells': L.cells
+                    }
+                    
+                }
+                
+                export type rows = _pi.List<rows.L>
+                
+            }
+            
+            export type L = {
+                readonly 'classes': L.classes
+                readonly 'type': L.type_
+                readonly 'rows': L.rows
+            }
+            
+        }
+        
+        export type sections = _pi.List<sections.L>
+        
+    }
+    
+    export type table = {
+        readonly 'classes': table.classes
+        readonly 'sections': table.sections
+    }
+    
+    export type span = Phrasing_Content_
+    
+    export namespace label {
+        
+        export type classes = Classes_
+        
+        export type text = string
+        
+        export type content = Flow_Content_
+        
+    }
+    
+    export type label = {
+        readonly 'classes': label.classes
+        readonly 'text': label.text
+        readonly 'content': label.content
+    }
+    
+    export namespace img {
+        
+        export type classes = Classes_
+        
+        export type src = string
+        
+        export type alt = string
+        
+        export namespace width {
+            
+            export type O = number
+            
+        }
+        
+        export type width = _pi.Optional_Value<width.O>
+        
+        export namespace height {
+            
+            export type O = number
+            
+        }
+        
+        export type height = _pi.Optional_Value<height.O>
+        
+    }
+    
+    export type img = {
+        readonly 'classes': img.classes
+        readonly 'src': img.src
+        readonly 'alt': img.alt
+        readonly 'width': img.width
+        readonly 'height': img.height
+    }
+    
+    export namespace svg {
+        
+        export type classes = Classes_
+        
+        export type content = i__imports_xml.Mixed_Content
+        
+        export namespace width {
+            
+            export type O = number
+            
+        }
+        
+        export type width = _pi.Optional_Value<width.O>
+        
+        export namespace height {
+            
+            export type O = number
+            
+        }
+        
+        export type height = _pi.Optional_Value<height.O>
+        
+    }
+    
+    export type svg = {
+        readonly 'classes': svg.classes
+        readonly 'content': svg.content
+        readonly 'width': svg.width
+        readonly 'height': svg.height
+    }
+    
+}
+
+export type Flow_Element_ = 
+    | readonly ['div', Flow_Element_.div]
+    | readonly ['dimensioned div', Flow_Element_.dimensioned_div]
+    | readonly ['classified div', Flow_Element_.classified_div]
+    | readonly ['table', Flow_Element_.table]
+    | readonly ['span', Flow_Element_.span]
+    | readonly ['label', Flow_Element_.label]
+    | readonly ['img', Flow_Element_.img]
+    | readonly ['svg', Flow_Element_.svg]
+
+export namespace Flow_Content_ {
+    
+    export type L = Flow_Element_
     
 }
 
@@ -344,6 +346,7 @@ export type Phrasing_Element_ =
 
 export { 
     Document_ as Document, 
+    Flow_Element_ as Flow_Element, 
     Flow_Content_ as Flow_Content, 
     Classes_ as Classes, 
     Phrasing_Content_ as Phrasing_Content, 

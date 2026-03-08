@@ -34,6 +34,33 @@ export type Document_ = (
     },
 ) => Document_.O
 
+export namespace Flow_Element_ {
+    
+    export type I = i_in.List_of_Characters
+    
+    export type O = i_out.Flow_Element
+    
+    export type E = i_generic.Error
+    
+    export namespace P {
+        
+        export type document_resource_identifier = string
+        
+        export type tab_size = number
+        
+    }
+    
+}
+
+export type Flow_Element_ = (
+    context: Flow_Element_.I,
+    abort: _pi.Abort<Flow_Element_.E>,
+    parameters: {
+        readonly 'document resource identifier': Flow_Element_.P.document_resource_identifier
+        readonly 'tab size': Flow_Element_.P.tab_size
+    },
+) => Flow_Element_.O
+
 export namespace Flow_Content_ {
     
     export type I = i_in.List_of_Characters
@@ -144,6 +171,7 @@ export type Phrasing_Element_ = (
 
 export { 
     Document_ as Document, 
+    Flow_Element_ as Flow_Element, 
     Flow_Content_ as Flow_Content, 
     Classes_ as Classes, 
     Phrasing_Content_ as Phrasing_Content, 

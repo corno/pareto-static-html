@@ -21,6 +21,22 @@ export type Document_ = (
     context: Document_.I,
 ) => Document_.O
 
+export namespace Flow_Element_ {
+    
+    export type I = i_in.Flow_Element
+    
+    export type O = i_out.Paragraph
+    
+    export namespace P {
+        
+    }
+    
+}
+
+export type Flow_Element_ = (
+    context: Flow_Element_.I,
+) => Flow_Element_.O
+
 export namespace Flow_Content_ {
     
     export type I = i_in.Flow_Content
@@ -87,6 +103,7 @@ export type Phrasing_Element_ = (
 
 export { 
     Document_ as Document, 
+    Flow_Element_ as Flow_Element, 
     Flow_Content_ as Flow_Content, 
     Classes_ as Classes, 
     Phrasing_Content_ as Phrasing_Content, 
