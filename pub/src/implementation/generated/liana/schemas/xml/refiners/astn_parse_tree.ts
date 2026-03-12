@@ -262,7 +262,7 @@ export const Element: t_signatures.Element = ($, abort) => _p_change_context(
                             ),
                         ),
                         ($) => _p.decide.text(
-                            $['option']['value'],
+                            $['option']['token']['value'],
                             ($t): t_out.Element.content_type => {
                                 switch ($t) {
                                     case 'empty':
@@ -408,7 +408,7 @@ export const Element: t_signatures.Element = ($, abort) => _p_change_context(
                                     default:
                                         return abort(
                                             ['liana', {
-                                                'type': ['state', ['unknown option', $['option']['value']]],
+                                                'type': ['state', ['unknown option', $['option']['token']['value']]],
                                                 'range': v_parse_tree_to_location.Value(
                                                     $['value'],
                                                 ),
@@ -442,7 +442,7 @@ export const Mixed_Content: t_signatures.Mixed_Content = ($, abort) => _p.list.f
                 ),
             ),
             ($) => _p.decide.text(
-                $['option']['value'],
+                $['option']['token']['value'],
                 ($t): t_out.Mixed_Content.L => {
                     switch ($t) {
                         case 'node':
@@ -504,7 +504,7 @@ export const Mixed_Content: t_signatures.Mixed_Content = ($, abort) => _p.list.f
                         default:
                             return abort(
                                 ['liana', {
-                                    'type': ['state', ['unknown option', $['option']['value']]],
+                                    'type': ['state', ['unknown option', $['option']['token']['value']]],
                                     'range': v_parse_tree_to_location.Value(
                                         $['value'],
                                     ),
@@ -595,7 +595,7 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
         ),
     ),
     ($) => _p.decide.text(
-        $['option']['value'],
+        $['option']['token']['value'],
         ($t): t_out.Node => {
             switch ($t) {
                 case 'element':
@@ -695,7 +695,7 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
                 default:
                     return abort(
                         ['liana', {
-                            'type': ['state', ['unknown option', $['option']['value']]],
+                            'type': ['state', ['unknown option', $['option']['token']['value']]],
                             'range': v_parse_tree_to_location.Value(
                                 $['value'],
                             ),

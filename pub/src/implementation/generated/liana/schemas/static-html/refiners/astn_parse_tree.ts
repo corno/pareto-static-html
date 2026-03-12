@@ -86,7 +86,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
         ),
     ),
     ($) => _p.decide.text(
-        $['option']['value'],
+        $['option']['token']['value'],
         ($t): t_out.Flow_Element => {
             switch ($t) {
                 case 'div':
@@ -389,7 +389,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                 ),
                                                                             ),
                                                                             ($) => _p.decide.text(
-                                                                                $['option']['value'],
+                                                                                $['option']['token']['value'],
                                                                                 ($t): t_out.Flow_Element.table.sections.L.type_ => {
                                                                                     switch ($t) {
                                                                                         case 'header':
@@ -425,7 +425,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                         default:
                                                                                             return abort(
                                                                                                 ['liana', {
-                                                                                                    'type': ['state', ['unknown option', $['option']['value']]],
+                                                                                                    'type': ['state', ['unknown option', $['option']['token']['value']]],
                                                                                                     'range': v_parse_tree_to_location.Value(
                                                                                                         $['value'],
                                                                                                     ),
@@ -515,7 +515,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                             ),
                                                                                                         ),
                                                                                                         ($) => _p.decide.text(
-                                                                                                            $['option']['value'],
+                                                                                                            $['option']['token']['value'],
                                                                                                             ($t): t_out.Flow_Element.table.sections.L.rows.L.type_ => {
                                                                                                                 switch ($t) {
                                                                                                                     case 'th':
@@ -541,7 +541,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                                     default:
                                                                                                                         return abort(
                                                                                                                             ['liana', {
-                                                                                                                                'type': ['state', ['unknown option', $['option']['value']]],
+                                                                                                                                'type': ['state', ['unknown option', $['option']['token']['value']]],
                                                                                                                                 'range': v_parse_tree_to_location.Value(
                                                                                                                                     $['value'],
                                                                                                                                 ),
@@ -1044,7 +1044,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                 default:
                     return abort(
                         ['liana', {
-                            'type': ['state', ['unknown option', $['option']['value']]],
+                            'type': ['state', ['unknown option', $['option']['token']['value']]],
                             'range': v_parse_tree_to_location.Value(
                                 $['value'],
                             ),
@@ -1120,7 +1120,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
         ),
     ),
     ($) => _p.decide.text(
-        $['option']['value'],
+        $['option']['token']['value'],
         ($t): t_out.Phrasing_Element => {
             switch ($t) {
                 case 'span':
@@ -1374,7 +1374,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                 default:
                     return abort(
                         ['liana', {
-                            'type': ['state', ['unknown option', $['option']['value']]],
+                            'type': ['state', ['unknown option', $['option']['token']['value']]],
                             'range': v_parse_tree_to_location.Value(
                                 $['value'],
                             ),
