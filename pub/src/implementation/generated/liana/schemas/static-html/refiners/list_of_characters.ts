@@ -14,7 +14,6 @@ export const Document: t_signatures.Document = ($, abort, $p) => v_unmarshall.Do
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
@@ -30,7 +29,6 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort, $p) => v_unmar
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
@@ -46,7 +44,6 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort, $p) => v_unmar
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
@@ -62,7 +59,6 @@ export const Classes: t_signatures.Classes = ($, abort, $p) => v_unmarshall.Clas
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
@@ -78,7 +74,6 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($, abort, $p) =>
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
@@ -94,7 +89,6 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort, $p) =>
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],

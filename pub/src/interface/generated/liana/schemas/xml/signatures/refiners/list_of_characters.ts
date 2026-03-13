@@ -17,8 +17,6 @@ export namespace Document_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -29,7 +27,6 @@ export type Document_ = (
     context: Document_.I,
     abort: _pi.Abort<Document_.E>,
     parameters: {
-        readonly 'document resource identifier': Document_.P.document_resource_identifier
         readonly 'tab size': Document_.P.tab_size
     },
 ) => Document_.O
@@ -44,8 +41,6 @@ export namespace Element_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -56,7 +51,6 @@ export type Element_ = (
     context: Element_.I,
     abort: _pi.Abort<Element_.E>,
     parameters: {
-        readonly 'document resource identifier': Element_.P.document_resource_identifier
         readonly 'tab size': Element_.P.tab_size
     },
 ) => Element_.O
@@ -71,8 +65,6 @@ export namespace Mixed_Content_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -83,7 +75,6 @@ export type Mixed_Content_ = (
     context: Mixed_Content_.I,
     abort: _pi.Abort<Mixed_Content_.E>,
     parameters: {
-        readonly 'document resource identifier': Mixed_Content_.P.document_resource_identifier
         readonly 'tab size': Mixed_Content_.P.tab_size
     },
 ) => Mixed_Content_.O
@@ -98,8 +89,6 @@ export namespace Qualified_Name_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -110,7 +99,6 @@ export type Qualified_Name_ = (
     context: Qualified_Name_.I,
     abort: _pi.Abort<Qualified_Name_.E>,
     parameters: {
-        readonly 'document resource identifier': Qualified_Name_.P.document_resource_identifier
         readonly 'tab size': Qualified_Name_.P.tab_size
     },
 ) => Qualified_Name_.O
@@ -125,8 +113,6 @@ export namespace Node_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -137,7 +123,6 @@ export type Node_ = (
     context: Node_.I,
     abort: _pi.Abort<Node_.E>,
     parameters: {
-        readonly 'document resource identifier': Node_.P.document_resource_identifier
         readonly 'tab size': Node_.P.tab_size
     },
 ) => Node_.O

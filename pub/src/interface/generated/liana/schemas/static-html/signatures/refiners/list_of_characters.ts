@@ -17,8 +17,6 @@ export namespace Document_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -29,7 +27,6 @@ export type Document_ = (
     context: Document_.I,
     abort: _pi.Abort<Document_.E>,
     parameters: {
-        readonly 'document resource identifier': Document_.P.document_resource_identifier
         readonly 'tab size': Document_.P.tab_size
     },
 ) => Document_.O
@@ -44,8 +41,6 @@ export namespace Flow_Element_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -56,7 +51,6 @@ export type Flow_Element_ = (
     context: Flow_Element_.I,
     abort: _pi.Abort<Flow_Element_.E>,
     parameters: {
-        readonly 'document resource identifier': Flow_Element_.P.document_resource_identifier
         readonly 'tab size': Flow_Element_.P.tab_size
     },
 ) => Flow_Element_.O
@@ -71,8 +65,6 @@ export namespace Flow_Content_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -83,7 +75,6 @@ export type Flow_Content_ = (
     context: Flow_Content_.I,
     abort: _pi.Abort<Flow_Content_.E>,
     parameters: {
-        readonly 'document resource identifier': Flow_Content_.P.document_resource_identifier
         readonly 'tab size': Flow_Content_.P.tab_size
     },
 ) => Flow_Content_.O
@@ -98,8 +89,6 @@ export namespace Classes_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -110,7 +99,6 @@ export type Classes_ = (
     context: Classes_.I,
     abort: _pi.Abort<Classes_.E>,
     parameters: {
-        readonly 'document resource identifier': Classes_.P.document_resource_identifier
         readonly 'tab size': Classes_.P.tab_size
     },
 ) => Classes_.O
@@ -125,8 +113,6 @@ export namespace Phrasing_Content_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -137,7 +123,6 @@ export type Phrasing_Content_ = (
     context: Phrasing_Content_.I,
     abort: _pi.Abort<Phrasing_Content_.E>,
     parameters: {
-        readonly 'document resource identifier': Phrasing_Content_.P.document_resource_identifier
         readonly 'tab size': Phrasing_Content_.P.tab_size
     },
 ) => Phrasing_Content_.O
@@ -152,8 +137,6 @@ export namespace Phrasing_Element_ {
     
     export namespace P {
         
-        export type document_resource_identifier = string
-        
         export type tab_size = number
         
     }
@@ -164,7 +147,6 @@ export type Phrasing_Element_ = (
     context: Phrasing_Element_.I,
     abort: _pi.Abort<Phrasing_Element_.E>,
     parameters: {
-        readonly 'document resource identifier': Phrasing_Element_.P.document_resource_identifier
         readonly 'tab size': Phrasing_Element_.P.tab_size
     },
 ) => Phrasing_Element_.O

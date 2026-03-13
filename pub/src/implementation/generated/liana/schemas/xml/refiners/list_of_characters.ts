@@ -14,7 +14,6 @@ export const Document: t_signatures.Document = ($, abort, $p) => v_unmarshall.Do
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
@@ -30,7 +29,6 @@ export const Element: t_signatures.Element = ($, abort, $p) => v_unmarshall.Elem
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
@@ -46,7 +44,6 @@ export const Mixed_Content: t_signatures.Mixed_Content = ($, abort, $p) => v_unm
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
@@ -62,7 +59,6 @@ export const Qualified_Name: t_signatures.Qualified_Name = ($, abort, $p) => v_u
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
@@ -78,7 +74,6 @@ export const Node: t_signatures.Node = ($, abort, $p) => v_unmarshall.Node(
             ['parse error', $],
         ),
         {
-            'document resource identifier': $p['document resource identifier'],
             'tab size': $p['tab size'],
         },
     )['content'],
