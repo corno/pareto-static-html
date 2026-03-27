@@ -1,7 +1,7 @@
 
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as i__imports_xml from "../xml/data"
+import * as i_imports_xml from "../xml/data"
 
 export namespace Document_ {
     
@@ -219,7 +219,7 @@ export namespace Flow_Element_ {
         
         export type classes = Classes_
         
-        export type content = i__imports_xml.Mixed_Content
+        export type content = i_imports_xml.Mixed_Content
         
         export namespace width {
             
