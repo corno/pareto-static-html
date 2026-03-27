@@ -30,7 +30,7 @@ export const Document: t_signatures.Document = ($, abort) => _p_change_context(
                     "root": null,
                 },
             ),
-            'document resource identifier': "dummy dri",
+            'subdocument context': _p.optional.literal.not_set(),
         },
     ),
     ($) => _p_variables(
@@ -39,7 +39,7 @@ export const Document: t_signatures.Document = ($, abort) => _p_change_context(
             const var_verbose_group_range = v_parse_tree_to_location.Value(
                 $['value'],
                 {
-                    'document resource identifier': "dummy dri",
+                    'subdocument context': _p.optional.literal.not_set(),
                 },
             )
             return {
@@ -51,7 +51,7 @@ export const Document: t_signatures.Document = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'css',
-                            'document resource identifier': "dummy dri",
+                            'subdocument context': _p.optional.literal.not_set(),
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -69,7 +69,7 @@ export const Document: t_signatures.Document = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'root',
-                            'document resource identifier': "dummy dri",
+                            'subdocument context': _p.optional.literal.not_set(),
                         },
                     ),
                     ($) => Flow_Element(
@@ -122,7 +122,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                             "content": null,
                                         },
                                     ),
-                                    'document resource identifier': "dummy dri",
+                                    'subdocument context': _p.optional.literal.not_set(),
                                 },
                             ),
                             ($) => _p_variables(
@@ -131,7 +131,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
                                         {
-                                            'document resource identifier': "dummy dri",
+                                            'subdocument context': _p.optional.literal.not_set(),
                                         },
                                     )
                                     return {
@@ -143,7 +143,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'width',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => _p.optional.from.optional(
@@ -161,7 +161,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                     ),
                                                     {
                                                         'type': ['decimal', null],
-                                                        'document resource identifier': "dummy dri",
+                                                        'subdocument context': _p.optional.literal.not_set(),
                                                     },
                                                 ),
                                             ),
@@ -174,7 +174,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'height',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => _p.optional.from.optional(
@@ -192,7 +192,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                     ),
                                                     {
                                                         'type': ['decimal', null],
-                                                        'document resource identifier': "dummy dri",
+                                                        'subdocument context': _p.optional.literal.not_set(),
                                                     },
                                                 ),
                                             ),
@@ -205,7 +205,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'content',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => Flow_Content(
@@ -236,7 +236,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                             "content": null,
                                         },
                                     ),
-                                    'document resource identifier': "dummy dri",
+                                    'subdocument context': _p.optional.literal.not_set(),
                                 },
                             ),
                             ($) => _p_variables(
@@ -245,7 +245,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
                                         {
-                                            'document resource identifier': "dummy dri",
+                                            'subdocument context': _p.optional.literal.not_set(),
                                         },
                                     )
                                     return {
@@ -257,7 +257,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'classes',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => Classes(
@@ -275,7 +275,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'content',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => Flow_Content(
@@ -306,7 +306,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                             "sections": null,
                                         },
                                     ),
-                                    'document resource identifier': "dummy dri",
+                                    'subdocument context': _p.optional.literal.not_set(),
                                 },
                             ),
                             ($) => _p_variables(
@@ -315,7 +315,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
                                         {
-                                            'document resource identifier': "dummy dri",
+                                            'subdocument context': _p.optional.literal.not_set(),
                                         },
                                     )
                                     return {
@@ -327,7 +327,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'classes',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => Classes(
@@ -345,7 +345,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'sections',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => _p.list.from.list(
@@ -355,7 +355,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                         $,
                                                     ),
                                                     {
-                                                        'document resource identifier': "dummy dri",
+                                                        'subdocument context': _p.optional.literal.not_set(),
                                                     },
                                                 )['items'],
                                             ).map(
@@ -375,7 +375,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                         "rows": null,
                                                                     },
                                                                 ),
-                                                                'document resource identifier': "dummy dri",
+                                                                'subdocument context': _p.optional.literal.not_set(),
                                                             },
                                                         ),
                                                         ($) => _p_variables(
@@ -384,7 +384,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                 const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                     $['value'],
                                                                     {
-                                                                        'document resource identifier': "dummy dri",
+                                                                        'subdocument context': _p.optional.literal.not_set(),
                                                                     },
                                                                 )
                                                                 return {
@@ -396,7 +396,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                             ),
                                                                             {
                                                                                 'id': 'classes',
-                                                                                'document resource identifier': "dummy dri",
+                                                                                'subdocument context': _p.optional.literal.not_set(),
                                                                             },
                                                                         ),
                                                                         ($) => Classes(
@@ -414,7 +414,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                             ),
                                                                             {
                                                                                 'id': 'type',
-                                                                                'document resource identifier': "dummy dri",
+                                                                                'subdocument context': _p.optional.literal.not_set(),
                                                                             },
                                                                         ),
                                                                         ($) => _p_change_context(
@@ -465,7 +465,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                     'range': v_parse_tree_to_location.Value(
                                                                                                         $['value'],
                                                                                                         {
-                                                                                                            'document resource identifier': "dummy dri",
+                                                                                                            'subdocument context': _p.optional.literal.not_set(),
                                                                                                         },
                                                                                                     ),
                                                                                                 }],
@@ -483,7 +483,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                             ),
                                                                             {
                                                                                 'id': 'rows',
-                                                                                'document resource identifier': "dummy dri",
+                                                                                'subdocument context': _p.optional.literal.not_set(),
                                                                             },
                                                                         ),
                                                                         ($) => _p.list.from.list(
@@ -493,7 +493,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                     $,
                                                                                 ),
                                                                                 {
-                                                                                    'document resource identifier': "dummy dri",
+                                                                                    'subdocument context': _p.optional.literal.not_set(),
                                                                                 },
                                                                             )['items'],
                                                                         ).map(
@@ -514,7 +514,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                     "cells": null,
                                                                                                 },
                                                                                             ),
-                                                                                            'document resource identifier': "dummy dri",
+                                                                                            'subdocument context': _p.optional.literal.not_set(),
                                                                                         },
                                                                                     ),
                                                                                     ($) => _p_variables(
@@ -523,7 +523,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                             const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                 $['value'],
                                                                                                 {
-                                                                                                    'document resource identifier': "dummy dri",
+                                                                                                    'subdocument context': _p.optional.literal.not_set(),
                                                                                                 },
                                                                                             )
                                                                                             return {
@@ -535,7 +535,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                         ),
                                                                                                         {
                                                                                                             'id': 'classes',
-                                                                                                            'document resource identifier': "dummy dri",
+                                                                                                            'subdocument context': _p.optional.literal.not_set(),
                                                                                                         },
                                                                                                     ),
                                                                                                     ($) => Classes(
@@ -553,7 +553,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                         ),
                                                                                                         {
                                                                                                             'id': 'type',
-                                                                                                            'document resource identifier': "dummy dri",
+                                                                                                            'subdocument context': _p.optional.literal.not_set(),
                                                                                                         },
                                                                                                     ),
                                                                                                     ($) => _p_change_context(
@@ -594,7 +594,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                                                 'range': v_parse_tree_to_location.Value(
                                                                                                                                     $['value'],
                                                                                                                                     {
-                                                                                                                                        'document resource identifier': "dummy dri",
+                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
                                                                                                                                     },
                                                                                                                                 ),
                                                                                                                             }],
@@ -612,7 +612,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                         ),
                                                                                                         {
                                                                                                             'id': 'height',
-                                                                                                            'document resource identifier': "dummy dri",
+                                                                                                            'subdocument context': _p.optional.literal.not_set(),
                                                                                                         },
                                                                                                     ),
                                                                                                     ($) => _p.optional.from.optional(
@@ -630,7 +630,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                             ),
                                                                                                             {
                                                                                                                 'type': ['decimal', null],
-                                                                                                                'document resource identifier': "dummy dri",
+                                                                                                                'subdocument context': _p.optional.literal.not_set(),
                                                                                                             },
                                                                                                         ),
                                                                                                     ),
@@ -643,7 +643,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                         ),
                                                                                                         {
                                                                                                             'id': 'cells',
-                                                                                                            'document resource identifier': "dummy dri",
+                                                                                                            'subdocument context': _p.optional.literal.not_set(),
                                                                                                         },
                                                                                                     ),
                                                                                                     ($) => _p.list.from.list(
@@ -653,7 +653,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                                 $,
                                                                                                             ),
                                                                                                             {
-                                                                                                                'document resource identifier': "dummy dri",
+                                                                                                                'subdocument context': _p.optional.literal.not_set(),
                                                                                                             },
                                                                                                         )['items'],
                                                                                                     ).map(
@@ -672,7 +672,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                                                 "content": null,
                                                                                                                             },
                                                                                                                         ),
-                                                                                                                        'document resource identifier': "dummy dri",
+                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
                                                                                                                     },
                                                                                                                 ),
                                                                                                                 ($) => _p_variables(
@@ -681,7 +681,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                             $['value'],
                                                                                                                             {
-                                                                                                                                'document resource identifier': "dummy dri",
+                                                                                                                                'subdocument context': _p.optional.literal.not_set(),
                                                                                                                             },
                                                                                                                         )
                                                                                                                         return {
@@ -693,7 +693,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                                                     ),
                                                                                                                                     {
                                                                                                                                         'id': 'classes',
-                                                                                                                                        'document resource identifier': "dummy dri",
+                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
                                                                                                                                     },
                                                                                                                                 ),
                                                                                                                                 ($) => Classes(
@@ -711,7 +711,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                                                     ),
                                                                                                                                     {
                                                                                                                                         'id': 'content',
-                                                                                                                                        'document resource identifier': "dummy dri",
+                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
                                                                                                                                     },
                                                                                                                                 ),
                                                                                                                                 ($) => Flow_Content(
@@ -774,7 +774,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                             "content": null,
                                         },
                                     ),
-                                    'document resource identifier': "dummy dri",
+                                    'subdocument context': _p.optional.literal.not_set(),
                                 },
                             ),
                             ($) => _p_variables(
@@ -783,7 +783,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
                                         {
-                                            'document resource identifier': "dummy dri",
+                                            'subdocument context': _p.optional.literal.not_set(),
                                         },
                                     )
                                     return {
@@ -795,7 +795,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'classes',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => Classes(
@@ -813,7 +813,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'text',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => v_unmarshalled_from_parse_tree.Text(
@@ -831,7 +831,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'content',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => Flow_Content(
@@ -865,7 +865,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                             "height": null,
                                         },
                                     ),
-                                    'document resource identifier': "dummy dri",
+                                    'subdocument context': _p.optional.literal.not_set(),
                                 },
                             ),
                             ($) => _p_variables(
@@ -874,7 +874,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
                                         {
-                                            'document resource identifier': "dummy dri",
+                                            'subdocument context': _p.optional.literal.not_set(),
                                         },
                                     )
                                     return {
@@ -886,7 +886,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'classes',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => Classes(
@@ -904,7 +904,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'src',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => v_unmarshalled_from_parse_tree.Text(
@@ -922,7 +922,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'alt',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => v_unmarshalled_from_parse_tree.Text(
@@ -940,7 +940,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'width',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => _p.optional.from.optional(
@@ -958,7 +958,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                     ),
                                                     {
                                                         'type': ['decimal', null],
-                                                        'document resource identifier': "dummy dri",
+                                                        'subdocument context': _p.optional.literal.not_set(),
                                                     },
                                                 ),
                                             ),
@@ -971,7 +971,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'height',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => _p.optional.from.optional(
@@ -989,7 +989,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                     ),
                                                     {
                                                         'type': ['decimal', null],
-                                                        'document resource identifier': "dummy dri",
+                                                        'subdocument context': _p.optional.literal.not_set(),
                                                     },
                                                 ),
                                             ),
@@ -1017,7 +1017,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                             "height": null,
                                         },
                                     ),
-                                    'document resource identifier': "dummy dri",
+                                    'subdocument context': _p.optional.literal.not_set(),
                                 },
                             ),
                             ($) => _p_variables(
@@ -1026,7 +1026,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
                                         {
-                                            'document resource identifier': "dummy dri",
+                                            'subdocument context': _p.optional.literal.not_set(),
                                         },
                                     )
                                     return {
@@ -1038,7 +1038,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'classes',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => Classes(
@@ -1056,7 +1056,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'content',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => v_external_xml.Mixed_Content(
@@ -1074,7 +1074,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'width',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => _p.optional.from.optional(
@@ -1092,7 +1092,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                     ),
                                                     {
                                                         'type': ['decimal', null],
-                                                        'document resource identifier': "dummy dri",
+                                                        'subdocument context': _p.optional.literal.not_set(),
                                                     },
                                                 ),
                                             ),
@@ -1105,7 +1105,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'height',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => _p.optional.from.optional(
@@ -1123,7 +1123,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                     ),
                                                     {
                                                         'type': ['decimal', null],
-                                                        'document resource identifier': "dummy dri",
+                                                        'subdocument context': _p.optional.literal.not_set(),
                                                     },
                                                 ),
                                             ),
@@ -1140,7 +1140,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                             'range': v_parse_tree_to_location.Value(
                                 $['value'],
                                 {
-                                    'document resource identifier': "dummy dri",
+                                    'subdocument context': _p.optional.literal.not_set(),
                                 },
                             ),
                         }],
@@ -1157,7 +1157,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.fro
             $,
         ),
         {
-            'document resource identifier': "dummy dri",
+            'subdocument context': _p.optional.literal.not_set(),
         },
     )['items'],
 ).map(
@@ -1179,7 +1179,7 @@ export const Classes: t_signatures.Classes = ($, abort) => _p.list.from.list(
             $,
         ),
         {
-            'document resource identifier': "dummy dri",
+            'subdocument context': _p.optional.literal.not_set(),
         },
     )['items'],
 ).map(
@@ -1201,7 +1201,7 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($, abort) => _p.
             $,
         ),
         {
-            'document resource identifier': "dummy dri",
+            'subdocument context': _p.optional.literal.not_set(),
         },
     )['items'],
 ).map(
@@ -1253,7 +1253,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                             "content": null,
                                         },
                                     ),
-                                    'document resource identifier': "dummy dri",
+                                    'subdocument context': _p.optional.literal.not_set(),
                                 },
                             ),
                             ($) => _p_variables(
@@ -1262,7 +1262,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
                                         {
-                                            'document resource identifier': "dummy dri",
+                                            'subdocument context': _p.optional.literal.not_set(),
                                         },
                                     )
                                     return {
@@ -1274,7 +1274,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                                 ),
                                                 {
                                                     'id': 'classes',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => Classes(
@@ -1292,7 +1292,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                                 ),
                                                 {
                                                     'id': 'content',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => Phrasing_Content(
@@ -1323,7 +1323,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                             "content": null,
                                         },
                                     ),
-                                    'document resource identifier': "dummy dri",
+                                    'subdocument context': _p.optional.literal.not_set(),
                                 },
                             ),
                             ($) => _p_variables(
@@ -1332,7 +1332,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
                                         {
-                                            'document resource identifier': "dummy dri",
+                                            'subdocument context': _p.optional.literal.not_set(),
                                         },
                                     )
                                     return {
@@ -1344,7 +1344,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                                 ),
                                                 {
                                                     'id': 'title',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => v_unmarshalled_from_parse_tree.Text(
@@ -1362,7 +1362,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                                 ),
                                                 {
                                                     'id': 'content',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => Phrasing_Content(
@@ -1393,7 +1393,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                             "href": null,
                                         },
                                     ),
-                                    'document resource identifier': "dummy dri",
+                                    'subdocument context': _p.optional.literal.not_set(),
                                 },
                             ),
                             ($) => _p_variables(
@@ -1402,7 +1402,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
                                         {
-                                            'document resource identifier': "dummy dri",
+                                            'subdocument context': _p.optional.literal.not_set(),
                                         },
                                     )
                                     return {
@@ -1414,7 +1414,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                                 ),
                                                 {
                                                     'id': 'text',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => v_unmarshalled_from_parse_tree.Text(
@@ -1432,7 +1432,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                                 ),
                                                 {
                                                     'id': 'href',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => v_unmarshalled_from_parse_tree.Text(
@@ -1462,7 +1462,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                             "text": null,
                                         },
                                     ),
-                                    'document resource identifier': "dummy dri",
+                                    'subdocument context': _p.optional.literal.not_set(),
                                 },
                             ),
                             ($) => _p_variables(
@@ -1471,7 +1471,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
                                         {
-                                            'document resource identifier': "dummy dri",
+                                            'subdocument context': _p.optional.literal.not_set(),
                                         },
                                     )
                                     return {
@@ -1483,7 +1483,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                                 ),
                                                 {
                                                     'id': 'text',
-                                                    'document resource identifier': "dummy dri",
+                                                    'subdocument context': _p.optional.literal.not_set(),
                                                 },
                                             ),
                                             ($) => v_unmarshalled_from_parse_tree.Text(
@@ -1505,7 +1505,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                             'range': v_parse_tree_to_location.Value(
                                 $['value'],
                                 {
-                                    'document resource identifier': "dummy dri",
+                                    'subdocument context': _p.optional.literal.not_set(),
                                 },
                             ),
                         }],
