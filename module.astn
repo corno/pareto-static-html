@@ -11,7 +11,7 @@
                         `type`: | `single line` ~
                     )
                 }
-                `number types`: {
+                `simple types`: {
                     'Position': (
                         `precision`: | `exact` (
                             `decimal separator offset`: _
@@ -235,8 +235,8 @@
                         `type`: | `single line` ~
                     )
                 }
-                `number types`: {
-                    'Position': (
+                `simple types`: {
+                    'Natural': (
                         `precision`: | `exact` (
                             `decimal separator offset`: _
                             `type`: | `natural` ~
@@ -279,21 +279,11 @@
                                 `value`: | `group` {
                                     'width': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `local` (
-                                            `precision`: | `exact` (
-                                                `decimal separator offset`: _
-                                                `type`: | `natural` ~
-                                            )
-                                        )
+                                        `value`: | `optional` | `number` | `global` 'Natural'
                                     )
                                     'height': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `local` (
-                                            `precision`: | `exact` (
-                                                `decimal separator offset`: _
-                                                `type`: | `natural` ~
-                                            )
-                                        )
+                                        `value`: | `optional` | `number` | `global` 'Natural'
                                     )
                                     'content': (
                                         `description`: _
@@ -400,12 +390,7 @@
                                                             )
                                                             'height': (
                                                                 `description`: _
-                                                                `value`: | `optional` | `number` | `local` (
-                                                                    `precision`: | `exact` (
-                                                                        `decimal separator offset`: _
-                                                                        `type`: | `natural` ~
-                                                                    )
-                                                                )
+                                                                `value`: | `optional` | `number` | `global` 'Natural'
                                                             )
                                                             'cells': (
                                                                 `description`: _
@@ -498,21 +483,11 @@
                                     )
                                     'width': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `local` (
-                                            `precision`: | `exact` (
-                                                `decimal separator offset`: _
-                                                `type`: | `natural` ~
-                                            )
-                                        )
+                                        `value`: | `optional` | `number` | `global` 'Natural'
                                     )
                                     'height': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `local` (
-                                            `precision`: | `exact` (
-                                                `decimal separator offset`: _
-                                                `type`: | `natural` ~
-                                            )
-                                        )
+                                        `value`: | `optional` | `number` | `global` 'Natural'
                                     )
                                 }
                             )
@@ -539,21 +514,11 @@
                                     )
                                     'width': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `local` (
-                                            `precision`: | `exact` (
-                                                `decimal separator offset`: _
-                                                `type`: | `natural` ~
-                                            )
-                                        )
+                                        `value`: | `optional` | `number` | `global` 'Natural'
                                     )
                                     'height': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `local` (
-                                            `precision`: | `exact` (
-                                                `decimal separator offset`: _
-                                                `type`: | `natural` ~
-                                            )
-                                        )
+                                        `value`: | `optional` | `number` | `global` 'Natural'
                                     )
                                 }
                             )
