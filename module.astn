@@ -10,12 +10,17 @@
                     'Text Value': (
                         `type`: | `single line` ~
                     )
+                    'text': (
+                        `type`: | `single line` ~
+                    )
                 }
                 `simple types`: {
                     'Position': (
-                        `precision`: | `exact` (
-                            `decimal separator offset`: _
-                            `type`: | `natural` ~
+                        `type`: | `number` (
+                            `precision`: | `exact` (
+                                `number of fractional digits`: _
+                                `type`: | `natural` ~
+                            )
                         )
                     )
                 }
@@ -28,9 +33,7 @@
                             `value`: | `optional` | `group` {
                                 'name': (
                                     `description`: _
-                                    `value`: | `text` | `local` (
-                                        `type`: | `single line` ~
-                                    )
+                                    `value`: | `text` | `global` 'text'
                                 )
                             }
                         )
@@ -65,9 +68,7 @@
                                     )
                                     'value': (
                                         `description`: _
-                                        `value`: | `text` | `local` (
-                                            `type`: | `single line` ~
-                                        )
+                                        `value`: | `text` | `global` 'text'
                                     )
                                 }
                                 `results`: _
@@ -88,9 +89,7 @@
                                         `value`: | `group` {
                                             'value': (
                                                 `description`: _
-                                                `value`: | `text` | `local` (
-                                                    `type`: | `single line` ~
-                                                )
+                                                `value`: | `text` | `global` 'text'
                                             )
                                         }
                                     )
@@ -142,9 +141,7 @@
                                     `value`: | `group` {
                                         'value': (
                                             `description`: _
-                                            `value`: | `text` | `local` (
-                                                `type`: | `single line` ~
-                                            )
+                                            `value`: | `text` | `global` 'text'
                                         )
                                     }
                                 )
@@ -158,15 +155,11 @@
                     `root value`: | `group` {
                         'namespace prefix': (
                             `description`: _
-                            `value`: | `optional` | `text` | `local` (
-                                `type`: | `single line` ~
-                            )
+                            `value`: | `optional` | `text` | `global` 'text'
                         )
                         'local name': (
                             `description`: _
-                            `value`: | `text` | `local` (
-                                `type`: | `single line` ~
-                            )
+                            `value`: | `text` | `global` 'text'
                         )
                     }
                 )
@@ -184,16 +177,12 @@
                             'comment': (
                                 `constraints`: _
                                 `description`: _
-                                `value`: | `text` | `local` (
-                                    `type`: | `single line` ~
-                                )
+                                `value`: | `text` | `global` 'text'
                             )
                             'cdata': (
                                 `constraints`: _
                                 `description`: _
-                                `value`: | `text` | `local` (
-                                    `type`: | `single line` ~
-                                )
+                                `value`: | `text` | `global` 'text'
                             )
                             'processing instruction': (
                                 `constraints`: _
@@ -201,15 +190,11 @@
                                 `value`: | `group` {
                                     'target': (
                                         `description`: _
-                                        `value`: | `text` | `local` (
-                                            `type`: | `single line` ~
-                                        )
+                                        `value`: | `text` | `global` 'text'
                                     )
                                     'data': (
                                         `description`: _
-                                        `value`: | `text` | `local` (
-                                            `type`: | `single line` ~
-                                        )
+                                        `value`: | `text` | `global` 'text'
                                     )
                                 }
                             )
@@ -234,12 +219,20 @@
                     'Text Value': (
                         `type`: | `single line` ~
                     )
+                    'multi line text': (
+                        `type`: | `multi line` ~
+                    )
+                    'text': (
+                        `type`: | `single line` ~
+                    )
                 }
                 `simple types`: {
                     'Natural': (
-                        `precision`: | `exact` (
-                            `decimal separator offset`: _
-                            `type`: | `natural` ~
+                        `type`: | `number` (
+                            `precision`: | `exact` (
+                                `number of fractional digits`: _
+                                `type`: | `natural` ~
+                            )
                         )
                     )
                 }
@@ -249,9 +242,7 @@
                     `root value`: | `group` {
                         'css': (
                             `description`: _
-                            `value`: | `text` | `local` (
-                                `type`: | `multi line` ~
-                            )
+                            `value`: | `text` | `global` 'multi line text'
                         )
                         'root': (
                             `description`: _
@@ -279,11 +270,11 @@
                                 `value`: | `group` {
                                     'width': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `global` 'Natural'
+                                        `value`: | `optional` | `simple` | `global` 'Natural'
                                     )
                                     'height': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `global` 'Natural'
+                                        `value`: | `optional` | `simple` | `global` 'Natural'
                                     )
                                     'content': (
                                         `description`: _
@@ -390,7 +381,7 @@
                                                             )
                                                             'height': (
                                                                 `description`: _
-                                                                `value`: | `optional` | `number` | `global` 'Natural'
+                                                                `value`: | `optional` | `simple` | `global` 'Natural'
                                                             )
                                                             'cells': (
                                                                 `description`: _
@@ -445,9 +436,7 @@
                                     )
                                     'text': (
                                         `description`: _
-                                        `value`: | `text` | `local` (
-                                            `type`: | `single line` ~
-                                        )
+                                        `value`: | `text` | `global` 'text'
                                     )
                                     'content': (
                                         `description`: _
@@ -471,23 +460,19 @@
                                     )
                                     'src': (
                                         `description`: _
-                                        `value`: | `text` | `local` (
-                                            `type`: | `single line` ~
-                                        )
+                                        `value`: | `text` | `global` 'text'
                                     )
                                     'alt': (
                                         `description`: _
-                                        `value`: | `text` | `local` (
-                                            `type`: | `single line` ~
-                                        )
+                                        `value`: | `text` | `global` 'text'
                                     )
                                     'width': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `global` 'Natural'
+                                        `value`: | `optional` | `simple` | `global` 'Natural'
                                     )
                                     'height': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `global` 'Natural'
+                                        `value`: | `optional` | `simple` | `global` 'Natural'
                                     )
                                 }
                             )
@@ -514,11 +499,11 @@
                                     )
                                     'width': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `global` 'Natural'
+                                        `value`: | `optional` | `simple` | `global` 'Natural'
                                     )
                                     'height': (
                                         `description`: _
-                                        `value`: | `optional` | `number` | `global` 'Natural'
+                                        `value`: | `optional` | `simple` | `global` 'Natural'
                                     )
                                 }
                             )
@@ -537,9 +522,7 @@
                 )
                 'Classes': (
                     `root value`: | `list` (
-                        `value`: | `text` | `local` (
-                            `type`: | `single line` ~
-                        )
+                        `value`: | `text` | `global` 'text'
                         `results`: _
                     )
                 )
@@ -589,9 +572,7 @@
                                 `value`: | `group` {
                                     'title': (
                                         `description`: _
-                                        `value`: | `text` | `local` (
-                                            `type`: | `single line` ~
-                                        )
+                                        `value`: | `text` | `global` 'text'
                                     )
                                     'content': (
                                         `description`: _
@@ -608,15 +589,11 @@
                                 `value`: | `group` {
                                     'text': (
                                         `description`: _
-                                        `value`: | `text` | `local` (
-                                            `type`: | `single line` ~
-                                        )
+                                        `value`: | `text` | `global` 'text'
                                     )
                                     'href': (
                                         `description`: _
-                                        `value`: | `text` | `local` (
-                                            `type`: | `single line` ~
-                                        )
+                                        `value`: | `text` | `global` 'text'
                                     )
                                 }
                             )
@@ -626,9 +603,7 @@
                                 `value`: | `group` {
                                     'text': (
                                         `description`: _
-                                        `value`: | `text` | `local` (
-                                            `type`: | `single line` ~
-                                        )
+                                        `value`: | `text` | `global` 'text'
                                     )
                                 }
                             )
