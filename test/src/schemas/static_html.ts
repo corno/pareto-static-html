@@ -4,7 +4,7 @@ import * as _pt from 'pareto-core/dist/assign'
 import * as sh from "pareto-test/dist/temporary_testset_generator/shorthands"
 
 
-// import * as s_unmarshall from "pub/dist/implementation/generated/liana/serialize_unmarshall_error"
+// import * as s_unmarshall from "lib/dist/implementation/generated/liana/serialize_unmarshall_error"
 
 export const $$ = sh.schema(
 
