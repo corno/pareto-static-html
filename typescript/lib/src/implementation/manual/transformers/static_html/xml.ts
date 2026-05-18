@@ -113,13 +113,6 @@ export const Flow_Element: Flow_Element = ($) => _p.decide.state($, ($): d_out.E
                 }),
                 Classes($.classes),
                 $.rows.__l_map(($) => {
-                    const x = _p.decide.state($.type, ($): string => {
-                        switch ($[0]) {
-                            case 'th': return _p.ss($, ($) => "th")
-                            case 'td': return _p.ss($, ($) => "td")
-                            default: return _p.au($[0])
-                        }
-                    })
                     return sh.no.element(sh.e.nodes_only(
                         "tr",
                         _p.list.nested_literal_old([
@@ -130,9 +123,21 @@ export const Flow_Element: Flow_Element = ($) => _p.decide.state($, ($): d_out.E
                                 ],
                                 () => []
                             ),
+                            $.colspan.__decide(
+                                ($) => [
+                                    sh.attribute("colspan", temp_serialize_number($)),
+                                ],
+                                () => []
+                            ),
                         ]),
                         $.cells.__l_map(($) => sh.no.element(sh.e.nodes_only(
-                            x,
+                            _p.decide.state($.type, ($): string => {
+                                switch ($[0]) {
+                                    case 'th': return _p.ss($, ($) => "th")
+                                    case 'td': return _p.ss($, ($) => "td")
+                                    default: return _p.au($[0])
+                                }
+                            }),
                             Classes($.classes),
                             Flow_Content($.content)
                         )))

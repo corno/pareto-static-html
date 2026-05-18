@@ -125,27 +125,31 @@ export const Flow_Element: signatures.Flow_Element = ($) => _p.decide.state($, (
                             ),
                             sh.ph.literal(">"),
                             sh.ph.indent(
-                                sh.pg.sentences(row.cells.__l_map((cell) => sh.sentence([
-                                    _p.decide.state(row.type, ($) => {
-                                        switch ($[0]) {
-                                            case 'th': return _p.ss($, () => sh.ph.composed([
-                                                sh.ph.literal("<th"),
-                                                Classes(cell.classes),
-                                                sh.ph.literal(">"),
-                                                Flow_Content(cell.content),
-                                                sh.ph.literal("</th>")
-                                            ]))
-                                            case 'td': return _p.ss($, () => sh.ph.composed([
-                                                sh.ph.literal("<td"),
-                                                Classes(cell.classes),
-                                                sh.ph.literal(">"),
-                                                Flow_Content(cell.content),
-                                                sh.ph.literal("</td>")
-                                            ]))
-                                            default: return _p.au($[0])
-                                        }
-                                    })
-                                ])))
+                                sh.pg.sentences(row.cells.__l_map(($) => {
+                                    const cell = $
+                                    return sh.sentence([
+                                        sh.ph.literal("<"),
+                                        sh.ph.literal(_p.decide.state($.type, ($) => {
+                                            switch ($[0]) {
+                                                case 'td': return _p.ss($, ($) => "td")
+                                                case 'th': return _p.ss($, ($) => "th")
+                                                default: return _p.au($[0])
+                                            }
+                                        })),
+                                        Classes(cell.classes),
+                                        sh.ph.literal(">"),
+                                        Flow_Content(cell.content),
+                                        sh.ph.literal("</"),
+                                        sh.ph.literal(_p.decide.state($.type, ($) => {
+                                            switch ($[0]) {
+                                                case 'td': return _p.ss($, ($) => "td")
+                                                case 'th': return _p.ss($, ($) => "th")
+                                                default: return _p.au($[0])
+                                            }
+                                        })),
+                                        sh.ph.literal(">"),
+                                    ])
+                                }))
                             ),
                             sh.ph.literal("</tr>")
                         ])))

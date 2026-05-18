@@ -509,8 +509,8 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                             'expected properties': _p.dictionary.literal(
                                                                                                 {
                                                                                                     "classes": null,
-                                                                                                    "type": null,
                                                                                                     "height": null,
+                                                                                                    "colspan": null,
                                                                                                     "cells": null,
                                                                                                 },
                                                                                             ),
@@ -545,65 +545,6 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                         ),
                                                                                                     ),
                                                                                                 ),
-                                                                                                'type': _p_change_context(
-                                                                                                    v_unmarshalled_from_parse_tree.Property(
-                                                                                                        $,
-                                                                                                        ($) => abort(
-                                                                                                            $,
-                                                                                                        ),
-                                                                                                        {
-                                                                                                            'id': 'type',
-                                                                                                            'subdocument context': _p.optional.literal.not_set(),
-                                                                                                        },
-                                                                                                    ),
-                                                                                                    ($) => _p_change_context(
-                                                                                                        v_unmarshalled_from_parse_tree.State(
-                                                                                                            $,
-                                                                                                            ($) => abort(
-                                                                                                                $,
-                                                                                                            ),
-                                                                                                        ),
-                                                                                                        ($) => _p.decide.text(
-                                                                                                            $['option']['token']['value'],
-                                                                                                            ($t): t_out.Flow_Element.table.sections.L.rows.L.type_ => {
-                                                                                                                switch ($t) {
-                                                                                                                    case 'th':
-                                                                                                                        return _p_change_context(
-                                                                                                                            $['value'],
-                                                                                                                            ($) => ['th', v_unmarshalled_from_parse_tree.Nothing(
-                                                                                                                                $,
-                                                                                                                                ($) => abort(
-                                                                                                                                    $,
-                                                                                                                                ),
-                                                                                                                            )],
-                                                                                                                        )
-                                                                                                                    case 'td':
-                                                                                                                        return _p_change_context(
-                                                                                                                            $['value'],
-                                                                                                                            ($) => ['td', v_unmarshalled_from_parse_tree.Nothing(
-                                                                                                                                $,
-                                                                                                                                ($) => abort(
-                                                                                                                                    $,
-                                                                                                                                ),
-                                                                                                                            )],
-                                                                                                                        )
-                                                                                                                    default:
-                                                                                                                        return abort(
-                                                                                                                            ['liana', {
-                                                                                                                                'type': ['state', ['unknown option', $['option']['token']['value']]],
-                                                                                                                                'range': v_parse_tree_to_location.Value(
-                                                                                                                                    $['value'],
-                                                                                                                                    {
-                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
-                                                                                                                                    },
-                                                                                                                                ),
-                                                                                                                            }],
-                                                                                                                        )
-                                                                                                                }
-                                                                                                            },
-                                                                                                        ),
-                                                                                                    ),
-                                                                                                ),
                                                                                                 'height': _p_change_context(
                                                                                                     v_unmarshalled_from_parse_tree.Property(
                                                                                                         $,
@@ -612,6 +553,37 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                         ),
                                                                                                         {
                                                                                                             'id': 'height',
+                                                                                                            'subdocument context': _p.optional.literal.not_set(),
+                                                                                                        },
+                                                                                                    ),
+                                                                                                    ($) => _p.optional.from.optional(
+                                                                                                        v_unmarshalled_from_parse_tree.Optional(
+                                                                                                            $,
+                                                                                                            ($) => abort(
+                                                                                                                $,
+                                                                                                            ),
+                                                                                                        )['optional'],
+                                                                                                    ).map(
+                                                                                                        ($) => v_unmarshalled_from_parse_tree.Number(
+                                                                                                            $,
+                                                                                                            ($) => abort(
+                                                                                                                $,
+                                                                                                            ),
+                                                                                                            {
+                                                                                                                'type': ['decimal', null],
+                                                                                                                'subdocument context': _p.optional.literal.not_set(),
+                                                                                                            },
+                                                                                                        ),
+                                                                                                    ),
+                                                                                                ),
+                                                                                                'colspan': _p_change_context(
+                                                                                                    v_unmarshalled_from_parse_tree.Property(
+                                                                                                        $,
+                                                                                                        ($) => abort(
+                                                                                                            $,
+                                                                                                        ),
+                                                                                                        {
+                                                                                                            'id': 'colspan',
                                                                                                             'subdocument context': _p.optional.literal.not_set(),
                                                                                                         },
                                                                                                     ),
@@ -668,6 +640,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                                     {
                                                                                                                         'expected properties': _p.dictionary.literal(
                                                                                                                             {
+                                                                                                                                "type": null,
                                                                                                                                 "classes": null,
                                                                                                                                 "content": null,
                                                                                                                             },
@@ -685,6 +658,65 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                                             },
                                                                                                                         )
                                                                                                                         return {
+                                                                                                                            'type': _p_change_context(
+                                                                                                                                v_unmarshalled_from_parse_tree.Property(
+                                                                                                                                    $,
+                                                                                                                                    ($) => abort(
+                                                                                                                                        $,
+                                                                                                                                    ),
+                                                                                                                                    {
+                                                                                                                                        'id': 'type',
+                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                    },
+                                                                                                                                ),
+                                                                                                                                ($) => _p_change_context(
+                                                                                                                                    v_unmarshalled_from_parse_tree.State(
+                                                                                                                                        $,
+                                                                                                                                        ($) => abort(
+                                                                                                                                            $,
+                                                                                                                                        ),
+                                                                                                                                    ),
+                                                                                                                                    ($) => _p.decide.text(
+                                                                                                                                        $['option']['token']['value'],
+                                                                                                                                        ($t): t_out.Flow_Element.table.sections.L.rows.L.cells.L.type_ => {
+                                                                                                                                            switch ($t) {
+                                                                                                                                                case 'th':
+                                                                                                                                                    return _p_change_context(
+                                                                                                                                                        $['value'],
+                                                                                                                                                        ($) => ['th', v_unmarshalled_from_parse_tree.Nothing(
+                                                                                                                                                            $,
+                                                                                                                                                            ($) => abort(
+                                                                                                                                                                $,
+                                                                                                                                                            ),
+                                                                                                                                                        )],
+                                                                                                                                                    )
+                                                                                                                                                case 'td':
+                                                                                                                                                    return _p_change_context(
+                                                                                                                                                        $['value'],
+                                                                                                                                                        ($) => ['td', v_unmarshalled_from_parse_tree.Nothing(
+                                                                                                                                                            $,
+                                                                                                                                                            ($) => abort(
+                                                                                                                                                                $,
+                                                                                                                                                            ),
+                                                                                                                                                        )],
+                                                                                                                                                    )
+                                                                                                                                                default:
+                                                                                                                                                    return abort(
+                                                                                                                                                        ['liana', {
+                                                                                                                                                            'type': ['state', ['unknown option', $['option']['token']['value']]],
+                                                                                                                                                            'range': v_parse_tree_to_location.Value(
+                                                                                                                                                                $['value'],
+                                                                                                                                                                {
+                                                                                                                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                },
+                                                                                                                                                            ),
+                                                                                                                                                        }],
+                                                                                                                                                    )
+                                                                                                                                            }
+                                                                                                                                        },
+                                                                                                                                    ),
+                                                                                                                                ),
+                                                                                                                            ),
                                                                                                                             'classes': _p_change_context(
                                                                                                                                 v_unmarshalled_from_parse_tree.Property(
                                                                                                                                     $,

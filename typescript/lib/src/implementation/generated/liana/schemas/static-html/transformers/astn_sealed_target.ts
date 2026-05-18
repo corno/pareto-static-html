@@ -188,38 +188,21 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                                                                         $,
                                                                     ),
                                                                 ),
-                                                                "type": _p_change_context(
-                                                                    $['type'],
-                                                                    ($) => ['state', _p.decide.state(
-                                                                        $,
-                                                                        ($): t_out.Value.state => {
-                                                                            switch ($[0]) {
-                                                                                case 'th':
-                                                                                    return _p.ss(
-                                                                                        $,
-                                                                                        ($) => ({
-                                                                                            'option': 'th',
-                                                                                            'value': ['nothing', null],
-                                                                                        }),
-                                                                                    )
-                                                                                case 'td':
-                                                                                    return _p.ss(
-                                                                                        $,
-                                                                                        ($) => ({
-                                                                                            'option': 'td',
-                                                                                            'value': ['nothing', null],
-                                                                                        }),
-                                                                                    )
-                                                                                default:
-                                                                                    return _p.au(
-                                                                                        $[0],
-                                                                                    )
-                                                                            }
-                                                                        },
-                                                                    )],
-                                                                ),
                                                                 "height": _p_change_context(
                                                                     $['height'],
+                                                                    ($) => ['optional', _p.decide.optional(
+                                                                        $,
+                                                                        ($): t_out.Value.optional => ['set', ['text', {
+                                                                            'delimiter': ['none', null],
+                                                                            'value': v_primitives_to_text.decimal(
+                                                                                $,
+                                                                            ),
+                                                                        }]],
+                                                                        () => ['not set', null],
+                                                                    )],
+                                                                ),
+                                                                "colspan": _p_change_context(
+                                                                    $['colspan'],
                                                                     ($) => ['optional', _p.decide.optional(
                                                                         $,
                                                                         ($): t_out.Value.optional => ['set', ['text', {
@@ -238,6 +221,36 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                                                                     ).map(
                                                                         ($) => ['group', ['verbose', _p.dictionary.literal(
                                                                             {
+                                                                                "type": _p_change_context(
+                                                                                    $['type'],
+                                                                                    ($) => ['state', _p.decide.state(
+                                                                                        $,
+                                                                                        ($): t_out.Value.state => {
+                                                                                            switch ($[0]) {
+                                                                                                case 'th':
+                                                                                                    return _p.ss(
+                                                                                                        $,
+                                                                                                        ($) => ({
+                                                                                                            'option': 'th',
+                                                                                                            'value': ['nothing', null],
+                                                                                                        }),
+                                                                                                    )
+                                                                                                case 'td':
+                                                                                                    return _p.ss(
+                                                                                                        $,
+                                                                                                        ($) => ({
+                                                                                                            'option': 'td',
+                                                                                                            'value': ['nothing', null],
+                                                                                                        }),
+                                                                                                    )
+                                                                                                default:
+                                                                                                    return _p.au(
+                                                                                                        $[0],
+                                                                                                    )
+                                                                                            }
+                                                                                        },
+                                                                                    )],
+                                                                                ),
                                                                                 "classes": _p_change_context(
                                                                                     $['classes'],
                                                                                     ($) => Classes(

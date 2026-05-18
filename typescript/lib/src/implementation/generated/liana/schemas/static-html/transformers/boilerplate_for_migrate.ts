@@ -142,32 +142,16 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => _p.decide.state(
                                                         $,
                                                     ),
                                                 ),
-                                                'type': _p_change_context(
-                                                    $['type'],
-                                                    ($) => _p.decide.state(
-                                                        $,
-                                                        ($): t_out.Flow_Element.table.sections.L.rows.L.type_ => {
-                                                            switch ($[0]) {
-                                                                case 'th':
-                                                                    return _p.ss(
-                                                                        $,
-                                                                        ($) => ['th', null],
-                                                                    )
-                                                                case 'td':
-                                                                    return _p.ss(
-                                                                        $,
-                                                                        ($) => ['td', null],
-                                                                    )
-                                                                default:
-                                                                    return _p.au(
-                                                                        $[0],
-                                                                    )
-                                                            }
-                                                        },
-                                                    ),
-                                                ),
                                                 'height': _p_change_context(
                                                     $['height'],
+                                                    ($) => _p.optional.from.optional(
+                                                        $,
+                                                    ).map(
+                                                        ($) => $,
+                                                    ),
+                                                ),
+                                                'colspan': _p_change_context(
+                                                    $['colspan'],
                                                     ($) => _p.optional.from.optional(
                                                         $,
                                                     ).map(
@@ -180,6 +164,30 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => _p.decide.state(
                                                         $,
                                                     ).map(
                                                         ($) => ({
+                                                            'type': _p_change_context(
+                                                                $['type'],
+                                                                ($) => _p.decide.state(
+                                                                    $,
+                                                                    ($): t_out.Flow_Element.table.sections.L.rows.L.cells.L.type_ => {
+                                                                        switch ($[0]) {
+                                                                            case 'th':
+                                                                                return _p.ss(
+                                                                                    $,
+                                                                                    ($) => ['th', null],
+                                                                                )
+                                                                            case 'td':
+                                                                                return _p.ss(
+                                                                                    $,
+                                                                                    ($) => ['td', null],
+                                                                                )
+                                                                            default:
+                                                                                return _p.au(
+                                                                                    $[0],
+                                                                                )
+                                                                        }
+                                                                    },
+                                                                ),
+                                                            ),
                                                             'classes': _p_change_context(
                                                                 $['classes'],
                                                                 ($) => Classes(
