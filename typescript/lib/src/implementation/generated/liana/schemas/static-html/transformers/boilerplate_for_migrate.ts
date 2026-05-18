@@ -150,14 +150,6 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => _p.decide.state(
                                                         ($) => $,
                                                     ),
                                                 ),
-                                                'colspan': _p_change_context(
-                                                    $['colspan'],
-                                                    ($) => _p.optional.from.optional(
-                                                        $,
-                                                    ).map(
-                                                        ($) => $,
-                                                    ),
-                                                ),
                                                 'cells': _p_change_context(
                                                     $['cells'],
                                                     ($) => _p.list.from.list(
@@ -186,6 +178,14 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => _p.decide.state(
                                                                                 )
                                                                         }
                                                                     },
+                                                                ),
+                                                            ),
+                                                            'colspan': _p_change_context(
+                                                                $['colspan'],
+                                                                ($) => _p.optional.from.optional(
+                                                                    $,
+                                                                ).map(
+                                                                    ($) => $,
                                                                 ),
                                                             ),
                                                             'classes': _p_change_context(

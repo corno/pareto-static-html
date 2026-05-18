@@ -112,10 +112,10 @@ export const Flow_Element: signatures.Flow_Element = ($) => _p.decide.state($, (
                     Classes(section.classes),
                     sh.ph.literal(">"),
                     sh.ph.indent(
-                        sh.pg.sentences(section.rows.__l_map((row) => sh.sentence([
+                        sh.pg.sentences(section.rows.__l_map(($) => sh.sentence([
                             sh.ph.literal("<tr"),
-                            Classes(row.classes),
-                            row.height.__decide(
+                            Classes($.classes),
+                            $.height.__decide(
                                 ($) => sh.ph.composed([
                                     sh.ph.literal(" height=\""),
                                     sh.ph.serialize(temp_serialize_number($)),
@@ -125,8 +125,7 @@ export const Flow_Element: signatures.Flow_Element = ($) => _p.decide.state($, (
                             ),
                             sh.ph.literal(">"),
                             sh.ph.indent(
-                                sh.pg.sentences(row.cells.__l_map(($) => {
-                                    const cell = $
+                                sh.pg.sentences($.cells.__l_map(($) => {
                                     return sh.sentence([
                                         sh.ph.literal("<"),
                                         sh.ph.literal(_p.decide.state($.type, ($) => {
@@ -136,9 +135,17 @@ export const Flow_Element: signatures.Flow_Element = ($) => _p.decide.state($, (
                                                 default: return _p.au($[0])
                                             }
                                         })),
-                                        Classes(cell.classes),
+                                        Classes($.classes),
+                                        $.colspan.__decide(
+                                            ($) => sh.ph.composed([
+                                                sh.ph.literal(" colspan=\""),
+                                                sh.ph.serialize(temp_serialize_number($)),
+                                                sh.ph.literal("\"")
+                                            ]),
+                                            () => sh.ph.nothing()
+                                        ),
                                         sh.ph.literal(">"),
-                                        Flow_Content(cell.content),
+                                        Flow_Content($.content),
                                         sh.ph.literal("</"),
                                         sh.ph.literal(_p.decide.state($.type, ($) => {
                                             switch ($[0]) {

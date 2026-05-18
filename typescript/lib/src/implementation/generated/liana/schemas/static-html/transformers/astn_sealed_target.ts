@@ -201,19 +201,6 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                                                                         () => ['not set', null],
                                                                     )],
                                                                 ),
-                                                                "colspan": _p_change_context(
-                                                                    $['colspan'],
-                                                                    ($) => ['optional', _p.decide.optional(
-                                                                        $,
-                                                                        ($): t_out.Value.optional => ['set', ['text', {
-                                                                            'delimiter': ['none', null],
-                                                                            'value': v_primitives_to_text.decimal(
-                                                                                $,
-                                                                            ),
-                                                                        }]],
-                                                                        () => ['not set', null],
-                                                                    )],
-                                                                ),
                                                                 "cells": _p_change_context(
                                                                     $['cells'],
                                                                     ($) => ['list', _p.list.from.list(
@@ -249,6 +236,19 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                                                                                                     )
                                                                                             }
                                                                                         },
+                                                                                    )],
+                                                                                ),
+                                                                                "colspan": _p_change_context(
+                                                                                    $['colspan'],
+                                                                                    ($) => ['optional', _p.decide.optional(
+                                                                                        $,
+                                                                                        ($): t_out.Value.optional => ['set', ['text', {
+                                                                                            'delimiter': ['none', null],
+                                                                                            'value': v_primitives_to_text.decimal(
+                                                                                                $,
+                                                                                            ),
+                                                                                        }]],
+                                                                                        () => ['not set', null],
                                                                                     )],
                                                                                 ),
                                                                                 "classes": _p_change_context(

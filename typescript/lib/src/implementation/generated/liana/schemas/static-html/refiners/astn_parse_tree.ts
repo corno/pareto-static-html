@@ -510,7 +510,6 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                 {
                                                                                                     "classes": null,
                                                                                                     "height": null,
-                                                                                                    "colspan": null,
                                                                                                     "cells": null,
                                                                                                 },
                                                                                             ),
@@ -576,37 +575,6 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                         ),
                                                                                                     ),
                                                                                                 ),
-                                                                                                'colspan': _p_change_context(
-                                                                                                    v_unmarshalled_from_parse_tree.Property(
-                                                                                                        $,
-                                                                                                        ($) => abort(
-                                                                                                            $,
-                                                                                                        ),
-                                                                                                        {
-                                                                                                            'id': 'colspan',
-                                                                                                            'subdocument context': _p.optional.literal.not_set(),
-                                                                                                        },
-                                                                                                    ),
-                                                                                                    ($) => _p.optional.from.optional(
-                                                                                                        v_unmarshalled_from_parse_tree.Optional(
-                                                                                                            $,
-                                                                                                            ($) => abort(
-                                                                                                                $,
-                                                                                                            ),
-                                                                                                        )['optional'],
-                                                                                                    ).map(
-                                                                                                        ($) => v_unmarshalled_from_parse_tree.Number(
-                                                                                                            $,
-                                                                                                            ($) => abort(
-                                                                                                                $,
-                                                                                                            ),
-                                                                                                            {
-                                                                                                                'type': ['decimal', null],
-                                                                                                                'subdocument context': _p.optional.literal.not_set(),
-                                                                                                            },
-                                                                                                        ),
-                                                                                                    ),
-                                                                                                ),
                                                                                                 'cells': _p_change_context(
                                                                                                     v_unmarshalled_from_parse_tree.Property(
                                                                                                         $,
@@ -641,6 +609,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                                         'expected properties': _p.dictionary.literal(
                                                                                                                             {
                                                                                                                                 "type": null,
+                                                                                                                                "colspan": null,
                                                                                                                                 "classes": null,
                                                                                                                                 "content": null,
                                                                                                                             },
@@ -713,6 +682,37 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                                                                         }],
                                                                                                                                                     )
                                                                                                                                             }
+                                                                                                                                        },
+                                                                                                                                    ),
+                                                                                                                                ),
+                                                                                                                            ),
+                                                                                                                            'colspan': _p_change_context(
+                                                                                                                                v_unmarshalled_from_parse_tree.Property(
+                                                                                                                                    $,
+                                                                                                                                    ($) => abort(
+                                                                                                                                        $,
+                                                                                                                                    ),
+                                                                                                                                    {
+                                                                                                                                        'id': 'colspan',
+                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                    },
+                                                                                                                                ),
+                                                                                                                                ($) => _p.optional.from.optional(
+                                                                                                                                    v_unmarshalled_from_parse_tree.Optional(
+                                                                                                                                        $,
+                                                                                                                                        ($) => abort(
+                                                                                                                                            $,
+                                                                                                                                        ),
+                                                                                                                                    )['optional'],
+                                                                                                                                ).map(
+                                                                                                                                    ($) => v_unmarshalled_from_parse_tree.Number(
+                                                                                                                                        $,
+                                                                                                                                        ($) => abort(
+                                                                                                                                            $,
+                                                                                                                                        ),
+                                                                                                                                        {
+                                                                                                                                            'type': ['decimal', null],
+                                                                                                                                            'subdocument context': _p.optional.literal.not_set(),
                                                                                                                                         },
                                                                                                                                     ),
                                                                                                                                 ),

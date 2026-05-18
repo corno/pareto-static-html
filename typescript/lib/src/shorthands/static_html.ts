@@ -126,12 +126,10 @@ export namespace t { //table
         export const row = (
             classes: _p.Raw_Or_Normal_List<string>,
             height: _pi.Optional_Value<number>,
-            colspan: _pi.Optional_Value<number>,
             cells: _p.Raw_Or_Normal_List<d_target.Flow_Element.table.sections.L.rows.L.cells.L>,
         ): d_target.Flow_Element.table.sections.L.rows.L => ({
             'classes': _p.list.literal(classes),
             'height': height,
-            'colspan': colspan,
             'cells': _p.list.literal(cells),
         })
 
@@ -139,18 +137,22 @@ export namespace t { //table
 
             export const td = (
                 classes: _p.Raw_Or_Normal_List<string>,
+                colspan: _pi.Optional_Value<number>,
                 content: _p.Raw_Or_Normal_List<d_target.Flow_Element>,
             ): d_target.Flow_Element.table.sections.L.rows.L.cells.L => ({
                 'type': ['td', null],
+                'colspan': colspan,
                 'classes': _p.list.literal(classes),
                 'content': _p.list.literal(content),
             })
 
             export const th = (
                 classes: _p.Raw_Or_Normal_List<string>,
+                colspan: _pi.Optional_Value<number>,
                 content: _p.Raw_Or_Normal_List<d_target.Flow_Element>,
             ): d_target.Flow_Element.table.sections.L.rows.L.cells.L => ({
                 'type': ['th', null],
+                'colspan': colspan,
                 'classes': _p.list.literal(classes),
                 'content': _p.list.literal(content),
             })

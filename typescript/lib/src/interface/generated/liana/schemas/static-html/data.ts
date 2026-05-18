@@ -100,14 +100,6 @@ export namespace Flow_Element_ {
                         
                         export type height = _pi.Optional_Value<height.O>
                         
-                        export namespace colspan {
-                            
-                            export type O = number
-                            
-                        }
-                        
-                        export type colspan = _pi.Optional_Value<colspan.O>
-                        
                         export namespace cells {
                             
                             export namespace L {
@@ -124,6 +116,14 @@ export namespace Flow_Element_ {
                                     | readonly ['th', type_.th]
                                     | readonly ['td', type_.td]
                                 
+                                export namespace colspan {
+                                    
+                                    export type O = number
+                                    
+                                }
+                                
+                                export type colspan = _pi.Optional_Value<colspan.O>
+                                
                                 export type classes = Classes_
                                 
                                 export type content = Flow_Content_
@@ -132,6 +132,7 @@ export namespace Flow_Element_ {
                             
                             export type L = {
                                 readonly 'type': L.type_
+                                readonly 'colspan': L.colspan
                                 readonly 'classes': L.classes
                                 readonly 'content': L.content
                             }
@@ -145,7 +146,6 @@ export namespace Flow_Element_ {
                     export type L = {
                         readonly 'classes': L.classes
                         readonly 'height': L.height
-                        readonly 'colspan': L.colspan
                         readonly 'cells': L.cells
                     }
                     

@@ -123,12 +123,6 @@ export const Flow_Element: Flow_Element = ($) => _p.decide.state($, ($): d_out.E
                                 ],
                                 () => []
                             ),
-                            $.colspan.__decide(
-                                ($) => [
-                                    sh.attribute("colspan", temp_serialize_number($)),
-                                ],
-                                () => []
-                            ),
                         ]),
                         $.cells.__l_map(($) => sh.no.element(sh.e.nodes_only(
                             _p.decide.state($.type, ($): string => {
@@ -138,7 +132,15 @@ export const Flow_Element: Flow_Element = ($) => _p.decide.state($, ($): d_out.E
                                     default: return _p.au($[0])
                                 }
                             }),
-                            Classes($.classes),
+                            _p.list.nested_literal_old([
+                                Classes($.classes),
+                                $.colspan.__decide(
+                                    ($) => [
+                                        sh.attribute("colspan", temp_serialize_number($)),
+                                    ],
+                                    () => []
+                                ),
+                            ]),
                             Flow_Content($.content)
                         )))
                     ))
