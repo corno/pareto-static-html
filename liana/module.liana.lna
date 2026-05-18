@@ -361,24 +361,6 @@
                                                                     `results`: _
                                                                 )
                                                             )
-                                                            'type': (
-                                                                `description`: _
-                                                                `value`: | `state` (
-                                                                    `options`: {
-                                                                        'th': (
-                                                                            `constraints`: _
-                                                                            `description`: _
-                                                                            `value`: | `nothing` ~
-                                                                        )
-                                                                        'td': (
-                                                                            `constraints`: _
-                                                                            `description`: _
-                                                                            `value`: | `nothing` ~
-                                                                        )
-                                                                    }
-                                                                    `results`: _
-                                                                )
-                                                            )
                                                             'height': (
                                                                 `description`: _
                                                                 `value`: | `optional` | `simple` | `global` 'Natural'
@@ -387,6 +369,28 @@
                                                                 `description`: _
                                                                 `value`: | `list` (
                                                                     `value`: | `group` {
+                                                                        'type': (
+                                                                            `description`: _
+                                                                            `value`: | `state` (
+                                                                                `options`: {
+                                                                                    'th': (
+                                                                                        `constraints`: _
+                                                                                        `description`: _
+                                                                                        `value`: | `nothing` ~
+                                                                                    )
+                                                                                    'td': (
+                                                                                        `constraints`: _
+                                                                                        `description`: _
+                                                                                        `value`: | `nothing` ~
+                                                                                    )
+                                                                                }
+                                                                                `results`: _
+                                                                            )
+                                                                        )
+                                                                        'colspan': (
+                                                                            `description`: _
+                                                                            `value`: | `optional` | `simple` | `global` 'Natural'
+                                                                        )
                                                                         'classes': (
                                                                             `description`: _
                                                                             `value`: | `component` (
