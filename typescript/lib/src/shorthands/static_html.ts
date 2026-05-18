@@ -121,35 +121,43 @@ export namespace t { //table
         'rows': _p.list.literal(rows),
     })
 
-    export const th = (
-        classes: _p.Raw_Or_Normal_List<string>,
-        height: _pi.Optional_Value<number>,
-        cells: _p.Raw_Or_Normal_List<d_target.Flow_Element.table.sections.L.rows.L.cells.L>,
-    ): d_target.Flow_Element.table.sections.L.rows.L => ({
-        'classes': _p.list.literal(classes),
-        'type': ['th', null],
-        'height': height,
-        'cells': _p.list.literal(cells),
-    })
+    export namespace s { //section
 
-    export const td = (
-        classes: _p.Raw_Or_Normal_List<string>,
-        height: _pi.Optional_Value<number>,
-        cells: _p.Raw_Or_Normal_List<d_target.Flow_Element.table.sections.L.rows.L.cells.L>,
-    ): d_target.Flow_Element.table.sections.L.rows.L => ({
-        'classes': _p.list.literal(classes),
-        'type': ['td', null],
-        'height': height,
-        'cells': _p.list.literal(cells),
-    })
+        export const th = (
+            classes: _p.Raw_Or_Normal_List<string>,
+            height: _pi.Optional_Value<number>,
+            cells: _p.Raw_Or_Normal_List<d_target.Flow_Element.table.sections.L.rows.L.cells.L>,
+        ): d_target.Flow_Element.table.sections.L.rows.L => ({
+            'classes': _p.list.literal(classes),
+            'type': ['th', null],
+            'height': height,
+            'cells': _p.list.literal(cells),
+        })
 
-    export const cell = (
-        classes: _p.Raw_Or_Normal_List<string>,
-        content: _p.Raw_Or_Normal_List<d_target.Flow_Element>,
-    ): d_target.Flow_Element.table.sections.L.rows.L.cells.L => ({
-        'classes': _p.list.literal(classes),
-        'content': _p.list.literal(content),
-    })
+        export const td = (
+            classes: _p.Raw_Or_Normal_List<string>,
+            height: _pi.Optional_Value<number>,
+            cells: _p.Raw_Or_Normal_List<d_target.Flow_Element.table.sections.L.rows.L.cells.L>,
+        ): d_target.Flow_Element.table.sections.L.rows.L => ({
+            'classes': _p.list.literal(classes),
+            'type': ['td', null],
+            'height': height,
+            'cells': _p.list.literal(cells),
+        })
+
+        export namespace r { //row
+
+            export const cell = (
+                classes: _p.Raw_Or_Normal_List<string>,
+                content: _p.Raw_Or_Normal_List<d_target.Flow_Element>,
+            ): d_target.Flow_Element.table.sections.L.rows.L.cells.L => ({
+                'classes': _p.list.literal(classes),
+                'content': _p.list.literal(content),
+            })
+
+        }
+
+    }
 }
 
 /**
