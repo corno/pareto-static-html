@@ -57,7 +57,7 @@ export namespace Element_ {
             
         }
         
-        export type empty = null
+        export type empty = symbol
         
         export namespace text_only {
             

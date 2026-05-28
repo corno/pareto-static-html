@@ -3,6 +3,8 @@ import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
+import _p_create_symbol from 'pareto-core/dist/_p_create_symbol'
+
 import * as t_signatures from "../../../../../../interface/generated/liana/schemas/xml/signatures/transformers/boilerplate_for_migrate"
 
 import * as t_out from "../../../../../../interface/generated/liana/schemas/xml/data"
@@ -64,7 +66,7 @@ export const Element: t_signatures.Element = ($) => ({
                     case 'empty':
                         return _p.ss(
                             $,
-                            ($) => ['empty', null],
+                            ($) => ['empty', _p_create_symbol()],
                         )
                     case 'text only':
                         return _p.ss(
