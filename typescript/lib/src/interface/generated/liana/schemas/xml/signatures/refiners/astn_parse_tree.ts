@@ -1,5 +1,5 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
 
 import * as i_generic from "liana-core/dist/interface/to_be_generated/unmarshall"
 
@@ -23,7 +23,7 @@ export namespace Document_ {
 
 export type Document_ = (
     context: Document_.I,
-    abort: _pi.Abort<Document_.E>,
+    abort: p_i.Abort<Document_.E>,
 ) => Document_.O
 
 export namespace Element_ {
@@ -42,7 +42,7 @@ export namespace Element_ {
 
 export type Element_ = (
     context: Element_.I,
-    abort: _pi.Abort<Element_.E>,
+    abort: p_i.Abort<Element_.E>,
 ) => Element_.O
 
 export namespace Mixed_Content_ {
@@ -61,7 +61,7 @@ export namespace Mixed_Content_ {
 
 export type Mixed_Content_ = (
     context: Mixed_Content_.I,
-    abort: _pi.Abort<Mixed_Content_.E>,
+    abort: p_i.Abort<Mixed_Content_.E>,
 ) => Mixed_Content_.O
 
 export namespace Qualified_Name_ {
@@ -80,7 +80,7 @@ export namespace Qualified_Name_ {
 
 export type Qualified_Name_ = (
     context: Qualified_Name_.I,
-    abort: _pi.Abort<Qualified_Name_.E>,
+    abort: p_i.Abort<Qualified_Name_.E>,
 ) => Qualified_Name_.O
 
 export namespace Node_ {
@@ -99,7 +99,7 @@ export namespace Node_ {
 
 export type Node_ = (
     context: Node_.I,
-    abort: _pi.Abort<Node_.E>,
+    abort: p_i.Abort<Node_.E>,
 ) => Node_.O
 
 export { 

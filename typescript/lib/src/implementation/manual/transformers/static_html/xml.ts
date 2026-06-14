@@ -1,5 +1,6 @@
 import * as pt from 'pareto-core/dist/assign'
-import * as pi from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
+import * as p_ti from 'pareto-core/dist/transformer/interface'
 
 //data types
 import * as d_in from "../../../../interface/generated/liana/schemas/static-html/data"
@@ -14,12 +15,12 @@ import * as sh from "../../../../modules/xml/shorthands/xml"
 import * as sh_fp from "pareto-fountain-pen/dist/shorthands/prose"
 
 
-export type Document = pi.Transformer<d_in.Document, d_out.Document>
-export type Flow_Element = pi.Transformer<d_in.Flow_Element, d_out.Element.content_type.nodes_only.children.L>
-export type Flow_Content = pi.Transformer<d_in.Flow_Content, d_out.Element.content_type.nodes_only.children>
-export type Classes = pi.Transformer<d_in.Classes, d_out.Element.attributes>
-export type Phrasing_Content = pi.Transformer<d_in.Phrasing_Content, d_out.Mixed_Content>
-export type Phrasing_Element = pi.Transformer<d_in.Phrasing_Element, d_out.Element>
+export type Document = p_ti.Transformer<d_in.Document, d_out.Document>
+export type Flow_Element = p_ti.Transformer<d_in.Flow_Element, d_out.Element.content_type.nodes_only.children.L>
+export type Flow_Content = p_ti.Transformer<d_in.Flow_Content, d_out.Element.content_type.nodes_only.children>
+export type Classes = p_ti.Transformer<d_in.Classes, d_out.Element.attributes>
+export type Phrasing_Content = p_ti.Transformer<d_in.Phrasing_Content, d_out.Mixed_Content>
+export type Phrasing_Element = p_ti.Transformer<d_in.Phrasing_Element, d_out.Element>
 
 
 const temp_serialize_number = (n: number): d_text.Text => {

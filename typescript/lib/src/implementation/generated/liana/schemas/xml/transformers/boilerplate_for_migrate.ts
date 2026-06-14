@@ -1,9 +1,9 @@
 
 import * as _p from 'pareto-core/dist/assign'
 
-import _p_change_context from 'pareto-core/dist/_p_change_context'
+import _p_change_context from 'pareto-core/dist/specials/change_context'
 
-import _p_create_symbol from 'pareto-core/dist/_p_create_symbol'
+import _p_create_symbol from 'pareto-core/dist/specials/create_symbol'
 
 import * as t_signatures from "../../../../../../interface/generated/liana/schemas/xml/signatures/transformers/boilerplate_for_migrate"
 

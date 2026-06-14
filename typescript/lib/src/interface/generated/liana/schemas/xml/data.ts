@@ -1,5 +1,6 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
 
 export namespace Document_ {
     
@@ -17,7 +18,7 @@ export namespace Document_ {
         
     }
     
-    export type doc_type = _pi.Optional_Value<doc_type.O>
+    export type doc_type = p_di.Optional_Value<doc_type.O>
     
     export type root = Element_
     
@@ -49,7 +50,7 @@ export namespace Element_ {
         
     }
     
-    export type attributes = _pi.List<attributes.L>
+    export type attributes = p_di.List<attributes.L>
     
     export namespace content_type {
         
@@ -79,7 +80,7 @@ export namespace Element_ {
                 
             }
             
-            export type children = _pi.List<children.L>
+            export type children = p_di.List<children.L>
             
         }
         
@@ -127,7 +128,7 @@ export namespace Mixed_Content_ {
     
 }
 
-export type Mixed_Content_ = _pi.List<Mixed_Content_.L>
+export type Mixed_Content_ = p_di.List<Mixed_Content_.L>
 
 export namespace Qualified_Name_ {
     
@@ -137,7 +138,7 @@ export namespace Qualified_Name_ {
         
     }
     
-    export type namespace_prefix = _pi.Optional_Value<namespace_prefix.O>
+    export type namespace_prefix = p_di.Optional_Value<namespace_prefix.O>
     
     export type local_name = string
     

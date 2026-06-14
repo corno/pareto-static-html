@@ -1,6 +1,6 @@
 import * as pt from 'pareto-core-shorthands/dist/unconstrained'
-import * as pi from 'pareto-core/dist/interface'
-import p_create_symbol from 'pareto-core/dist/_p_create_symbol'
+import * as p_di from 'pareto-core/dist/data/interface'
+import p_create_symbol from 'pareto-core/dist/specials/create_symbol'
 
 import * as d_target from "../../../interface/generated/liana/schemas/xml/data"
 

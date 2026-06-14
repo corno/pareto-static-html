@@ -1,14 +1,15 @@
-import * as pi from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
+import * as p_ti from 'pareto-core/dist/transformer/interface'
 
 import * as d_in from "../../../generated/liana/schemas/static-html/data"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
-export type Document = pi.Transformer<d_in.Document, d_out.Paragraph>
+export type Document = p_ti.Transformer<d_in.Document, d_out.Paragraph>
 
-export type Flow_Element = pi.Transformer<d_in.Flow_Element, d_out.Phrase>
-export type Flow_Content = pi.Transformer<d_in.Flow_Content, d_out.Phrase>
+export type Flow_Element = p_ti.Transformer<d_in.Flow_Element, d_out.Phrase>
+export type Flow_Content = p_ti.Transformer<d_in.Flow_Content, d_out.Phrase>
 
-export type Classes = pi.Transformer<d_in.Classes, d_out.Phrase>
+export type Classes = p_ti.Transformer<d_in.Classes, d_out.Phrase>
 
-export type Phrasing_Element = pi.Transformer<d_in.Phrasing_Element, d_out.Phrase>
-export type Phrasing_Content = pi.Transformer<d_in.Phrasing_Content, d_out.Phrase>
+export type Phrasing_Element = p_ti.Transformer<d_in.Phrasing_Element, d_out.Phrase>
+export type Phrasing_Content = p_ti.Transformer<d_in.Phrasing_Content, d_out.Phrase>

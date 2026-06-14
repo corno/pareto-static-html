@@ -1,5 +1,5 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
 
 import * as i_generic from "liana-core/dist/interface/to_be_generated/deserialize"
 
@@ -25,7 +25,7 @@ export namespace Document_ {
 
 export type Document_ = (
     context: Document_.I,
-    abort: _pi.Abort<Document_.E>,
+    abort: p_i.Abort<Document_.E>,
     parameters: {
         readonly 'tab size': Document_.P.tab_size
     },
@@ -49,7 +49,7 @@ export namespace Element_ {
 
 export type Element_ = (
     context: Element_.I,
-    abort: _pi.Abort<Element_.E>,
+    abort: p_i.Abort<Element_.E>,
     parameters: {
         readonly 'tab size': Element_.P.tab_size
     },
@@ -73,7 +73,7 @@ export namespace Mixed_Content_ {
 
 export type Mixed_Content_ = (
     context: Mixed_Content_.I,
-    abort: _pi.Abort<Mixed_Content_.E>,
+    abort: p_i.Abort<Mixed_Content_.E>,
     parameters: {
         readonly 'tab size': Mixed_Content_.P.tab_size
     },
@@ -97,7 +97,7 @@ export namespace Qualified_Name_ {
 
 export type Qualified_Name_ = (
     context: Qualified_Name_.I,
-    abort: _pi.Abort<Qualified_Name_.E>,
+    abort: p_i.Abort<Qualified_Name_.E>,
     parameters: {
         readonly 'tab size': Qualified_Name_.P.tab_size
     },
@@ -121,7 +121,7 @@ export namespace Node_ {
 
 export type Node_ = (
     context: Node_.I,
-    abort: _pi.Abort<Node_.E>,
+    abort: p_i.Abort<Node_.E>,
     parameters: {
         readonly 'tab size': Node_.P.tab_size
     },

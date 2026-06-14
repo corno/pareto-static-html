@@ -1,5 +1,6 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
 
 import * as i_imports_xml from "../xml/data"
 
@@ -28,7 +29,7 @@ export namespace Flow_Element_ {
             
         }
         
-        export type width = _pi.Optional_Value<width.O>
+        export type width = p_di.Optional_Value<width.O>
         
         export namespace height {
             
@@ -36,7 +37,7 @@ export namespace Flow_Element_ {
             
         }
         
-        export type height = _pi.Optional_Value<height.O>
+        export type height = p_di.Optional_Value<height.O>
         
         export type content = Flow_Content_
         
@@ -98,7 +99,7 @@ export namespace Flow_Element_ {
                             
                         }
                         
-                        export type height = _pi.Optional_Value<height.O>
+                        export type height = p_di.Optional_Value<height.O>
                         
                         export namespace cells {
                             
@@ -122,7 +123,7 @@ export namespace Flow_Element_ {
                                     
                                 }
                                 
-                                export type colspan = _pi.Optional_Value<colspan.O>
+                                export type colspan = p_di.Optional_Value<colspan.O>
                                 
                                 export type classes = Classes_
                                 
@@ -139,7 +140,7 @@ export namespace Flow_Element_ {
                             
                         }
                         
-                        export type cells = _pi.List<cells.L>
+                        export type cells = p_di.List<cells.L>
                         
                     }
                     
@@ -151,7 +152,7 @@ export namespace Flow_Element_ {
                     
                 }
                 
-                export type rows = _pi.List<rows.L>
+                export type rows = p_di.List<rows.L>
                 
             }
             
@@ -163,7 +164,7 @@ export namespace Flow_Element_ {
             
         }
         
-        export type sections = _pi.List<sections.L>
+        export type sections = p_di.List<sections.L>
         
     }
     
@@ -204,7 +205,7 @@ export namespace Flow_Element_ {
             
         }
         
-        export type width = _pi.Optional_Value<width.O>
+        export type width = p_di.Optional_Value<width.O>
         
         export namespace height {
             
@@ -212,7 +213,7 @@ export namespace Flow_Element_ {
             
         }
         
-        export type height = _pi.Optional_Value<height.O>
+        export type height = p_di.Optional_Value<height.O>
         
     }
     
@@ -236,7 +237,7 @@ export namespace Flow_Element_ {
             
         }
         
-        export type width = _pi.Optional_Value<width.O>
+        export type width = p_di.Optional_Value<width.O>
         
         export namespace height {
             
@@ -244,7 +245,7 @@ export namespace Flow_Element_ {
             
         }
         
-        export type height = _pi.Optional_Value<height.O>
+        export type height = p_di.Optional_Value<height.O>
         
     }
     
@@ -273,7 +274,7 @@ export namespace Flow_Content_ {
     
 }
 
-export type Flow_Content_ = _pi.List<Flow_Content_.L>
+export type Flow_Content_ = p_di.List<Flow_Content_.L>
 
 export namespace Classes_ {
     
@@ -281,7 +282,7 @@ export namespace Classes_ {
     
 }
 
-export type Classes_ = _pi.List<Classes_.L>
+export type Classes_ = p_di.List<Classes_.L>
 
 export namespace Phrasing_Content_ {
     
@@ -289,7 +290,7 @@ export namespace Phrasing_Content_ {
     
 }
 
-export type Phrasing_Content_ = _pi.List<Phrasing_Content_.L>
+export type Phrasing_Content_ = p_di.List<Phrasing_Content_.L>
 
 export namespace Phrasing_Element_ {
     

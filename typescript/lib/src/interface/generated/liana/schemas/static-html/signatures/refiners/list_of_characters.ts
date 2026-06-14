@@ -1,5 +1,5 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
 
 import * as i_generic from "liana-core/dist/interface/to_be_generated/deserialize"
 
@@ -25,7 +25,7 @@ export namespace Document_ {
 
 export type Document_ = (
     context: Document_.I,
-    abort: _pi.Abort<Document_.E>,
+    abort: p_i.Abort<Document_.E>,
     parameters: {
         readonly 'tab size': Document_.P.tab_size
     },
@@ -49,7 +49,7 @@ export namespace Flow_Element_ {
 
 export type Flow_Element_ = (
     context: Flow_Element_.I,
-    abort: _pi.Abort<Flow_Element_.E>,
+    abort: p_i.Abort<Flow_Element_.E>,
     parameters: {
         readonly 'tab size': Flow_Element_.P.tab_size
     },
@@ -73,7 +73,7 @@ export namespace Flow_Content_ {
 
 export type Flow_Content_ = (
     context: Flow_Content_.I,
-    abort: _pi.Abort<Flow_Content_.E>,
+    abort: p_i.Abort<Flow_Content_.E>,
     parameters: {
         readonly 'tab size': Flow_Content_.P.tab_size
     },
@@ -97,7 +97,7 @@ export namespace Classes_ {
 
 export type Classes_ = (
     context: Classes_.I,
-    abort: _pi.Abort<Classes_.E>,
+    abort: p_i.Abort<Classes_.E>,
     parameters: {
         readonly 'tab size': Classes_.P.tab_size
     },
@@ -121,7 +121,7 @@ export namespace Phrasing_Content_ {
 
 export type Phrasing_Content_ = (
     context: Phrasing_Content_.I,
-    abort: _pi.Abort<Phrasing_Content_.E>,
+    abort: p_i.Abort<Phrasing_Content_.E>,
     parameters: {
         readonly 'tab size': Phrasing_Content_.P.tab_size
     },
@@ -145,7 +145,7 @@ export namespace Phrasing_Element_ {
 
 export type Phrasing_Element_ = (
     context: Phrasing_Element_.I,
-    abort: _pi.Abort<Phrasing_Element_.E>,
+    abort: p_i.Abort<Phrasing_Element_.E>,
     parameters: {
         readonly 'tab size': Phrasing_Element_.P.tab_size
     },

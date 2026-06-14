@@ -1,5 +1,5 @@
 import * as pt from 'pareto-core-shorthands/dist/unconstrained'
-import * as pi from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
 
 import * as d_target from "../interface/generated/liana/schemas/static-html/data"
 import * as d_target_xml from "../interface/generated/liana/schemas/xml/data"
@@ -23,8 +23,8 @@ export namespace f { //flow
     ): d_target.Flow_Element => ['div', pt.list.literal(sections)]
 
     export const dimensioned_div = (
-        width: pi.Optional_Value<number>,
-        height: pi.Optional_Value<number>,
+        width: p_di.Optional_Value<number>,
+        height: p_di.Optional_Value<number>,
         sections: pt.Raw_Or_Normal_List<d_target.Flow_Element>,
     ): d_target.Flow_Element => ['dimensioned div', {
         'width': width,
@@ -58,8 +58,8 @@ export namespace f { //flow
         classes: pt.Raw_Or_Normal_List<string>,
         src: string,
         alt: string,
-        width: pi.Optional_Value<number>,
-        height: pi.Optional_Value<number>,
+        width: p_di.Optional_Value<number>,
+        height: p_di.Optional_Value<number>,
     ): d_target.Flow_Element => ['img', {
         'classes': pt.list.literal(classes),
         'src': src,
@@ -71,8 +71,8 @@ export namespace f { //flow
     export const svg = (
         classes: pt.Raw_Or_Normal_List<string>,
         content: d_target_xml.Mixed_Content,
-        width: pi.Optional_Value<number>,
-        height: pi.Optional_Value<number>,
+        width: p_di.Optional_Value<number>,
+        height: p_di.Optional_Value<number>,
     ): d_target.Flow_Element => ['svg', {
         'classes': pt.list.literal(classes),
         'content': content,
@@ -125,7 +125,7 @@ export namespace t { //table
 
         export const row = (
             classes: pt.Raw_Or_Normal_List<string>,
-            height: pi.Optional_Value<number>,
+            height: p_di.Optional_Value<number>,
             cells: pt.Raw_Or_Normal_List<d_target.Flow_Element.table.sections.L.rows.L.cells.L>,
         ): d_target.Flow_Element.table.sections.L.rows.L => ({
             'classes': pt.list.literal(classes),
@@ -137,7 +137,7 @@ export namespace t { //table
 
             export const td = (
                 classes: pt.Raw_Or_Normal_List<string>,
-                colspan: pi.Optional_Value<number>,
+                colspan: p_di.Optional_Value<number>,
                 content: pt.Raw_Or_Normal_List<d_target.Flow_Element>,
             ): d_target.Flow_Element.table.sections.L.rows.L.cells.L => ({
                 'type': ['td', null],
@@ -148,7 +148,7 @@ export namespace t { //table
 
             export const th = (
                 classes: pt.Raw_Or_Normal_List<string>,
-                colspan: pi.Optional_Value<number>,
+                colspan: p_di.Optional_Value<number>,
                 content: pt.Raw_Or_Normal_List<d_target.Flow_Element>,
             ): d_target.Flow_Element.table.sections.L.rows.L.cells.L => ({
                 'type': ['th', null],
