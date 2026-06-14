@@ -1,4 +1,4 @@
-import * as _pi from 'pareto-core/dist/interface'
+import * as pi from 'pareto-core/dist/interface'
 import * as _pt from 'pareto-core/dist/assign'
 
 // import * as sh from "pareto-test/dist/temporary_testset_generator/shorthands"

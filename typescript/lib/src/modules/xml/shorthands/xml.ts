@@ -1,6 +1,6 @@
-import * as _p from 'pareto-core-shorthands/dist/unconstrained'
-import * as _pi from 'pareto-core/dist/interface'
-import _p_create_symbol from 'pareto-core/dist/_p_create_symbol'
+import * as pt from 'pareto-core-shorthands/dist/unconstrained'
+import * as pi from 'pareto-core/dist/interface'
+import p_create_symbol from 'pareto-core/dist/_p_create_symbol'
 
 import * as d_target from "../../../interface/generated/liana/schemas/xml/data"
 
@@ -9,8 +9,8 @@ export const document = (
     root: d_target.Element,
 ): d_target.Document => ({
     'doc type': doc_type === null
-        ? _p.optional.literal.not_set()
-        : _p.optional.literal.set({
+        ? pt.optional.literal.not_set()
+        : pt.optional.literal.set({
             'name': doc_type,
         }),
     'root': root
@@ -21,7 +21,7 @@ export const attribute = (
     value: string,
 ): d_target.Element.attributes.L => ({
     'name': {
-        'namespace prefix': _p.optional.literal.not_set(),
+        'namespace prefix': pt.optional.literal.not_set(),
         'local name': name,
     },
     'value': value,
@@ -31,26 +31,26 @@ export namespace e { //element
 
     export const empty = (
         name: string,
-        attributes: _p.Raw_Or_Normal_List<d_target.Element.attributes.L>,
+        attributes: pt.Raw_Or_Normal_List<d_target.Element.attributes.L>,
     ): d_target.Element => ({
         'name': {
-            'namespace prefix': _p.optional.literal.not_set(),
+            'namespace prefix': pt.optional.literal.not_set(),
             'local name': name,
         },
-        'attributes': _p.list.literal(attributes),
-        'content type': ['empty', _p_create_symbol()],
+        'attributes': pt.list.literal(attributes),
+        'content type': ['empty', p_create_symbol()],
     })
 
     export const text_only = (
         name: string,
-        attributes: _p.Raw_Or_Normal_List<d_target.Element.attributes.L>,
+        attributes: pt.Raw_Or_Normal_List<d_target.Element.attributes.L>,
         text: string,
     ): d_target.Element => ({
         'name': {
-            'namespace prefix': _p.optional.literal.not_set(),
+            'namespace prefix': pt.optional.literal.not_set(),
             'local name': name,
         },
-        'attributes': _p.list.literal(attributes),
+        'attributes': pt.list.literal(attributes),
         'content type': ['text only', {
             'value': text,
         }]
@@ -58,29 +58,29 @@ export namespace e { //element
 
     export const mixed = (
         name: string,
-        attributes: _p.Raw_Or_Normal_List<d_target.Element.attributes.L>,
-        children: _p.Raw_Or_Normal_List<d_target.Mixed_Content.L>,
+        attributes: pt.Raw_Or_Normal_List<d_target.Element.attributes.L>,
+        children: pt.Raw_Or_Normal_List<d_target.Mixed_Content.L>,
     ): d_target.Element => ({
         'name': {
-            'namespace prefix': _p.optional.literal.not_set(),
+            'namespace prefix': pt.optional.literal.not_set(),
             'local name': name,
         },
-        'attributes': _p.list.literal(attributes),
-        'content type': ['mixed', _p.list.literal(children)]
+        'attributes': pt.list.literal(attributes),
+        'content type': ['mixed', pt.list.literal(children)]
     })
 
     export const nodes_only = (
         name: string,
-        attributes: _p.Raw_Or_Normal_List<d_target.Element.attributes.L>,
-        children: _p.Raw_Or_Normal_List<d_target.Element.content_type.nodes_only.children.L>,
+        attributes: pt.Raw_Or_Normal_List<d_target.Element.attributes.L>,
+        children: pt.Raw_Or_Normal_List<d_target.Element.content_type.nodes_only.children.L>,
     ): d_target.Element => ({
         'name': {
-            'namespace prefix': _p.optional.literal.not_set(),
+            'namespace prefix': pt.optional.literal.not_set(),
             'local name': name,
         },
-        'attributes': _p.list.literal(attributes),
+        'attributes': pt.list.literal(attributes),
         'content type': ['nodes only', {
-            'children': _p.list.literal(children),
+            'children': pt.list.literal(children),
         }]
     })
 

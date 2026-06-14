@@ -1,5 +1,5 @@
-import * as _p from 'pareto-core/dist/assign'
-import _p_list_from_text from 'pareto-core/dist/_p_list_from_text'
+import * as pt from 'pareto-core/dist/assign'
+import p_list_from_text from 'pareto-core/dist/_p_list_from_text'
 
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 import * as d_loc from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
@@ -12,7 +12,7 @@ import * as signatures from "../../../../interface/signatures/transformers/html/
 import * as t_xml_to_fountain_pen from "../../../../modules/xml/implementation/manual/transformers/xml/fountain_pen"
 
 const temp_serialize_number = (n: number): d_loc.List_of_Characters => {
-    return _p_list_from_text(`${n}`, ($) => $)//convert number to string, then to list of characters
+    return p_list_from_text(`${n}`, ($) => $)//convert number to string, then to list of characters
 }
 
 export const Document: signatures.Document = ($) => sh.pg.sentences([
@@ -58,15 +58,15 @@ export const Document: signatures.Document = ($) => sh.pg.sentences([
 ])
 
 
-export const Flow_Element: signatures.Flow_Element = ($) => _p.decide.state($, ($) => {
+export const Flow_Element: signatures.Flow_Element = ($) => pt.decide.state($, ($) => {
     switch ($[0]) {
-        case 'div': return _p.ss($, ($) => sh.ph.composed([
+        case 'div': return pt.ss($, ($) => sh.ph.composed([
             sh.ph.literal("<div"),
             sh.ph.literal(">"),
             Flow_Content($),
             sh.ph.literal("</div>")
         ]))
-        case 'dimensioned div': return _p.ss($, ($) => sh.ph.composed([
+        case 'dimensioned div': return pt.ss($, ($) => sh.ph.composed([
             sh.ph.literal("<div"),
             $.width.__decide(
                 ($) => sh.ph.composed([
@@ -88,25 +88,25 @@ export const Flow_Element: signatures.Flow_Element = ($) => _p.decide.state($, (
             Flow_Content($.content),
             sh.ph.literal("</div>")
         ]))
-        case 'classified div': return _p.ss($, ($) => sh.ph.composed([
+        case 'classified div': return pt.ss($, ($) => sh.ph.composed([
             sh.ph.literal("<div"),
             Classes($.classes),
             sh.ph.literal(">"),
             Flow_Content($.content),
             sh.ph.literal("</div>")
         ]))
-        case 'table': return _p.ss($, ($) => sh.ph.composed([
+        case 'table': return pt.ss($, ($) => sh.ph.composed([
             sh.ph.literal("<table"),
             Classes($.classes),
             sh.ph.literal(">"),
             sh.ph.indent(
                 sh.pg.sentences($.sections.__l_map((section) => sh.sentence([
-                    _p.decide.state(section.type, ($) => {
+                    pt.decide.state(section.type, ($) => {
                         switch ($[0]) {
-                            case 'header': return _p.ss($, () => sh.ph.literal("<thead"))
-                            case 'body': return _p.ss($, () => sh.ph.literal("<tbody"))
-                            case 'footer': return _p.ss($, () => sh.ph.literal("<tfoot"))
-                            default: return _p.au($[0])
+                            case 'header': return pt.ss($, () => sh.ph.literal("<thead"))
+                            case 'body': return pt.ss($, () => sh.ph.literal("<tbody"))
+                            case 'footer': return pt.ss($, () => sh.ph.literal("<tfoot"))
+                            default: return pt.au($[0])
                         }
                     }),
                     Classes(section.classes),
@@ -128,11 +128,11 @@ export const Flow_Element: signatures.Flow_Element = ($) => _p.decide.state($, (
                                 sh.pg.sentences($.cells.__l_map(($) => {
                                     return sh.sentence([
                                         sh.ph.literal("<"),
-                                        sh.ph.literal(_p.decide.state($.type, ($) => {
+                                        sh.ph.literal(pt.decide.state($.type, ($) => {
                                             switch ($[0]) {
-                                                case 'td': return _p.ss($, ($) => "td")
-                                                case 'th': return _p.ss($, ($) => "th")
-                                                default: return _p.au($[0])
+                                                case 'td': return pt.ss($, ($) => "td")
+                                                case 'th': return pt.ss($, ($) => "th")
+                                                default: return pt.au($[0])
                                             }
                                         })),
                                         Classes($.classes),
@@ -147,11 +147,11 @@ export const Flow_Element: signatures.Flow_Element = ($) => _p.decide.state($, (
                                         sh.ph.literal(">"),
                                         Flow_Content($.content),
                                         sh.ph.literal("</"),
-                                        sh.ph.literal(_p.decide.state($.type, ($) => {
+                                        sh.ph.literal(pt.decide.state($.type, ($) => {
                                             switch ($[0]) {
-                                                case 'td': return _p.ss($, ($) => "td")
-                                                case 'th': return _p.ss($, ($) => "th")
-                                                default: return _p.au($[0])
+                                                case 'td': return pt.ss($, ($) => "td")
+                                                case 'th': return pt.ss($, ($) => "th")
+                                                default: return pt.au($[0])
                                             }
                                         })),
                                         sh.ph.literal(">"),
@@ -161,31 +161,31 @@ export const Flow_Element: signatures.Flow_Element = ($) => _p.decide.state($, (
                             sh.ph.literal("</tr>")
                         ])))
                     ),
-                    _p.decide.state(section.type, ($) => {
+                    pt.decide.state(section.type, ($) => {
                         switch ($[0]) {
-                            case 'header': return _p.ss($, () => sh.ph.composed([
+                            case 'header': return pt.ss($, () => sh.ph.composed([
                                 sh.ph.literal("</thead>"),
 
                             ]))
-                            case 'body': return _p.ss($, () => sh.ph.composed([
+                            case 'body': return pt.ss($, () => sh.ph.composed([
                                 sh.ph.literal("</tbody>"),
                             ]))
-                            case 'footer': return _p.ss($, () => sh.ph.composed([
+                            case 'footer': return pt.ss($, () => sh.ph.composed([
                                 sh.ph.literal("</tfoot>"),
                             ]))
-                            default: return _p.au($[0])
+                            default: return pt.au($[0])
                         }
                     })
                 ])))),
             sh.ph.literal("</table>")
         ]))
-        case 'span': return _p.ss($, ($) => sh.ph.composed([
+        case 'span': return pt.ss($, ($) => sh.ph.composed([
             sh.ph.literal("<span"),
             sh.ph.literal(">"),
             Phrasing_Content($),
             sh.ph.literal("</span>")
         ]))
-        case 'label': return _p.ss($, ($) => sh.ph.composed([
+        case 'label': return pt.ss($, ($) => sh.ph.composed([
             sh.ph.literal("<label"),
             Classes($.classes),
             sh.ph.literal(">"),
@@ -193,7 +193,7 @@ export const Flow_Element: signatures.Flow_Element = ($) => _p.decide.state($, (
             Flow_Content($.content),
             sh.ph.literal("</label>")
         ]))
-        case 'img': return _p.ss($, ($) => sh.ph.composed([
+        case 'img': return pt.ss($, ($) => sh.ph.composed([
             sh.ph.literal("<img"),
             Classes($.classes),
             sh.ph.literal(" src=\""),
@@ -219,7 +219,7 @@ export const Flow_Element: signatures.Flow_Element = ($) => _p.decide.state($, (
             ),
             sh.ph.literal(" />")
         ]))
-        case 'svg': return _p.ss($, ($) => sh.ph.composed([
+        case 'svg': return pt.ss($, ($) => sh.ph.composed([
             sh.ph.literal("<svg"),
             Classes($.classes),
             $.width.__decide(
@@ -239,7 +239,7 @@ export const Flow_Element: signatures.Flow_Element = ($) => _p.decide.state($, (
             t_xml_to_fountain_pen.Mixed_Content($.content),
             sh.ph.literal("</svg>")
         ]))
-        default: return _p.au($[0])
+        default: return pt.au($[0])
     }
 })
 
@@ -248,7 +248,7 @@ export const Flow_Content: signatures.Flow_Content = ($) => sh.ph.indent(
     sh.pg.sentences($.__l_map(($) => sh.sentence([Flow_Element($)])))
 )
 
-export const Classes: signatures.Classes = ($) => _p.boolean.from.list($).is_empty()
+export const Classes: signatures.Classes = ($) => pt.boolean.from.list($).is_empty()
     ? sh.ph.nothing()
     : sh.ph.composed([
         sh.ph.literal(" class=\""),
@@ -262,29 +262,29 @@ export const Classes: signatures.Classes = ($) => _p.boolean.from.list($).is_emp
         sh.ph.literal("\"")
     ])
 
-export const Phrasing_Element: signatures.Phrasing_Element = ($) => _p.decide.state($, ($): d_out.Phrase => {
+export const Phrasing_Element: signatures.Phrasing_Element = ($) => pt.decide.state($, ($): d_out.Phrase => {
     switch ($[0]) {
-        case 'span': return _p.ss($, ($) => sh.ph.composed([
+        case 'span': return pt.ss($, ($) => sh.ph.composed([
             sh.ph.literal("<span"),
             sh.ph.literal(">"),
             Phrasing_Content($),
             sh.ph.literal("</span>")
         ]))
-        case 'classified span': return _p.ss($, ($) => sh.ph.composed([
+        case 'classified span': return pt.ss($, ($) => sh.ph.composed([
             sh.ph.literal("<span"),
             Classes($.classes),
             sh.ph.literal(">"),
             Phrasing_Content($.content),
             sh.ph.literal("</span>")
         ]))
-        case 'titled span': return _p.ss($, ($) => sh.ph.composed([
+        case 'titled span': return pt.ss($, ($) => sh.ph.composed([
             sh.ph.literal("<span title=\""),
             sh.ph.literal($.title),
             sh.ph.literal("\">"),
             Phrasing_Content($.content),
             sh.ph.literal("</span>")
         ]))
-        case 'a': return _p.ss($, ($) => sh.ph.composed([
+        case 'a': return pt.ss($, ($) => sh.ph.composed([
             sh.ph.literal("<a"),
             // Classes($.classes),
             sh.ph.literal(" href=\""),
@@ -293,41 +293,41 @@ export const Phrasing_Element: signatures.Phrasing_Element = ($) => _p.decide.st
             sh.ph.literal($.text),
             sh.ph.literal("</a>")
         ]))
-        case 'p': return _p.ss($, ($) => sh.ph.composed([
+        case 'p': return pt.ss($, ($) => sh.ph.composed([
             sh.ph.literal("<p"),
             // Classes($.classes),
             sh.ph.literal(">"),
             sh.ph.literal($.text),
             sh.ph.literal("</p>")
         ]))
-        default: return _p.au($[0])
+        default: return pt.au($[0])
     }
 })
 
 export const Phrasing_Content: signatures.Phrasing_Content = ($) => sh.ph.indent(
-    sh.pg.sentences($.__l_map(($) => _p.decide.state($, ($): d_out.Sentence => {
+    sh.pg.sentences($.__l_map(($) => pt.decide.state($, ($): d_out.Sentence => {
         switch ($[0]) {
-            case 'span': return _p.ss($, ($) => sh.sentence([
+            case 'span': return pt.ss($, ($) => sh.sentence([
                 sh.ph.literal("<span"),
                 sh.ph.literal(">"),
                 Phrasing_Content($),
                 sh.ph.literal("</span>")
             ]))
-            case 'classified span': return _p.ss($, ($) => sh.sentence([
+            case 'classified span': return pt.ss($, ($) => sh.sentence([
                 sh.ph.literal("<span"),
                 Classes($.classes),
                 sh.ph.literal(">"),
                 Phrasing_Content($.content),
                 sh.ph.literal("</span>")
             ]))
-            case 'titled span': return _p.ss($, ($) => sh.sentence([
+            case 'titled span': return pt.ss($, ($) => sh.sentence([
                 sh.ph.literal("<span title=\""),
                 sh.ph.literal($.title),
                 sh.ph.literal("\">"),
                 Phrasing_Content($.content),
                 sh.ph.literal("</span>")
             ]))
-            case 'a': return _p.ss($, ($) => sh.sentence([
+            case 'a': return pt.ss($, ($) => sh.sentence([
                 sh.ph.literal("<a"),
                 // Classes($.classes),
                 sh.ph.literal(" href=\""),
@@ -336,14 +336,14 @@ export const Phrasing_Content: signatures.Phrasing_Content = ($) => sh.ph.indent
                 sh.ph.literal($.text),
                 sh.ph.literal("</a>")
             ]))
-            case 'p': return _p.ss($, ($) => sh.sentence([
+            case 'p': return pt.ss($, ($) => sh.sentence([
                 sh.ph.literal("<p"),
                 // Classes($.classes),
                 sh.ph.literal(">"),
                 sh.ph.literal($.text),
                 sh.ph.literal("</p>")
             ]))
-            default: return _p.au($[0])
+            default: return pt.au($[0])
         }
     })))
 )

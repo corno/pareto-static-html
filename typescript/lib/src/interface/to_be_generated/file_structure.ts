@@ -1,8 +1,8 @@
-import * as _pi from 'pareto-core/dist/interface'
+import * as pi from 'pareto-core/dist/interface'
 
 import * as d_static_html from "../generated/liana/schemas/static-html/data"
 
-export type Directory = _pi.Dictionary<Node>
+export type Directory = pi.Dictionary<Node>
 
 
 export type Node =
