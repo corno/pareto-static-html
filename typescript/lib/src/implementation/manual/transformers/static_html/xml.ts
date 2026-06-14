@@ -79,17 +79,17 @@ export const Flow_Element: Flow_Element = ($) => _p.decide.state($, ($): d_out.E
             _p.list.nested_literal_old([
                 _p.decide.optional(
                     $.width,
-                    ($) => [
+                    ($) => _p.list.literal([
                         sh.attribute("width", temp_serialize_number($)),
-                    ],
-                    () => []
+                    ]),
+                    () => _p.list.literal([])
                 ),
                 _p.decide.optional(
                     $.height,
-                    ($) => [
+                    ($) => _p.list.literal([
                         sh.attribute("height", temp_serialize_number($)),
-                    ],
-                    () => []
+                    ]),
+                    () => _p.list.literal([])
                 )
             ]),
             Flow_Content($.content)
@@ -118,10 +118,10 @@ export const Flow_Element: Flow_Element = ($) => _p.decide.state($, ($): d_out.E
                         _p.list.nested_literal_old([
                             Classes($.classes),
                             $.height.__decide(
-                                ($) => [
+                                ($) => _p.list.literal([
                                     sh.attribute("height", temp_serialize_number($)),
-                                ],
-                                () => []
+                                ]),
+                                () => _p.list.literal([])
                             ),
                         ]),
                         $.cells.__l_map(($) => sh.no.element(sh.e.nodes_only(
@@ -135,10 +135,10 @@ export const Flow_Element: Flow_Element = ($) => _p.decide.state($, ($): d_out.E
                             _p.list.nested_literal_old([
                                 Classes($.classes),
                                 $.colspan.__decide(
-                                    ($) => [
+                                    ($) => _p.list.literal([
                                         sh.attribute("colspan", temp_serialize_number($)),
-                                    ],
-                                    () => []
+                                    ]),
+                                    () => _p.list.literal([])
                                 ),
                             ]),
                             Flow_Content($.content)
@@ -173,17 +173,17 @@ export const Flow_Element: Flow_Element = ($) => _p.decide.state($, ($): d_out.E
                 ],
                 _p.decide.optional(
                     $.width,
-                    ($) => [
+                    ($) => _p.list.literal([
                         sh.attribute("width", temp_serialize_number($)),
-                    ],
-                    () => []
+                    ]),
+                    () => _p.list.literal([])
                 ),
                 _p.decide.optional(
                     $.height,
-                    ($) => [
+                    ($) => _p.list.literal([
                         sh.attribute("height", temp_serialize_number($)),
-                    ],
-                    () => []
+                    ]),
+                    () => _p.list.literal([])
                 )
             ])
         )))
@@ -193,17 +193,17 @@ export const Flow_Element: Flow_Element = ($) => _p.decide.state($, ($): d_out.E
                 Classes($.classes),
                 _p.decide.optional(
                     $.width,
-                    ($) => [
+                    ($) => _p.list.literal([
                         sh.attribute("width", temp_serialize_number($)),
-                    ],
-                    () => []
+                    ]),
+                    () => _p.list.literal([])
                 ),
                 _p.decide.optional(
                     $.height,
-                    ($) => [
+                    ($) => _p.list.literal([
                         sh.attribute("height", temp_serialize_number($)),
-                    ],
-                    () => []
+                    ]),
+                    () => _p.list.literal([])
                 )
             ]),
             $.content

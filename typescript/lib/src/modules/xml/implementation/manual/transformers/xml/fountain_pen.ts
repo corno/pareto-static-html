@@ -17,16 +17,14 @@ export const Document: Document = ($) => sh.pg.sentences(_p.list.nested_literal_
 
     _p.decide.optional(
         $['doc type'],
-        ($) => [
+        ($) => _p.list.literal([
             sh.sentence([
                 sh.ph.literal("<!DOCTYPE "),
                 sh.ph.literal($.name),
                 sh.ph.literal(">")
             ])
-        ],
-        () => [
-
-        ]
+        ]),
+        () => _p.list.literal([])
     ),
     [
         sh.sentence([
@@ -88,11 +86,11 @@ export const Mixed_Content: Mixed_Content = ($) => sh.ph.composed(
 export const Qualified_Name: Qualified_Name = ($) => sh.ph.composed(_p.list.nested_literal_old([
     _p.decide.optional(
         $['namespace prefix'],
-        ($) => [
+        ($) => _p.list.literal([
             sh.ph.literal($),
             sh.ph.literal(":"),
-        ],
-        () => []
+        ]),
+        () => _p.list.literal([])
     ),
     [
         sh.ph.literal($['local name']),

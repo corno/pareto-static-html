@@ -165,7 +165,7 @@ export namespace t { //table
 /**
  * phrasing element
  */
-export namespace p { //phrasing
+export namespace p_ { //phrasing
     export const span = (
         sections: _p.Raw_Or_Normal_List<d_target.Phrasing_Content.L>,
     ): d_target.Phrasing_Content.L => ['span', _p.list.literal(sections)]
@@ -194,7 +194,7 @@ export namespace p { //phrasing
         'href': href,
     }]
 
-    export const p = (
+    export const p_ = (
         text: string
     ): d_target.Phrasing_Content.L => ['p', {
         'text': text,
