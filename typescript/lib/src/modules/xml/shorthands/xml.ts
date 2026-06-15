@@ -1,5 +1,5 @@
 import * as pt from 'pareto-core-shorthands/dist/unconstrained'
-import p_create_symbol from 'pareto-core/dist/specials/create_symbol'
+import p_create_symbol from 'pareto-core/dist/implementation/specials/create_symbol'
 
 import * as d_target from "../../../interface/generated/liana/schemas/xml/data"
 
