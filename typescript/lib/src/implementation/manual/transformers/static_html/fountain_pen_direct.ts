@@ -6,7 +6,7 @@ import * as d_loc from "pareto-fountain-pen/dist/interface/generated/liana/schem
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
-import * as signatures from "../../../../interface/signatures/transformers/html/fountain_pen"
+import * as signatures from "../../../../interface/transformers/html/fountain_pen"
 
 //dependencies
 import * as t_xml_to_fountain_pen from "../../../../modules/xml/implementation/manual/transformers/xml/fountain_pen"

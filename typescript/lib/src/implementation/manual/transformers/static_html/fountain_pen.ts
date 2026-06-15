@@ -1,6 +1,6 @@
 import * as pt from 'pareto-core/dist/implementation/transformer'
 
-import * as signatures from "../../../../interface/signatures/transformers/html/fountain_pen"
+import * as signatures from "../../../../interface/transformers/html/fountain_pen"
 
 //dependencies
 import * as t_xml_to_fountain_pen from "../../../../modules/xml/implementation/manual/transformers/xml/fountain_pen"
