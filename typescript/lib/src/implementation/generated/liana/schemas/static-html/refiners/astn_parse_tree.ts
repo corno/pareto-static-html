@@ -24,13 +24,13 @@ export const Document: t_signatures.Document = ($, abort) => _p_change_context(
             $,
         ),
         {
-            'expected properties': _p.dictionary.literal(
+            'expected properties': _p.literal.dictionary(
                 {
                     "css": null,
                     "root": null,
                 },
             ),
-            'subdocument context': _p.optional.literal.not_set(),
+            'subdocument context': _p.literal.not_set(),
         },
     ),
     ($) => _p_variables(
@@ -39,7 +39,7 @@ export const Document: t_signatures.Document = ($, abort) => _p_change_context(
             const var_verbose_group_range = v_parse_tree_to_location.Value(
                 $['value'],
                 {
-                    'subdocument context': _p.optional.literal.not_set(),
+                    'subdocument context': _p.literal.not_set(),
                 },
             )
             return {
@@ -51,7 +51,7 @@ export const Document: t_signatures.Document = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'css',
-                            'subdocument context': _p.optional.literal.not_set(),
+                            'subdocument context': _p.literal.not_set(),
                         },
                     ),
                     ($) => v_unmarshalled_from_parse_tree.Text(
@@ -69,7 +69,7 @@ export const Document: t_signatures.Document = ($, abort) => _p_change_context(
                         ),
                         {
                             'id': 'root',
-                            'subdocument context': _p.optional.literal.not_set(),
+                            'subdocument context': _p.literal.not_set(),
                         },
                     ),
                     ($) => Flow_Element(
@@ -115,14 +115,14 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                     $,
                                 ),
                                 {
-                                    'expected properties': _p.dictionary.literal(
+                                    'expected properties': _p.literal.dictionary(
                                         {
                                             "width": null,
                                             "height": null,
                                             "content": null,
                                         },
                                     ),
-                                    'subdocument context': _p.optional.literal.not_set(),
+                                    'subdocument context': _p.literal.not_set(),
                                 },
                             ),
                             ($) => _p_variables(
@@ -131,7 +131,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
                                         {
-                                            'subdocument context': _p.optional.literal.not_set(),
+                                            'subdocument context': _p.literal.not_set(),
                                         },
                                     )
                                     return {
@@ -143,7 +143,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'width',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => _p.optional.from.optional(
@@ -161,7 +161,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                     ),
                                                     {
                                                         'type': ['decimal', null],
-                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                        'subdocument context': _p.literal.not_set(),
                                                     },
                                                 ),
                                             ),
@@ -174,7 +174,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'height',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => _p.optional.from.optional(
@@ -192,7 +192,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                     ),
                                                     {
                                                         'type': ['decimal', null],
-                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                        'subdocument context': _p.literal.not_set(),
                                                     },
                                                 ),
                                             ),
@@ -205,7 +205,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'content',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => Flow_Content(
@@ -230,13 +230,13 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                     $,
                                 ),
                                 {
-                                    'expected properties': _p.dictionary.literal(
+                                    'expected properties': _p.literal.dictionary(
                                         {
                                             "classes": null,
                                             "content": null,
                                         },
                                     ),
-                                    'subdocument context': _p.optional.literal.not_set(),
+                                    'subdocument context': _p.literal.not_set(),
                                 },
                             ),
                             ($) => _p_variables(
@@ -245,7 +245,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
                                         {
-                                            'subdocument context': _p.optional.literal.not_set(),
+                                            'subdocument context': _p.literal.not_set(),
                                         },
                                     )
                                     return {
@@ -257,7 +257,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'classes',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => Classes(
@@ -275,7 +275,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'content',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => Flow_Content(
@@ -300,13 +300,13 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                     $,
                                 ),
                                 {
-                                    'expected properties': _p.dictionary.literal(
+                                    'expected properties': _p.literal.dictionary(
                                         {
                                             "classes": null,
                                             "sections": null,
                                         },
                                     ),
-                                    'subdocument context': _p.optional.literal.not_set(),
+                                    'subdocument context': _p.literal.not_set(),
                                 },
                             ),
                             ($) => _p_variables(
@@ -315,7 +315,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
                                         {
-                                            'subdocument context': _p.optional.literal.not_set(),
+                                            'subdocument context': _p.literal.not_set(),
                                         },
                                     )
                                     return {
@@ -327,7 +327,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'classes',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => Classes(
@@ -345,7 +345,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'sections',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => _p.list.from.list(
@@ -355,7 +355,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                         $,
                                                     ),
                                                     {
-                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                        'subdocument context': _p.literal.not_set(),
                                                     },
                                                 )['items'],
                                             ).map(
@@ -368,14 +368,14 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                 $,
                                                             ),
                                                             {
-                                                                'expected properties': _p.dictionary.literal(
+                                                                'expected properties': _p.literal.dictionary(
                                                                     {
                                                                         "classes": null,
                                                                         "type": null,
                                                                         "rows": null,
                                                                     },
                                                                 ),
-                                                                'subdocument context': _p.optional.literal.not_set(),
+                                                                'subdocument context': _p.literal.not_set(),
                                                             },
                                                         ),
                                                         ($) => _p_variables(
@@ -384,7 +384,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                 const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                     $['value'],
                                                                     {
-                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                        'subdocument context': _p.literal.not_set(),
                                                                     },
                                                                 )
                                                                 return {
@@ -396,7 +396,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                             ),
                                                                             {
                                                                                 'id': 'classes',
-                                                                                'subdocument context': _p.optional.literal.not_set(),
+                                                                                'subdocument context': _p.literal.not_set(),
                                                                             },
                                                                         ),
                                                                         ($) => Classes(
@@ -414,7 +414,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                             ),
                                                                             {
                                                                                 'id': 'type',
-                                                                                'subdocument context': _p.optional.literal.not_set(),
+                                                                                'subdocument context': _p.literal.not_set(),
                                                                             },
                                                                         ),
                                                                         ($) => _p_change_context(
@@ -465,7 +465,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                     'range': v_parse_tree_to_location.Value(
                                                                                                         $['value'],
                                                                                                         {
-                                                                                                            'subdocument context': _p.optional.literal.not_set(),
+                                                                                                            'subdocument context': _p.literal.not_set(),
                                                                                                         },
                                                                                                     ),
                                                                                                 }],
@@ -483,7 +483,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                             ),
                                                                             {
                                                                                 'id': 'rows',
-                                                                                'subdocument context': _p.optional.literal.not_set(),
+                                                                                'subdocument context': _p.literal.not_set(),
                                                                             },
                                                                         ),
                                                                         ($) => _p.list.from.list(
@@ -493,7 +493,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                     $,
                                                                                 ),
                                                                                 {
-                                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                                    'subdocument context': _p.literal.not_set(),
                                                                                 },
                                                                             )['items'],
                                                                         ).map(
@@ -506,14 +506,14 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                             $,
                                                                                         ),
                                                                                         {
-                                                                                            'expected properties': _p.dictionary.literal(
+                                                                                            'expected properties': _p.literal.dictionary(
                                                                                                 {
                                                                                                     "classes": null,
                                                                                                     "height": null,
                                                                                                     "cells": null,
                                                                                                 },
                                                                                             ),
-                                                                                            'subdocument context': _p.optional.literal.not_set(),
+                                                                                            'subdocument context': _p.literal.not_set(),
                                                                                         },
                                                                                     ),
                                                                                     ($) => _p_variables(
@@ -522,7 +522,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                             const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                 $['value'],
                                                                                                 {
-                                                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                                                    'subdocument context': _p.literal.not_set(),
                                                                                                 },
                                                                                             )
                                                                                             return {
@@ -534,7 +534,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                         ),
                                                                                                         {
                                                                                                             'id': 'classes',
-                                                                                                            'subdocument context': _p.optional.literal.not_set(),
+                                                                                                            'subdocument context': _p.literal.not_set(),
                                                                                                         },
                                                                                                     ),
                                                                                                     ($) => Classes(
@@ -552,7 +552,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                         ),
                                                                                                         {
                                                                                                             'id': 'height',
-                                                                                                            'subdocument context': _p.optional.literal.not_set(),
+                                                                                                            'subdocument context': _p.literal.not_set(),
                                                                                                         },
                                                                                                     ),
                                                                                                     ($) => _p.optional.from.optional(
@@ -570,7 +570,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                             ),
                                                                                                             {
                                                                                                                 'type': ['decimal', null],
-                                                                                                                'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                'subdocument context': _p.literal.not_set(),
                                                                                                             },
                                                                                                         ),
                                                                                                     ),
@@ -583,7 +583,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                         ),
                                                                                                         {
                                                                                                             'id': 'cells',
-                                                                                                            'subdocument context': _p.optional.literal.not_set(),
+                                                                                                            'subdocument context': _p.literal.not_set(),
                                                                                                         },
                                                                                                     ),
                                                                                                     ($) => _p.list.from.list(
@@ -593,7 +593,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                                 $,
                                                                                                             ),
                                                                                                             {
-                                                                                                                'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                'subdocument context': _p.literal.not_set(),
                                                                                                             },
                                                                                                         )['items'],
                                                                                                     ).map(
@@ -606,7 +606,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                                         $,
                                                                                                                     ),
                                                                                                                     {
-                                                                                                                        'expected properties': _p.dictionary.literal(
+                                                                                                                        'expected properties': _p.literal.dictionary(
                                                                                                                             {
                                                                                                                                 "type": null,
                                                                                                                                 "colspan": null,
@@ -614,7 +614,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                                                 "content": null,
                                                                                                                             },
                                                                                                                         ),
-                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                     },
                                                                                                                 ),
                                                                                                                 ($) => _p_variables(
@@ -623,7 +623,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                                         const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                             $['value'],
                                                                                                                             {
-                                                                                                                                'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                'subdocument context': _p.literal.not_set(),
                                                                                                                             },
                                                                                                                         )
                                                                                                                         return {
@@ -635,7 +635,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                                                     ),
                                                                                                                                     {
                                                                                                                                         'id': 'type',
-                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                                     },
                                                                                                                                 ),
                                                                                                                                 ($) => _p_change_context(
@@ -676,7 +676,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                                                                             'range': v_parse_tree_to_location.Value(
                                                                                                                                                                 $['value'],
                                                                                                                                                                 {
-                                                                                                                                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                                                    'subdocument context': _p.literal.not_set(),
                                                                                                                                                                 },
                                                                                                                                                             ),
                                                                                                                                                         }],
@@ -694,7 +694,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                                                     ),
                                                                                                                                     {
                                                                                                                                         'id': 'colspan',
-                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                                     },
                                                                                                                                 ),
                                                                                                                                 ($) => _p.optional.from.optional(
@@ -712,7 +712,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                                                         ),
                                                                                                                                         {
                                                                                                                                             'type': ['decimal', null],
-                                                                                                                                            'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                            'subdocument context': _p.literal.not_set(),
                                                                                                                                         },
                                                                                                                                     ),
                                                                                                                                 ),
@@ -725,7 +725,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                                                     ),
                                                                                                                                     {
                                                                                                                                         'id': 'classes',
-                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                                     },
                                                                                                                                 ),
                                                                                                                                 ($) => Classes(
@@ -743,7 +743,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                                                                                                     ),
                                                                                                                                     {
                                                                                                                                         'id': 'content',
-                                                                                                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                                                                                                        'subdocument context': _p.literal.not_set(),
                                                                                                                                     },
                                                                                                                                 ),
                                                                                                                                 ($) => Flow_Content(
@@ -799,14 +799,14 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                     $,
                                 ),
                                 {
-                                    'expected properties': _p.dictionary.literal(
+                                    'expected properties': _p.literal.dictionary(
                                         {
                                             "classes": null,
                                             "text": null,
                                             "content": null,
                                         },
                                     ),
-                                    'subdocument context': _p.optional.literal.not_set(),
+                                    'subdocument context': _p.literal.not_set(),
                                 },
                             ),
                             ($) => _p_variables(
@@ -815,7 +815,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
                                         {
-                                            'subdocument context': _p.optional.literal.not_set(),
+                                            'subdocument context': _p.literal.not_set(),
                                         },
                                     )
                                     return {
@@ -827,7 +827,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'classes',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => Classes(
@@ -845,7 +845,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'text',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => v_unmarshalled_from_parse_tree.Text(
@@ -863,7 +863,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'content',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => Flow_Content(
@@ -888,7 +888,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                     $,
                                 ),
                                 {
-                                    'expected properties': _p.dictionary.literal(
+                                    'expected properties': _p.literal.dictionary(
                                         {
                                             "classes": null,
                                             "src": null,
@@ -897,7 +897,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                             "height": null,
                                         },
                                     ),
-                                    'subdocument context': _p.optional.literal.not_set(),
+                                    'subdocument context': _p.literal.not_set(),
                                 },
                             ),
                             ($) => _p_variables(
@@ -906,7 +906,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
                                         {
-                                            'subdocument context': _p.optional.literal.not_set(),
+                                            'subdocument context': _p.literal.not_set(),
                                         },
                                     )
                                     return {
@@ -918,7 +918,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'classes',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => Classes(
@@ -936,7 +936,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'src',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => v_unmarshalled_from_parse_tree.Text(
@@ -954,7 +954,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'alt',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => v_unmarshalled_from_parse_tree.Text(
@@ -972,7 +972,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'width',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => _p.optional.from.optional(
@@ -990,7 +990,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                     ),
                                                     {
                                                         'type': ['decimal', null],
-                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                        'subdocument context': _p.literal.not_set(),
                                                     },
                                                 ),
                                             ),
@@ -1003,7 +1003,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'height',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => _p.optional.from.optional(
@@ -1021,7 +1021,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                     ),
                                                     {
                                                         'type': ['decimal', null],
-                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                        'subdocument context': _p.literal.not_set(),
                                                     },
                                                 ),
                                             ),
@@ -1041,7 +1041,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                     $,
                                 ),
                                 {
-                                    'expected properties': _p.dictionary.literal(
+                                    'expected properties': _p.literal.dictionary(
                                         {
                                             "classes": null,
                                             "content": null,
@@ -1049,7 +1049,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                             "height": null,
                                         },
                                     ),
-                                    'subdocument context': _p.optional.literal.not_set(),
+                                    'subdocument context': _p.literal.not_set(),
                                 },
                             ),
                             ($) => _p_variables(
@@ -1058,7 +1058,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
                                         {
-                                            'subdocument context': _p.optional.literal.not_set(),
+                                            'subdocument context': _p.literal.not_set(),
                                         },
                                     )
                                     return {
@@ -1070,7 +1070,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'classes',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => Classes(
@@ -1088,7 +1088,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'content',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => v_external_xml.Mixed_Content(
@@ -1106,7 +1106,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'width',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => _p.optional.from.optional(
@@ -1124,7 +1124,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                     ),
                                                     {
                                                         'type': ['decimal', null],
-                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                        'subdocument context': _p.literal.not_set(),
                                                     },
                                                 ),
                                             ),
@@ -1137,7 +1137,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                 ),
                                                 {
                                                     'id': 'height',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => _p.optional.from.optional(
@@ -1155,7 +1155,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                                                     ),
                                                     {
                                                         'type': ['decimal', null],
-                                                        'subdocument context': _p.optional.literal.not_set(),
+                                                        'subdocument context': _p.literal.not_set(),
                                                     },
                                                 ),
                                             ),
@@ -1172,7 +1172,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => _p_change_c
                             'range': v_parse_tree_to_location.Value(
                                 $['value'],
                                 {
-                                    'subdocument context': _p.optional.literal.not_set(),
+                                    'subdocument context': _p.literal.not_set(),
                                 },
                             ),
                         }],
@@ -1189,7 +1189,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => _p.list.fro
             $,
         ),
         {
-            'subdocument context': _p.optional.literal.not_set(),
+            'subdocument context': _p.literal.not_set(),
         },
     )['items'],
 ).map(
@@ -1211,7 +1211,7 @@ export const Classes: t_signatures.Classes = ($, abort) => _p.list.from.list(
             $,
         ),
         {
-            'subdocument context': _p.optional.literal.not_set(),
+            'subdocument context': _p.literal.not_set(),
         },
     )['items'],
 ).map(
@@ -1233,7 +1233,7 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($, abort) => _p.
             $,
         ),
         {
-            'subdocument context': _p.optional.literal.not_set(),
+            'subdocument context': _p.literal.not_set(),
         },
     )['items'],
 ).map(
@@ -1279,13 +1279,13 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                     $,
                                 ),
                                 {
-                                    'expected properties': _p.dictionary.literal(
+                                    'expected properties': _p.literal.dictionary(
                                         {
                                             "classes": null,
                                             "content": null,
                                         },
                                     ),
-                                    'subdocument context': _p.optional.literal.not_set(),
+                                    'subdocument context': _p.literal.not_set(),
                                 },
                             ),
                             ($) => _p_variables(
@@ -1294,7 +1294,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
                                         {
-                                            'subdocument context': _p.optional.literal.not_set(),
+                                            'subdocument context': _p.literal.not_set(),
                                         },
                                     )
                                     return {
@@ -1306,7 +1306,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                                 ),
                                                 {
                                                     'id': 'classes',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => Classes(
@@ -1324,7 +1324,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                                 ),
                                                 {
                                                     'id': 'content',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => Phrasing_Content(
@@ -1349,13 +1349,13 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                     $,
                                 ),
                                 {
-                                    'expected properties': _p.dictionary.literal(
+                                    'expected properties': _p.literal.dictionary(
                                         {
                                             "title": null,
                                             "content": null,
                                         },
                                     ),
-                                    'subdocument context': _p.optional.literal.not_set(),
+                                    'subdocument context': _p.literal.not_set(),
                                 },
                             ),
                             ($) => _p_variables(
@@ -1364,7 +1364,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
                                         {
-                                            'subdocument context': _p.optional.literal.not_set(),
+                                            'subdocument context': _p.literal.not_set(),
                                         },
                                     )
                                     return {
@@ -1376,7 +1376,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                                 ),
                                                 {
                                                     'id': 'title',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => v_unmarshalled_from_parse_tree.Text(
@@ -1394,7 +1394,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                                 ),
                                                 {
                                                     'id': 'content',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => Phrasing_Content(
@@ -1419,13 +1419,13 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                     $,
                                 ),
                                 {
-                                    'expected properties': _p.dictionary.literal(
+                                    'expected properties': _p.literal.dictionary(
                                         {
                                             "text": null,
                                             "href": null,
                                         },
                                     ),
-                                    'subdocument context': _p.optional.literal.not_set(),
+                                    'subdocument context': _p.literal.not_set(),
                                 },
                             ),
                             ($) => _p_variables(
@@ -1434,7 +1434,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
                                         {
-                                            'subdocument context': _p.optional.literal.not_set(),
+                                            'subdocument context': _p.literal.not_set(),
                                         },
                                     )
                                     return {
@@ -1446,7 +1446,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                                 ),
                                                 {
                                                     'id': 'text',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => v_unmarshalled_from_parse_tree.Text(
@@ -1464,7 +1464,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                                 ),
                                                 {
                                                     'id': 'href',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => v_unmarshalled_from_parse_tree.Text(
@@ -1489,12 +1489,12 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                     $,
                                 ),
                                 {
-                                    'expected properties': _p.dictionary.literal(
+                                    'expected properties': _p.literal.dictionary(
                                         {
                                             "text": null,
                                         },
                                     ),
-                                    'subdocument context': _p.optional.literal.not_set(),
+                                    'subdocument context': _p.literal.not_set(),
                                 },
                             ),
                             ($) => _p_variables(
@@ -1503,7 +1503,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                     const var_verbose_group_range = v_parse_tree_to_location.Value(
                                         $['value'],
                                         {
-                                            'subdocument context': _p.optional.literal.not_set(),
+                                            'subdocument context': _p.literal.not_set(),
                                         },
                                     )
                                     return {
@@ -1515,7 +1515,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                                                 ),
                                                 {
                                                     'id': 'text',
-                                                    'subdocument context': _p.optional.literal.not_set(),
+                                                    'subdocument context': _p.literal.not_set(),
                                                 },
                                             ),
                                             ($) => v_unmarshalled_from_parse_tree.Text(
@@ -1537,7 +1537,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($, abort) => _p_
                             'range': v_parse_tree_to_location.Value(
                                 $['value'],
                                 {
-                                    'subdocument context': _p.optional.literal.not_set(),
+                                    'subdocument context': _p.literal.not_set(),
                                 },
                             ),
                         }],

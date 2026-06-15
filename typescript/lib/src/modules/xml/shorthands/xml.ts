@@ -1,5 +1,4 @@
 import * as pt from 'pareto-core-shorthands/dist/unconstrained'
-import * as p_di from 'pareto-core/dist/data/interface'
 import p_create_symbol from 'pareto-core/dist/specials/create_symbol'
 
 import * as d_target from "../../../interface/generated/liana/schemas/xml/data"
@@ -9,8 +8,8 @@ export const document = (
     root: d_target.Element,
 ): d_target.Document => ({
     'doc type': doc_type === null
-        ? pt.optional.literal.not_set()
-        : pt.optional.literal.set({
+        ? pt.optional.not_set()
+        : pt.optional.set({
             'name': doc_type,
         }),
     'root': root
@@ -21,7 +20,7 @@ export const attribute = (
     value: string,
 ): d_target.Element.attributes.L => ({
     'name': {
-        'namespace prefix': pt.optional.literal.not_set(),
+        'namespace prefix': pt.optional.not_set(),
         'local name': name,
     },
     'value': value,
@@ -34,10 +33,10 @@ export namespace e { //element
         attributes: pt.Raw_Or_Normal_List<d_target.Element.attributes.L>,
     ): d_target.Element => ({
         'name': {
-            'namespace prefix': pt.optional.literal.not_set(),
+            'namespace prefix': pt.optional.not_set(),
             'local name': name,
         },
-        'attributes': pt.list.literal(attributes),
+        'attributes': pt.list(attributes),
         'content type': ['empty', p_create_symbol()],
     })
 
@@ -47,10 +46,10 @@ export namespace e { //element
         text: string,
     ): d_target.Element => ({
         'name': {
-            'namespace prefix': pt.optional.literal.not_set(),
+            'namespace prefix': pt.optional.not_set(),
             'local name': name,
         },
-        'attributes': pt.list.literal(attributes),
+        'attributes': pt.list(attributes),
         'content type': ['text only', {
             'value': text,
         }]
@@ -62,11 +61,11 @@ export namespace e { //element
         children: pt.Raw_Or_Normal_List<d_target.Mixed_Content.L>,
     ): d_target.Element => ({
         'name': {
-            'namespace prefix': pt.optional.literal.not_set(),
+            'namespace prefix': pt.optional.not_set(),
             'local name': name,
         },
-        'attributes': pt.list.literal(attributes),
-        'content type': ['mixed', pt.list.literal(children)]
+        'attributes': pt.list(attributes),
+        'content type': ['mixed', pt.list(children)]
     })
 
     export const nodes_only = (
@@ -75,12 +74,12 @@ export namespace e { //element
         children: pt.Raw_Or_Normal_List<d_target.Element.content_type.nodes_only.children.L>,
     ): d_target.Element => ({
         'name': {
-            'namespace prefix': pt.optional.literal.not_set(),
+            'namespace prefix': pt.optional.not_set(),
             'local name': name,
         },
-        'attributes': pt.list.literal(attributes),
+        'attributes': pt.list(attributes),
         'content type': ['nodes only', {
-            'children': pt.list.literal(children),
+            'children': pt.list(children),
         }]
     })
 

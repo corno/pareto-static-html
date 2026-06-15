@@ -1,5 +1,4 @@
 import * as pt from 'pareto-core/dist/transformer/implementation'
-import * as p_di from 'pareto-core/dist/data/interface'
 import * as p_ti from 'pareto-core/dist/transformer/interface'
 
 //data types
@@ -77,20 +76,20 @@ export const Flow_Element: Flow_Element = ($) => pt.decide.state($, ($): d_out.E
         )))
         case 'dimensioned div': return pt.ss($, ($) => sh.no.element(sh.e.nodes_only(
             "div",
-            pt.list.nested_literal_old([
+            pt.literal.nested_list([
                 pt.decide.optional(
                     $.width,
-                    ($) => pt.list.literal([
+                    ($) => pt.literal.list([
                         sh.attribute("width", temp_serialize_number($)),
                     ]),
-                    () => pt.list.literal([])
+                    () => pt.literal.list([])
                 ),
                 pt.decide.optional(
                     $.height,
-                    ($) => pt.list.literal([
+                    ($) => pt.literal.list([
                         sh.attribute("height", temp_serialize_number($)),
                     ]),
-                    () => pt.list.literal([])
+                    () => pt.literal.list([])
                 )
             ]),
             Flow_Content($.content)
@@ -116,13 +115,13 @@ export const Flow_Element: Flow_Element = ($) => pt.decide.state($, ($): d_out.E
                 $.rows.__l_map(($) => {
                     return sh.no.element(sh.e.nodes_only(
                         "tr",
-                        pt.list.nested_literal_old([
+                        pt.literal.nested_list([
                             Classes($.classes),
                             $.height.__decide(
-                                ($) => pt.list.literal([
+                                ($) => pt.literal.list([
                                     sh.attribute("height", temp_serialize_number($)),
                                 ]),
-                                () => pt.list.literal([])
+                                () => pt.literal.list([])
                             ),
                         ]),
                         $.cells.__l_map(($) => sh.no.element(sh.e.nodes_only(
@@ -133,13 +132,13 @@ export const Flow_Element: Flow_Element = ($) => pt.decide.state($, ($): d_out.E
                                     default: return pt.au($[0])
                                 }
                             }),
-                            pt.list.nested_literal_old([
+                            pt.literal.nested_list([
                                 Classes($.classes),
                                 $.colspan.__decide(
-                                    ($) => pt.list.literal([
+                                    ($) => pt.literal.list([
                                         sh.attribute("colspan", temp_serialize_number($)),
                                     ]),
-                                    () => pt.list.literal([])
+                                    () => pt.literal.list([])
                                 ),
                             ]),
                             Flow_Content($.content)
@@ -167,44 +166,44 @@ export const Flow_Element: Flow_Element = ($) => pt.decide.state($, ($): d_out.E
         )))
         case 'img': return pt.ss($, ($) => sh.no.element(sh.e.empty(
             "img",
-            pt.list.nested_literal_old([
+            pt.literal.nested_list([
                 [
                     sh.attribute("src", $.src),
                     sh.attribute("alt", $.alt),
                 ],
                 pt.decide.optional(
                     $.width,
-                    ($) => pt.list.literal([
+                    ($) => pt.literal.list([
                         sh.attribute("width", temp_serialize_number($)),
                     ]),
-                    () => pt.list.literal([])
+                    () => pt.literal.list([])
                 ),
                 pt.decide.optional(
                     $.height,
-                    ($) => pt.list.literal([
+                    ($) => pt.literal.list([
                         sh.attribute("height", temp_serialize_number($)),
                     ]),
-                    () => pt.list.literal([])
+                    () => pt.literal.list([])
                 )
             ])
         )))
         case 'svg': return pt.ss($, ($) => sh.no.element(sh.e.mixed(
             "svg",
-            pt.list.nested_literal_old([
+            pt.literal.nested_list([
                 Classes($.classes),
                 pt.decide.optional(
                     $.width,
-                    ($) => pt.list.literal([
+                    ($) => pt.literal.list([
                         sh.attribute("width", temp_serialize_number($)),
                     ]),
-                    () => pt.list.literal([])
+                    () => pt.literal.list([])
                 ),
                 pt.decide.optional(
                     $.height,
-                    ($) => pt.list.literal([
+                    ($) => pt.literal.list([
                         sh.attribute("height", temp_serialize_number($)),
                     ]),
-                    () => pt.list.literal([])
+                    () => pt.literal.list([])
                 )
             ]),
             $.content
@@ -220,7 +219,7 @@ export const Flow_Content: Flow_Content = ($) => pt.list.from.list(
     ($) => Flow_Element($)
 )
 
-export const Classes: Classes = ($) => pt.list.literal([
+export const Classes: Classes = ($) => pt.literal.list([
     sh.attribute("class", t_fp_to_text.Phrase(
         sh_fp.ph.rich(
             $.__l_map(($) => sh_fp.ph.literal($)),

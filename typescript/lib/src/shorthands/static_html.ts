@@ -1,5 +1,4 @@
 import * as pt from 'pareto-core-shorthands/dist/unconstrained'
-import * as p_di from 'pareto-core/dist/data/interface'
 
 import * as d_target from "../interface/generated/liana/schemas/static-html/data"
 import * as d_target_xml from "../interface/generated/liana/schemas/xml/data"
@@ -20,48 +19,48 @@ export namespace f { //flow
 
     export const div = (
         sections: pt.Raw_Or_Normal_List<d_target.Flow_Element>,
-    ): d_target.Flow_Element => ['div', pt.list.literal(sections)]
+    ): d_target.Flow_Element => ['div', pt.list(sections)]
 
     export const dimensioned_div = (
-        width: p_di.Optional_Value<number>,
-        height: p_di.Optional_Value<number>,
+        width: d_target.Flow_Element.dimensioned_div.width,
+        height: d_target.Flow_Element.dimensioned_div.height,
         sections: pt.Raw_Or_Normal_List<d_target.Flow_Element>,
     ): d_target.Flow_Element => ['dimensioned div', {
         'width': width,
         'height': height,
-        'content': pt.list.literal(sections),
+        'content': pt.list(sections),
     }]
 
     export const classified_div = (
         classes: pt.Raw_Or_Normal_List<string>,
         sections: pt.Raw_Or_Normal_List<d_target.Flow_Element>,
     ): d_target.Flow_Element => ['classified div', {
-        'classes': pt.list.literal(classes),
-        'content': pt.list.literal(sections),
+        'classes': pt.list(classes),
+        'content': pt.list(sections),
     }]
 
     export const span = (
         sections: pt.Raw_Or_Normal_List<d_target.Phrasing_Content.L>,
-    ): d_target.Flow_Element => ['span', pt.list.literal(sections)]
+    ): d_target.Flow_Element => ['span', pt.list(sections)]
 
     export const label = (
         classes: pt.Raw_Or_Normal_List<string>,
         text: string,
         sections: pt.Raw_Or_Normal_List<d_target.Flow_Element>,
     ): d_target.Flow_Element => ['label', {
-        'classes': pt.list.literal(classes),
+        'classes': pt.list(classes),
         'text': text,
-        'content': pt.list.literal(sections),
+        'content': pt.list(sections),
     }]
 
     export const img = (
         classes: pt.Raw_Or_Normal_List<string>,
         src: string,
         alt: string,
-        width: p_di.Optional_Value<number>,
-        height: p_di.Optional_Value<number>,
+        width: d_target.Flow_Element.img.width,
+        height: d_target.Flow_Element.img.height,
     ): d_target.Flow_Element => ['img', {
-        'classes': pt.list.literal(classes),
+        'classes': pt.list(classes),
         'src': src,
         'alt': alt,
         'width': width,
@@ -71,10 +70,10 @@ export namespace f { //flow
     export const svg = (
         classes: pt.Raw_Or_Normal_List<string>,
         content: d_target_xml.Mixed_Content,
-        width: p_di.Optional_Value<number>,
-        height: p_di.Optional_Value<number>,
+        width: d_target.Flow_Element.svg.width,
+        height: d_target.Flow_Element.svg.height,
     ): d_target.Flow_Element => ['svg', {
-        'classes': pt.list.literal(classes),
+        'classes': pt.list(classes),
         'content': content,
         'width': width,
         'height': height,
@@ -84,8 +83,8 @@ export namespace f { //flow
         classes: pt.Raw_Or_Normal_List<string>,
         sections: pt.Raw_Or_Normal_List<d_target.Flow_Element.table.sections.L>,
     ): d_target.Flow_Element => ['table', {
-        'classes': pt.list.literal(classes),
-        'sections': pt.list.literal(sections),
+        'classes': pt.list(classes),
+        'sections': pt.list(sections),
     }]
 }
 
@@ -98,63 +97,63 @@ export namespace t { //table
         classes: pt.Raw_Or_Normal_List<string>,
         rows: pt.Raw_Or_Normal_List<d_target.Flow_Element.table.sections.L.rows.L>,
     ): d_target.Flow_Element.table.sections.L => ({
-        'classes': pt.list.literal(classes),
+        'classes': pt.list(classes),
         'type': ['header', null],
-        'rows': pt.list.literal(rows),
+        'rows': pt.list(rows),
     })
 
     export const body = (
         classes: pt.Raw_Or_Normal_List<string>,
         rows: pt.Raw_Or_Normal_List<d_target.Flow_Element.table.sections.L.rows.L>,
     ): d_target.Flow_Element.table.sections.L => ({
-        'classes': pt.list.literal(classes),
+        'classes': pt.list(classes),
         'type': ['body', null],
-        'rows': pt.list.literal(rows),
+        'rows': pt.list(rows),
     })
 
     export const footer = (
         classes: pt.Raw_Or_Normal_List<string>,
         rows: pt.Raw_Or_Normal_List<d_target.Flow_Element.table.sections.L.rows.L>,
     ): d_target.Flow_Element.table.sections.L => ({
-        'classes': pt.list.literal(classes),
+        'classes': pt.list(classes),
         'type': ['footer', null],
-        'rows': pt.list.literal(rows),
+        'rows': pt.list(rows),
     })
 
     export namespace s { //section
 
         export const row = (
             classes: pt.Raw_Or_Normal_List<string>,
-            height: p_di.Optional_Value<number>,
+            height: d_target.Flow_Element.table.sections.L.rows.L.height,
             cells: pt.Raw_Or_Normal_List<d_target.Flow_Element.table.sections.L.rows.L.cells.L>,
         ): d_target.Flow_Element.table.sections.L.rows.L => ({
-            'classes': pt.list.literal(classes),
+            'classes': pt.list(classes),
             'height': height,
-            'cells': pt.list.literal(cells),
+            'cells': pt.list(cells),
         })
 
         export namespace r { //row
 
             export const td = (
                 classes: pt.Raw_Or_Normal_List<string>,
-                colspan: p_di.Optional_Value<number>,
+                colspan: d_target.Flow_Element.table.sections.L.rows.L.cells.L.colspan,
                 content: pt.Raw_Or_Normal_List<d_target.Flow_Element>,
             ): d_target.Flow_Element.table.sections.L.rows.L.cells.L => ({
                 'type': ['td', null],
                 'colspan': colspan,
-                'classes': pt.list.literal(classes),
-                'content': pt.list.literal(content),
+                'classes': pt.list(classes),
+                'content': pt.list(content),
             })
 
             export const th = (
                 classes: pt.Raw_Or_Normal_List<string>,
-                colspan: p_di.Optional_Value<number>,
+                colspan: d_target.Flow_Element.table.sections.L.rows.L.cells.L.colspan,
                 content: pt.Raw_Or_Normal_List<d_target.Flow_Element>,
             ): d_target.Flow_Element.table.sections.L.rows.L.cells.L => ({
                 'type': ['th', null],
                 'colspan': colspan,
-                'classes': pt.list.literal(classes),
-                'content': pt.list.literal(content),
+                'classes': pt.list(classes),
+                'content': pt.list(content),
             })
 
         }
@@ -168,14 +167,14 @@ export namespace t { //table
 export namespace p_ { //phrasing
     export const span = (
         sections: pt.Raw_Or_Normal_List<d_target.Phrasing_Content.L>,
-    ): d_target.Phrasing_Content.L => ['span', pt.list.literal(sections)]
+    ): d_target.Phrasing_Content.L => ['span', pt.list(sections)]
 
     export const classified_span = (
         classes: pt.Raw_Or_Normal_List<string>,
         sections: pt.Raw_Or_Normal_List<d_target.Phrasing_Content.L>,
     ): d_target.Phrasing_Content.L => ['classified span', {
-        'classes': pt.list.literal(classes),
-        'content': pt.list.literal(sections),
+        'classes': pt.list(classes),
+        'content': pt.list(sections),
     }]
 
     export const titled_span = (
@@ -183,7 +182,7 @@ export namespace p_ { //phrasing
         sections: pt.Raw_Or_Normal_List<d_target.Phrasing_Content.L>,
     ): d_target.Phrasing_Content.L => ['titled span', {
         'title': title,
-        'content': pt.list.literal(sections),
+        'content': pt.list(sections),
     }]
 
     export const a = (

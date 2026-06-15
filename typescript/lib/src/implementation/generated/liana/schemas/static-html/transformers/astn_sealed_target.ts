@@ -13,7 +13,7 @@ import * as v_primitives_to_text from "liana-core/dist/implementation/manual/tra
 
 import * as v_external_xml from "../../xml/transformers/astn_sealed_target"
 
-export const Document: t_signatures.Document = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Document: t_signatures.Document = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "css": _p_change_context(
             $['css'],
@@ -50,7 +50,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                     $,
                     ($) => ({
                         'option': 'dimensioned div',
-                        'value': ['group', ['verbose', _p.dictionary.literal(
+                        'value': ['group', ['verbose', _p.literal.dictionary(
                             {
                                 "width": _p_change_context(
                                     $['width'],
@@ -93,7 +93,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                     $,
                     ($) => ({
                         'option': 'classified div',
-                        'value': ['group', ['verbose', _p.dictionary.literal(
+                        'value': ['group', ['verbose', _p.literal.dictionary(
                             {
                                 "classes": _p_change_context(
                                     $['classes'],
@@ -116,7 +116,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                     $,
                     ($) => ({
                         'option': 'table',
-                        'value': ['group', ['verbose', _p.dictionary.literal(
+                        'value': ['group', ['verbose', _p.literal.dictionary(
                             {
                                 "classes": _p_change_context(
                                     $['classes'],
@@ -129,7 +129,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                                     ($) => ['list', _p.list.from.list(
                                         $,
                                     ).map(
-                                        ($) => ['group', ['verbose', _p.dictionary.literal(
+                                        ($) => ['group', ['verbose', _p.literal.dictionary(
                                             {
                                                 "classes": _p_change_context(
                                                     $['classes'],
@@ -180,7 +180,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                                                     ($) => ['list', _p.list.from.list(
                                                         $,
                                                     ).map(
-                                                        ($) => ['group', ['verbose', _p.dictionary.literal(
+                                                        ($) => ['group', ['verbose', _p.literal.dictionary(
                                                             {
                                                                 "classes": _p_change_context(
                                                                     $['classes'],
@@ -206,7 +206,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                                                                     ($) => ['list', _p.list.from.list(
                                                                         $,
                                                                     ).map(
-                                                                        ($) => ['group', ['verbose', _p.dictionary.literal(
+                                                                        ($) => ['group', ['verbose', _p.literal.dictionary(
                                                                             {
                                                                                 "type": _p_change_context(
                                                                                     $['type'],
@@ -294,7 +294,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                     $,
                     ($) => ({
                         'option': 'label',
-                        'value': ['group', ['verbose', _p.dictionary.literal(
+                        'value': ['group', ['verbose', _p.literal.dictionary(
                             {
                                 "classes": _p_change_context(
                                     $['classes'],
@@ -324,7 +324,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                     $,
                     ($) => ({
                         'option': 'img',
-                        'value': ['group', ['verbose', _p.dictionary.literal(
+                        'value': ['group', ['verbose', _p.literal.dictionary(
                             {
                                 "classes": _p_change_context(
                                     $['classes'],
@@ -381,7 +381,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                     $,
                     ($) => ({
                         'option': 'svg',
-                        'value': ['group', ['verbose', _p.dictionary.literal(
+                        'value': ['group', ['verbose', _p.literal.dictionary(
                             {
                                 "classes": _p_change_context(
                                     $['classes'],
@@ -477,7 +477,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => ['state', 
                     $,
                     ($) => ({
                         'option': 'classified span',
-                        'value': ['group', ['verbose', _p.dictionary.literal(
+                        'value': ['group', ['verbose', _p.literal.dictionary(
                             {
                                 "classes": _p_change_context(
                                     $['classes'],
@@ -500,7 +500,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => ['state', 
                     $,
                     ($) => ({
                         'option': 'titled span',
-                        'value': ['group', ['verbose', _p.dictionary.literal(
+                        'value': ['group', ['verbose', _p.literal.dictionary(
                             {
                                 "title": _p_change_context(
                                     $['title'],
@@ -524,7 +524,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => ['state', 
                     $,
                     ($) => ({
                         'option': 'a',
-                        'value': ['group', ['verbose', _p.dictionary.literal(
+                        'value': ['group', ['verbose', _p.literal.dictionary(
                             {
                                 "text": _p_change_context(
                                     $['text'],
@@ -549,7 +549,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => ['state', 
                     $,
                     ($) => ({
                         'option': 'p',
-                        'value': ['group', ['verbose', _p.dictionary.literal(
+                        'value': ['group', ['verbose', _p.literal.dictionary(
                             {
                                 "text": _p_change_context(
                                     $['text'],

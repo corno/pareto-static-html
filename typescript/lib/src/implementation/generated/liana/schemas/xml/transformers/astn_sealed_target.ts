@@ -11,13 +11,13 @@ import * as t_out from "astn-core/dist/interface/generated/liana/schemas/sealed_
 
 import * as v_primitives_to_text from "liana-core/dist/implementation/manual/transformers/primitives/text"
 
-export const Document: t_signatures.Document = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Document: t_signatures.Document = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "doc type": _p_change_context(
             $['doc type'],
             ($) => ['optional', _p.decide.optional(
                 $,
-                ($): t_out.Value.optional => ['set', ['group', ['verbose', _p.dictionary.literal(
+                ($): t_out.Value.optional => ['set', ['group', ['verbose', _p.literal.dictionary(
                     {
                         "name": _p_change_context(
                             $['name'],
@@ -40,7 +40,7 @@ export const Document: t_signatures.Document = ($) => ['group', ['verbose', _p.d
     },
 )]]
 
-export const Element: t_signatures.Element = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Element: t_signatures.Element = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "name": _p_change_context(
             $['name'],
@@ -53,7 +53,7 @@ export const Element: t_signatures.Element = ($) => ['group', ['verbose', _p.dic
             ($) => ['list', _p.list.from.list(
                 $,
             ).map(
-                ($) => ['group', ['verbose', _p.dictionary.literal(
+                ($) => ['group', ['verbose', _p.literal.dictionary(
                     {
                         "name": _p_change_context(
                             $['name'],
@@ -83,7 +83,7 @@ export const Element: t_signatures.Element = ($) => ['group', ['verbose', _p.dic
                                 $,
                                 ($) => ({
                                     'option': 'empty',
-                                    'value': ['group', ['verbose', _p.dictionary.literal(
+                                    'value': ['group', ['verbose', _p.literal.dictionary(
                                         {},
                                     )]],
                                 }),
@@ -93,7 +93,7 @@ export const Element: t_signatures.Element = ($) => ['group', ['verbose', _p.dic
                                 $,
                                 ($) => ({
                                     'option': 'text only',
-                                    'value': ['group', ['verbose', _p.dictionary.literal(
+                                    'value': ['group', ['verbose', _p.literal.dictionary(
                                         {
                                             "value": _p_change_context(
                                                 $['value'],
@@ -121,7 +121,7 @@ export const Element: t_signatures.Element = ($) => ['group', ['verbose', _p.dic
                                 $,
                                 ($) => ({
                                     'option': 'nodes only',
-                                    'value': ['group', ['verbose', _p.dictionary.literal(
+                                    'value': ['group', ['verbose', _p.literal.dictionary(
                                         {
                                             "children": _p_change_context(
                                                 $['children'],
@@ -170,7 +170,7 @@ export const Mixed_Content: t_signatures.Mixed_Content = ($) => ['list', _p.list
                         $,
                         ($) => ({
                             'option': 'text',
-                            'value': ['group', ['verbose', _p.dictionary.literal(
+                            'value': ['group', ['verbose', _p.literal.dictionary(
                                 {
                                     "value": _p_change_context(
                                         $['value'],
@@ -192,7 +192,7 @@ export const Mixed_Content: t_signatures.Mixed_Content = ($) => ['list', _p.list
     )],
 )]
 
-export const Qualified_Name: t_signatures.Qualified_Name = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Qualified_Name: t_signatures.Qualified_Name = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "namespace prefix": _p_change_context(
             $['namespace prefix'],
@@ -256,7 +256,7 @@ export const Node: t_signatures.Node = ($) => ['state', _p.decide.state(
                     $,
                     ($) => ({
                         'option': 'processing instruction',
-                        'value': ['group', ['verbose', _p.dictionary.literal(
+                        'value': ['group', ['verbose', _p.literal.dictionary(
                             {
                                 "target": _p_change_context(
                                     $['target'],

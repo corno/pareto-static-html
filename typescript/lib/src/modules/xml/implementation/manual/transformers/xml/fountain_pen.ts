@@ -1,6 +1,4 @@
 import * as pt from 'pareto-core/dist/transformer/implementation'
-import * as p_di from 'pareto-core/dist/data/interface'
-import p_list_from_text from 'pareto-core/dist/specials/list_from_text'
 import * as p_ti from 'pareto-core/dist/transformer/interface'
 
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
@@ -14,18 +12,18 @@ export type Qualified_Name = p_ti.Transformer<d_in.Qualified_Name, d_out.Phrase>
 export type Node = p_ti.Transformer<d_in.Node, d_out.Phrase>
 export type Mixed_Content = p_ti.Transformer<d_in.Mixed_Content, d_out.Phrase>
 
-export const Document: Document = ($) => sh.pg.sentences(pt.list.nested_literal_old([
+export const Document: Document = ($) => sh.pg.sentences(pt.literal.nested_list([
 
     pt.decide.optional(
         $['doc type'],
-        ($) => pt.list.literal([
+        ($) => pt.literal.list([
             sh.sentence([
                 sh.ph.literal("<!DOCTYPE "),
                 sh.ph.literal($.name),
                 sh.ph.literal(">")
             ])
         ]),
-        () => pt.list.literal([])
+        () => pt.literal.list([])
     ),
     [
         sh.sentence([
@@ -36,7 +34,7 @@ export const Document: Document = ($) => sh.pg.sentences(pt.list.nested_literal_
     ]
 ]))
 
-export const Element: Element = ($) => sh.ph.composed(pt.list.nested_literal_old([
+export const Element: Element = ($) => sh.ph.composed(pt.literal.nested_list([
     [
         sh.ph.literal("<"),
         Qualified_Name($.name),
@@ -84,14 +82,14 @@ export const Mixed_Content: Mixed_Content = ($) => sh.ph.composed(
     )
 )
 
-export const Qualified_Name: Qualified_Name = ($) => sh.ph.composed(pt.list.nested_literal_old([
+export const Qualified_Name: Qualified_Name = ($) => sh.ph.composed(pt.literal.nested_list([
     pt.decide.optional(
         $['namespace prefix'],
-        ($) => pt.list.literal([
+        ($) => pt.literal.list([
             sh.ph.literal($),
             sh.ph.literal(":"),
         ]),
-        () => pt.list.literal([])
+        () => pt.literal.list([])
     ),
     [
         sh.ph.literal($['local name']),
