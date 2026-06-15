@@ -1,16 +1,16 @@
 import * as pt from 'pareto-core/dist/transformer/implementation'
-import * as p_ti from 'pareto-core/dist/transformer/interface'
+import * as p_i from 'pareto-core/dist/transformer/interface'
 
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 import * as d_in from "../../../../../../interface/generated/liana/schemas/xml/data"
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
-export type Document = p_ti.Transformer<d_in.Document, d_out.Paragraph>
-export type Element = p_ti.Transformer<d_in.Element, d_out.Phrase>
-export type Qualified_Name = p_ti.Transformer<d_in.Qualified_Name, d_out.Phrase>
-export type Node = p_ti.Transformer<d_in.Node, d_out.Phrase>
-export type Mixed_Content = p_ti.Transformer<d_in.Mixed_Content, d_out.Phrase>
+export type Document = p_i.Transformer<d_in.Document, d_out.Paragraph>
+export type Element = p_i.Transformer<d_in.Element, d_out.Phrase>
+export type Qualified_Name = p_i.Transformer<d_in.Qualified_Name, d_out.Phrase>
+export type Node = p_i.Transformer<d_in.Node, d_out.Phrase>
+export type Mixed_Content = p_i.Transformer<d_in.Mixed_Content, d_out.Phrase>
 
 export const Document: Document = ($) => sh.pg.sentences(pt.literal.nested_list([
 
