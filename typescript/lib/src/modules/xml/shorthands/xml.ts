@@ -1,4 +1,4 @@
-import * as pt from 'pareto-core-shorthands/dist/unconstrained'
+import * as p_ from 'pareto-core-shorthands/dist/unconstrained'
 import p_create_symbol from 'pareto-core/dist/implementation/specials/create_symbol'
 
 import * as d_target from "../../../interface/generated/liana/schemas/xml/data"
@@ -8,8 +8,8 @@ export const document = (
     root: d_target.Element,
 ): d_target.Document => ({
     'doc type': doc_type === null
-        ? pt.optional.not_set()
-        : pt.optional.set({
+        ? p_.optional.not_set()
+        : p_.optional.set({
             'name': doc_type,
         }),
     'root': root
@@ -20,7 +20,7 @@ export const attribute = (
     value: string,
 ): d_target.Element.attributes.L => ({
     'name': {
-        'namespace prefix': pt.optional.not_set(),
+        'namespace prefix': p_.optional.not_set(),
         'local name': name,
     },
     'value': value,
@@ -30,26 +30,26 @@ export namespace e { //element
 
     export const empty = (
         name: string,
-        attributes: pt.Raw_Or_Normal_List<d_target.Element.attributes.L>,
+        attributes: p_.Raw_Or_Normal_List<d_target.Element.attributes.L>,
     ): d_target.Element => ({
         'name': {
-            'namespace prefix': pt.optional.not_set(),
+            'namespace prefix': p_.optional.not_set(),
             'local name': name,
         },
-        'attributes': pt.list(attributes),
+        'attributes': p_.list(attributes),
         'content type': ['empty', p_create_symbol()],
     })
 
     export const text_only = (
         name: string,
-        attributes: pt.Raw_Or_Normal_List<d_target.Element.attributes.L>,
+        attributes: p_.Raw_Or_Normal_List<d_target.Element.attributes.L>,
         text: string,
     ): d_target.Element => ({
         'name': {
-            'namespace prefix': pt.optional.not_set(),
+            'namespace prefix': p_.optional.not_set(),
             'local name': name,
         },
-        'attributes': pt.list(attributes),
+        'attributes': p_.list(attributes),
         'content type': ['text only', {
             'value': text,
         }]
@@ -57,29 +57,29 @@ export namespace e { //element
 
     export const mixed = (
         name: string,
-        attributes: pt.Raw_Or_Normal_List<d_target.Element.attributes.L>,
-        children: pt.Raw_Or_Normal_List<d_target.Mixed_Content.L>,
+        attributes: p_.Raw_Or_Normal_List<d_target.Element.attributes.L>,
+        children: p_.Raw_Or_Normal_List<d_target.Mixed_Content.L>,
     ): d_target.Element => ({
         'name': {
-            'namespace prefix': pt.optional.not_set(),
+            'namespace prefix': p_.optional.not_set(),
             'local name': name,
         },
-        'attributes': pt.list(attributes),
-        'content type': ['mixed', pt.list(children)]
+        'attributes': p_.list(attributes),
+        'content type': ['mixed', p_.list(children)]
     })
 
     export const nodes_only = (
         name: string,
-        attributes: pt.Raw_Or_Normal_List<d_target.Element.attributes.L>,
-        children: pt.Raw_Or_Normal_List<d_target.Element.content_type.nodes_only.children.L>,
+        attributes: p_.Raw_Or_Normal_List<d_target.Element.attributes.L>,
+        children: p_.Raw_Or_Normal_List<d_target.Element.content_type.nodes_only.children.L>,
     ): d_target.Element => ({
         'name': {
-            'namespace prefix': pt.optional.not_set(),
+            'namespace prefix': p_.optional.not_set(),
             'local name': name,
         },
-        'attributes': pt.list(attributes),
+        'attributes': p_.list(attributes),
         'content type': ['nodes only', {
-            'children': pt.list(children),
+            'children': p_.list(children),
         }]
     })
 

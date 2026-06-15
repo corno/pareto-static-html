@@ -1,4 +1,4 @@
-import * as pt from 'pareto-core/dist/implementation/transformer'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 import * as p_i from 'pareto-core/dist/interface/transformer'
 
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
@@ -12,18 +12,18 @@ export type Qualified_Name = p_i.Transformer<d_in.Qualified_Name, d_out.Phrase>
 export type Node = p_i.Transformer<d_in.Node, d_out.Phrase>
 export type Mixed_Content = p_i.Transformer<d_in.Mixed_Content, d_out.Phrase>
 
-export const Document: Document = ($) => sh.pg.sentences(pt.literal.nested_list([
+export const Document: Document = ($) => sh.pg.sentences(p_.literal.nested_list([
 
-    pt.decide.optional(
+    p_.decide.optional(
         $['doc type'],
-        ($) => pt.literal.list([
+        ($) => p_.literal.list([
             sh.sentence([
                 sh.ph.literal("<!DOCTYPE "),
                 sh.ph.literal($.name),
                 sh.ph.literal(">")
             ])
         ]),
-        () => pt.literal.list([])
+        () => p_.literal.list([])
     ),
     [
         sh.sentence([
@@ -34,12 +34,12 @@ export const Document: Document = ($) => sh.pg.sentences(pt.literal.nested_list(
     ]
 ]))
 
-export const Element: Element = ($) => sh.ph.composed(pt.literal.nested_list([
+export const Element: Element = ($) => sh.ph.composed(p_.literal.nested_list([
     [
         sh.ph.literal("<"),
         Qualified_Name($.name),
     ],
-    pt.list.from.list(
+    p_.list.from.list(
         $['attributes'],
     ).map(($) => sh.ph.composed([
         sh.ph.literal(" "),
@@ -50,17 +50,17 @@ export const Element: Element = ($) => sh.ph.composed(pt.literal.nested_list([
     ])),
     [
         sh.ph.literal(">"),
-        pt.decide.state($['content type'], ($) => {
+        p_.decide.state($['content type'], ($) => {
             switch ($[0]) {
-                case 'empty': return pt.ss($, ($) => sh.ph.nothing())
-                case 'mixed': return pt.ss($, ($) => Mixed_Content($))
-                case 'nodes only': return pt.ss($, ($) => sh.ph.indent(
-                    sh.pg.sentences(pt.list.from.list(
+                case 'empty': return p_.ss($, ($) => sh.ph.nothing())
+                case 'mixed': return p_.ss($, ($) => Mixed_Content($))
+                case 'nodes only': return p_.ss($, ($) => sh.ph.indent(
+                    sh.pg.sentences(p_.list.from.list(
                         $.children
                     ).map(($) => sh.sentence([Node($)]))
                     )))
-                case 'text only': return pt.ss($, ($) => sh.ph.literal($.value))
-                default: return pt.au($[0])
+                case 'text only': return p_.ss($, ($) => sh.ph.literal($.value))
+                default: return p_.au($[0])
             }
         }),
         sh.ph.literal("</"),
@@ -70,54 +70,54 @@ export const Element: Element = ($) => sh.ph.composed(pt.literal.nested_list([
 ]))
 
 export const Mixed_Content: Mixed_Content = ($) => sh.ph.composed(
-    pt.list.from.list(
+    p_.list.from.list(
         $
-    ).map(($) => pt.decide.state($, ($) => {
+    ).map(($) => p_.decide.state($, ($) => {
         switch ($[0]) {
-            case 'node': return pt.ss($, ($) => Node($))
-            case 'text': return pt.ss($, ($) => sh.ph.literal($.value))
-            default: return pt.au($[0])
+            case 'node': return p_.ss($, ($) => Node($))
+            case 'text': return p_.ss($, ($) => sh.ph.literal($.value))
+            default: return p_.au($[0])
         }
     })
     )
 )
 
-export const Qualified_Name: Qualified_Name = ($) => sh.ph.composed(pt.literal.nested_list([
-    pt.decide.optional(
+export const Qualified_Name: Qualified_Name = ($) => sh.ph.composed(p_.literal.nested_list([
+    p_.decide.optional(
         $['namespace prefix'],
-        ($) => pt.literal.list([
+        ($) => p_.literal.list([
             sh.ph.literal($),
             sh.ph.literal(":"),
         ]),
-        () => pt.literal.list([])
+        () => p_.literal.list([])
     ),
     [
         sh.ph.literal($['local name']),
     ]
 ]))
 
-export const Node: Node = ($) => pt.decide.state($, ($) => {
+export const Node: Node = ($) => p_.decide.state($, ($) => {
     switch ($[0]) {
-        case 'cdata': return pt.ss($, ($) => sh.ph.composed([
+        case 'cdata': return p_.ss($, ($) => sh.ph.composed([
             sh.ph.literal("<![CDATA["),
             sh.ph.literal($),
             sh.ph.literal("]]>")
         ]))
-        case 'comment': return pt.ss($, ($) => sh.ph.composed([
+        case 'comment': return p_.ss($, ($) => sh.ph.composed([
             sh.ph.literal("<!--"),
             sh.ph.literal($),
             sh.ph.literal("-->")
         ]))
-        case 'element': return pt.ss($, ($) => sh.ph.composed([
+        case 'element': return p_.ss($, ($) => sh.ph.composed([
             Element($)
         ]))
-        case 'processing instruction': return pt.ss($, ($) => sh.ph.composed([
+        case 'processing instruction': return p_.ss($, ($) => sh.ph.composed([
             sh.ph.literal("<?"),
             sh.ph.literal($.target),
             sh.ph.literal(" "),
             sh.ph.literal($.data),
             sh.ph.literal("?>")
         ]))
-        default: return pt.au($[0])
+        default: return p_.au($[0])
     }
 })
