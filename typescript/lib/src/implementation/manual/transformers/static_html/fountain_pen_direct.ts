@@ -12,7 +12,10 @@ import * as signatures from "../../../../interface/transformers/html/fountain_pe
 import * as t_xml_to_fountain_pen from "../../../../modules/xml/implementation/manual/transformers/xml/fountain_pen"
 
 const temp_serialize_number = (n: number): d_loc.List_of_Characters => {
-    return p_list_from_text(`${n}`, ($) => $)//convert number to string, then to list of characters
+    return p_list_from_text(
+        `${n}`,
+        ($) => $
+    )//convert number to string, then to list of characters
 }
 
 export const Document: signatures.Document = ($) => sh.pg.sentences([
