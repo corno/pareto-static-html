@@ -1,7 +1,11 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
+import * as p_di from 'pareto-core/dist/interface/data'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => $.__decide(assign, otherwise)
+const p_decide_text = <B>($: string,  assign: ($: string) => B) => assign($)
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import * as t_signatures from "../../../../../../interface/generated/liana/schemas/static-html/signatures/transformers/boilerplate_for_migrate"
 
@@ -10,11 +14,11 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/stat
 import * as v_xml from "../../xml/transformers/boilerplate_for_migrate"
 
 export const Document: t_signatures.Document = ($) => ({
-    'css': _p_change_context(
+    'css': p_change_context(
         $['css'],
         ($) => $,
     ),
-    'root': _p_change_context(
+    'root': p_change_context(
         $['root'],
         ($) => Flow_Element(
             $,
@@ -22,38 +26,38 @@ export const Document: t_signatures.Document = ($) => ({
     ),
 })
 
-export const Flow_Element: t_signatures.Flow_Element = ($) => _p.decide.state(
+export const Flow_Element: t_signatures.Flow_Element = ($) => p_decide_state(
     $,
     ($): t_out.Flow_Element => {
         switch ($[0]) {
             case 'div':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['div', Flow_Content(
                         $,
                     )],
                 )
             case 'dimensioned div':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['dimensioned div', {
-                        'width': _p_change_context(
+                        'width': p_change_context(
                             $['width'],
-                            ($) => _p.optional.from.optional(
+                            ($) => p_.from.optional(
                                 $,
                             ).map(
                                 ($) => $,
                             ),
                         ),
-                        'height': _p_change_context(
+                        'height': p_change_context(
                             $['height'],
-                            ($) => _p.optional.from.optional(
+                            ($) => p_.from.optional(
                                 $,
                             ).map(
                                 ($) => $,
                             ),
                         ),
-                        'content': _p_change_context(
+                        'content': p_change_context(
                             $['content'],
                             ($) => Flow_Content(
                                 $,
@@ -62,16 +66,16 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => _p.decide.state(
                     }],
                 )
             case 'classified div':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['classified div', {
-                        'classes': _p_change_context(
+                        'classes': p_change_context(
                             $['classes'],
                             ($) => Classes(
                                 $,
                             ),
                         ),
-                        'content': _p_change_context(
+                        'content': p_change_context(
                             $['content'],
                             ($) => Flow_Content(
                                 $,
@@ -80,121 +84,121 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => _p.decide.state(
                     }],
                 )
             case 'table':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['table', {
-                        'classes': _p_change_context(
+                        'classes': p_change_context(
                             $['classes'],
                             ($) => Classes(
                                 $,
                             ),
                         ),
-                        'sections': _p_change_context(
+                        'sections': p_change_context(
                             $['sections'],
-                            ($) => _p.list.from.list(
+                            ($) => p_.from.list(
                                 $,
                             ).map(
                                 ($) => ({
-                                    'classes': _p_change_context(
+                                    'classes': p_change_context(
                                         $['classes'],
                                         ($) => Classes(
                                             $,
                                         ),
                                     ),
-                                    'type': _p_change_context(
+                                    'type': p_change_context(
                                         $['type'],
-                                        ($) => _p.decide.state(
+                                        ($) => p_decide_state(
                                             $,
                                             ($): t_out.Flow_Element.table.sections.L.type_ => {
                                                 switch ($[0]) {
                                                     case 'header':
-                                                        return _p.ss(
+                                                        return p_.ss(
                                                             $,
                                                             ($) => ['header', null],
                                                         )
                                                     case 'body':
-                                                        return _p.ss(
+                                                        return p_.ss(
                                                             $,
                                                             ($) => ['body', null],
                                                         )
                                                     case 'footer':
-                                                        return _p.ss(
+                                                        return p_.ss(
                                                             $,
                                                             ($) => ['footer', null],
                                                         )
                                                     default:
-                                                        return _p.au(
+                                                        return p_.au(
                                                             $[0],
                                                         )
                                                 }
                                             },
                                         ),
                                     ),
-                                    'rows': _p_change_context(
+                                    'rows': p_change_context(
                                         $['rows'],
-                                        ($) => _p.list.from.list(
+                                        ($) => p_.from.list(
                                             $,
                                         ).map(
                                             ($) => ({
-                                                'classes': _p_change_context(
+                                                'classes': p_change_context(
                                                     $['classes'],
                                                     ($) => Classes(
                                                         $,
                                                     ),
                                                 ),
-                                                'height': _p_change_context(
+                                                'height': p_change_context(
                                                     $['height'],
-                                                    ($) => _p.optional.from.optional(
+                                                    ($) => p_.from.optional(
                                                         $,
                                                     ).map(
                                                         ($) => $,
                                                     ),
                                                 ),
-                                                'cells': _p_change_context(
+                                                'cells': p_change_context(
                                                     $['cells'],
-                                                    ($) => _p.list.from.list(
+                                                    ($) => p_.from.list(
                                                         $,
                                                     ).map(
                                                         ($) => ({
-                                                            'type': _p_change_context(
+                                                            'type': p_change_context(
                                                                 $['type'],
-                                                                ($) => _p.decide.state(
+                                                                ($) => p_decide_state(
                                                                     $,
                                                                     ($): t_out.Flow_Element.table.sections.L.rows.L.cells.L.type_ => {
                                                                         switch ($[0]) {
                                                                             case 'th':
-                                                                                return _p.ss(
+                                                                                return p_.ss(
                                                                                     $,
                                                                                     ($) => ['th', null],
                                                                                 )
                                                                             case 'td':
-                                                                                return _p.ss(
+                                                                                return p_.ss(
                                                                                     $,
                                                                                     ($) => ['td', null],
                                                                                 )
                                                                             default:
-                                                                                return _p.au(
+                                                                                return p_.au(
                                                                                     $[0],
                                                                                 )
                                                                         }
                                                                     },
                                                                 ),
                                                             ),
-                                                            'colspan': _p_change_context(
+                                                            'colspan': p_change_context(
                                                                 $['colspan'],
-                                                                ($) => _p.optional.from.optional(
+                                                                ($) => p_.from.optional(
                                                                     $,
                                                                 ).map(
                                                                     ($) => $,
                                                                 ),
                                                             ),
-                                                            'classes': _p_change_context(
+                                                            'classes': p_change_context(
                                                                 $['classes'],
                                                                 ($) => Classes(
                                                                     $,
                                                                 ),
                                                             ),
-                                                            'content': _p_change_context(
+                                                            'content': p_change_context(
                                                                 $['content'],
                                                                 ($) => Flow_Content(
                                                                     $,
@@ -212,27 +216,27 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => _p.decide.state(
                     }],
                 )
             case 'span':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['span', Phrasing_Content(
                         $,
                     )],
                 )
             case 'label':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['label', {
-                        'classes': _p_change_context(
+                        'classes': p_change_context(
                             $['classes'],
                             ($) => Classes(
                                 $,
                             ),
                         ),
-                        'text': _p_change_context(
+                        'text': p_change_context(
                             $['text'],
                             ($) => $,
                         ),
-                        'content': _p_change_context(
+                        'content': p_change_context(
                             $['content'],
                             ($) => Flow_Content(
                                 $,
@@ -241,34 +245,34 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => _p.decide.state(
                     }],
                 )
             case 'img':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['img', {
-                        'classes': _p_change_context(
+                        'classes': p_change_context(
                             $['classes'],
                             ($) => Classes(
                                 $,
                             ),
                         ),
-                        'src': _p_change_context(
+                        'src': p_change_context(
                             $['src'],
                             ($) => $,
                         ),
-                        'alt': _p_change_context(
+                        'alt': p_change_context(
                             $['alt'],
                             ($) => $,
                         ),
-                        'width': _p_change_context(
+                        'width': p_change_context(
                             $['width'],
-                            ($) => _p.optional.from.optional(
+                            ($) => p_.from.optional(
                                 $,
                             ).map(
                                 ($) => $,
                             ),
                         ),
-                        'height': _p_change_context(
+                        'height': p_change_context(
                             $['height'],
-                            ($) => _p.optional.from.optional(
+                            ($) => p_.from.optional(
                                 $,
                             ).map(
                                 ($) => $,
@@ -277,32 +281,32 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => _p.decide.state(
                     }],
                 )
             case 'svg':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['svg', {
-                        'classes': _p_change_context(
+                        'classes': p_change_context(
                             $['classes'],
                             ($) => Classes(
                                 $,
                             ),
                         ),
-                        'content': _p_change_context(
+                        'content': p_change_context(
                             $['content'],
                             ($) => v_xml.Mixed_Content(
                                 $,
                             ),
                         ),
-                        'width': _p_change_context(
+                        'width': p_change_context(
                             $['width'],
-                            ($) => _p.optional.from.optional(
+                            ($) => p_.from.optional(
                                 $,
                             ).map(
                                 ($) => $,
                             ),
                         ),
-                        'height': _p_change_context(
+                        'height': p_change_context(
                             $['height'],
-                            ($) => _p.optional.from.optional(
+                            ($) => p_.from.optional(
                                 $,
                             ).map(
                                 ($) => $,
@@ -311,14 +315,14 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => _p.decide.state(
                     }],
                 )
             default:
-                return _p.au(
+                return p_.au(
                     $[0],
                 )
         }
     },
 )
 
-export const Flow_Content: t_signatures.Flow_Content = ($) => _p.list.from.list(
+export const Flow_Content: t_signatures.Flow_Content = ($) => p_.from.list(
     $,
 ).map(
     ($) => Flow_Element(
@@ -326,13 +330,13 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => _p.list.from.list(
     ),
 )
 
-export const Classes: t_signatures.Classes = ($) => _p.list.from.list(
+export const Classes: t_signatures.Classes = ($) => p_.from.list(
     $,
 ).map(
     ($) => $,
 )
 
-export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => _p.list.from.list(
+export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => p_.from.list(
     $,
 ).map(
     ($) => Phrasing_Element(
@@ -340,28 +344,28 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => _p.list.fr
     ),
 )
 
-export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => _p.decide.state(
+export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => p_decide_state(
     $,
     ($): t_out.Phrasing_Element => {
         switch ($[0]) {
             case 'span':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['span', Phrasing_Content(
                         $,
                     )],
                 )
             case 'classified span':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['classified span', {
-                        'classes': _p_change_context(
+                        'classes': p_change_context(
                             $['classes'],
                             ($) => Classes(
                                 $,
                             ),
                         ),
-                        'content': _p_change_context(
+                        'content': p_change_context(
                             $['content'],
                             ($) => Phrasing_Content(
                                 $,
@@ -370,14 +374,14 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => _p.decide.
                     }],
                 )
             case 'titled span':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['titled span', {
-                        'title': _p_change_context(
+                        'title': p_change_context(
                             $['title'],
                             ($) => $,
                         ),
-                        'content': _p_change_context(
+                        'content': p_change_context(
                             $['content'],
                             ($) => Phrasing_Content(
                                 $,
@@ -386,31 +390,31 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => _p.decide.
                     }],
                 )
             case 'a':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['a', {
-                        'text': _p_change_context(
+                        'text': p_change_context(
                             $['text'],
                             ($) => $,
                         ),
-                        'href': _p_change_context(
+                        'href': p_change_context(
                             $['href'],
                             ($) => $,
                         ),
                     }],
                 )
             case 'p':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['p', {
-                        'text': _p_change_context(
+                        'text': p_change_context(
                             $['text'],
                             ($) => $,
                         ),
                     }],
                 )
             default:
-                return _p.au(
+                return p_.au(
                     $[0],
                 )
         }

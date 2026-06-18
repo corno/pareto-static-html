@@ -1,7 +1,11 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
+import * as p_di from 'pareto-core/dist/interface/data'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => $.__decide(assign, otherwise)
+const p_decide_text = <B>($: string,  assign: ($: string) => B) => assign($)
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import _p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
 
@@ -11,15 +15,15 @@ import * as t_out from "astn-core/dist/interface/generated/liana/schemas/sealed_
 
 import * as v_primitives_to_text from "liana-core/dist/implementation/manual/transformers/primitives/text"
 
-export const Document: t_signatures.Document = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Document: t_signatures.Document = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "doc type": _p_change_context(
+        "doc type": p_change_context(
             $['doc type'],
-            ($) => ['optional', _p.decide.optional(
+            ($) => ['optional', p_decide_optional(
                 $,
-                ($): t_out.Value.optional => ['set', ['group', ['verbose', _p.literal.dictionary(
+                ($): t_out.Value.optional => ['set', ['group', ['verbose', p_.literal.dictionary(
                     {
-                        "name": _p_change_context(
+                        "name": p_change_context(
                             $['name'],
                             ($) => ['text', {
                                 'delimiter': ['quote', null],
@@ -31,7 +35,7 @@ export const Document: t_signatures.Document = ($) => ['group', ['verbose', _p.l
                 () => ['not set', null],
             )],
         ),
-        "root": _p_change_context(
+        "root": p_change_context(
             $['root'],
             ($) => Element(
                 $,
@@ -40,28 +44,28 @@ export const Document: t_signatures.Document = ($) => ['group', ['verbose', _p.l
     },
 )]]
 
-export const Element: t_signatures.Element = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Element: t_signatures.Element = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "name": _p_change_context(
+        "name": p_change_context(
             $['name'],
             ($) => Qualified_Name(
                 $,
             ),
         ),
-        "attributes": _p_change_context(
+        "attributes": p_change_context(
             $['attributes'],
-            ($) => ['list', _p.list.from.list(
+            ($) => ['list', p_.from.list(
                 $,
             ).map(
-                ($) => ['group', ['verbose', _p.literal.dictionary(
+                ($) => ['group', ['verbose', p_.literal.dictionary(
                     {
-                        "name": _p_change_context(
+                        "name": p_change_context(
                             $['name'],
                             ($) => Qualified_Name(
                                 $,
                             ),
                         ),
-                        "value": _p_change_context(
+                        "value": p_change_context(
                             $['value'],
                             ($) => ['text', {
                                 'delimiter': ['quote', null],
@@ -72,30 +76,30 @@ export const Element: t_signatures.Element = ($) => ['group', ['verbose', _p.lit
                 )]],
             )],
         ),
-        "content type": _p_change_context(
+        "content type": p_change_context(
             $['content type'],
-            ($) => ['state', _p.decide.state(
+            ($) => ['state', p_decide_state(
                 $,
                 ($): t_out.Value.state => {
                     switch ($[0]) {
                         case 'empty':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ({
                                     'option': 'empty',
-                                    'value': ['group', ['verbose', _p.literal.dictionary(
+                                    'value': ['group', ['verbose', p_.literal.dictionary(
                                         {},
                                     )]],
                                 }),
                             )
                         case 'text only':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ({
                                     'option': 'text only',
-                                    'value': ['group', ['verbose', _p.literal.dictionary(
+                                    'value': ['group', ['verbose', p_.literal.dictionary(
                                         {
-                                            "value": _p_change_context(
+                                            "value": p_change_context(
                                                 $['value'],
                                                 ($) => ['text', {
                                                     'delimiter': ['quote', null],
@@ -107,7 +111,7 @@ export const Element: t_signatures.Element = ($) => ['group', ['verbose', _p.lit
                                 }),
                             )
                         case 'mixed':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ({
                                     'option': 'mixed',
@@ -117,15 +121,15 @@ export const Element: t_signatures.Element = ($) => ['group', ['verbose', _p.lit
                                 }),
                             )
                         case 'nodes only':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ({
                                     'option': 'nodes only',
-                                    'value': ['group', ['verbose', _p.literal.dictionary(
+                                    'value': ['group', ['verbose', p_.literal.dictionary(
                                         {
-                                            "children": _p_change_context(
+                                            "children": p_change_context(
                                                 $['children'],
-                                                ($) => ['list', _p.list.from.list(
+                                                ($) => ['list', p_.from.list(
                                                     $,
                                                 ).map(
                                                     ($) => Node(
@@ -138,7 +142,7 @@ export const Element: t_signatures.Element = ($) => ['group', ['verbose', _p.lit
                                 }),
                             )
                         default:
-                            return _p.au(
+                            return p_.au(
                                 $[0],
                             )
                     }
@@ -148,15 +152,15 @@ export const Element: t_signatures.Element = ($) => ['group', ['verbose', _p.lit
     },
 )]]
 
-export const Mixed_Content: t_signatures.Mixed_Content = ($) => ['list', _p.list.from.list(
+export const Mixed_Content: t_signatures.Mixed_Content = ($) => ['list', p_.from.list(
     $,
 ).map(
-    ($) => ['state', _p.decide.state(
+    ($) => ['state', p_decide_state(
         $,
         ($): t_out.Value.state => {
             switch ($[0]) {
                 case 'node':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'node',
@@ -166,13 +170,13 @@ export const Mixed_Content: t_signatures.Mixed_Content = ($) => ['list', _p.list
                         }),
                     )
                 case 'text':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ({
                             'option': 'text',
-                            'value': ['group', ['verbose', _p.literal.dictionary(
+                            'value': ['group', ['verbose', p_.literal.dictionary(
                                 {
-                                    "value": _p_change_context(
+                                    "value": p_change_context(
                                         $['value'],
                                         ($) => ['text', {
                                             'delimiter': ['quote', null],
@@ -184,7 +188,7 @@ export const Mixed_Content: t_signatures.Mixed_Content = ($) => ['list', _p.list
                         }),
                     )
                 default:
-                    return _p.au(
+                    return p_.au(
                         $[0],
                     )
             }
@@ -192,11 +196,11 @@ export const Mixed_Content: t_signatures.Mixed_Content = ($) => ['list', _p.list
     )],
 )]
 
-export const Qualified_Name: t_signatures.Qualified_Name = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Qualified_Name: t_signatures.Qualified_Name = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "namespace prefix": _p_change_context(
+        "namespace prefix": p_change_context(
             $['namespace prefix'],
-            ($) => ['optional', _p.decide.optional(
+            ($) => ['optional', p_decide_optional(
                 $,
                 ($): t_out.Value.optional => ['set', ['text', {
                     'delimiter': ['quote', null],
@@ -205,7 +209,7 @@ export const Qualified_Name: t_signatures.Qualified_Name = ($) => ['group', ['ve
                 () => ['not set', null],
             )],
         ),
-        "local name": _p_change_context(
+        "local name": p_change_context(
             $['local name'],
             ($) => ['text', {
                 'delimiter': ['quote', null],
@@ -215,12 +219,12 @@ export const Qualified_Name: t_signatures.Qualified_Name = ($) => ['group', ['ve
     },
 )]]
 
-export const Node: t_signatures.Node = ($) => ['state', _p.decide.state(
+export const Node: t_signatures.Node = ($) => ['state', p_decide_state(
     $,
     ($): t_out.Value.state => {
         switch ($[0]) {
             case 'element':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'element',
@@ -230,7 +234,7 @@ export const Node: t_signatures.Node = ($) => ['state', _p.decide.state(
                     }),
                 )
             case 'comment':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'comment',
@@ -241,7 +245,7 @@ export const Node: t_signatures.Node = ($) => ['state', _p.decide.state(
                     }),
                 )
             case 'cdata':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'cdata',
@@ -252,20 +256,20 @@ export const Node: t_signatures.Node = ($) => ['state', _p.decide.state(
                     }),
                 )
             case 'processing instruction':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'processing instruction',
-                        'value': ['group', ['verbose', _p.literal.dictionary(
+                        'value': ['group', ['verbose', p_.literal.dictionary(
                             {
-                                "target": _p_change_context(
+                                "target": p_change_context(
                                     $['target'],
                                     ($) => ['text', {
                                         'delimiter': ['quote', null],
                                         'value': $,
                                     }],
                                 ),
-                                "data": _p_change_context(
+                                "data": p_change_context(
                                     $['data'],
                                     ($) => ['text', {
                                         'delimiter': ['quote', null],
@@ -277,7 +281,7 @@ export const Node: t_signatures.Node = ($) => ['state', _p.decide.state(
                     }),
                 )
             default:
-                return _p.au(
+                return p_.au(
                     $[0],
                 )
         }

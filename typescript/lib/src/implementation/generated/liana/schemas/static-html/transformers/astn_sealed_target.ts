@@ -1,7 +1,11 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
+import * as p_di from 'pareto-core/dist/interface/data'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => $.__decide(assign, otherwise)
+const p_decide_text = <B>($: string,  assign: ($: string) => B) => assign($)
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import _p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
 
@@ -13,16 +17,16 @@ import * as v_primitives_to_text from "liana-core/dist/implementation/manual/tra
 
 import * as v_external_xml from "../../xml/transformers/astn_sealed_target"
 
-export const Document: t_signatures.Document = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Document: t_signatures.Document = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "css": _p_change_context(
+        "css": p_change_context(
             $['css'],
             ($) => ['text', {
                 'delimiter': ['quote', null],
                 'value': $,
             }],
         ),
-        "root": _p_change_context(
+        "root": p_change_context(
             $['root'],
             ($) => Flow_Element(
                 $,
@@ -31,12 +35,12 @@ export const Document: t_signatures.Document = ($) => ['group', ['verbose', _p.l
     },
 )]]
 
-export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decide.state(
+export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', p_decide_state(
     $,
     ($): t_out.Value.state => {
         switch ($[0]) {
             case 'div':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'div',
@@ -46,15 +50,15 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                     }),
                 )
             case 'dimensioned div':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'dimensioned div',
-                        'value': ['group', ['verbose', _p.literal.dictionary(
+                        'value': ['group', ['verbose', p_.literal.dictionary(
                             {
-                                "width": _p_change_context(
+                                "width": p_change_context(
                                     $['width'],
-                                    ($) => ['optional', _p.decide.optional(
+                                    ($) => ['optional', p_decide_optional(
                                         $,
                                         ($): t_out.Value.optional => ['set', ['text', {
                                             'delimiter': ['none', null],
@@ -65,9 +69,9 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                                         () => ['not set', null],
                                     )],
                                 ),
-                                "height": _p_change_context(
+                                "height": p_change_context(
                                     $['height'],
-                                    ($) => ['optional', _p.decide.optional(
+                                    ($) => ['optional', p_decide_optional(
                                         $,
                                         ($): t_out.Value.optional => ['set', ['text', {
                                             'delimiter': ['none', null],
@@ -78,7 +82,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                                         () => ['not set', null],
                                     )],
                                 ),
-                                "content": _p_change_context(
+                                "content": p_change_context(
                                     $['content'],
                                     ($) => Flow_Content(
                                         $,
@@ -89,19 +93,19 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                     }),
                 )
             case 'classified div':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'classified div',
-                        'value': ['group', ['verbose', _p.literal.dictionary(
+                        'value': ['group', ['verbose', p_.literal.dictionary(
                             {
-                                "classes": _p_change_context(
+                                "classes": p_change_context(
                                     $['classes'],
                                     ($) => Classes(
                                         $,
                                     ),
                                 ),
-                                "content": _p_change_context(
+                                "content": p_change_context(
                                     $['content'],
                                     ($) => Flow_Content(
                                         $,
@@ -112,39 +116,39 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                     }),
                 )
             case 'table':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'table',
-                        'value': ['group', ['verbose', _p.literal.dictionary(
+                        'value': ['group', ['verbose', p_.literal.dictionary(
                             {
-                                "classes": _p_change_context(
+                                "classes": p_change_context(
                                     $['classes'],
                                     ($) => Classes(
                                         $,
                                     ),
                                 ),
-                                "sections": _p_change_context(
+                                "sections": p_change_context(
                                     $['sections'],
-                                    ($) => ['list', _p.list.from.list(
+                                    ($) => ['list', p_.from.list(
                                         $,
                                     ).map(
-                                        ($) => ['group', ['verbose', _p.literal.dictionary(
+                                        ($) => ['group', ['verbose', p_.literal.dictionary(
                                             {
-                                                "classes": _p_change_context(
+                                                "classes": p_change_context(
                                                     $['classes'],
                                                     ($) => Classes(
                                                         $,
                                                     ),
                                                 ),
-                                                "type": _p_change_context(
+                                                "type": p_change_context(
                                                     $['type'],
-                                                    ($) => ['state', _p.decide.state(
+                                                    ($) => ['state', p_decide_state(
                                                         $,
                                                         ($): t_out.Value.state => {
                                                             switch ($[0]) {
                                                                 case 'header':
-                                                                    return _p.ss(
+                                                                    return p_.ss(
                                                                         $,
                                                                         ($) => ({
                                                                             'option': 'header',
@@ -152,7 +156,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                                                                         }),
                                                                     )
                                                                 case 'body':
-                                                                    return _p.ss(
+                                                                    return p_.ss(
                                                                         $,
                                                                         ($) => ({
                                                                             'option': 'body',
@@ -160,7 +164,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                                                                         }),
                                                                     )
                                                                 case 'footer':
-                                                                    return _p.ss(
+                                                                    return p_.ss(
                                                                         $,
                                                                         ($) => ({
                                                                             'option': 'footer',
@@ -168,29 +172,29 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                                                                         }),
                                                                     )
                                                                 default:
-                                                                    return _p.au(
+                                                                    return p_.au(
                                                                         $[0],
                                                                     )
                                                             }
                                                         },
                                                     )],
                                                 ),
-                                                "rows": _p_change_context(
+                                                "rows": p_change_context(
                                                     $['rows'],
-                                                    ($) => ['list', _p.list.from.list(
+                                                    ($) => ['list', p_.from.list(
                                                         $,
                                                     ).map(
-                                                        ($) => ['group', ['verbose', _p.literal.dictionary(
+                                                        ($) => ['group', ['verbose', p_.literal.dictionary(
                                                             {
-                                                                "classes": _p_change_context(
+                                                                "classes": p_change_context(
                                                                     $['classes'],
                                                                     ($) => Classes(
                                                                         $,
                                                                     ),
                                                                 ),
-                                                                "height": _p_change_context(
+                                                                "height": p_change_context(
                                                                     $['height'],
-                                                                    ($) => ['optional', _p.decide.optional(
+                                                                    ($) => ['optional', p_decide_optional(
                                                                         $,
                                                                         ($): t_out.Value.optional => ['set', ['text', {
                                                                             'delimiter': ['none', null],
@@ -201,21 +205,21 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                                                                         () => ['not set', null],
                                                                     )],
                                                                 ),
-                                                                "cells": _p_change_context(
+                                                                "cells": p_change_context(
                                                                     $['cells'],
-                                                                    ($) => ['list', _p.list.from.list(
+                                                                    ($) => ['list', p_.from.list(
                                                                         $,
                                                                     ).map(
-                                                                        ($) => ['group', ['verbose', _p.literal.dictionary(
+                                                                        ($) => ['group', ['verbose', p_.literal.dictionary(
                                                                             {
-                                                                                "type": _p_change_context(
+                                                                                "type": p_change_context(
                                                                                     $['type'],
-                                                                                    ($) => ['state', _p.decide.state(
+                                                                                    ($) => ['state', p_decide_state(
                                                                                         $,
                                                                                         ($): t_out.Value.state => {
                                                                                             switch ($[0]) {
                                                                                                 case 'th':
-                                                                                                    return _p.ss(
+                                                                                                    return p_.ss(
                                                                                                         $,
                                                                                                         ($) => ({
                                                                                                             'option': 'th',
@@ -223,7 +227,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                                                                                                         }),
                                                                                                     )
                                                                                                 case 'td':
-                                                                                                    return _p.ss(
+                                                                                                    return p_.ss(
                                                                                                         $,
                                                                                                         ($) => ({
                                                                                                             'option': 'td',
@@ -231,16 +235,16 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                                                                                                         }),
                                                                                                     )
                                                                                                 default:
-                                                                                                    return _p.au(
+                                                                                                    return p_.au(
                                                                                                         $[0],
                                                                                                     )
                                                                                             }
                                                                                         },
                                                                                     )],
                                                                                 ),
-                                                                                "colspan": _p_change_context(
+                                                                                "colspan": p_change_context(
                                                                                     $['colspan'],
-                                                                                    ($) => ['optional', _p.decide.optional(
+                                                                                    ($) => ['optional', p_decide_optional(
                                                                                         $,
                                                                                         ($): t_out.Value.optional => ['set', ['text', {
                                                                                             'delimiter': ['none', null],
@@ -251,13 +255,13 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                                                                                         () => ['not set', null],
                                                                                     )],
                                                                                 ),
-                                                                                "classes": _p_change_context(
+                                                                                "classes": p_change_context(
                                                                                     $['classes'],
                                                                                     ($) => Classes(
                                                                                         $,
                                                                                     ),
                                                                                 ),
-                                                                                "content": _p_change_context(
+                                                                                "content": p_change_context(
                                                                                     $['content'],
                                                                                     ($) => Flow_Content(
                                                                                         $,
@@ -280,7 +284,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                     }),
                 )
             case 'span':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'span',
@@ -290,26 +294,26 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                     }),
                 )
             case 'label':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'label',
-                        'value': ['group', ['verbose', _p.literal.dictionary(
+                        'value': ['group', ['verbose', p_.literal.dictionary(
                             {
-                                "classes": _p_change_context(
+                                "classes": p_change_context(
                                     $['classes'],
                                     ($) => Classes(
                                         $,
                                     ),
                                 ),
-                                "text": _p_change_context(
+                                "text": p_change_context(
                                     $['text'],
                                     ($) => ['text', {
                                         'delimiter': ['quote', null],
                                         'value': $,
                                     }],
                                 ),
-                                "content": _p_change_context(
+                                "content": p_change_context(
                                     $['content'],
                                     ($) => Flow_Content(
                                         $,
@@ -320,35 +324,35 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                     }),
                 )
             case 'img':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'img',
-                        'value': ['group', ['verbose', _p.literal.dictionary(
+                        'value': ['group', ['verbose', p_.literal.dictionary(
                             {
-                                "classes": _p_change_context(
+                                "classes": p_change_context(
                                     $['classes'],
                                     ($) => Classes(
                                         $,
                                     ),
                                 ),
-                                "src": _p_change_context(
+                                "src": p_change_context(
                                     $['src'],
                                     ($) => ['text', {
                                         'delimiter': ['quote', null],
                                         'value': $,
                                     }],
                                 ),
-                                "alt": _p_change_context(
+                                "alt": p_change_context(
                                     $['alt'],
                                     ($) => ['text', {
                                         'delimiter': ['quote', null],
                                         'value': $,
                                     }],
                                 ),
-                                "width": _p_change_context(
+                                "width": p_change_context(
                                     $['width'],
-                                    ($) => ['optional', _p.decide.optional(
+                                    ($) => ['optional', p_decide_optional(
                                         $,
                                         ($): t_out.Value.optional => ['set', ['text', {
                                             'delimiter': ['none', null],
@@ -359,9 +363,9 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                                         () => ['not set', null],
                                     )],
                                 ),
-                                "height": _p_change_context(
+                                "height": p_change_context(
                                     $['height'],
-                                    ($) => ['optional', _p.decide.optional(
+                                    ($) => ['optional', p_decide_optional(
                                         $,
                                         ($): t_out.Value.optional => ['set', ['text', {
                                             'delimiter': ['none', null],
@@ -377,27 +381,27 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                     }),
                 )
             case 'svg':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'svg',
-                        'value': ['group', ['verbose', _p.literal.dictionary(
+                        'value': ['group', ['verbose', p_.literal.dictionary(
                             {
-                                "classes": _p_change_context(
+                                "classes": p_change_context(
                                     $['classes'],
                                     ($) => Classes(
                                         $,
                                     ),
                                 ),
-                                "content": _p_change_context(
+                                "content": p_change_context(
                                     $['content'],
                                     ($) => v_external_xml.Mixed_Content(
                                         $,
                                     ),
                                 ),
-                                "width": _p_change_context(
+                                "width": p_change_context(
                                     $['width'],
-                                    ($) => ['optional', _p.decide.optional(
+                                    ($) => ['optional', p_decide_optional(
                                         $,
                                         ($): t_out.Value.optional => ['set', ['text', {
                                             'delimiter': ['none', null],
@@ -408,9 +412,9 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                                         () => ['not set', null],
                                     )],
                                 ),
-                                "height": _p_change_context(
+                                "height": p_change_context(
                                     $['height'],
-                                    ($) => ['optional', _p.decide.optional(
+                                    ($) => ['optional', p_decide_optional(
                                         $,
                                         ($): t_out.Value.optional => ['set', ['text', {
                                             'delimiter': ['none', null],
@@ -426,14 +430,14 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', _p.decid
                     }),
                 )
             default:
-                return _p.au(
+                return p_.au(
                     $[0],
                 )
         }
     },
 )]
 
-export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', _p.list.from.list(
+export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', p_.from.list(
     $,
 ).map(
     ($) => Flow_Element(
@@ -441,7 +445,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', _p.list.f
     ),
 )]
 
-export const Classes: t_signatures.Classes = ($) => ['list', _p.list.from.list(
+export const Classes: t_signatures.Classes = ($) => ['list', p_.from.list(
     $,
 ).map(
     ($) => ['text', {
@@ -450,7 +454,7 @@ export const Classes: t_signatures.Classes = ($) => ['list', _p.list.from.list(
     }],
 )]
 
-export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => ['list', _p.list.from.list(
+export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => ['list', p_.from.list(
     $,
 ).map(
     ($) => Phrasing_Element(
@@ -458,12 +462,12 @@ export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => ['list', _
     ),
 )]
 
-export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => ['state', _p.decide.state(
+export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => ['state', p_decide_state(
     $,
     ($): t_out.Value.state => {
         switch ($[0]) {
             case 'span':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'span',
@@ -473,19 +477,19 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => ['state', 
                     }),
                 )
             case 'classified span':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'classified span',
-                        'value': ['group', ['verbose', _p.literal.dictionary(
+                        'value': ['group', ['verbose', p_.literal.dictionary(
                             {
-                                "classes": _p_change_context(
+                                "classes": p_change_context(
                                     $['classes'],
                                     ($) => Classes(
                                         $,
                                     ),
                                 ),
-                                "content": _p_change_context(
+                                "content": p_change_context(
                                     $['content'],
                                     ($) => Phrasing_Content(
                                         $,
@@ -496,20 +500,20 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => ['state', 
                     }),
                 )
             case 'titled span':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'titled span',
-                        'value': ['group', ['verbose', _p.literal.dictionary(
+                        'value': ['group', ['verbose', p_.literal.dictionary(
                             {
-                                "title": _p_change_context(
+                                "title": p_change_context(
                                     $['title'],
                                     ($) => ['text', {
                                         'delimiter': ['quote', null],
                                         'value': $,
                                     }],
                                 ),
-                                "content": _p_change_context(
+                                "content": p_change_context(
                                     $['content'],
                                     ($) => Phrasing_Content(
                                         $,
@@ -520,20 +524,20 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => ['state', 
                     }),
                 )
             case 'a':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'a',
-                        'value': ['group', ['verbose', _p.literal.dictionary(
+                        'value': ['group', ['verbose', p_.literal.dictionary(
                             {
-                                "text": _p_change_context(
+                                "text": p_change_context(
                                     $['text'],
                                     ($) => ['text', {
                                         'delimiter': ['quote', null],
                                         'value': $,
                                     }],
                                 ),
-                                "href": _p_change_context(
+                                "href": p_change_context(
                                     $['href'],
                                     ($) => ['text', {
                                         'delimiter': ['quote', null],
@@ -545,13 +549,13 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => ['state', 
                     }),
                 )
             case 'p':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ({
                         'option': 'p',
-                        'value': ['group', ['verbose', _p.literal.dictionary(
+                        'value': ['group', ['verbose', p_.literal.dictionary(
                             {
-                                "text": _p_change_context(
+                                "text": p_change_context(
                                     $['text'],
                                     ($) => ['text', {
                                         'delimiter': ['quote', null],
@@ -563,7 +567,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => ['state', 
                     }),
                 )
             default:
-                return _p.au(
+                return p_.au(
                     $[0],
                 )
         }

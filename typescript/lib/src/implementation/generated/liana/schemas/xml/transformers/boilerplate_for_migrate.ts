@@ -1,7 +1,11 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
+import * as p_di from 'pareto-core/dist/interface/data'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => $.__decide(assign, otherwise)
+const p_decide_text = <B>($: string,  assign: ($: string) => B) => assign($)
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import _p_create_symbol from 'pareto-core/dist/implementation/specials/create_symbol'
 
@@ -10,20 +14,20 @@ import * as t_signatures from "../../../../../../interface/generated/liana/schem
 import * as t_out from "../../../../../../interface/generated/liana/schemas/xml/data"
 
 export const Document: t_signatures.Document = ($) => ({
-    'doc type': _p_change_context(
+    'doc type': p_change_context(
         $['doc type'],
-        ($) => _p.optional.from.optional(
+        ($) => p_.from.optional(
             $,
         ).map(
             ($) => ({
-                'name': _p_change_context(
+                'name': p_change_context(
                     $['name'],
                     ($) => $,
                 ),
             }),
         ),
     ),
-    'root': _p_change_context(
+    'root': p_change_context(
         $['root'],
         ($) => Element(
             $,
@@ -32,66 +36,66 @@ export const Document: t_signatures.Document = ($) => ({
 })
 
 export const Element: t_signatures.Element = ($) => ({
-    'name': _p_change_context(
+    'name': p_change_context(
         $['name'],
         ($) => Qualified_Name(
             $,
         ),
     ),
-    'attributes': _p_change_context(
+    'attributes': p_change_context(
         $['attributes'],
-        ($) => _p.list.from.list(
+        ($) => p_.from.list(
             $,
         ).map(
             ($) => ({
-                'name': _p_change_context(
+                'name': p_change_context(
                     $['name'],
                     ($) => Qualified_Name(
                         $,
                     ),
                 ),
-                'value': _p_change_context(
+                'value': p_change_context(
                     $['value'],
                     ($) => $,
                 ),
             }),
         ),
     ),
-    'content type': _p_change_context(
+    'content type': p_change_context(
         $['content type'],
-        ($) => _p.decide.state(
+        ($) => p_decide_state(
             $,
             ($): t_out.Element.content_type => {
                 switch ($[0]) {
                     case 'empty':
-                        return _p.ss(
+                        return p_.ss(
                             $,
                             ($) => ['empty', _p_create_symbol()],
                         )
                     case 'text only':
-                        return _p.ss(
+                        return p_.ss(
                             $,
                             ($) => ['text only', {
-                                'value': _p_change_context(
+                                'value': p_change_context(
                                     $['value'],
                                     ($) => $,
                                 ),
                             }],
                         )
                     case 'mixed':
-                        return _p.ss(
+                        return p_.ss(
                             $,
                             ($) => ['mixed', Mixed_Content(
                                 $,
                             )],
                         )
                     case 'nodes only':
-                        return _p.ss(
+                        return p_.ss(
                             $,
                             ($) => ['nodes only', {
-                                'children': _p_change_context(
+                                'children': p_change_context(
                                     $['children'],
-                                    ($) => _p.list.from.list(
+                                    ($) => p_.from.list(
                                         $,
                                     ).map(
                                         ($) => Node(
@@ -102,7 +106,7 @@ export const Element: t_signatures.Element = ($) => ({
                             }],
                         )
                     default:
-                        return _p.au(
+                        return p_.au(
                             $[0],
                         )
                 }
@@ -111,32 +115,32 @@ export const Element: t_signatures.Element = ($) => ({
     ),
 })
 
-export const Mixed_Content: t_signatures.Mixed_Content = ($) => _p.list.from.list(
+export const Mixed_Content: t_signatures.Mixed_Content = ($) => p_.from.list(
     $,
 ).map(
-    ($) => _p.decide.state(
+    ($) => p_decide_state(
         $,
         ($): t_out.Mixed_Content.L => {
             switch ($[0]) {
                 case 'node':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['node', Node(
                             $,
                         )],
                     )
                 case 'text':
-                    return _p.ss(
+                    return p_.ss(
                         $,
                         ($) => ['text', {
-                            'value': _p_change_context(
+                            'value': p_change_context(
                                 $['value'],
                                 ($) => $,
                             ),
                         }],
                     )
                 default:
-                    return _p.au(
+                    return p_.au(
                         $[0],
                     )
             }
@@ -145,57 +149,57 @@ export const Mixed_Content: t_signatures.Mixed_Content = ($) => _p.list.from.lis
 )
 
 export const Qualified_Name: t_signatures.Qualified_Name = ($) => ({
-    'namespace prefix': _p_change_context(
+    'namespace prefix': p_change_context(
         $['namespace prefix'],
-        ($) => _p.optional.from.optional(
+        ($) => p_.from.optional(
             $,
         ).map(
             ($) => $,
         ),
     ),
-    'local name': _p_change_context(
+    'local name': p_change_context(
         $['local name'],
         ($) => $,
     ),
 })
 
-export const Node: t_signatures.Node = ($) => _p.decide.state(
+export const Node: t_signatures.Node = ($) => p_decide_state(
     $,
     ($): t_out.Node => {
         switch ($[0]) {
             case 'element':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['element', Element(
                         $,
                     )],
                 )
             case 'comment':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['comment', $],
                 )
             case 'cdata':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['cdata', $],
                 )
             case 'processing instruction':
-                return _p.ss(
+                return p_.ss(
                     $,
                     ($) => ['processing instruction', {
-                        'target': _p_change_context(
+                        'target': p_change_context(
                             $['target'],
                             ($) => $,
                         ),
-                        'data': _p_change_context(
+                        'data': p_change_context(
                             $['data'],
                             ($) => $,
                         ),
                     }],
                 )
             default:
-                return _p.au(
+                return p_.au(
                     $[0],
                 )
         }

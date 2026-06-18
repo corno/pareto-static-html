@@ -14,8 +14,9 @@ export type Mixed_Content = p_i.Transformer<d_in.Mixed_Content, d_out.Phrase>
 
 export const Document: Document = ($) => sh.pg.sentences(p_.literal.nested_list([
 
-    p_.decide.optional(
+    p_.from.optional(
         $['doc type'],
+    ).decide(
         ($) => p_.literal.list([
             sh.sentence([
                 sh.ph.literal("<!DOCTYPE "),
@@ -39,7 +40,7 @@ export const Element: Element = ($) => sh.ph.composed(p_.literal.nested_list([
         sh.ph.literal("<"),
         Qualified_Name($.name),
     ],
-    p_.list.from.list(
+    p_.from.list(
         $['attributes'],
     ).map(($) => sh.ph.composed([
         sh.ph.literal(" "),
@@ -50,12 +51,12 @@ export const Element: Element = ($) => sh.ph.composed(p_.literal.nested_list([
     ])),
     [
         sh.ph.literal(">"),
-        p_.decide.state($['content type'], ($) => {
+        p_.from.state($['content type']).decide(($) => {
             switch ($[0]) {
                 case 'empty': return p_.ss($, ($) => sh.ph.nothing())
                 case 'mixed': return p_.ss($, ($) => Mixed_Content($))
                 case 'nodes only': return p_.ss($, ($) => sh.ph.indent(
-                    sh.pg.sentences(p_.list.from.list(
+                    sh.pg.sentences(p_.from.list(
                         $.children
                     ).map(($) => sh.sentence([Node($)]))
                     )))
@@ -70,9 +71,9 @@ export const Element: Element = ($) => sh.ph.composed(p_.literal.nested_list([
 ]))
 
 export const Mixed_Content: Mixed_Content = ($) => sh.ph.composed(
-    p_.list.from.list(
+    p_.from.list(
         $
-    ).map(($) => p_.decide.state($, ($) => {
+    ).map(($) => p_.from.state($).decide(($) => {
         switch ($[0]) {
             case 'node': return p_.ss($, ($) => Node($))
             case 'text': return p_.ss($, ($) => sh.ph.literal($.value))
@@ -83,8 +84,9 @@ export const Mixed_Content: Mixed_Content = ($) => sh.ph.composed(
 )
 
 export const Qualified_Name: Qualified_Name = ($) => sh.ph.composed(p_.literal.nested_list([
-    p_.decide.optional(
+    p_.from.optional(
         $['namespace prefix'],
+    ).decide(
         ($) => p_.literal.list([
             sh.ph.literal($),
             sh.ph.literal(":"),
@@ -96,7 +98,7 @@ export const Qualified_Name: Qualified_Name = ($) => sh.ph.composed(p_.literal.n
     ]
 ]))
 
-export const Node: Node = ($) => p_.decide.state($, ($) => {
+export const Node: Node = ($) => p_.from.state($).decide(($) => {
     switch ($[0]) {
         case 'cdata': return p_.ss($, ($) => sh.ph.composed([
             sh.ph.literal("<![CDATA["),
