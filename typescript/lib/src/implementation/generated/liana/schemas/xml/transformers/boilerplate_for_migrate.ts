@@ -5,9 +5,7 @@ const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign(
 const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => $.__decide(assign, otherwise)
 const p_decide_text = <B>($: string,  assign: ($: string) => B) => assign($)
 
-import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
-
-import _p_create_symbol from 'pareto-core/dist/implementation/specials/create_symbol'
+import p_change_context from 'pareto-core/dist/implementation/refiner/specials/change_context'
 
 import * as t_signatures from "../../../../../../interface/generated/liana/schemas/xml/signatures/transformers/boilerplate_for_migrate"
 
@@ -70,7 +68,7 @@ export const Element: t_signatures.Element = ($) => ({
                     case 'empty':
                         return p_.ss(
                             $,
-                            ($) => ['empty', _p_create_symbol()],
+                            ($) => ['empty', p_.literal.nothing()],
                         )
                     case 'text only':
                         return p_.ss(

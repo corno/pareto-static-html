@@ -1,5 +1,4 @@
 import * as p_ from 'pareto-core-shorthands/dist/unconstrained'
-import p_create_symbol from 'pareto-core/dist/implementation/specials/create_symbol'
 
 import * as d_target from "../../../interface/generated/liana/schemas/xml/data"
 
@@ -37,7 +36,7 @@ export namespace e { //element
             'local name': name,
         },
         'attributes': p_.list(attributes),
-        'content type': ['empty', p_create_symbol()],
+        'content type': ['empty', p_.nothing()],
     })
 
     export const text_only = (
