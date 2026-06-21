@@ -169,10 +169,10 @@ export const Flow_Element: Flow_Element = ($) => p_.from.state($).decide(($): d_
         case 'img': return p_.ss($, ($) => sh.no.element(sh.e.empty(
             "img",
             p_.literal.nested_list([
-                [
+                p_.literal.list([
                     sh.attribute("src", $.src),
                     sh.attribute("alt", $.alt),
-                ],
+                ]),
                 p_.from.optional(
                     $.width,
                 ).decide(

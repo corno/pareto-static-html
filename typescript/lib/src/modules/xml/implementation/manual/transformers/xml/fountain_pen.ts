@@ -26,20 +26,20 @@ export const Document: Document = ($) => sh.pg.sentences(p_.literal.nested_list(
         ]),
         () => p_.literal.list([])
     ),
-    [
+    p_.literal.list([
         sh.sentence([
 
             Element($['root'])
 
         ])
-    ]
+    ])
 ]))
 
 export const Element: Element = ($) => sh.ph.composed(p_.literal.nested_list([
-    [
+    p_.literal.list([
         sh.ph.literal("<"),
         Qualified_Name($.name),
-    ],
+    ]),
     p_.from.list(
         $['attributes'],
     ).map(($) => sh.ph.composed([
@@ -49,7 +49,7 @@ export const Element: Element = ($) => sh.ph.composed(p_.literal.nested_list([
         sh.ph.literal($.value),
         sh.ph.literal("\""),
     ])),
-    [
+    p_.literal.list([
         sh.ph.literal(">"),
         p_.from.state($['content type']).decide(($) => {
             switch ($[0]) {
@@ -67,7 +67,7 @@ export const Element: Element = ($) => sh.ph.composed(p_.literal.nested_list([
         sh.ph.literal("</"),
         Qualified_Name($.name),
         sh.ph.literal(">")
-    ],
+    ])
 ]))
 
 export const Mixed_Content: Mixed_Content = ($) => sh.ph.composed(
@@ -93,9 +93,9 @@ export const Qualified_Name: Qualified_Name = ($) => sh.ph.composed(p_.literal.n
         ]),
         () => p_.literal.list([])
     ),
-    [
+    p_.literal.list([
         sh.ph.literal($['local name']),
-    ]
+    ])
 ]))
 
 export const Node: Node = ($) => p_.from.state($).decide(($) => {
