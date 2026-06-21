@@ -71,7 +71,7 @@ export const Flow_Element: signatures.Flow_Element = ($) => p_.from.state($).dec
         ]))
         case 'dimensioned div': return p_.ss($, ($) => sh.ph.composed([
             sh.ph.literal("<div"),
-            $.width.__decide(
+            p_.from.optional($.width).decide(
                 ($) => sh.ph.composed([
                     sh.ph.literal(" width=\""),
                     sh.ph.serialize(temp_serialize_number($)),
@@ -79,7 +79,7 @@ export const Flow_Element: signatures.Flow_Element = ($) => p_.from.state($).dec
                 ]),
                 () => sh.ph.nothing()
             ),
-            $.height.__decide(
+            p_.from.optional($.height).decide(
                 ($) => sh.ph.composed([
                     sh.ph.literal(" height=\""),
                     sh.ph.serialize(temp_serialize_number($)),
@@ -103,7 +103,7 @@ export const Flow_Element: signatures.Flow_Element = ($) => p_.from.state($).dec
             Classes($.classes),
             sh.ph.literal(">"),
             sh.ph.indent(
-                sh.pg.sentences($.sections.__l_map_deprecated((section) => sh.sentence([
+                sh.pg.sentences(p_.from.list($.sections).map((section) => sh.sentence([
                     p_.from.state(section.type).decide(($) => {
                         switch ($[0]) {
                             case 'header': return p_.ss($, () => sh.ph.literal("<thead"))
@@ -115,10 +115,10 @@ export const Flow_Element: signatures.Flow_Element = ($) => p_.from.state($).dec
                     Classes(section.classes),
                     sh.ph.literal(">"),
                     sh.ph.indent(
-                        sh.pg.sentences(section.rows.__l_map_deprecated(($) => sh.sentence([
+                        sh.pg.sentences(p_.from.list(section.rows).map(($) => sh.sentence([
                             sh.ph.literal("<tr"),
                             Classes($.classes),
-                            $.height.__decide(
+                            p_.from.optional($.height).decide(
                                 ($) => sh.ph.composed([
                                     sh.ph.literal(" height=\""),
                                     sh.ph.serialize(temp_serialize_number($)),
@@ -128,7 +128,7 @@ export const Flow_Element: signatures.Flow_Element = ($) => p_.from.state($).dec
                             ),
                             sh.ph.literal(">"),
                             sh.ph.indent(
-                                sh.pg.sentences($.cells.__l_map_deprecated(($) => {
+                                sh.pg.sentences(p_.from.list($.cells).map(($) => {
                                     return sh.sentence([
                                         sh.ph.literal("<"),
                                         sh.ph.literal(p_.from.state($.type).decide(($) => {
@@ -139,7 +139,7 @@ export const Flow_Element: signatures.Flow_Element = ($) => p_.from.state($).dec
                                             }
                                         })),
                                         Classes($.classes),
-                                        $.colspan.__decide(
+                                        p_.from.optional($.colspan).decide(
                                             ($) => sh.ph.composed([
                                                 sh.ph.literal(" colspan=\""),
                                                 sh.ph.serialize(temp_serialize_number($)),
@@ -204,7 +204,7 @@ export const Flow_Element: signatures.Flow_Element = ($) => p_.from.state($).dec
             sh.ph.literal("\" alt = \""),
             sh.ph.literal($.alt),
             sh.ph.literal("\""),
-            $.width.__decide(
+            p_.from.optional($.width).decide(
                 ($) => sh.ph.composed([
                     sh.ph.literal(" width=\""),
                     sh.ph.serialize(temp_serialize_number($)),
@@ -212,7 +212,7 @@ export const Flow_Element: signatures.Flow_Element = ($) => p_.from.state($).dec
                 ]),
                 () => sh.ph.nothing()
             ),
-            $.height.__decide(
+            p_.from.optional($.height).decide(
                 ($) => sh.ph.composed([
                     sh.ph.literal(" height=\""),
                     sh.ph.serialize(temp_serialize_number($)),
@@ -225,13 +225,13 @@ export const Flow_Element: signatures.Flow_Element = ($) => p_.from.state($).dec
         case 'svg': return p_.ss($, ($) => sh.ph.composed([
             sh.ph.literal("<svg"),
             Classes($.classes),
-            $.width.__decide(
+            p_.from.optional($.width).decide(
                 ($) => sh.ph.composed([sh.ph.literal(" width=\""),
                 sh.ph.serialize(temp_serialize_number($)),
                 sh.ph.literal("\"")]),
                 () => sh.ph.nothing()
             ),
-            $.height.__decide(
+            p_.from.optional($.height).decide(
                 ($) => sh.ph.composed([sh.ph.literal(" height=\""),
                 sh.ph.serialize(temp_serialize_number($)),
                 sh.ph.literal("\"")
@@ -248,7 +248,7 @@ export const Flow_Element: signatures.Flow_Element = ($) => p_.from.state($).dec
 
 
 export const Flow_Content: signatures.Flow_Content = ($) => sh.ph.indent(
-    sh.pg.sentences($.__l_map_deprecated(($) => sh.sentence([Flow_Element($)])))
+    sh.pg.sentences(p_.from.list($).map(($) => sh.sentence([Flow_Element($)])))
 )
 
 export const Classes: signatures.Classes = ($) => p_.from.list($).is_empty()
@@ -256,7 +256,7 @@ export const Classes: signatures.Classes = ($) => p_.from.list($).is_empty()
     : sh.ph.composed([
         sh.ph.literal(" class=\""),
         sh.ph.rich(
-            $.__l_map_deprecated(($) => sh.ph.literal($)),
+            p_.from.list($).map(($) => sh.ph.literal($)),
             sh.ph.nothing(),
             sh.ph.nothing(),
             sh.ph.literal(" "),
@@ -308,7 +308,7 @@ export const Phrasing_Element: signatures.Phrasing_Element = ($) => p_.from.stat
 })
 
 export const Phrasing_Content: signatures.Phrasing_Content = ($) => sh.ph.indent(
-    sh.pg.sentences($.__l_map_deprecated(($) => p_.from.state($).decide(($): d_out.Sentence => {
+    sh.pg.sentences(p_.from.list($).map(($) => p_.from.state($).decide(($): d_out.Sentence => {
         switch ($[0]) {
             case 'span': return p_.ss($, ($) => sh.sentence([
                 sh.ph.literal("<span"),

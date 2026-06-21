@@ -104,7 +104,7 @@ export const Flow_Element: Flow_Element = ($) => p_.from.state($).decide(($): d_
         case 'table': return p_.ss($, ($) => sh.no.element(sh.e.nodes_only(
             "table",
             Classes($.classes),
-            $.sections.__l_map_deprecated(($) => sh.no.element(sh.e.nodes_only(
+            p_.from.list($.sections).map(($) => sh.no.element(sh.e.nodes_only(
                 p_.from.state($.type).decide(($) => {
                     switch ($[0]) {
                         case 'header': return p_.ss($, ($) => "thead")
@@ -114,19 +114,19 @@ export const Flow_Element: Flow_Element = ($) => p_.from.state($).decide(($): d_
                     }
                 }),
                 Classes($.classes),
-                $.rows.__l_map_deprecated(($) => {
+                p_.from.list($.rows).map(($) => {
                     return sh.no.element(sh.e.nodes_only(
                         "tr",
                         p_.literal.nested_list([
                             Classes($.classes),
-                            $.height.__decide(
+                            p_.from.optional($.height).decide(
                                 ($) => p_.literal.list([
                                     sh.attribute("height", temp_serialize_number($)),
                                 ]),
                                 () => p_.literal.list([])
                             ),
                         ]),
-                        $.cells.__l_map_deprecated(($) => sh.no.element(sh.e.nodes_only(
+                        p_.from.list($.cells).map(($) => sh.no.element(sh.e.nodes_only(
                             p_.from.state($.type).decide(($): string => {
                                 switch ($[0]) {
                                     case 'th': return p_.ss($, ($) => "th")
@@ -136,7 +136,7 @@ export const Flow_Element: Flow_Element = ($) => p_.from.state($).decide(($): d_
                             }),
                             p_.literal.nested_list([
                                 Classes($.classes),
-                                $.colspan.__decide(
+                                p_.from.optional($.colspan).decide(
                                     ($) => p_.literal.list([
                                         sh.attribute("colspan", temp_serialize_number($)),
                                     ]),
@@ -228,7 +228,7 @@ export const Flow_Content: Flow_Content = ($) => p_.from.list(
 export const Classes: Classes = ($) => p_.literal.list([
     sh.attribute("class", t_fp_to_text.Phrase(
         sh_fp.ph.rich(
-            $.__l_map_deprecated(($) => sh_fp.ph.literal($)),
+            p_.from.list($).map(($) => sh_fp.ph.literal($)),
             sh_fp.ph.nothing(),
             sh_fp.ph.nothing(),
             sh_fp.ph.literal(" "),
@@ -297,7 +297,7 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 
 
 // export const Flow_Content: signatures.Flow_Content = ($) => sh.ph.indent(
-//     sh.pg.sentences($.__l_map_deprecated(($) => sh.sentence([
+//     sh.pg.sentences(p_.from.list($).map(($) => sh.sentence([
 //         p_.from.state($).decide(($) => {
 //             switch ($[0]) {
 //                 case 'div': return p_.ss($, ($) => sh.ph.composed([
@@ -308,7 +308,7 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 //                 ]))
 //                 case 'dimensioned div': return p_.ss($, ($) => sh.ph.composed([
 //                     sh.ph.literal("<div"),
-//                     $.width.__decide(
+//                     $.width.__ decide(
 //                         ($) => sh.ph.composed([
 //                             sh.ph.literal(" width=\""),
 //                             sh.ph.serialize(temp_serialize_number($)),
@@ -316,7 +316,7 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 //                         ]),
 //                         () => sh.ph.nothing()
 //                     ),
-//                     $.height.__decide(
+//                     $.height.__ decide(
 //                         ($) => sh.ph.composed([
 //                             sh.ph.literal(" height=\""),
 //                             sh.ph.serialize(temp_serialize_number($)),
@@ -340,7 +340,7 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 //                     Classes($.classes),
 //                     sh.ph.literal(">"),
 //                     sh.ph.indent(
-//                         sh.pg.sentences($.sections.__l_map_deprecated((section) => sh.sentence([
+//                         sh.pg.sentences($.sections.__ l_map_deprecated((section) => sh.sentence([
 //                             p_.from.state(section.type).decide(($) => {
 //                                 switch ($[0]) {
 //                                     case 'header': return p_.ss($, () => sh.ph.literal("<thead"))
@@ -352,10 +352,10 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 //                             Classes(section.classes),
 //                             sh.ph.literal(">"),
 //                             sh.ph.indent(
-//                                 sh.pg.sentences(section.rows.__l_map_deprecated((row) => sh.sentence([
+//                                 sh.pg.sentences(section.rows.__ l_map_deprecated((row) => sh.sentence([
 //                                     sh.ph.literal("<tr"),
 //                                     Classes(row.classes),
-//                                     row.height.__decide(
+//                                     row.height.__ decide(
 //                                         ($) => sh.ph.composed([
 //                                             sh.ph.literal(" height=\""),
 //                                             sh.ph.serialize(temp_serialize_number($)),
@@ -365,7 +365,7 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 //                                     ),
 //                                     sh.ph.literal(">"),
 //                                     sh.ph.indent(
-//                                         sh.pg.sentences(row.cells.__l_map_deprecated((cell) => sh.sentence([
+//                                         sh.pg.sentences(row.cells.__ l_map_deprecated((cell) => sh.sentence([
 //                                             p_.from.state(row.type).decide(($) => {
 //                                                 switch ($[0]) {
 //                                                     case 'th': return p_.ss($, () => sh.ph.composed([
@@ -430,7 +430,7 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 //                     sh.ph.literal("\" alt = \""),
 //                     sh.ph.literal($.alt),
 //                     sh.ph.literal("\""),
-//                     $.width.__decide(
+//                     $.width.__ decide(
 //                         ($) => sh.ph.composed([
 //                             sh.ph.literal(" width=\""),
 //                             sh.ph.serialize(temp_serialize_number($)),
@@ -438,7 +438,7 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 //                         ]),
 //                         () => sh.ph.nothing()
 //                     ),
-//                     $.height.__decide(
+//                     $.height.__ decide(
 //                         ($) => sh.ph.composed([
 //                             sh.ph.literal(" height=\""),
 //                             sh.ph.serialize(temp_serialize_number($)),
@@ -451,13 +451,13 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 //                 case 'svg': return p_.ss($, ($) => sh.ph.composed([
 //                     sh.ph.literal("<svg"),
 //                     Classes($.classes),
-//                     $.width.__decide(
+//                     $.width.__ decide(
 //                         ($) => sh.ph.composed([sh.ph.literal(" width=\""),
 //                         sh.ph.serialize(temp_serialize_number($)),
 //                         sh.ph.literal("\"")]),
 //                         () => sh.ph.nothing()
 //                     ),
-//                     $.height.__decide(
+//                     $.height.__ decide(
 //                         ($) => sh.ph.composed([sh.ph.literal(" height=\""),
 //                         sh.ph.serialize(temp_serialize_number($)),
 //                         sh.ph.literal("\"")
@@ -479,7 +479,7 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 //     : sh.ph.composed([
 //         sh.ph.literal(" class=\""),
 //         sh.ph.rich(
-//             $.__l_map_deprecated(($) => sh.ph.literal($)),
+//             p_.from.list($).map(($) => sh.ph.literal($)),
 //             sh.ph.nothing(),
 //             sh.ph.nothing(),
 //             sh.ph.literal(" "),
@@ -489,7 +489,7 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 //     ])
 
 // export const Phrasing_Content: signatures.Phrasing_Content = ($) => sh.ph.indent(
-//     sh.pg.sentences($.__l_map_deprecated(($) => p_.from.state($).decide(($): d_out.Sentence => {
+//     sh.pg.sentences(p_.from.list($).map(($) => p_.from.state($).decide(($): d_out.Sentence => {
 //         switch ($[0]) {
 //             case 'span': return p_.ss($, ($) => sh.sentence([
 //                 sh.ph.literal("<span"),
