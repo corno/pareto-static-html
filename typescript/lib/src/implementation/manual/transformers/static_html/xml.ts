@@ -76,7 +76,7 @@ export const Flow_Element: Flow_Element = ($) => p_.from.state($).decide(($): d_
         )))
         case 'dimensioned div': return p_.ss($, ($) => sh.no.element(sh.e.nodes_only(
             "div",
-            p_.literal.nested_list([
+            p_.literal.segmented_list([
                 p_.from.optional(
                     $.width,
                 ).decide(
@@ -117,7 +117,7 @@ export const Flow_Element: Flow_Element = ($) => p_.from.state($).decide(($): d_
                 p_.from.list($.rows).map(($) => {
                     return sh.no.element(sh.e.nodes_only(
                         "tr",
-                        p_.literal.nested_list([
+                        p_.literal.segmented_list([
                             Classes($.classes),
                             p_.from.optional($.height).decide(
                                 ($) => p_.literal.list([
@@ -134,7 +134,7 @@ export const Flow_Element: Flow_Element = ($) => p_.from.state($).decide(($): d_
                                     default: return p_.au($[0])
                                 }
                             }),
-                            p_.literal.nested_list([
+                            p_.literal.segmented_list([
                                 Classes($.classes),
                                 p_.from.optional($.colspan).decide(
                                     ($) => p_.literal.list([
@@ -168,7 +168,7 @@ export const Flow_Element: Flow_Element = ($) => p_.from.state($).decide(($): d_
         )))
         case 'img': return p_.ss($, ($) => sh.no.element(sh.e.empty(
             "img",
-            p_.literal.nested_list([
+            p_.literal.segmented_list([
                 p_.literal.list([
                     sh.attribute("src", $.src),
                     sh.attribute("alt", $.alt),
@@ -193,7 +193,7 @@ export const Flow_Element: Flow_Element = ($) => p_.from.state($).decide(($): d_
         )))
         case 'svg': return p_.ss($, ($) => sh.no.element(sh.e.mixed(
             "svg",
-            p_.literal.nested_list([
+            p_.literal.segmented_list([
                 Classes($.classes),
                 p_.from.optional(
                     $.width,

@@ -12,7 +12,7 @@ export type Qualified_Name = p_i.Transformer<d_in.Qualified_Name, d_out.Phrase>
 export type Node = p_i.Transformer<d_in.Node, d_out.Phrase>
 export type Mixed_Content = p_i.Transformer<d_in.Mixed_Content, d_out.Phrase>
 
-export const Document: Document = ($) => sh.pg.sentences(p_.literal.nested_list([
+export const Document: Document = ($) => sh.pg.sentences(p_.literal.chain(
 
     p_.from.optional(
         $['doc type'],
@@ -26,16 +26,14 @@ export const Document: Document = ($) => sh.pg.sentences(p_.literal.nested_list(
         ]),
         () => p_.literal.list([])
     ),
-    p_.literal.list([
-        sh.sentence([
+    sh.sentence([
 
-            Element($['root'])
+        Element($['root'])
 
-        ])
     ])
-]))
+))
 
-export const Element: Element = ($) => sh.ph.composed(p_.literal.nested_list([
+export const Element: Element = ($) => sh.ph.composed(p_.literal.segmented_list([
     p_.literal.list([
         sh.ph.literal("<"),
         Qualified_Name($.name),
@@ -83,7 +81,7 @@ export const Mixed_Content: Mixed_Content = ($) => sh.ph.composed(
     )
 )
 
-export const Qualified_Name: Qualified_Name = ($) => sh.ph.composed(p_.literal.nested_list([
+export const Qualified_Name: Qualified_Name = ($) => sh.ph.composed(p_.literal.chain(
     p_.from.optional(
         $['namespace prefix'],
     ).decide(
@@ -93,10 +91,8 @@ export const Qualified_Name: Qualified_Name = ($) => sh.ph.composed(p_.literal.n
         ]),
         () => p_.literal.list([])
     ),
-    p_.literal.list([
-        sh.ph.literal($['local name']),
-    ])
-]))
+    sh.ph.literal($['local name']),
+))
 
 export const Node: Node = ($) => p_.from.state($).decide(($) => {
     switch ($[0]) {
