@@ -474,7 +474,7 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 //     ])))
 // )
 
-// export const Classes: signatures.Classes = ($) => p_.from.list($).is_empty()
+// export const Classes: signatures.Classes = ($) => p_.from.list($).is_ empty()
 //     ? sh.ph.nothing()
 //     : sh.ph.composed([
 //         sh.ph.literal(" class=\""),

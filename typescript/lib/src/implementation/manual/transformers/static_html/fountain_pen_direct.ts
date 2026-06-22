@@ -251,9 +251,8 @@ export const Flow_Content: signatures.Flow_Content = ($) => sh.ph.indent(
     sh.pg.sentences(p_.from.list($).map(($) => sh.sentence([Flow_Element($)])))
 )
 
-export const Classes: signatures.Classes = ($) => p_.from.list($).is_empty()
-    ? sh.ph.nothing()
-    : sh.ph.composed([
+export const Classes: signatures.Classes = ($) => p_.from.list($).on_has_items(
+    ($) => sh.ph.composed([
         sh.ph.literal(" class=\""),
         sh.ph.rich(
             p_.from.list($).map(($) => sh.ph.literal($)),
@@ -263,7 +262,9 @@ export const Classes: signatures.Classes = ($) => p_.from.list($).is_empty()
             sh.ph.nothing(),
         ),
         sh.ph.literal("\"")
-    ])
+    ]),
+    () => sh.ph.nothing()
+)
 
 export const Phrasing_Element: signatures.Phrasing_Element = ($) => p_.from.state($).decide(($): d_out.Phrase => {
     switch ($[0]) {
