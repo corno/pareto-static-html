@@ -43,16 +43,14 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => p_decide_state(
                     ($) => ['dimensioned div', {
                         'width': p_change_context(
                             $['width'],
-                            ($) => p_.from.optional(
-                                $,
+                            ($) => p_.from.optional($,
                             ).map(
                                 ($) => $,
                             ),
                         ),
                         'height': p_change_context(
                             $['height'],
-                            ($) => p_.from.optional(
-                                $,
+                            ($) => p_.from.optional($,
                             ).map(
                                 ($) => $,
                             ),
@@ -95,8 +93,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => p_decide_state(
                         ),
                         'sections': p_change_context(
                             $['sections'],
-                            ($) => p_.from.list(
-                                $,
+                            ($) => p_.from.list($,
                             ).map(
                                 ($) => ({
                                     'classes': p_change_context(
@@ -136,8 +133,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => p_decide_state(
                                     ),
                                     'rows': p_change_context(
                                         $['rows'],
-                                        ($) => p_.from.list(
-                                            $,
+                                        ($) => p_.from.list($,
                                         ).map(
                                             ($) => ({
                                                 'classes': p_change_context(
@@ -148,16 +144,14 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => p_decide_state(
                                                 ),
                                                 'height': p_change_context(
                                                     $['height'],
-                                                    ($) => p_.from.optional(
-                                                        $,
+                                                    ($) => p_.from.optional($,
                                                     ).map(
                                                         ($) => $,
                                                     ),
                                                 ),
                                                 'cells': p_change_context(
                                                     $['cells'],
-                                                    ($) => p_.from.list(
-                                                        $,
+                                                    ($) => p_.from.list($,
                                                     ).map(
                                                         ($) => ({
                                                             'type': p_change_context(
@@ -186,8 +180,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => p_decide_state(
                                                             ),
                                                             'colspan': p_change_context(
                                                                 $['colspan'],
-                                                                ($) => p_.from.optional(
-                                                                    $,
+                                                                ($) => p_.from.optional($,
                                                                 ).map(
                                                                     ($) => $,
                                                                 ),
@@ -264,16 +257,14 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => p_decide_state(
                         ),
                         'width': p_change_context(
                             $['width'],
-                            ($) => p_.from.optional(
-                                $,
+                            ($) => p_.from.optional($,
                             ).map(
                                 ($) => $,
                             ),
                         ),
                         'height': p_change_context(
                             $['height'],
-                            ($) => p_.from.optional(
-                                $,
+                            ($) => p_.from.optional($,
                             ).map(
                                 ($) => $,
                             ),
@@ -298,16 +289,14 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => p_decide_state(
                         ),
                         'width': p_change_context(
                             $['width'],
-                            ($) => p_.from.optional(
-                                $,
+                            ($) => p_.from.optional($,
                             ).map(
                                 ($) => $,
                             ),
                         ),
                         'height': p_change_context(
                             $['height'],
-                            ($) => p_.from.optional(
-                                $,
+                            ($) => p_.from.optional($,
                             ).map(
                                 ($) => $,
                             ),
@@ -322,22 +311,19 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => p_decide_state(
     },
 )
 
-export const Flow_Content: t_signatures.Flow_Content = ($) => p_.from.list(
-    $,
+export const Flow_Content: t_signatures.Flow_Content = ($) => p_.from.list($,
 ).map(
     ($) => Flow_Element(
         $,
     ),
 )
 
-export const Classes: t_signatures.Classes = ($) => p_.from.list(
-    $,
+export const Classes: t_signatures.Classes = ($) => p_.from.list($,
 ).map(
     ($) => $,
 )
 
-export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => p_.from.list(
-    $,
+export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => p_.from.list($,
 ).map(
     ($) => Phrasing_Element(
         $,

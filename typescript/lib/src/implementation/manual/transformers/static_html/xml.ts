@@ -67,160 +67,159 @@ export const Document: Document = ($) => sh.document(
     )
 )
 
-export const Flow_Element: Flow_Element = ($) => p_.from.state($).decide(($): d_out.Element.content_type.nodes_only.children.L => {
-    switch ($[0]) {
-        case 'div': return p_.ss($, ($) => sh.no.element(sh.e.nodes_only(
-            "div",
-            [],
-            Flow_Content($)
-        )))
-        case 'dimensioned div': return p_.ss($, ($) => sh.no.element(sh.e.nodes_only(
-            "div",
-            p_.literal.segmented_list([
-                p_.from.optional(
-                    $.width,
-                ).decide(
-                    ($) => p_.literal.list([
-                        sh.attribute("width", temp_serialize_number($)),
-                    ]),
-                    () => p_.literal.list([])
-                ),
-                p_.from.optional(
-                    $.height,
-                ).decide(
-                    ($) => p_.literal.list([
-                        sh.attribute("height", temp_serialize_number($)),
-                    ]),
-                    () => p_.literal.list([])
-                )
-            ]),
-            Flow_Content($.content)
-        )))
-        case 'classified div': return p_.ss($, ($) => sh.no.element(sh.e.nodes_only(
-            "div",
-            Classes($.classes),
-            Flow_Content($.content)
-        )))
-        case 'table': return p_.ss($, ($) => sh.no.element(sh.e.nodes_only(
-            "table",
-            Classes($.classes),
-            p_.from.list($.sections).map(($) => sh.no.element(sh.e.nodes_only(
-                p_.from.state($.type).decide(($) => {
-                    switch ($[0]) {
-                        case 'header': return p_.ss($, ($) => "thead")
-                        case 'body': return p_.ss($, ($) => "tbody")
-                        case 'footer': return p_.ss($, ($) => "tfoot")
-                        default: return p_.au($[0])
-                    }
-                }),
-                Classes($.classes),
-                p_.from.list($.rows).map(($) => {
-                    return sh.no.element(sh.e.nodes_only(
-                        "tr",
-                        p_.literal.segmented_list([
-                            Classes($.classes),
-                            p_.from.optional($.height).decide(
-                                ($) => p_.literal.list([
-                                    sh.attribute("height", temp_serialize_number($)),
-                                ]),
-                                () => p_.literal.list([])
-                            ),
+export const Flow_Element: Flow_Element = ($) => p_.from.state($).decide(
+    ($): d_out.Element.content_type.nodes_only.children.L => {
+        switch ($[0]) {
+            case 'div': return p_.ss($, ($) => sh.no.element(sh.e.nodes_only(
+                "div",
+                [],
+                Flow_Content($)
+            )))
+            case 'dimensioned div': return p_.ss($, ($) => sh.no.element(sh.e.nodes_only(
+                "div",
+                p_.literal.segmented_list([
+                    p_.from.optional($.width,
+                    ).decide(
+                        ($) => p_.literal.list([
+                            sh.attribute("width", temp_serialize_number($)),
                         ]),
-                        p_.from.list($.cells).map(($) => sh.no.element(sh.e.nodes_only(
-                            p_.from.state($.type).decide(($): string => {
+                        () => p_.literal.list([])
+                    ),
+                    p_.from.optional($.height,
+                    ).decide(
+                        ($) => p_.literal.list([
+                            sh.attribute("height", temp_serialize_number($)),
+                        ]),
+                        () => p_.literal.list([])
+                    )
+                ]),
+                Flow_Content($.content)
+            )))
+            case 'classified div': return p_.ss($, ($) => sh.no.element(sh.e.nodes_only(
+                "div",
+                Classes($.classes),
+                Flow_Content($.content)
+            )))
+            case 'table': return p_.ss($, ($) => sh.no.element(sh.e.nodes_only(
+                "table",
+                Classes($.classes),
+                p_.from.list($.sections).map(
+                    ($) => sh.no.element(sh.e.nodes_only(
+                        p_.from.state($.type).decide(
+                            ($) => {
                                 switch ($[0]) {
-                                    case 'th': return p_.ss($, ($) => "th")
-                                    case 'td': return p_.ss($, ($) => "td")
+                                    case 'header': return p_.ss($, ($) => "thead")
+                                    case 'body': return p_.ss($, ($) => "tbody")
+                                    case 'footer': return p_.ss($, ($) => "tfoot")
                                     default: return p_.au($[0])
                                 }
                             }),
-                            p_.literal.segmented_list([
-                                Classes($.classes),
-                                p_.from.optional($.colspan).decide(
-                                    ($) => p_.literal.list([
-                                        sh.attribute("colspan", temp_serialize_number($)),
+                        Classes($.classes),
+                        p_.from.list($.rows).map(
+                            ($) => {
+                                return sh.no.element(sh.e.nodes_only(
+                                    "tr",
+                                    p_.literal.segmented_list([
+                                        Classes($.classes),
+                                        p_.from.optional($.height).decide(
+                                            ($) => p_.literal.list([
+                                                sh.attribute("height", temp_serialize_number($)),
+                                            ]),
+                                            () => p_.literal.list([])
+                                        ),
                                     ]),
-                                    () => p_.literal.list([])
-                                ),
-                            ]),
-                            Flow_Content($.content)
-                        )))
-                    ))
-                })
+                                    p_.from.list($.cells).map(
+                                        ($) => sh.no.element(sh.e.nodes_only(
+                                            p_.from.state($.type).decide(
+                                                ($): string => {
+                                                    switch ($[0]) {
+                                                        case 'th': return p_.ss($, ($) => "th")
+                                                        case 'td': return p_.ss($, ($) => "td")
+                                                        default: return p_.au($[0])
+                                                    }
+                                                }),
+                                            p_.literal.segmented_list([
+                                                Classes($.classes),
+                                                p_.from.optional($.colspan).decide(
+                                                    ($) => p_.literal.list([
+                                                        sh.attribute("colspan", temp_serialize_number($)),
+                                                    ]),
+                                                    () => p_.literal.list([])
+                                                ),
+                                            ]),
+                                            Flow_Content($.content)
+                                        )))
+                                ))
+                            })
+                    )))
             )))
-        )))
-        case 'span': return p_.ss($, ($) => sh.no.element(sh.e.mixed(
-            "span",
-            [],
-            Phrasing_Content($)
-        )))
-        case 'label': return p_.ss($, ($) => sh.no.element(sh.e.mixed(
-            "label",
-            Classes($.classes),
-            [
-                sh.m.text($.text),
-                sh.m.node(sh.no.element(sh.e.nodes_only(
-                    "div",
-                    [],
-                    Flow_Content($.content)
-                )))
-            ]
-        )))
-        case 'img': return p_.ss($, ($) => sh.no.element(sh.e.empty(
-            "img",
-            p_.literal.segmented_list([
-                p_.literal.list([
-                    sh.attribute("src", $.src),
-                    sh.attribute("alt", $.alt),
-                ]),
-                p_.from.optional(
-                    $.width,
-                ).decide(
-                    ($) => p_.literal.list([
-                        sh.attribute("width", temp_serialize_number($)),
-                    ]),
-                    () => p_.literal.list([])
-                ),
-                p_.from.optional(
-                    $.height,
-                ).decide(
-                    ($) => p_.literal.list([
-                        sh.attribute("height", temp_serialize_number($)),
-                    ]),
-                    () => p_.literal.list([])
-                )
-            ])
-        )))
-        case 'svg': return p_.ss($, ($) => sh.no.element(sh.e.mixed(
-            "svg",
-            p_.literal.segmented_list([
+            case 'span': return p_.ss($, ($) => sh.no.element(sh.e.mixed(
+                "span",
+                [],
+                Phrasing_Content($)
+            )))
+            case 'label': return p_.ss($, ($) => sh.no.element(sh.e.mixed(
+                "label",
                 Classes($.classes),
-                p_.from.optional(
-                    $.width,
-                ).decide(
-                    ($) => p_.literal.list([
-                        sh.attribute("width", temp_serialize_number($)),
+                [
+                    sh.m.text($.text),
+                    sh.m.node(sh.no.element(sh.e.nodes_only(
+                        "div",
+                        [],
+                        Flow_Content($.content)
+                    )))
+                ]
+            )))
+            case 'img': return p_.ss($, ($) => sh.no.element(sh.e.empty(
+                "img",
+                p_.literal.segmented_list([
+                    p_.literal.list([
+                        sh.attribute("src", $.src),
+                        sh.attribute("alt", $.alt),
                     ]),
-                    () => p_.literal.list([])
-                ),
-                p_.from.optional(
-                    $.height,
-                ).decide(
-                    ($) => p_.literal.list([
-                        sh.attribute("height", temp_serialize_number($)),
-                    ]),
-                    () => p_.literal.list([])
-                )
-            ]),
-            $.content
+                    p_.from.optional($.width,
+                    ).decide(
+                        ($) => p_.literal.list([
+                            sh.attribute("width", temp_serialize_number($)),
+                        ]),
+                        () => p_.literal.list([])
+                    ),
+                    p_.from.optional($.height,
+                    ).decide(
+                        ($) => p_.literal.list([
+                            sh.attribute("height", temp_serialize_number($)),
+                        ]),
+                        () => p_.literal.list([])
+                    )
+                ])
+            )))
+            case 'svg': return p_.ss($, ($) => sh.no.element(sh.e.mixed(
+                "svg",
+                p_.literal.segmented_list([
+                    Classes($.classes),
+                    p_.from.optional($.width,
+                    ).decide(
+                        ($) => p_.literal.list([
+                            sh.attribute("width", temp_serialize_number($)),
+                        ]),
+                        () => p_.literal.list([])
+                    ),
+                    p_.from.optional($.height,
+                    ).decide(
+                        ($) => p_.literal.list([
+                            sh.attribute("height", temp_serialize_number($)),
+                        ]),
+                        () => p_.literal.list([])
+                    )
+                ]),
+                $.content
 
-        )))
-        default: return p_.au($[0])
-    }
-})
+            )))
+            default: return p_.au($[0])
+        }
+    })
 
-export const Flow_Content: Flow_Content = ($) => p_.from.list(
-    $
+export const Flow_Content: Flow_Content = ($) => p_.from.list($
 ).map(
     ($) => Flow_Element($)
 )
@@ -228,7 +227,8 @@ export const Flow_Content: Flow_Content = ($) => p_.from.list(
 export const Classes: Classes = ($) => p_.literal.list([
     sh.attribute("class", t_fp_to_text.Phrase(
         sh_fp.ph.rich(
-            p_.from.list($).map(($) => sh_fp.ph.literal($)),
+            p_.from.list($).map(
+                ($) => sh_fp.ph.literal($)),
             sh_fp.ph.nothing(),
             sh_fp.ph.nothing(),
             sh_fp.ph.literal(" "),
@@ -241,64 +241,66 @@ export const Classes: Classes = ($) => p_.literal.list([
     )),
 ])
 
-export const Phrasing_Content: Phrasing_Content = ($) => p_.from.list(
-    $
+export const Phrasing_Content: Phrasing_Content = ($) => p_.from.list($
 ).map(
     ($) => sh.m.element(Phrasing_Element($))
 )
 
-export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide(($): d_out.Element => {
-    switch ($[0]) {
-        case 'span': return p_.ss($, ($) => sh.e.mixed(
-            "span",
-            [],
-            Phrasing_Content($)
-        ))
-        case 'classified span': return p_.ss($, ($) => sh.e.mixed(
-            "span",
-            Classes($.classes),
-            Phrasing_Content($.content)
-        ))
-        case 'titled span': return p_.ss($, ($) => sh.e.mixed(
-            "span",
-            [
-                sh.attribute("title", $.title)
-            ],
-            Phrasing_Content($.content)
-        ))
-        case 'a': return p_.ss($, ($) => sh.e.mixed(
-            "a",
-            [
-                sh.attribute("href", $.href)
-            ],
-            [
-                sh.m.text($.text),
-                sh.m.node(sh.no.element(sh.e.nodes_only(
-                    "div",
-                    [],
-                    []
-                )))
-            ]
-        ))
-        case 'p': return p_.ss($, ($) => sh.e.mixed(
-            "p",
-            [],
-            [
-                sh.m.text($.text),
-                sh.m.node(sh.no.element(sh.e.empty(
-                    "div",
-                    [],
-                )))
-            ]
-        ))
-        default: return p_.au($[0])
-    }
-})
+export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide(
+    ($): d_out.Element => {
+        switch ($[0]) {
+            case 'span': return p_.ss($, ($) => sh.e.mixed(
+                "span",
+                [],
+                Phrasing_Content($)
+            ))
+            case 'classified span': return p_.ss($, ($) => sh.e.mixed(
+                "span",
+                Classes($.classes),
+                Phrasing_Content($.content)
+            ))
+            case 'titled span': return p_.ss($, ($) => sh.e.mixed(
+                "span",
+                [
+                    sh.attribute("title", $.title)
+                ],
+                Phrasing_Content($.content)
+            ))
+            case 'a': return p_.ss($, ($) => sh.e.mixed(
+                "a",
+                [
+                    sh.attribute("href", $.href)
+                ],
+                [
+                    sh.m.text($.text),
+                    sh.m.node(sh.no.element(sh.e.nodes_only(
+                        "div",
+                        [],
+                        []
+                    )))
+                ]
+            ))
+            case 'p': return p_.ss($, ($) => sh.e.mixed(
+                "p",
+                [],
+                [
+                    sh.m.text($.text),
+                    sh.m.node(sh.no.element(sh.e.empty(
+                        "div",
+                        [],
+                    )))
+                ]
+            ))
+            default: return p_.au($[0])
+        }
+    })
 
 
 // export const Flow_Content: signatures.Flow_Content = ($) => sh.ph.indent(
-//     sh.pg.sentences(p_.from.list($).map(($) => sh.sentence([
-//         p_.from.state($).decide(($) => {
+//     sh.pg.sentences(p_.from.list($).map(
+// ($) => sh.sentence([
+//         p_.from.state($).decide(
+// ($) => {
 //             switch ($[0]) {
 //                 case 'div': return p_.ss($, ($) => sh.ph.composed([
 //                     sh.ph.literal("<div"),
@@ -340,8 +342,10 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 //                     Classes($.classes),
 //                     sh.ph.literal(">"),
 //                     sh.ph.indent(
-//                         sh.pg.sentences($.sections.__ l_map_deprecated((section) => sh.sentence([
-//                             p_.from.state(section.type).decide(($) => {
+//                         sh.pg.sentences($.sections.__ l_map_deprecated(
+// (section) => sh.sentence([
+//                             p_.from.state(section.type).decide(
+// ($) => {
 //                                 switch ($[0]) {
 //                                     case 'header': return p_.ss($, () => sh.ph.literal("<thead"))
 //                                     case 'body': return p_.ss($, () => sh.ph.literal("<tbody"))
@@ -352,7 +356,8 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 //                             Classes(section.classes),
 //                             sh.ph.literal(">"),
 //                             sh.ph.indent(
-//                                 sh.pg.sentences(section.rows.__ l_map_deprecated((row) => sh.sentence([
+//                                 sh.pg.sentences(section.rows.__ l_map_deprecated(
+// (row) => sh.sentence([
 //                                     sh.ph.literal("<tr"),
 //                                     Classes(row.classes),
 //                                     row.height.__ decide(
@@ -365,8 +370,10 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 //                                     ),
 //                                     sh.ph.literal(">"),
 //                                     sh.ph.indent(
-//                                         sh.pg.sentences(row.cells.__ l_map_deprecated((cell) => sh.sentence([
-//                                             p_.from.state(row.type).decide(($) => {
+//                                         sh.pg.sentences(row.cells.__ l_map_deprecated(
+// (cell) => sh.sentence([
+//                                             p_.from.state(row.type).decide(
+// ($) => {
 //                                                 switch ($[0]) {
 //                                                     case 'th': return p_.ss($, () => sh.ph.composed([
 //                                                         sh.ph.literal("<th"),
@@ -390,7 +397,8 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 //                                     sh.ph.literal("</tr>")
 //                                 ])))
 //                             ),
-//                             p_.from.state(section.type).decide(($) => {
+//                             p_.from.state(section.type).decide(
+// ($) => {
 //                                 switch ($[0]) {
 //                                     case 'header': return p_.ss($, () => sh.ph.composed([
 //                                         sh.ph.literal("</thead>"),
@@ -479,7 +487,8 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 //     : sh.ph.composed([
 //         sh.ph.literal(" class=\""),
 //         sh.ph.rich(
-//             p_.from.list($).map(($) => sh.ph.literal($)),
+//             p_.from.list($).map(
+// ($) => sh.ph.literal($)),
 //             sh.ph.nothing(),
 //             sh.ph.nothing(),
 //             sh.ph.literal(" "),
@@ -489,7 +498,9 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 //     ])
 
 // export const Phrasing_Content: signatures.Phrasing_Content = ($) => sh.ph.indent(
-//     sh.pg.sentences(p_.from.list($).map(($) => p_.from.state($).decide(($): d_out.Sentence => {
+//     sh.pg.sentences(p_.from.list($).map(
+// ($) => p_.from.state($).decide(
+// ($): d_out.Sentence => {
 //         switch ($[0]) {
 //             case 'span': return p_.ss($, ($) => sh.sentence([
 //                 sh.ph.literal("<span"),

@@ -61,201 +61,211 @@ export const Document: signatures.Document = ($) => sh.pg.sentences([
 ])
 
 
-export const Flow_Element: signatures.Flow_Element = ($) => p_.from.state($).decide(($) => {
-    switch ($[0]) {
-        case 'div': return p_.ss($, ($) => sh.ph.composed([
-            sh.ph.literal("<div"),
-            sh.ph.literal(">"),
-            Flow_Content($),
-            sh.ph.literal("</div>")
-        ]))
-        case 'dimensioned div': return p_.ss($, ($) => sh.ph.composed([
-            sh.ph.literal("<div"),
-            p_.from.optional($.width).decide(
-                ($) => sh.ph.composed([
-                    sh.ph.literal(" width=\""),
-                    sh.ph.serialize(temp_serialize_number($)),
-                    sh.ph.literal("\"")
-                ]),
-                () => sh.ph.nothing()
-            ),
-            p_.from.optional($.height).decide(
-                ($) => sh.ph.composed([
-                    sh.ph.literal(" height=\""),
-                    sh.ph.serialize(temp_serialize_number($)),
-                    sh.ph.literal("\"")
-                ]),
-                () => sh.ph.nothing()
-            ),
-            sh.ph.literal(">"),
-            Flow_Content($.content),
-            sh.ph.literal("</div>")
-        ]))
-        case 'classified div': return p_.ss($, ($) => sh.ph.composed([
-            sh.ph.literal("<div"),
-            Classes($.classes),
-            sh.ph.literal(">"),
-            Flow_Content($.content),
-            sh.ph.literal("</div>")
-        ]))
-        case 'table': return p_.ss($, ($) => sh.ph.composed([
-            sh.ph.literal("<table"),
-            Classes($.classes),
-            sh.ph.literal(">"),
-            sh.ph.indent(
-                sh.pg.sentences(p_.from.list($.sections).map((section) => sh.sentence([
-                    p_.from.state(section.type).decide(($) => {
-                        switch ($[0]) {
-                            case 'header': return p_.ss($, () => sh.ph.literal("<thead"))
-                            case 'body': return p_.ss($, () => sh.ph.literal("<tbody"))
-                            case 'footer': return p_.ss($, () => sh.ph.literal("<tfoot"))
-                            default: return p_.au($[0])
-                        }
-                    }),
-                    Classes(section.classes),
-                    sh.ph.literal(">"),
-                    sh.ph.indent(
-                        sh.pg.sentences(p_.from.list(section.rows).map(($) => sh.sentence([
-                            sh.ph.literal("<tr"),
-                            Classes($.classes),
-                            p_.from.optional($.height).decide(
-                                ($) => sh.ph.composed([
-                                    sh.ph.literal(" height=\""),
-                                    sh.ph.serialize(temp_serialize_number($)),
-                                    sh.ph.literal("\"")
-                                ]),
-                                () => sh.ph.nothing()
-                            ),
+export const Flow_Element: signatures.Flow_Element = ($) => p_.from.state($).decide(
+    ($) => {
+        switch ($[0]) {
+            case 'div': return p_.ss($, ($) => sh.ph.composed([
+                sh.ph.literal("<div"),
+                sh.ph.literal(">"),
+                Flow_Content($),
+                sh.ph.literal("</div>")
+            ]))
+            case 'dimensioned div': return p_.ss($, ($) => sh.ph.composed([
+                sh.ph.literal("<div"),
+                p_.from.optional($.width).decide(
+                    ($) => sh.ph.composed([
+                        sh.ph.literal(" width=\""),
+                        sh.ph.serialize(temp_serialize_number($)),
+                        sh.ph.literal("\"")
+                    ]),
+                    () => sh.ph.nothing()
+                ),
+                p_.from.optional($.height).decide(
+                    ($) => sh.ph.composed([
+                        sh.ph.literal(" height=\""),
+                        sh.ph.serialize(temp_serialize_number($)),
+                        sh.ph.literal("\"")
+                    ]),
+                    () => sh.ph.nothing()
+                ),
+                sh.ph.literal(">"),
+                Flow_Content($.content),
+                sh.ph.literal("</div>")
+            ]))
+            case 'classified div': return p_.ss($, ($) => sh.ph.composed([
+                sh.ph.literal("<div"),
+                Classes($.classes),
+                sh.ph.literal(">"),
+                Flow_Content($.content),
+                sh.ph.literal("</div>")
+            ]))
+            case 'table': return p_.ss($, ($) => sh.ph.composed([
+                sh.ph.literal("<table"),
+                Classes($.classes),
+                sh.ph.literal(">"),
+                sh.ph.indent(
+                    sh.pg.sentences(p_.from.list($.sections).map(
+                        (section) => sh.sentence([
+                            p_.from.state(section.type).decide(
+                                ($) => {
+                                    switch ($[0]) {
+                                        case 'header': return p_.ss($, () => sh.ph.literal("<thead"))
+                                        case 'body': return p_.ss($, () => sh.ph.literal("<tbody"))
+                                        case 'footer': return p_.ss($, () => sh.ph.literal("<tfoot"))
+                                        default: return p_.au($[0])
+                                    }
+                                }),
+                            Classes(section.classes),
                             sh.ph.literal(">"),
                             sh.ph.indent(
-                                sh.pg.sentences(p_.from.list($.cells).map(($) => {
-                                    return sh.sentence([
-                                        sh.ph.literal("<"),
-                                        sh.ph.literal(p_.from.state($.type).decide(($) => {
-                                            switch ($[0]) {
-                                                case 'td': return p_.ss($, ($) => "td")
-                                                case 'th': return p_.ss($, ($) => "th")
-                                                default: return p_.au($[0])
-                                            }
-                                        })),
+                                sh.pg.sentences(p_.from.list(section.rows).map(
+                                    ($) => sh.sentence([
+                                        sh.ph.literal("<tr"),
                                         Classes($.classes),
-                                        p_.from.optional($.colspan).decide(
+                                        p_.from.optional($.height).decide(
                                             ($) => sh.ph.composed([
-                                                sh.ph.literal(" colspan=\""),
+                                                sh.ph.literal(" height=\""),
                                                 sh.ph.serialize(temp_serialize_number($)),
                                                 sh.ph.literal("\"")
                                             ]),
                                             () => sh.ph.nothing()
                                         ),
                                         sh.ph.literal(">"),
-                                        Flow_Content($.content),
-                                        sh.ph.literal("</"),
-                                        sh.ph.literal(p_.from.state($.type).decide(($) => {
-                                            switch ($[0]) {
-                                                case 'td': return p_.ss($, ($) => "td")
-                                                case 'th': return p_.ss($, ($) => "th")
-                                                default: return p_.au($[0])
-                                            }
-                                        })),
-                                        sh.ph.literal(">"),
-                                    ])
-                                }))
+                                        sh.ph.indent(
+                                            sh.pg.sentences(p_.from.list($.cells).map(
+                                                ($) => {
+                                                    return sh.sentence([
+                                                        sh.ph.literal("<"),
+                                                        sh.ph.literal(p_.from.state($.type).decide(
+                                                            ($) => {
+                                                                switch ($[0]) {
+                                                                    case 'td': return p_.ss($, ($) => "td")
+                                                                    case 'th': return p_.ss($, ($) => "th")
+                                                                    default: return p_.au($[0])
+                                                                }
+                                                            })),
+                                                        Classes($.classes),
+                                                        p_.from.optional($.colspan).decide(
+                                                            ($) => sh.ph.composed([
+                                                                sh.ph.literal(" colspan=\""),
+                                                                sh.ph.serialize(temp_serialize_number($)),
+                                                                sh.ph.literal("\"")
+                                                            ]),
+                                                            () => sh.ph.nothing()
+                                                        ),
+                                                        sh.ph.literal(">"),
+                                                        Flow_Content($.content),
+                                                        sh.ph.literal("</"),
+                                                        sh.ph.literal(p_.from.state($.type).decide(
+                                                            ($) => {
+                                                                switch ($[0]) {
+                                                                    case 'td': return p_.ss($, ($) => "td")
+                                                                    case 'th': return p_.ss($, ($) => "th")
+                                                                    default: return p_.au($[0])
+                                                                }
+                                                            })),
+                                                        sh.ph.literal(">"),
+                                                    ])
+                                                }))
+                                        ),
+                                        sh.ph.literal("</tr>")
+                                    ])))
                             ),
-                            sh.ph.literal("</tr>")
-                        ])))
-                    ),
-                    p_.from.state(section.type).decide(($) => {
-                        switch ($[0]) {
-                            case 'header': return p_.ss($, () => sh.ph.composed([
-                                sh.ph.literal("</thead>"),
+                            p_.from.state(section.type).decide(
+                                ($) => {
+                                    switch ($[0]) {
+                                        case 'header': return p_.ss($, () => sh.ph.composed([
+                                            sh.ph.literal("</thead>"),
 
-                            ]))
-                            case 'body': return p_.ss($, () => sh.ph.composed([
-                                sh.ph.literal("</tbody>"),
-                            ]))
-                            case 'footer': return p_.ss($, () => sh.ph.composed([
-                                sh.ph.literal("</tfoot>"),
-                            ]))
-                            default: return p_.au($[0])
-                        }
-                    })
-                ])))),
-            sh.ph.literal("</table>")
-        ]))
-        case 'span': return p_.ss($, ($) => sh.ph.composed([
-            sh.ph.literal("<span"),
-            sh.ph.literal(">"),
-            Phrasing_Content($),
-            sh.ph.literal("</span>")
-        ]))
-        case 'label': return p_.ss($, ($) => sh.ph.composed([
-            sh.ph.literal("<label"),
-            Classes($.classes),
-            sh.ph.literal(">"),
-            sh.ph.literal($.text),
-            Flow_Content($.content),
-            sh.ph.literal("</label>")
-        ]))
-        case 'img': return p_.ss($, ($) => sh.ph.composed([
-            sh.ph.literal("<img"),
-            Classes($.classes),
-            sh.ph.literal(" src=\""),
-            sh.ph.literal($.src),
-            sh.ph.literal("\" alt = \""),
-            sh.ph.literal($.alt),
-            sh.ph.literal("\""),
-            p_.from.optional($.width).decide(
-                ($) => sh.ph.composed([
-                    sh.ph.literal(" width=\""),
+                                        ]))
+                                        case 'body': return p_.ss($, () => sh.ph.composed([
+                                            sh.ph.literal("</tbody>"),
+                                        ]))
+                                        case 'footer': return p_.ss($, () => sh.ph.composed([
+                                            sh.ph.literal("</tfoot>"),
+                                        ]))
+                                        default: return p_.au($[0])
+                                    }
+                                })
+                        ])))),
+                sh.ph.literal("</table>")
+            ]))
+            case 'span': return p_.ss($, ($) => sh.ph.composed([
+                sh.ph.literal("<span"),
+                sh.ph.literal(">"),
+                Phrasing_Content($),
+                sh.ph.literal("</span>")
+            ]))
+            case 'label': return p_.ss($, ($) => sh.ph.composed([
+                sh.ph.literal("<label"),
+                Classes($.classes),
+                sh.ph.literal(">"),
+                sh.ph.literal($.text),
+                Flow_Content($.content),
+                sh.ph.literal("</label>")
+            ]))
+            case 'img': return p_.ss($, ($) => sh.ph.composed([
+                sh.ph.literal("<img"),
+                Classes($.classes),
+                sh.ph.literal(" src=\""),
+                sh.ph.literal($.src),
+                sh.ph.literal("\" alt = \""),
+                sh.ph.literal($.alt),
+                sh.ph.literal("\""),
+                p_.from.optional($.width).decide(
+                    ($) => sh.ph.composed([
+                        sh.ph.literal(" width=\""),
+                        sh.ph.serialize(temp_serialize_number($)),
+                        sh.ph.literal("\"")
+                    ]),
+                    () => sh.ph.nothing()
+                ),
+                p_.from.optional($.height).decide(
+                    ($) => sh.ph.composed([
+                        sh.ph.literal(" height=\""),
+                        sh.ph.serialize(temp_serialize_number($)),
+                        sh.ph.literal("\"")
+                    ]),
+                    () => sh.ph.nothing()
+                ),
+                sh.ph.literal(" />")
+            ]))
+            case 'svg': return p_.ss($, ($) => sh.ph.composed([
+                sh.ph.literal("<svg"),
+                Classes($.classes),
+                p_.from.optional($.width).decide(
+                    ($) => sh.ph.composed([sh.ph.literal(" width=\""),
+                    sh.ph.serialize(temp_serialize_number($)),
+                    sh.ph.literal("\"")]),
+                    () => sh.ph.nothing()
+                ),
+                p_.from.optional($.height).decide(
+                    ($) => sh.ph.composed([sh.ph.literal(" height=\""),
                     sh.ph.serialize(temp_serialize_number($)),
                     sh.ph.literal("\"")
-                ]),
-                () => sh.ph.nothing()
-            ),
-            p_.from.optional($.height).decide(
-                ($) => sh.ph.composed([
-                    sh.ph.literal(" height=\""),
-                    sh.ph.serialize(temp_serialize_number($)),
-                    sh.ph.literal("\"")
-                ]),
-                () => sh.ph.nothing()
-            ),
-            sh.ph.literal(" />")
-        ]))
-        case 'svg': return p_.ss($, ($) => sh.ph.composed([
-            sh.ph.literal("<svg"),
-            Classes($.classes),
-            p_.from.optional($.width).decide(
-                ($) => sh.ph.composed([sh.ph.literal(" width=\""),
-                sh.ph.serialize(temp_serialize_number($)),
-                sh.ph.literal("\"")]),
-                () => sh.ph.nothing()
-            ),
-            p_.from.optional($.height).decide(
-                ($) => sh.ph.composed([sh.ph.literal(" height=\""),
-                sh.ph.serialize(temp_serialize_number($)),
-                sh.ph.literal("\"")
-                ]),
-                () => sh.ph.nothing()
-            ),
-            sh.ph.literal(">"),
-            t_xml_to_fountain_pen.Mixed_Content($.content),
-            sh.ph.literal("</svg>")
-        ]))
-        default: return p_.au($[0])
-    }
-})
+                    ]),
+                    () => sh.ph.nothing()
+                ),
+                sh.ph.literal(">"),
+                t_xml_to_fountain_pen.Mixed_Content($.content),
+                sh.ph.literal("</svg>")
+            ]))
+            default: return p_.au($[0])
+        }
+    })
 
 
 export const Flow_Content: signatures.Flow_Content = ($) => sh.ph.indent(
-    sh.pg.sentences(p_.from.list($).map(($) => sh.sentence([Flow_Element($)])))
+    sh.pg.sentences(p_.from.list($).map(
+        ($) => sh.sentence([Flow_Element($)])))
 )
 
 export const Classes: signatures.Classes = ($) => p_.from.list($).on_has_items(
     ($) => sh.ph.composed([
         sh.ph.literal(" class=\""),
         sh.ph.rich(
-            p_.from.list($).map(($) => sh.ph.literal($)),
+            p_.from.list($).map(
+                ($) => sh.ph.literal($)),
             sh.ph.nothing(),
             sh.ph.nothing(),
             sh.ph.literal(" "),
@@ -266,72 +276,30 @@ export const Classes: signatures.Classes = ($) => p_.from.list($).on_has_items(
     () => sh.ph.nothing()
 )
 
-export const Phrasing_Element: signatures.Phrasing_Element = ($) => p_.from.state($).decide(($): d_out.Phrase => {
-    switch ($[0]) {
-        case 'span': return p_.ss($, ($) => sh.ph.composed([
-            sh.ph.literal("<span"),
-            sh.ph.literal(">"),
-            Phrasing_Content($),
-            sh.ph.literal("</span>")
-        ]))
-        case 'classified span': return p_.ss($, ($) => sh.ph.composed([
-            sh.ph.literal("<span"),
-            Classes($.classes),
-            sh.ph.literal(">"),
-            Phrasing_Content($.content),
-            sh.ph.literal("</span>")
-        ]))
-        case 'titled span': return p_.ss($, ($) => sh.ph.composed([
-            sh.ph.literal("<span title=\""),
-            sh.ph.literal($.title),
-            sh.ph.literal("\">"),
-            Phrasing_Content($.content),
-            sh.ph.literal("</span>")
-        ]))
-        case 'a': return p_.ss($, ($) => sh.ph.composed([
-            sh.ph.literal("<a"),
-            // Classes($.classes),
-            sh.ph.literal(" href=\""),
-            sh.ph.literal($.href),
-            sh.ph.literal("\">"),
-            sh.ph.literal($.text),
-            sh.ph.literal("</a>")
-        ]))
-        case 'p': return p_.ss($, ($) => sh.ph.composed([
-            sh.ph.literal("<p"),
-            // Classes($.classes),
-            sh.ph.literal(">"),
-            sh.ph.literal($.text),
-            sh.ph.literal("</p>")
-        ]))
-        default: return p_.au($[0])
-    }
-})
-
-export const Phrasing_Content: signatures.Phrasing_Content = ($) => sh.ph.indent(
-    sh.pg.sentences(p_.from.list($).map(($) => p_.from.state($).decide(($): d_out.Sentence => {
+export const Phrasing_Element: signatures.Phrasing_Element = ($) => p_.from.state($).decide(
+    ($): d_out.Phrase => {
         switch ($[0]) {
-            case 'span': return p_.ss($, ($) => sh.sentence([
+            case 'span': return p_.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("<span"),
                 sh.ph.literal(">"),
                 Phrasing_Content($),
                 sh.ph.literal("</span>")
             ]))
-            case 'classified span': return p_.ss($, ($) => sh.sentence([
+            case 'classified span': return p_.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("<span"),
                 Classes($.classes),
                 sh.ph.literal(">"),
                 Phrasing_Content($.content),
                 sh.ph.literal("</span>")
             ]))
-            case 'titled span': return p_.ss($, ($) => sh.sentence([
+            case 'titled span': return p_.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("<span title=\""),
                 sh.ph.literal($.title),
                 sh.ph.literal("\">"),
                 Phrasing_Content($.content),
                 sh.ph.literal("</span>")
             ]))
-            case 'a': return p_.ss($, ($) => sh.sentence([
+            case 'a': return p_.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("<a"),
                 // Classes($.classes),
                 sh.ph.literal(" href=\""),
@@ -340,7 +308,7 @@ export const Phrasing_Content: signatures.Phrasing_Content = ($) => sh.ph.indent
                 sh.ph.literal($.text),
                 sh.ph.literal("</a>")
             ]))
-            case 'p': return p_.ss($, ($) => sh.sentence([
+            case 'p': return p_.ss($, ($) => sh.ph.composed([
                 sh.ph.literal("<p"),
                 // Classes($.classes),
                 sh.ph.literal(">"),
@@ -349,5 +317,50 @@ export const Phrasing_Content: signatures.Phrasing_Content = ($) => sh.ph.indent
             ]))
             default: return p_.au($[0])
         }
-    })))
+    })
+
+export const Phrasing_Content: signatures.Phrasing_Content = ($) => sh.ph.indent(
+    sh.pg.sentences(p_.from.list($).map(
+        ($) => p_.from.state($).decide(
+            ($): d_out.Sentence => {
+                switch ($[0]) {
+                    case 'span': return p_.ss($, ($) => sh.sentence([
+                        sh.ph.literal("<span"),
+                        sh.ph.literal(">"),
+                        Phrasing_Content($),
+                        sh.ph.literal("</span>")
+                    ]))
+                    case 'classified span': return p_.ss($, ($) => sh.sentence([
+                        sh.ph.literal("<span"),
+                        Classes($.classes),
+                        sh.ph.literal(">"),
+                        Phrasing_Content($.content),
+                        sh.ph.literal("</span>")
+                    ]))
+                    case 'titled span': return p_.ss($, ($) => sh.sentence([
+                        sh.ph.literal("<span title=\""),
+                        sh.ph.literal($.title),
+                        sh.ph.literal("\">"),
+                        Phrasing_Content($.content),
+                        sh.ph.literal("</span>")
+                    ]))
+                    case 'a': return p_.ss($, ($) => sh.sentence([
+                        sh.ph.literal("<a"),
+                        // Classes($.classes),
+                        sh.ph.literal(" href=\""),
+                        sh.ph.literal($.href),
+                        sh.ph.literal("\">"),
+                        sh.ph.literal($.text),
+                        sh.ph.literal("</a>")
+                    ]))
+                    case 'p': return p_.ss($, ($) => sh.sentence([
+                        sh.ph.literal("<p"),
+                        // Classes($.classes),
+                        sh.ph.literal(">"),
+                        sh.ph.literal($.text),
+                        sh.ph.literal("</p>")
+                    ]))
+                    default: return p_.au($[0])
+                }
+            })))
 )

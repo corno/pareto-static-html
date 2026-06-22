@@ -130,8 +130,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', p_decide
                                 ),
                                 "sections": p_change_context(
                                     $['sections'],
-                                    ($) => ['list', p_.from.list(
-                                        $,
+                                    ($) => ['list', p_.from.list($,
                                     ).map(
                                         ($) => ['group', ['verbose', p_.literal.dictionary(
                                             {
@@ -181,8 +180,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', p_decide
                                                 ),
                                                 "rows": p_change_context(
                                                     $['rows'],
-                                                    ($) => ['list', p_.from.list(
-                                                        $,
+                                                    ($) => ['list', p_.from.list($,
                                                     ).map(
                                                         ($) => ['group', ['verbose', p_.literal.dictionary(
                                                             {
@@ -207,8 +205,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', p_decide
                                                                 ),
                                                                 "cells": p_change_context(
                                                                     $['cells'],
-                                                                    ($) => ['list', p_.from.list(
-                                                                        $,
+                                                                    ($) => ['list', p_.from.list($,
                                                                     ).map(
                                                                         ($) => ['group', ['verbose', p_.literal.dictionary(
                                                                             {
@@ -437,16 +434,14 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', p_decide
     },
 )]
 
-export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', p_.from.list(
-    $,
+export const Flow_Content: t_signatures.Flow_Content = ($) => ['list', p_.from.list($,
 ).map(
     ($) => Flow_Element(
         $,
     ),
 )]
 
-export const Classes: t_signatures.Classes = ($) => ['list', p_.from.list(
-    $,
+export const Classes: t_signatures.Classes = ($) => ['list', p_.from.list($,
 ).map(
     ($) => ['text', {
         'delimiter': ['quote', null],
@@ -454,8 +449,7 @@ export const Classes: t_signatures.Classes = ($) => ['list', p_.from.list(
     }],
 )]
 
-export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => ['list', p_.from.list(
-    $,
+export const Phrasing_Content: t_signatures.Phrasing_Content = ($) => ['list', p_.from.list($,
 ).map(
     ($) => Phrasing_Element(
         $,

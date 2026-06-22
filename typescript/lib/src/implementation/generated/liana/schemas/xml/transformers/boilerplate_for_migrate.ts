@@ -14,8 +14,7 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/xml/
 export const Document: t_signatures.Document = ($) => ({
     'doc type': p_change_context(
         $['doc type'],
-        ($) => p_.from.optional(
-            $,
+        ($) => p_.from.optional($,
         ).map(
             ($) => ({
                 'name': p_change_context(
@@ -42,8 +41,7 @@ export const Element: t_signatures.Element = ($) => ({
     ),
     'attributes': p_change_context(
         $['attributes'],
-        ($) => p_.from.list(
-            $,
+        ($) => p_.from.list($,
         ).map(
             ($) => ({
                 'name': p_change_context(
@@ -93,8 +91,7 @@ export const Element: t_signatures.Element = ($) => ({
                             ($) => ['nodes only', {
                                 'children': p_change_context(
                                     $['children'],
-                                    ($) => p_.from.list(
-                                        $,
+                                    ($) => p_.from.list($,
                                     ).map(
                                         ($) => Node(
                                             $,
@@ -113,8 +110,7 @@ export const Element: t_signatures.Element = ($) => ({
     ),
 })
 
-export const Mixed_Content: t_signatures.Mixed_Content = ($) => p_.from.list(
-    $,
+export const Mixed_Content: t_signatures.Mixed_Content = ($) => p_.from.list($,
 ).map(
     ($) => p_decide_state(
         $,
@@ -149,8 +145,7 @@ export const Mixed_Content: t_signatures.Mixed_Content = ($) => p_.from.list(
 export const Qualified_Name: t_signatures.Qualified_Name = ($) => ({
     'namespace prefix': p_change_context(
         $['namespace prefix'],
-        ($) => p_.from.optional(
-            $,
+        ($) => p_.from.optional($,
         ).map(
             ($) => $,
         ),

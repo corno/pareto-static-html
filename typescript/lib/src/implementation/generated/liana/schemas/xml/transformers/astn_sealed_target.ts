@@ -54,8 +54,7 @@ export const Element: t_signatures.Element = ($) => ['group', ['verbose', p_.lit
         ),
         "attributes": p_change_context(
             $['attributes'],
-            ($) => ['list', p_.from.list(
-                $,
+            ($) => ['list', p_.from.list($,
             ).map(
                 ($) => ['group', ['verbose', p_.literal.dictionary(
                     {
@@ -129,8 +128,7 @@ export const Element: t_signatures.Element = ($) => ['group', ['verbose', p_.lit
                                         {
                                             "children": p_change_context(
                                                 $['children'],
-                                                ($) => ['list', p_.from.list(
-                                                    $,
+                                                ($) => ['list', p_.from.list($,
                                                 ).map(
                                                     ($) => Node(
                                                         $,
@@ -152,8 +150,7 @@ export const Element: t_signatures.Element = ($) => ['group', ['verbose', p_.lit
     },
 )]]
 
-export const Mixed_Content: t_signatures.Mixed_Content = ($) => ['list', p_.from.list(
-    $,
+export const Mixed_Content: t_signatures.Mixed_Content = ($) => ['list', p_.from.list($,
 ).map(
     ($) => ['state', p_decide_state(
         $,

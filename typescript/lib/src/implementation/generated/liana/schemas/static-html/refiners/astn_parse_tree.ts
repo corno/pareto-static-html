@@ -150,8 +150,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => p_change_co
                                                     'subdocument context': p_.literal.not_set(),
                                                 },
                                             ),
-                                            ($) => p_.from.optional(
-                                                v_unmarshalled_from_parse_tree.Optional(
+                                            ($) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
                                                     $,
                                                     ($) => abort(
                                                         $,
@@ -181,8 +180,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => p_change_co
                                                     'subdocument context': p_.literal.not_set(),
                                                 },
                                             ),
-                                            ($) => p_.from.optional(
-                                                v_unmarshalled_from_parse_tree.Optional(
+                                            ($) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
                                                     $,
                                                     ($) => abort(
                                                         $,
@@ -352,8 +350,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => p_change_co
                                                     'subdocument context': p_.literal.not_set(),
                                                 },
                                             ),
-                                            ($) => p_.from.list(
-                                                v_unmarshalled_from_parse_tree.List(
+                                            ($) => p_.from.list(v_unmarshalled_from_parse_tree.List(
                                                     $,
                                                     ($) => abort(
                                                         $,
@@ -490,8 +487,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => p_change_co
                                                                                 'subdocument context': p_.literal.not_set(),
                                                                             },
                                                                         ),
-                                                                        ($) => p_.from.list(
-                                                                            v_unmarshalled_from_parse_tree.List(
+                                                                        ($) => p_.from.list(v_unmarshalled_from_parse_tree.List(
                                                                                 $,
                                                                                 ($) => abort(
                                                                                     $,
@@ -559,8 +555,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => p_change_co
                                                                                                             'subdocument context': p_.literal.not_set(),
                                                                                                         },
                                                                                                     ),
-                                                                                                    ($) => p_.from.optional(
-                                                                                                        v_unmarshalled_from_parse_tree.Optional(
+                                                                                                    ($) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
                                                                                                             $,
                                                                                                             ($) => abort(
                                                                                                                 $,
@@ -590,8 +585,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => p_change_co
                                                                                                             'subdocument context': p_.literal.not_set(),
                                                                                                         },
                                                                                                     ),
-                                                                                                    ($) => p_.from.list(
-                                                                                                        v_unmarshalled_from_parse_tree.List(
+                                                                                                    ($) => p_.from.list(v_unmarshalled_from_parse_tree.List(
                                                                                                             $,
                                                                                                             ($) => abort(
                                                                                                                 $,
@@ -701,8 +695,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => p_change_co
                                                                                                                                         'subdocument context': p_.literal.not_set(),
                                                                                                                                     },
                                                                                                                                 ),
-                                                                                                                                ($) => p_.from.optional(
-                                                                                                                                    v_unmarshalled_from_parse_tree.Optional(
+                                                                                                                                ($) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
                                                                                                                                         $,
                                                                                                                                         ($) => abort(
                                                                                                                                             $,
@@ -979,8 +972,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => p_change_co
                                                     'subdocument context': p_.literal.not_set(),
                                                 },
                                             ),
-                                            ($) => p_.from.optional(
-                                                v_unmarshalled_from_parse_tree.Optional(
+                                            ($) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
                                                     $,
                                                     ($) => abort(
                                                         $,
@@ -1010,8 +1002,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => p_change_co
                                                     'subdocument context': p_.literal.not_set(),
                                                 },
                                             ),
-                                            ($) => p_.from.optional(
-                                                v_unmarshalled_from_parse_tree.Optional(
+                                            ($) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
                                                     $,
                                                     ($) => abort(
                                                         $,
@@ -1113,8 +1104,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => p_change_co
                                                     'subdocument context': p_.literal.not_set(),
                                                 },
                                             ),
-                                            ($) => p_.from.optional(
-                                                v_unmarshalled_from_parse_tree.Optional(
+                                            ($) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
                                                     $,
                                                     ($) => abort(
                                                         $,
@@ -1144,8 +1134,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => p_change_co
                                                     'subdocument context': p_.literal.not_set(),
                                                 },
                                             ),
-                                            ($) => p_.from.optional(
-                                                v_unmarshalled_from_parse_tree.Optional(
+                                            ($) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
                                                     $,
                                                     ($) => abort(
                                                         $,
@@ -1186,8 +1175,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($, abort) => p_change_co
     ),
 )
 
-export const Flow_Content: t_signatures.Flow_Content = ($, abort) => p_.from.list(
-    v_unmarshalled_from_parse_tree.List(
+export const Flow_Content: t_signatures.Flow_Content = ($, abort) => p_.from.list(v_unmarshalled_from_parse_tree.List(
         $,
         ($) => abort(
             $,
@@ -1208,8 +1196,7 @@ export const Flow_Content: t_signatures.Flow_Content = ($, abort) => p_.from.lis
     ),
 )
 
-export const Classes: t_signatures.Classes = ($, abort) => p_.from.list(
-    v_unmarshalled_from_parse_tree.List(
+export const Classes: t_signatures.Classes = ($, abort) => p_.from.list(v_unmarshalled_from_parse_tree.List(
         $,
         ($) => abort(
             $,
@@ -1230,8 +1217,7 @@ export const Classes: t_signatures.Classes = ($, abort) => p_.from.list(
     ),
 )
 
-export const Phrasing_Content: t_signatures.Phrasing_Content = ($, abort) => p_.from.list(
-    v_unmarshalled_from_parse_tree.List(
+export const Phrasing_Content: t_signatures.Phrasing_Content = ($, abort) => p_.from.list(v_unmarshalled_from_parse_tree.List(
         $,
         ($) => abort(
             $,
