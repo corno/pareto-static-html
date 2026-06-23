@@ -10,8 +10,8 @@ import * as d_text from "pareto-fountain-pen/dist/interface/generated/liana/sche
 import * as t_fp_to_text from "pareto-fountain-pen/dist/implementation/manual/transformers/prose/text"
 
 //shorthands
-import * as sh from "../../../../modules/xml/shorthands/xml"
-import * as sh_fp from "pareto-fountain-pen/dist/shorthands/prose"
+import * as sh from "../../../../modules/xml/shorthands/xml/target"
+import * as sh_fp from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
 
 
 export type Document = p_i.Transformer<
@@ -42,40 +42,40 @@ export const Document: Document = ($) => sh.document(
     "html",
     sh.e.nodes_only(
         "html",
-        [],
-        [
+        p_.literal.list([]),
+        p_.literal.list([
             sh.no.element(sh.e.nodes_only(
                 "head",
-                [],
-                [
+                p_.literal.list([]),
+                p_.literal.list([
                     sh.no.element(sh.e.empty(
                         "meta",
-                        [
+                        p_.literal.list([
                             sh.attribute("charset", "UTF-8"),
-                        ],
+                        ]),
                     )),
                     sh.no.element(sh.e.empty(
                         "meta",
-                        [
+                        p_.literal.list([
                             sh.attribute("name", "viewport"),
                             sh.attribute("content", "width=device-width, initial-scale=1.0"),
-                        ],
+                        ]),
                     )),
                     sh.no.element(sh.e.text_only(
                         "style",
-                        [],
+                        p_.literal.list([]),
                         $.css
                     )),
-                ]
+                ])
             )),
             sh.no.element(sh.e.nodes_only(
                 "body",
-                [],
-                [
+                p_.literal.list([]),
+                p_.literal.list([
                     Flow_Element($.root)
-                ]
+                ])
             )),
-        ]
+        ])
     )
 )
 
@@ -84,7 +84,7 @@ export const Flow_Element: Flow_Element = ($) => p_.from.state($).decide(
         switch ($[0]) {
             case 'div': return p_.ss($, ($) => sh.no.element(sh.e.nodes_only(
                 "div",
-                [],
+                p_.literal.list([]),
                 Flow_Content($)
             )))
             case 'dimensioned div': return p_.ss($, ($) => sh.no.element(sh.e.nodes_only(
@@ -165,21 +165,21 @@ export const Flow_Element: Flow_Element = ($) => p_.from.state($).decide(
             )))
             case 'span': return p_.ss($, ($) => sh.no.element(sh.e.mixed(
                 "span",
-                [],
+                p_.literal.list([]),
                 Phrasing_Content($)
             )))
             case 'label': return p_.ss($, ($) => sh.no.element(sh.e.mixed(
                 "label",
                 Classes($.classes),
-                [
+                p_.literal.list([
                     sh.m.text($.text),
                     sh.m.node(sh.no.element(sh.e.nodes_only(
                         "div",
-                        [],
+                        p_.literal.list([]),
                         Flow_Content($.content)
                     )))
                 ]
-            )))
+            ))))
             case 'img': return p_.ss($, ($) => sh.no.element(sh.e.empty(
                 "img",
                 p_.literal.segmented_list([
@@ -255,7 +255,7 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
         switch ($[0]) {
             case 'span': return p_.ss($, ($) => sh.e.mixed(
                 "span",
-                [],
+                p_.literal.list([]),
                 Phrasing_Content($)
             ))
             case 'classified span': return p_.ss($, ($) => sh.e.mixed(
@@ -265,36 +265,36 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
             ))
             case 'titled span': return p_.ss($, ($) => sh.e.mixed(
                 "span",
-                [
+                p_.literal.list([
                     sh.attribute("title", $.title)
-                ],
+                ]),
                 Phrasing_Content($.content)
             ))
             case 'a': return p_.ss($, ($) => sh.e.mixed(
                 "a",
-                [
+                p_.literal.list([
                     sh.attribute("href", $.href)
-                ],
-                [
+                ]),
+                p_.literal.list([
                     sh.m.text($.text),
                     sh.m.node(sh.no.element(sh.e.nodes_only(
                         "div",
-                        [],
-                        []
+                        p_.literal.list([]),
+                        p_.literal.list([])
                     )))
                 ]
-            ))
+            )))
             case 'p': return p_.ss($, ($) => sh.e.mixed(
                 "p",
-                [],
-                [
+                p_.literal.list([]),
+                p_.literal.list([
                     sh.m.text($.text),
                     sh.m.node(sh.no.element(sh.e.empty(
                         "div",
-                        [],
+                        p_.literal.list([]),
                     )))
                 ]
-            ))
+            )))
             default: return p_.au($[0])
         }
     })

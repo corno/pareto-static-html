@@ -1,6 +1,6 @@
-import * as p_ from 'pareto-core-shorthands/dist/unconstrained'
+import * as p_ from 'pareto-core-shorthands/dist/unconstrained_target'
 
-import * as d_target from "../../../interface/generated/liana/schemas/xml/data"
+import * as d_target from "../../../../interface/generated/liana/schemas/xml/data"
 
 export const document = (
     doc_type: null | string,
@@ -29,7 +29,7 @@ export namespace e { //element
 
     export const empty = (
         name: string,
-        attributes: p_.Raw_Or_Normal_List<d_target.Element.attributes.L>,
+        attributes: p_.Normal_List<d_target.Element.attributes.L>,
     ): d_target.Element => ({
         'name': {
             'namespace prefix': p_.optional.not_set(),
@@ -41,7 +41,7 @@ export namespace e { //element
 
     export const text_only = (
         name: string,
-        attributes: p_.Raw_Or_Normal_List<d_target.Element.attributes.L>,
+        attributes: p_.Normal_List<d_target.Element.attributes.L>,
         text: string,
     ): d_target.Element => ({
         'name': {
@@ -56,8 +56,8 @@ export namespace e { //element
 
     export const mixed = (
         name: string,
-        attributes: p_.Raw_Or_Normal_List<d_target.Element.attributes.L>,
-        children: p_.Raw_Or_Normal_List<d_target.Mixed_Content.L>,
+        attributes: p_.Normal_List<d_target.Element.attributes.L>,
+        children: p_.Normal_List<d_target.Mixed_Content.L>,
     ): d_target.Element => ({
         'name': {
             'namespace prefix': p_.optional.not_set(),
@@ -69,8 +69,8 @@ export namespace e { //element
 
     export const nodes_only = (
         name: string,
-        attributes: p_.Raw_Or_Normal_List<d_target.Element.attributes.L>,
-        children: p_.Raw_Or_Normal_List<d_target.Element.content_type.nodes_only.children.L>,
+        attributes: p_.Normal_List<d_target.Element.attributes.L>,
+        children: p_.Normal_List<d_target.Element.content_type.nodes_only.children.L>,
     ): d_target.Element => ({
         'name': {
             'namespace prefix': p_.optional.not_set(),

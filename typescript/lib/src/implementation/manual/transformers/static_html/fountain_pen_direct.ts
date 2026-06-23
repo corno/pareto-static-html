@@ -4,7 +4,7 @@ import p_list_from_text from 'pareto-core/dist/implementation/refiner/specials/l
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 import * as d_loc from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
 
-import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
+import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
 
 import * as signatures from "../../../../interface/transformers/html/fountain_pen"
 
