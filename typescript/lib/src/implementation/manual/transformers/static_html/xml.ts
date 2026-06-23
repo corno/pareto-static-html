@@ -14,12 +14,24 @@ import * as sh from "../../../../modules/xml/shorthands/xml"
 import * as sh_fp from "pareto-fountain-pen/dist/shorthands/prose"
 
 
-export type Document = p_i.Transformer<d_in.Document, d_out.Document>
-export type Flow_Element = p_i.Transformer<d_in.Flow_Element, d_out.Element.content_type.nodes_only.children.L>
-export type Flow_Content = p_i.Transformer<d_in.Flow_Content, d_out.Element.content_type.nodes_only.children>
-export type Classes = p_i.Transformer<d_in.Classes, d_out.Element.attributes>
-export type Phrasing_Content = p_i.Transformer<d_in.Phrasing_Content, d_out.Mixed_Content>
-export type Phrasing_Element = p_i.Transformer<d_in.Phrasing_Element, d_out.Element>
+export type Document = p_i.Transformer<
+d_in.Document, d_out.Document
+>
+export type Flow_Element = p_i.Transformer<
+d_in.Flow_Element, d_out.Element.content_type.nodes_only.children.L
+>
+export type Flow_Content = p_i.Transformer<
+d_in.Flow_Content, d_out.Element.content_type.nodes_only.children
+>
+export type Classes = p_i.Transformer<
+d_in.Classes, d_out.Element.attributes
+>
+export type Phrasing_Content = p_i.Transformer<
+d_in.Phrasing_Content, d_out.Mixed_Content
+>
+export type Phrasing_Element = p_i.Transformer<
+d_in.Phrasing_Element, d_out.Element
+>
 
 
 const temp_serialize_number = (n: number): d_text.Text => {
