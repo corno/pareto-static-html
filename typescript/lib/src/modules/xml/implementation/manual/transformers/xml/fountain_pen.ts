@@ -14,8 +14,7 @@ export type Mixed_Content = p_i.Transformer<d_in.Mixed_Content, d_out.Phrase>
 
 export const Document: Document = ($) => sh.pg.sentences(p_.literal.chain(
 
-    p_.from.optional($['doc type'],
-    ).decide(
+    p_.from.optional($['doc type']).decide(
         ($) => p_.literal.list([
             sh.sentence([
                 sh.ph.literal("<!DOCTYPE "),
@@ -37,8 +36,7 @@ export const Element: Element = ($) => sh.ph.composed(p_.literal.segmented_list(
         sh.ph.literal("<"),
         Qualified_Name($.name),
     ]),
-    p_.from.list($['attributes'],
-    ).map(
+    p_.from.list($['attributes']).map(
         ($) => sh.ph.composed([
             sh.ph.literal(" "),
             Qualified_Name($.name),
@@ -54,8 +52,7 @@ export const Element: Element = ($) => sh.ph.composed(p_.literal.segmented_list(
                     case 'empty': return p_.ss($, ($) => sh.ph.nothing())
                     case 'mixed': return p_.ss($, ($) => Mixed_Content($))
                     case 'nodes only': return p_.ss($, ($) => sh.ph.indent(
-                        sh.pg.sentences(p_.from.list($.children
-                        ).map(
+                        sh.pg.sentences(p_.from.list($.children).map(
                             ($) => sh.sentence([Node($)]))
                         )))
                     case 'text only': return p_.ss($, ($) => sh.ph.literal($.value))
@@ -69,8 +66,7 @@ export const Element: Element = ($) => sh.ph.composed(p_.literal.segmented_list(
 ]))
 
 export const Mixed_Content: Mixed_Content = ($) => sh.ph.composed(
-    p_.from.list($
-    ).map(
+    p_.from.list($).map(
         ($) => p_.from.state($).decide(
             ($) => {
                 switch ($[0]) {
@@ -83,8 +79,7 @@ export const Mixed_Content: Mixed_Content = ($) => sh.ph.composed(
 )
 
 export const Qualified_Name: Qualified_Name = ($) => sh.ph.composed(p_.literal.chain(
-    p_.from.optional($['namespace prefix'],
-    ).decide(
+    p_.from.optional($['namespace prefix']).decide(
         ($) => p_.literal.list([
             sh.ph.literal($),
             sh.ph.literal(":"),

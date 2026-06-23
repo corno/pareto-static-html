@@ -78,15 +78,13 @@ export const Flow_Element: Flow_Element = ($) => p_.from.state($).decide(
             case 'dimensioned div': return p_.ss($, ($) => sh.no.element(sh.e.nodes_only(
                 "div",
                 p_.literal.segmented_list([
-                    p_.from.optional($.width,
-                    ).decide(
+                    p_.from.optional($.width).decide(
                         ($) => p_.literal.list([
                             sh.attribute("width", temp_serialize_number($)),
                         ]),
                         () => p_.literal.list([])
                     ),
-                    p_.from.optional($.height,
-                    ).decide(
+                    p_.from.optional($.height).decide(
                         ($) => p_.literal.list([
                             sh.attribute("height", temp_serialize_number($)),
                         ]),
@@ -177,15 +175,13 @@ export const Flow_Element: Flow_Element = ($) => p_.from.state($).decide(
                         sh.attribute("src", $.src),
                         sh.attribute("alt", $.alt),
                     ]),
-                    p_.from.optional($.width,
-                    ).decide(
+                    p_.from.optional($.width).decide(
                         ($) => p_.literal.list([
                             sh.attribute("width", temp_serialize_number($)),
                         ]),
                         () => p_.literal.list([])
                     ),
-                    p_.from.optional($.height,
-                    ).decide(
+                    p_.from.optional($.height).decide(
                         ($) => p_.literal.list([
                             sh.attribute("height", temp_serialize_number($)),
                         ]),
@@ -197,15 +193,13 @@ export const Flow_Element: Flow_Element = ($) => p_.from.state($).decide(
                 "svg",
                 p_.literal.segmented_list([
                     Classes($.classes),
-                    p_.from.optional($.width,
-                    ).decide(
+                    p_.from.optional($.width).decide(
                         ($) => p_.literal.list([
                             sh.attribute("width", temp_serialize_number($)),
                         ]),
                         () => p_.literal.list([])
                     ),
-                    p_.from.optional($.height,
-                    ).decide(
+                    p_.from.optional($.height).decide(
                         ($) => p_.literal.list([
                             sh.attribute("height", temp_serialize_number($)),
                         ]),
@@ -219,8 +213,7 @@ export const Flow_Element: Flow_Element = ($) => p_.from.state($).decide(
         }
     })
 
-export const Flow_Content: Flow_Content = ($) => p_.from.list($
-).map(
+export const Flow_Content: Flow_Content = ($) => p_.from.list($).map(
     ($) => Flow_Element($)
 )
 
@@ -241,8 +234,7 @@ export const Classes: Classes = ($) => p_.literal.list([
     )),
 ])
 
-export const Phrasing_Content: Phrasing_Content = ($) => p_.from.list($
-).map(
+export const Phrasing_Content: Phrasing_Content = ($) => p_.from.list($).map(
     ($) => sh.m.element(Phrasing_Element($))
 )
 
