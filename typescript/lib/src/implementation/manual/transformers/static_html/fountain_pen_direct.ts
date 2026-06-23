@@ -24,10 +24,12 @@ export const Document: signatures.Document = ($) => sh.pg.sentences([
     ]),
     sh.sentence([
         sh.ph.literal("<html>"),
-        sh.ph.indent(sh.pg.sentences([
+        sh.ph.indent(
+sh.pg.sentences([
             sh.sentence([
                 sh.ph.literal("<head>"),
-                sh.ph.indent(sh.pg.sentences([
+                sh.ph.indent(
+sh.pg.sentences([
                     sh.sentence([
                         sh.ph.literal("<meta charset=\"UTF-8\">"),
                     ]),
@@ -36,7 +38,8 @@ export const Document: signatures.Document = ($) => sh.pg.sentences([
                     ]),
                     sh.sentence([
                         sh.ph.literal("<style>"),
-                        sh.ph.indent(sh.pg.sentences([
+                        sh.ph.indent(
+sh.pg.sentences([
                             sh.sentence([
                                 sh.ph.literal($.css)
                             ])
