@@ -1,4 +1,3 @@
-import * as p_ from 'pareto-core/dist/implementation/transformer'
 
 import * as signatures from "../../../../interface/transformers/html/fountain_pen"
 
