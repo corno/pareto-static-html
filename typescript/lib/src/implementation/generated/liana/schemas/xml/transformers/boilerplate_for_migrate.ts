@@ -64,12 +64,12 @@ export const Element: t_signatures.Element = ($) => ({
             ($): t_out.Element.content_type => {
                 switch ($[0]) {
                     case 'empty':
-                        return p_.ss(
+                        return p_.option(
                             $,
                             ($) => ['empty', p_.literal.nothing()],
                         )
                     case 'text only':
-                        return p_.ss(
+                        return p_.option(
                             $,
                             ($) => ['text only', {
                                 'value': p_change_context(
@@ -79,14 +79,14 @@ export const Element: t_signatures.Element = ($) => ({
                             }],
                         )
                     case 'mixed':
-                        return p_.ss(
+                        return p_.option(
                             $,
                             ($) => ['mixed', Mixed_Content(
                                 $,
                             )],
                         )
                     case 'nodes only':
-                        return p_.ss(
+                        return p_.option(
                             $,
                             ($) => ['nodes only', {
                                 'children': p_change_context(
@@ -117,14 +117,14 @@ export const Mixed_Content: t_signatures.Mixed_Content = ($) => p_.from.list($,
         ($): t_out.Mixed_Content.L => {
             switch ($[0]) {
                 case 'node':
-                    return p_.ss(
+                    return p_.option(
                         $,
                         ($) => ['node', Node(
                             $,
                         )],
                     )
                 case 'text':
-                    return p_.ss(
+                    return p_.option(
                         $,
                         ($) => ['text', {
                             'value': p_change_context(
@@ -161,24 +161,24 @@ export const Node: t_signatures.Node = ($) => p_decide_state(
     ($): t_out.Node => {
         switch ($[0]) {
             case 'element':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['element', Element(
                         $,
                     )],
                 )
             case 'comment':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['comment', $],
                 )
             case 'cdata':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['cdata', $],
                 )
             case 'processing instruction':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['processing instruction', {
                         'target': p_change_context(

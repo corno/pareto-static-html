@@ -82,7 +82,7 @@ export const Element: t_signatures.Element = ($) => ['group', ['verbose', p_.lit
                 ($): t_out.Value.state => {
                     switch ($[0]) {
                         case 'empty':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ({
                                     'option': 'empty',
@@ -92,7 +92,7 @@ export const Element: t_signatures.Element = ($) => ['group', ['verbose', p_.lit
                                 }),
                             )
                         case 'text only':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ({
                                     'option': 'text only',
@@ -110,7 +110,7 @@ export const Element: t_signatures.Element = ($) => ['group', ['verbose', p_.lit
                                 }),
                             )
                         case 'mixed':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ({
                                     'option': 'mixed',
@@ -120,7 +120,7 @@ export const Element: t_signatures.Element = ($) => ['group', ['verbose', p_.lit
                                 }),
                             )
                         case 'nodes only':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ({
                                     'option': 'nodes only',
@@ -157,7 +157,7 @@ export const Mixed_Content: t_signatures.Mixed_Content = ($) => ['list', p_.from
         ($): t_out.Value.state => {
             switch ($[0]) {
                 case 'node':
-                    return p_.ss(
+                    return p_.option(
                         $,
                         ($) => ({
                             'option': 'node',
@@ -167,7 +167,7 @@ export const Mixed_Content: t_signatures.Mixed_Content = ($) => ['list', p_.from
                         }),
                     )
                 case 'text':
-                    return p_.ss(
+                    return p_.option(
                         $,
                         ($) => ({
                             'option': 'text',
@@ -221,7 +221,7 @@ export const Node: t_signatures.Node = ($) => ['state', p_decide_state(
     ($): t_out.Value.state => {
         switch ($[0]) {
             case 'element':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'element',
@@ -231,7 +231,7 @@ export const Node: t_signatures.Node = ($) => ['state', p_decide_state(
                     }),
                 )
             case 'comment':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'comment',
@@ -242,7 +242,7 @@ export const Node: t_signatures.Node = ($) => ['state', p_decide_state(
                     }),
                 )
             case 'cdata':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'cdata',
@@ -253,7 +253,7 @@ export const Node: t_signatures.Node = ($) => ['state', p_decide_state(
                     }),
                 )
             case 'processing instruction':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'processing instruction',

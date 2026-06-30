@@ -87,13 +87,13 @@ export const Document: Document = ($) => sh.document(
 export const Flow_Element: Flow_Element = ($) => p_.from.state($).decide(
     ($): d_out.Element.content_type.nodes_only.children.L => {
         switch ($[0]) {
-            case 'div': return p_.ss($, ($) => sh.no.element(
+            case 'div': return p_.option($, ($) => sh.no.element(
                 sh.e.nodes_only(
                     "div",
                     p_.literal.list([]),
                     Flow_Content($)
                 )))
-            case 'dimensioned div': return p_.ss($, ($) => sh.no.element(
+            case 'dimensioned div': return p_.option($, ($) => sh.no.element(
                 sh.e.nodes_only(
                     "div",
                     p_.literal.segmented_list([
@@ -112,13 +112,13 @@ export const Flow_Element: Flow_Element = ($) => p_.from.state($).decide(
                     ]),
                     Flow_Content($.content)
                 )))
-            case 'classified div': return p_.ss($, ($) => sh.no.element(
+            case 'classified div': return p_.option($, ($) => sh.no.element(
                 sh.e.nodes_only(
                     "div",
                     Classes($.classes),
                     Flow_Content($.content)
                 )))
-            case 'table': return p_.ss($, ($) => sh.no.element(
+            case 'table': return p_.option($, ($) => sh.no.element(
                 sh.e.nodes_only(
                     "table",
                     Classes($.classes),
@@ -128,9 +128,9 @@ export const Flow_Element: Flow_Element = ($) => p_.from.state($).decide(
                                 p_.from.state($.type).decide(
                                     ($) => {
                                         switch ($[0]) {
-                                            case 'header': return p_.ss($, ($) => "thead")
-                                            case 'body': return p_.ss($, ($) => "tbody")
-                                            case 'footer': return p_.ss($, ($) => "tfoot")
+                                            case 'header': return p_.option($, ($) => "thead")
+                                            case 'body': return p_.option($, ($) => "tbody")
+                                            case 'footer': return p_.option($, ($) => "tfoot")
                                             default: return p_.au($[0])
                                         }
                                     }),
@@ -155,8 +155,8 @@ export const Flow_Element: Flow_Element = ($) => p_.from.state($).decide(
                                                             p_.from.state($.type).decide(
                                                                 ($): string => {
                                                                     switch ($[0]) {
-                                                                        case 'th': return p_.ss($, ($) => "th")
-                                                                        case 'td': return p_.ss($, ($) => "td")
+                                                                        case 'th': return p_.option($, ($) => "th")
+                                                                        case 'td': return p_.option($, ($) => "td")
                                                                         default: return p_.au($[0])
                                                                     }
                                                                 }),
@@ -175,13 +175,13 @@ export const Flow_Element: Flow_Element = ($) => p_.from.state($).decide(
                                     })
                             )))
                 )))
-            case 'span': return p_.ss($, ($) => sh.no.element(
+            case 'span': return p_.option($, ($) => sh.no.element(
                 sh.e.mixed(
                     "span",
                     p_.literal.list([]),
                     Phrasing_Content($)
                 )))
-            case 'label': return p_.ss($, ($) => sh.no.element(
+            case 'label': return p_.option($, ($) => sh.no.element(
                 sh.e.mixed(
                     "label",
                     Classes($.classes),
@@ -196,7 +196,7 @@ export const Flow_Element: Flow_Element = ($) => p_.from.state($).decide(
                                 )))
                     ]
                     ))))
-            case 'img': return p_.ss($, ($) => sh.no.element(
+            case 'img': return p_.option($, ($) => sh.no.element(
                 sh.e.empty(
                     "img",
                     p_.literal.segmented_list([
@@ -218,7 +218,7 @@ export const Flow_Element: Flow_Element = ($) => p_.from.state($).decide(
                         )
                     ])
                 )))
-            case 'svg': return p_.ss($, ($) => sh.no.element(
+            case 'svg': return p_.option($, ($) => sh.no.element(
                 sh.e.mixed(
                     "svg",
                     p_.literal.segmented_list([
@@ -271,24 +271,24 @@ export const Phrasing_Content: Phrasing_Content = ($) => p_.from.list($).map(
 export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide(
     ($): d_out.Element => {
         switch ($[0]) {
-            case 'span': return p_.ss($, ($) => sh.e.mixed(
+            case 'span': return p_.option($, ($) => sh.e.mixed(
                 "span",
                 p_.literal.list([]),
                 Phrasing_Content($)
             ))
-            case 'classified span': return p_.ss($, ($) => sh.e.mixed(
+            case 'classified span': return p_.option($, ($) => sh.e.mixed(
                 "span",
                 Classes($.classes),
                 Phrasing_Content($.content)
             ))
-            case 'titled span': return p_.ss($, ($) => sh.e.mixed(
+            case 'titled span': return p_.option($, ($) => sh.e.mixed(
                 "span",
                 p_.literal.list([
                     sh.attribute("title", $.title)
                 ]),
                 Phrasing_Content($.content)
             ))
-            case 'a': return p_.ss($, ($) => sh.e.mixed(
+            case 'a': return p_.option($, ($) => sh.e.mixed(
                 "a",
                 p_.literal.list([
                     sh.attribute("href", $.href)
@@ -304,7 +304,7 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
                             )))
                 ]
                 )))
-            case 'p': return p_.ss($, ($) => sh.e.mixed(
+            case 'p': return p_.option($, ($) => sh.e.mixed(
                 "p",
                 p_.literal.list([]),
                 p_.literal.list([
@@ -328,13 +328,13 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 //         p_.from.state($).decide(
 // ($) => {
 //             switch ($[0]) {
-//                 case 'div': return p_.ss($, ($) => sh.ph.composed([
+//                 case 'div': return p_.option($, ($) => sh.ph.composed([
 //                     sh.ph.literal("<div"),
 //                     sh.ph.literal(">"),
 //                     Flow_Content($),
 //                     sh.ph.literal("</div>")
 //                 ]))
-//                 case 'dimensioned div': return p_.ss($, ($) => sh.ph.composed([
+//                 case 'dimensioned div': return p_.option($, ($) => sh.ph.composed([
 //                     sh.ph.literal("<div"),
 //                     $.width.__ decide(
 //                         ($) => sh.ph.composed([
@@ -356,26 +356,26 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 //                     Flow_Content($.content),
 //                     sh.ph.literal("</div>")
 //                 ]))
-//                 case 'classified div': return p_.ss($, ($) => sh.ph.composed([
+//                 case 'classified div': return p_.option($, ($) => sh.ph.composed([
 //                     sh.ph.literal("<div"),
 //                     Classes($.classes),
 //                     sh.ph.literal(">"),
 //                     Flow_Content($.content),
 //                     sh.ph.literal("</div>")
 //                 ]))
-//                 case 'table': return p_.ss($, ($) => sh.ph.composed([
+//                 case 'table': return p_.option($, ($) => sh.ph.composed([
 //                     sh.ph.literal("<table"),
 //                     Classes($.classes),
 //                     sh.ph.literal(">"),
 //                     sh.ph.indent(
 //                         sh.pg.sentences($.sections.__ l_map_deprecated(
 // (section) => sh.sentence([
-//                             p_.from.state(section.type).decide(
+//                             p_.from.state($v_section.type).decide(
 // ($) => {
 //                                 switch ($[0]) {
-//                                     case 'header': return p_.ss($, () => sh.ph.literal("<thead"))
-//                                     case 'body': return p_.ss($, () => sh.ph.literal("<tbody"))
-//                                     case 'footer': return p_.ss($, () => sh.ph.literal("<tfoot"))
+//                                     case 'header': return p_.option($, () => sh.ph.literal("<thead"))
+//                                     case 'body': return p_.option($, () => sh.ph.literal("<tbody"))
+//                                     case 'footer': return p_.option($, () => sh.ph.literal("<tfoot"))
 //                                     default: return p_.au($[0])
 //                                 }
 //                             }),
@@ -401,14 +401,14 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 //                                             p_.from.state(row.type).decide(
 // ($) => {
 //                                                 switch ($[0]) {
-//                                                     case 'th': return p_.ss($, () => sh.ph.composed([
+//                                                     case 'th': return p_.option($, () => sh.ph.composed([
 //                                                         sh.ph.literal("<th"),
 //                                                         Classes(cell.classes),
 //                                                         sh.ph.literal(">"),
 //                                                         Flow_Content(cell.content),
 //                                                         sh.ph.literal("</th>")
 //                                                     ]))
-//                                                     case 'td': return p_.ss($, () => sh.ph.composed([
+//                                                     case 'td': return p_.option($, () => sh.ph.composed([
 //                                                         sh.ph.literal("<td"),
 //                                                         Classes(cell.classes),
 //                                                         sh.ph.literal(">"),
@@ -426,14 +426,14 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 //                             p_.from.state(section.type).decide(
 // ($) => {
 //                                 switch ($[0]) {
-//                                     case 'header': return p_.ss($, () => sh.ph.composed([
+//                                     case 'header': return p_.option($, () => sh.ph.composed([
 //                                         sh.ph.literal("</thead>"),
 
 //                                     ]))
-//                                     case 'body': return p_.ss($, () => sh.ph.composed([
+//                                     case 'body': return p_.option($, () => sh.ph.composed([
 //                                         sh.ph.literal("</tbody>"),
 //                                     ]))
-//                                     case 'footer': return p_.ss($, () => sh.ph.composed([
+//                                     case 'footer': return p_.option($, () => sh.ph.composed([
 //                                         sh.ph.literal("</tfoot>"),
 //                                     ]))
 //                                     default: return p_.au($[0])
@@ -442,13 +442,13 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 //                         ])))),
 //                     sh.ph.literal("</table>")
 //                 ]))
-//                 case 'span': return p_.ss($, ($) => sh.ph.composed([
+//                 case 'span': return p_.option($, ($) => sh.ph.composed([
 //                     sh.ph.literal("<span"),
 //                     sh.ph.literal(">"),
 //                     Phrasing_Content($),
 //                     sh.ph.literal("</span>")
 //                 ]))
-//                 case 'label': return p_.ss($, ($) => sh.ph.composed([
+//                 case 'label': return p_.option($, ($) => sh.ph.composed([
 //                     sh.ph.literal("<label"),
 //                     Classes($.classes),
 //                     sh.ph.literal(">"),
@@ -456,7 +456,7 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 //                     Flow_Content($.content),
 //                     sh.ph.literal("</label>")
 //                 ]))
-//                 case 'img': return p_.ss($, ($) => sh.ph.composed([
+//                 case 'img': return p_.option($, ($) => sh.ph.composed([
 //                     sh.ph.literal("<img"),
 //                     Classes($.classes),
 //                     sh.ph.literal(" src=\""),
@@ -482,7 +482,7 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 //                     ),
 //                     sh.ph.literal(" />")
 //                 ]))
-//                 case 'svg': return p_.ss($, ($) => sh.ph.composed([
+//                 case 'svg': return p_.option($, ($) => sh.ph.composed([
 //                     sh.ph.literal("<svg"),
 //                     Classes($.classes),
 //                     $.width.__ decide(
@@ -528,27 +528,27 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 // ($) => p_.from.state($).decide(
 // ($): d_out.Sentence => {
 //         switch ($[0]) {
-//             case 'span': return p_.ss($, ($) => sh.sentence([
+//             case 'span': return p_.option($, ($) => sh.sentence([
 //                 sh.ph.literal("<span"),
 //                 sh.ph.literal(">"),
 //                 Phrasing_Content($),
 //                 sh.ph.literal("</span>")
 //             ]))
-//             case 'classified span': return p_.ss($, ($) => sh.sentence([
+//             case 'classified span': return p_.option($, ($) => sh.sentence([
 //                 sh.ph.literal("<span"),
 //                 Classes($.classes),
 //                 sh.ph.literal(">"),
 //                 Phrasing_Content($.content),
 //                 sh.ph.literal("</span>")
 //             ]))
-//             case 'titled span': return p_.ss($, ($) => sh.sentence([
+//             case 'titled span': return p_.option($, ($) => sh.sentence([
 //                 sh.ph.literal("<span title=\""),
 //                 sh.ph.literal($.title),
 //                 sh.ph.literal("\">"),
 //                 Phrasing_Content($.content),
 //                 sh.ph.literal("</span>")
 //             ]))
-//             case 'a': return p_.ss($, ($) => sh.sentence([
+//             case 'a': return p_.option($, ($) => sh.sentence([
 //                 sh.ph.literal("<a"),
 //                 // Classes($.classes),
 //                 sh.ph.literal(" href=\""),
@@ -557,7 +557,7 @@ export const Phrasing_Element: Phrasing_Element = ($) => p_.from.state($).decide
 //                 sh.ph.literal($.text),
 //                 sh.ph.literal("</a>")
 //             ]))
-//             case 'p': return p_.ss($, ($) => sh.sentence([
+//             case 'p': return p_.option($, ($) => sh.sentence([
 //                 sh.ph.literal("<p"),
 //                 // Classes($.classes),
 //                 sh.ph.literal(">"),

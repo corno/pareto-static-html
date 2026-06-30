@@ -40,7 +40,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', p_decide
     ($): t_out.Value.state => {
         switch ($[0]) {
             case 'div':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'div',
@@ -50,7 +50,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', p_decide
                     }),
                 )
             case 'dimensioned div':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'dimensioned div',
@@ -93,7 +93,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', p_decide
                     }),
                 )
             case 'classified div':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'classified div',
@@ -116,7 +116,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', p_decide
                     }),
                 )
             case 'table':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'table',
@@ -147,7 +147,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', p_decide
                                                         ($): t_out.Value.state => {
                                                             switch ($[0]) {
                                                                 case 'header':
-                                                                    return p_.ss(
+                                                                    return p_.option(
                                                                         $,
                                                                         ($) => ({
                                                                             'option': 'header',
@@ -155,7 +155,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', p_decide
                                                                         }),
                                                                     )
                                                                 case 'body':
-                                                                    return p_.ss(
+                                                                    return p_.option(
                                                                         $,
                                                                         ($) => ({
                                                                             'option': 'body',
@@ -163,7 +163,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', p_decide
                                                                         }),
                                                                     )
                                                                 case 'footer':
-                                                                    return p_.ss(
+                                                                    return p_.option(
                                                                         $,
                                                                         ($) => ({
                                                                             'option': 'footer',
@@ -216,7 +216,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', p_decide
                                                                                         ($): t_out.Value.state => {
                                                                                             switch ($[0]) {
                                                                                                 case 'th':
-                                                                                                    return p_.ss(
+                                                                                                    return p_.option(
                                                                                                         $,
                                                                                                         ($) => ({
                                                                                                             'option': 'th',
@@ -224,7 +224,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', p_decide
                                                                                                         }),
                                                                                                     )
                                                                                                 case 'td':
-                                                                                                    return p_.ss(
+                                                                                                    return p_.option(
                                                                                                         $,
                                                                                                         ($) => ({
                                                                                                             'option': 'td',
@@ -281,7 +281,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', p_decide
                     }),
                 )
             case 'span':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'span',
@@ -291,7 +291,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', p_decide
                     }),
                 )
             case 'label':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'label',
@@ -321,7 +321,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', p_decide
                     }),
                 )
             case 'img':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'img',
@@ -378,7 +378,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => ['state', p_decide
                     }),
                 )
             case 'svg':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'svg',
@@ -461,7 +461,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => ['state', 
     ($): t_out.Value.state => {
         switch ($[0]) {
             case 'span':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'span',
@@ -471,7 +471,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => ['state', 
                     }),
                 )
             case 'classified span':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'classified span',
@@ -494,7 +494,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => ['state', 
                     }),
                 )
             case 'titled span':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'titled span',
@@ -518,7 +518,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => ['state', 
                     }),
                 )
             case 'a':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'a',
@@ -543,7 +543,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => ['state', 
                     }),
                 )
             case 'p':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ({
                         'option': 'p',

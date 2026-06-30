@@ -59,13 +59,13 @@ export const Element: Element = ($) => sh.ph.composed(p_.literal.segmented_list(
         p_.from.state($['content type']).decide(
             ($) => {
                 switch ($[0]) {
-                    case 'empty': return p_.ss($, ($) => sh.ph.nothing())
-                    case 'mixed': return p_.ss($, ($) => Mixed_Content($))
-                    case 'nodes only': return p_.ss($, ($) => sh.ph.indent(
+                    case 'empty': return p_.option($, ($) => sh.ph.nothing())
+                    case 'mixed': return p_.option($, ($) => Mixed_Content($))
+                    case 'nodes only': return p_.option($, ($) => sh.ph.indent(
                         sh.pg.sentences(p_.from.list($.children).map(
                             ($) => sh.sentence([Node($)]))
                         )))
-                    case 'text only': return p_.ss($, ($) => sh.ph.literal($.value))
+                    case 'text only': return p_.option($, ($) => sh.ph.literal($.value))
                     default: return p_.au($[0])
                 }
             }),
@@ -80,8 +80,8 @@ export const Mixed_Content: Mixed_Content = ($) => sh.ph.composed(
         ($) => p_.from.state($).decide(
             ($) => {
                 switch ($[0]) {
-                    case 'node': return p_.ss($, ($) => Node($))
-                    case 'text': return p_.ss($, ($) => sh.ph.literal($.value))
+                    case 'node': return p_.option($, ($) => Node($))
+                    case 'text': return p_.option($, ($) => sh.ph.literal($.value))
                     default: return p_.au($[0])
                 }
             })
@@ -102,20 +102,20 @@ export const Qualified_Name: Qualified_Name = ($) => sh.ph.composed(p_.literal.c
 export const Node: Node = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
-            case 'cdata': return p_.ss($, ($) => sh.ph.composed([
+            case 'cdata': return p_.option($, ($) => sh.ph.composed([
                 sh.ph.literal("<![CDATA["),
                 sh.ph.literal($),
                 sh.ph.literal("]]>")
             ]))
-            case 'comment': return p_.ss($, ($) => sh.ph.composed([
+            case 'comment': return p_.option($, ($) => sh.ph.composed([
                 sh.ph.literal("<!--"),
                 sh.ph.literal($),
                 sh.ph.literal("-->")
             ]))
-            case 'element': return p_.ss($, ($) => sh.ph.composed([
+            case 'element': return p_.option($, ($) => sh.ph.composed([
                 Element($)
             ]))
-            case 'processing instruction': return p_.ss($, ($) => sh.ph.composed([
+            case 'processing instruction': return p_.option($, ($) => sh.ph.composed([
                 sh.ph.literal("<?"),
                 sh.ph.literal($.target),
                 sh.ph.literal(" "),

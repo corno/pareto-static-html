@@ -31,14 +31,14 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => p_decide_state(
     ($): t_out.Flow_Element => {
         switch ($[0]) {
             case 'div':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['div', Flow_Content(
                         $,
                     )],
                 )
             case 'dimensioned div':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['dimensioned div', {
                         'width': p_change_context(
@@ -64,7 +64,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => p_decide_state(
                     }],
                 )
             case 'classified div':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['classified div', {
                         'classes': p_change_context(
@@ -82,7 +82,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => p_decide_state(
                     }],
                 )
             case 'table':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['table', {
                         'classes': p_change_context(
@@ -109,17 +109,17 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => p_decide_state(
                                             ($): t_out.Flow_Element.table.sections.L.type_ => {
                                                 switch ($[0]) {
                                                     case 'header':
-                                                        return p_.ss(
+                                                        return p_.option(
                                                             $,
                                                             ($) => ['header', null],
                                                         )
                                                     case 'body':
-                                                        return p_.ss(
+                                                        return p_.option(
                                                             $,
                                                             ($) => ['body', null],
                                                         )
                                                     case 'footer':
-                                                        return p_.ss(
+                                                        return p_.option(
                                                             $,
                                                             ($) => ['footer', null],
                                                         )
@@ -161,12 +161,12 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => p_decide_state(
                                                                     ($): t_out.Flow_Element.table.sections.L.rows.L.cells.L.type_ => {
                                                                         switch ($[0]) {
                                                                             case 'th':
-                                                                                return p_.ss(
+                                                                                return p_.option(
                                                                                     $,
                                                                                     ($) => ['th', null],
                                                                                 )
                                                                             case 'td':
-                                                                                return p_.ss(
+                                                                                return p_.option(
                                                                                     $,
                                                                                     ($) => ['td', null],
                                                                                 )
@@ -209,14 +209,14 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => p_decide_state(
                     }],
                 )
             case 'span':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['span', Phrasing_Content(
                         $,
                     )],
                 )
             case 'label':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['label', {
                         'classes': p_change_context(
@@ -238,7 +238,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => p_decide_state(
                     }],
                 )
             case 'img':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['img', {
                         'classes': p_change_context(
@@ -272,7 +272,7 @@ export const Flow_Element: t_signatures.Flow_Element = ($) => p_decide_state(
                     }],
                 )
             case 'svg':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['svg', {
                         'classes': p_change_context(
@@ -335,14 +335,14 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => p_decide_s
     ($): t_out.Phrasing_Element => {
         switch ($[0]) {
             case 'span':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['span', Phrasing_Content(
                         $,
                     )],
                 )
             case 'classified span':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['classified span', {
                         'classes': p_change_context(
@@ -360,7 +360,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => p_decide_s
                     }],
                 )
             case 'titled span':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['titled span', {
                         'title': p_change_context(
@@ -376,7 +376,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => p_decide_s
                     }],
                 )
             case 'a':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['a', {
                         'text': p_change_context(
@@ -390,7 +390,7 @@ export const Phrasing_Element: t_signatures.Phrasing_Element = ($) => p_decide_s
                     }],
                 )
             case 'p':
-                return p_.ss(
+                return p_.option(
                     $,
                     ($) => ['p', {
                         'text': p_change_context(
