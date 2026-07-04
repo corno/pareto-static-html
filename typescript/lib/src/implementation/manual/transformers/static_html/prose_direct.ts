@@ -8,7 +8,7 @@ import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
 import * as signatures from "../../../../interface/transformers/html/prose"
 
 //dependencies
-import * as t_xml_to_fountain_pen from "../../../../modules/xml/implementation/manual/transformers/xml/prose"
+import * as t_xml_to_prose from "../../../../modules/xml/implementation/manual/transformers/xml/prose"
 
 const temp_serialize_number = (n: number): d_loc.List_of_Characters => {
     return p_list_from_text(
@@ -249,7 +249,7 @@ export const Flow_Element: signatures.Flow_Element = ($) => p_.from.state($).dec
                     () => sh.ph.nothing()
                 ),
                 sh.ph.literal(">"),
-                t_xml_to_fountain_pen.Mixed_Content($.content),
+                t_xml_to_prose.Mixed_Content($.content),
                 sh.ph.literal("</svg>")
             ]))
             default: return p_.au($[0])
