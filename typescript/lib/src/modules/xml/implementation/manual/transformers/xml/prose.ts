@@ -7,19 +7,24 @@ import * as d_in from "../../../../../../interface/generated/liana/schemas/xml/d
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
 
 export type Document = p_i.Transformer<
-d_in.Document, d_out.Paragraph
+    d_in.Document,
+    d_out.Paragraph
 >
 export type Element = p_i.Transformer<
-d_in.Element, d_out.Phrase
+    d_in.Element,
+    d_out.Phrase
 >
 export type Qualified_Name = p_i.Transformer<
-d_in.Qualified_Name, d_out.Phrase
+    d_in.Qualified_Name,
+    d_out.Phrase
 >
 export type Node = p_i.Transformer<
-d_in.Node, d_out.Phrase
+    d_in.Node,
+    d_out.Phrase
 >
 export type Mixed_Content = p_i.Transformer<
-d_in.Mixed_Content, d_out.Phrase
+    d_in.Mixed_Content,
+    d_out.Phrase
 >
 
 export const Document: Document = ($) => sh.pg.sentences(p_.literal.chain(
