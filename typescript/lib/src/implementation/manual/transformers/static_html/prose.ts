@@ -1,8 +1,8 @@
 
-import * as signatures from "../../../../interface/transformers/html/fountain_pen"
+import * as signatures from "../../../../interface/transformers/html/prose"
 
 //dependencies
-import * as t_xml_to_fountain_pen from "../../../../modules/xml/implementation/manual/transformers/xml/fountain_pen"
+import * as t_xml_to_fountain_pen from "../../../../modules/xml/implementation/manual/transformers/xml/prose"
 import * as t_to_xml from "./xml"
 
 

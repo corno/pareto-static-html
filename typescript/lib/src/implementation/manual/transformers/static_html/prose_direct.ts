@@ -5,10 +5,10 @@ import * as d_loc from "pareto-fountain-pen/dist/interface/generated/liana/schem
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
 
-import * as signatures from "../../../../interface/transformers/html/fountain_pen"
+import * as signatures from "../../../../interface/transformers/html/prose"
 
 //dependencies
-import * as t_xml_to_fountain_pen from "../../../../modules/xml/implementation/manual/transformers/xml/fountain_pen"
+import * as t_xml_to_fountain_pen from "../../../../modules/xml/implementation/manual/transformers/xml/prose"
 
 const temp_serialize_number = (n: number): d_loc.List_of_Characters => {
     return p_list_from_text(

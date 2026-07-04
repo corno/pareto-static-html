@@ -5,7 +5,7 @@ import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schem
 
 
 //dependencies
-import * as t_static_html_to_fp from "./fountain_pen"
+import * as t_static_html_to_fp from "./prose"
 import * as t_fp_to_text from "pareto-fountain-pen/dist/implementation/manual/transformers/prose/list_of_characters"
 
 export type Document = p_i.Transformer<
