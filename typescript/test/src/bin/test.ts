@@ -2,8 +2,8 @@
 
 import * as p_h from 'pareto-host-nodejs/index'
 
-// import { $$ as create_test_bin } from "pareto-test/dist/temporary_testset_generator/create_test_bin"
-// import { $$ as testset } from "../testset"
+// import { $$ as create_test_bin } from "pareto-test/temporary_testset_generator/create_test_bin"
+// import { $$ as testset } from "../testset.js"
 
 // p_h.run_main_command(
 //     create_test_bin(testset),
