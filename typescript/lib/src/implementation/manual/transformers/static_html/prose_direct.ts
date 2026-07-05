@@ -1,14 +1,14 @@
-import * as p_ from 'pareto-core/dist/implementation/transformer'
-import p_list_from_text from 'pareto-core/dist/implementation/refiner/specials/list_from_text'
+import * as p_ from 'pareto-core/implementation/transformer'
+import p_list_from_text from 'pareto-core/implementation/refiner/specials/list_from_text'
 
-import * as d_loc from "pareto-fountain-pen/dist/interface/generated/liana/schemas/list_of_characters/data"
+import * as d_loc from "pareto-fountain-pen/interface/generated/liana/schemas/list_of_characters/data"
 
-import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
+import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
 
-import * as signatures from "../../../../interface/transformers/html/prose"
+import * as signatures from "../../../../interface/transformers/html/prose.js"
 
 //dependencies
-import * as t_xml_to_prose from "../../../../modules/xml/implementation/manual/transformers/xml/prose"
+import * as t_xml_to_prose from "../../../../modules/xml/implementation/manual/transformers/xml/prose.js"
 
 const temp_serialize_number = (n: number): d_loc.List_of_Characters => {
     return p_list_from_text(

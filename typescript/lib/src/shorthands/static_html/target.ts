@@ -1,7 +1,7 @@
-import * as p_ from 'pareto-core-shorthands/dist/unconstrained_target'
+import * as p_ from 'pareto-core-shorthands/unconstrained_target'
 
-import * as d_target from "../../interface/generated/liana/schemas/static-html/data"
-import * as d_target_xml from "../../interface/generated/liana/schemas/xml/data"
+import * as d_target from "../../interface/generated/liana/schemas/static-html/data.js"
+import * as d_target_xml from "../../interface/generated/liana/schemas/xml/data.js"
 
 
 export const document = (

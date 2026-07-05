@@ -1,9 +1,9 @@
 
-import * as p_i from 'pareto-core/dist/interface/__internal/Abort'
+import * as p_i from 'pareto-core/interface/__internal/Abort'
 
-import * as i_out from "../../data"
+import * as i_out from "../../data.js"
 
-import * as i_in from "../../data"
+import * as i_in from "../../data.js"
 
 export namespace Document_ {
     
@@ -101,7 +101,7 @@ export type Phrasing_Element_ = (
     context: Phrasing_Element_.I,
 ) => Phrasing_Element_.O
 
-export { 
+export type { 
     Document_ as Document, 
     Flow_Element_ as Flow_Element, 
     Flow_Content_ as Flow_Content, 

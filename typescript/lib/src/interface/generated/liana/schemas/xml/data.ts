@@ -1,6 +1,6 @@
 
-import * as p_i from 'pareto-core/dist/interface/__internal/Abort'
-import * as p_di from 'pareto-core/dist/interface/data'
+import * as p_i from 'pareto-core/interface/__internal/Abort'
+import * as p_di from 'pareto-core/interface/data'
 
 export namespace Document_ {
     
@@ -178,7 +178,7 @@ export type Node_ =
     | readonly ['cdata', Node_.cdata]
     | readonly ['processing instruction', Node_.processing_instruction]
 
-export { 
+export type { 
     Document_ as Document, 
     Element_ as Element, 
     Mixed_Content_ as Mixed_Content, 

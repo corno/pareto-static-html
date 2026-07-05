@@ -1,17 +1,17 @@
-import * as p_ from 'pareto-core/dist/implementation/transformer'
-import * as p_i from 'pareto-core/dist/interface/transformer'
+import * as p_ from 'pareto-core/implementation/transformer'
+import * as p_i from 'pareto-core/interface/transformer'
 
 //data types
-import * as d_in from "../../../../interface/generated/liana/schemas/static-html/data"
-import * as d_out from "../../../../interface/generated/liana/schemas/xml/data"
-import * as d_text from "pareto-fountain-pen/dist/interface/generated/liana/schemas/text/data"
+import * as d_in from "../../../../interface/generated/liana/schemas/static-html/data.js"
+import * as d_out from "../../../../interface/generated/liana/schemas/xml/data.js"
+import * as d_text from "pareto-fountain-pen/interface/generated/liana/schemas/text/data"
 
 //dependencies
-import * as t_prose_to_text from "pareto-fountain-pen/dist/implementation/manual/transformers/prose/text"
+import * as t_prose_to_text from "pareto-fountain-pen/implementation/manual/transformers/prose/text"
 
 //shorthands
-import * as sh from "../../../../modules/xml/shorthands/xml/target"
-import * as sh_fp from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
+import * as sh from "../../../../modules/xml/shorthands/xml/target.js"
+import * as sh_fp from "pareto-fountain-pen/shorthands/prose/deprecated"
 
 export namespace interface_ {
 

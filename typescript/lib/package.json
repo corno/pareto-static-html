@@ -1,11 +1,19 @@
 {
   "name": "pareto-static-html",
-  "version": "0.1.56",
+  "version": "0.1.57",
   "author": "Corno",
   "license": "Apache-2.0",
   "description": "a library for creating static HTML documents using Pareto",
+  "type": "module",
+  "exports": {
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.js"
+    }
+  },
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",
+  "module": "./dist/index.js",
   "files": [
     "dist"
   ],

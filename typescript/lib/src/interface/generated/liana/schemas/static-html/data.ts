@@ -1,8 +1,8 @@
 
-import * as p_i from 'pareto-core/dist/interface/__internal/Abort'
-import * as p_di from 'pareto-core/dist/interface/data'
+import * as p_i from 'pareto-core/interface/__internal/Abort'
+import * as p_di from 'pareto-core/interface/data'
 
-import * as i_imports_xml from "../xml/data"
+import * as i_imports_xml from "../xml/data.js"
 
 export namespace Document_ {
     
@@ -354,7 +354,7 @@ export type Phrasing_Element_ =
     | readonly ['a', Phrasing_Element_.a]
     | readonly ['p', Phrasing_Element_.p]
 
-export { 
+export type { 
     Document_ as Document, 
     Flow_Element_ as Flow_Element, 
     Flow_Content_ as Flow_Content, 

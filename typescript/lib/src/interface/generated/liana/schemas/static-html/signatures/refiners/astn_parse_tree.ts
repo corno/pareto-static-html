@@ -1,11 +1,11 @@
 
-import * as p_i from 'pareto-core/dist/interface/__internal/Abort'
+import * as p_i from 'pareto-core/interface/__internal/Abort'
 
-import * as i_generic from "liana-core/dist/interface/data/unmarshall"
+import * as i_generic from "liana-core/interface/data/unmarshall"
 
-import * as i_out from "../../data"
+import * as i_out from "../../data.js"
 
-import * as i_in from "astn-core/dist/interface/generated/liana/schemas/parse_tree/data"
+import * as i_in from "astn-core/interface/generated/liana/schemas/parse_tree/data"
 
 export namespace Document_ {
     
@@ -121,7 +121,7 @@ export type Phrasing_Element_ = (
     abort: p_i.Abort<Phrasing_Element_.E>,
 ) => Phrasing_Element_.O
 
-export { 
+export type { 
     Document_ as Document, 
     Flow_Element_ as Flow_Element, 
     Flow_Content_ as Flow_Content, 

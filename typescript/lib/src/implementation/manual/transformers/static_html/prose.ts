@@ -1,9 +1,9 @@
 
-import * as signatures from "../../../../interface/transformers/html/prose"
+import * as signatures from "../../../../interface/transformers/html/prose.js"
 
 //dependencies
-import * as t_xml_to_prose from "../../../../modules/xml/implementation/manual/transformers/xml/prose"
-import * as t_to_xml from "./xml"
+import * as t_xml_to_prose from "../../../../modules/xml/implementation/manual/transformers/xml/prose.js"
+import * as t_to_xml from "./xml.js"
 
 
 export const Document: signatures.Document = ($) => t_xml_to_prose.Document(
