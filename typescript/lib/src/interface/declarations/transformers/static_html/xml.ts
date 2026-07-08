@@ -1,1 +1,37 @@
-import type * as p_ from 'pareto-core/interface/transformer'
+import * as p_ from 'pareto-core/implementation/transformer'
+import type * as p_i from 'pareto-core/interface/transformer'
+
+//data types
+import type * as d_in from "../../../../interface/generated/liana/schemas/static-html/data.js"
+import type * as d_out from "../../../../interface/generated/liana/schemas/xml/data.js"
+import type * as d_text from "pareto-fountain-pen/interface/generated/liana/schemas/text/data"
+
+//dependencies
+import * as t_prose_to_text from "pareto-fountain-pen/implementation/manual/transformers/prose/text"
+
+//shorthands
+import * as sh from "../../../../modules/xml/shorthands/xml/target.js"
+import * as sh_fp from "pareto-fountain-pen/shorthands/prose/deprecated"
+
+export namespace interface_ {
+
+    export type Document = p_i.Transformer<
+        d_in.Document, d_out.Document
+    >
+    export type Flow_Element = p_i.Transformer<
+        d_in.Flow_Element, d_out.Element.content_type.nodes_only.children.L
+    >
+    export type Flow_Content = p_i.Transformer<
+        d_in.Flow_Content, d_out.Element.content_type.nodes_only.children
+    >
+    export type Classes = p_i.Transformer<
+        d_in.Classes, d_out.Element.attributes
+    >
+    export type Phrasing_Content = p_i.Transformer<
+        d_in.Phrasing_Content, d_out.Mixed_Content
+    >
+    export type Phrasing_Element = p_i.Transformer<
+        d_in.Phrasing_Element, d_out.Element
+    >
+
+}
