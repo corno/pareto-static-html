@@ -1,33 +1,35 @@
 import * as p_ from 'pareto-core/implementation/transformer'
-import * as p_i from 'pareto-core/interface/transformer'
+import type * as p_i from 'pareto-core/interface/transformer'
 
 import type * as d_out from "pareto-fountain-pen/interface/generated/liana/schemas/prose/data"
 import type * as d_in from "../../../../../../interface/generated/liana/schemas/xml/data.js"
 
 import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
 
-export type Document = p_i.Transformer<
-    d_in.Document,
-    d_out.Paragraph
->
-export type Element = p_i.Transformer<
-    d_in.Element,
-    d_out.Phrase
->
-export type Qualified_Name = p_i.Transformer<
-    d_in.Qualified_Name,
-    d_out.Phrase
->
-export type Node = p_i.Transformer<
-    d_in.Node,
-    d_out.Phrase
->
-export type Mixed_Content = p_i.Transformer<
-    d_in.Mixed_Content,
-    d_out.Phrase
->
+export namespace interface_ {
+    export type Document = p_i.Transformer<
+        d_in.Document,
+        d_out.Paragraph
+    >
+    export type Element = p_i.Transformer<
+        d_in.Element,
+        d_out.Phrase
+    >
+    export type Qualified_Name = p_i.Transformer<
+        d_in.Qualified_Name,
+        d_out.Phrase
+    >
+    export type Node = p_i.Transformer<
+        d_in.Node,
+        d_out.Phrase
+    >
+    export type Mixed_Content = p_i.Transformer<
+        d_in.Mixed_Content,
+        d_out.Phrase
+    >
+}
 
-export const Document: Document = ($) => sh.pg.sentences(p_.literal.chain(
+export const Document: interface_.Document = ($) => sh.pg.sentences(p_.literal.chain(
 
     p_.from.optional($['doc type']).decide(
         ($) => p_.literal.list([
@@ -46,7 +48,7 @@ export const Document: Document = ($) => sh.pg.sentences(p_.literal.chain(
     ])
 ))
 
-export const Element: Element = ($) => sh.ph.composed(p_.literal.segmented_list([
+export const Element: interface_.Element = ($) => sh.ph.composed(p_.literal.segmented_list([
     p_.literal.list([
         sh.ph.literal("<"),
         Qualified_Name($.name),
@@ -80,7 +82,7 @@ export const Element: Element = ($) => sh.ph.composed(p_.literal.segmented_list(
     ])
 ]))
 
-export const Mixed_Content: Mixed_Content = ($) => sh.ph.composed(
+export const Mixed_Content: interface_.Mixed_Content = ($) => sh.ph.composed(
     p_.from.list($).map(
         ($) => p_.from.state($).decide(
             ($) => {
@@ -93,7 +95,7 @@ export const Mixed_Content: Mixed_Content = ($) => sh.ph.composed(
     )
 )
 
-export const Qualified_Name: Qualified_Name = ($) => sh.ph.composed(p_.literal.chain(
+export const Qualified_Name: interface_.Qualified_Name = ($) => sh.ph.composed(p_.literal.chain(
     p_.from.optional($['namespace prefix']).decide(
         ($) => p_.literal.list([
             sh.ph.literal($),
@@ -104,7 +106,7 @@ export const Qualified_Name: Qualified_Name = ($) => sh.ph.composed(p_.literal.c
     sh.ph.literal($['local name']),
 ))
 
-export const Node: Node = ($) => p_.from.state($).decide(
+export const Node: interface_.Node = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'cdata': return p_.option($, ($) => sh.ph.composed([
