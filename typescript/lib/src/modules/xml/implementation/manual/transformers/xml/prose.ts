@@ -71,7 +71,7 @@ export const Element: Element = ($) => sh.ph.composed(p_.literal.segmented_list(
                             ($) => sh.sentence([Node($)]))
                         )))
                     case 'text only': return p_.option($, ($) => sh.ph.literal($.value))
-                    default: return p_.au($[0])
+                    default: return p_.exhaustive($[0])
                 }
             }),
         sh.ph.literal("</"),
@@ -87,7 +87,7 @@ export const Mixed_Content: Mixed_Content = ($) => sh.ph.composed(
                 switch ($[0]) {
                     case 'node': return p_.option($, ($) => Node($))
                     case 'text': return p_.option($, ($) => sh.ph.literal($.value))
-                    default: return p_.au($[0])
+                    default: return p_.exhaustive($[0])
                 }
             })
     )
@@ -127,6 +127,6 @@ export const Node: Node = ($) => p_.from.state($).decide(
                 sh.ph.literal($.data),
                 sh.ph.literal("?>")
             ]))
-            default: return p_.au($[0])
+            default: return p_.exhaustive($[0])
         }
     })

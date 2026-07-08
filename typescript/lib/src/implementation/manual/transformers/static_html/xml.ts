@@ -134,7 +134,7 @@ export const Flow_Element: interface_.Flow_Element = ($) => p_.from.state($).dec
                                             case 'header': return p_.option($, ($) => "thead")
                                             case 'body': return p_.option($, ($) => "tbody")
                                             case 'footer': return p_.option($, ($) => "tfoot")
-                                            default: return p_.au($[0])
+                                            default: return p_.exhaustive($[0])
                                         }
                                     }),
                                 Classes($.classes),
@@ -160,7 +160,7 @@ export const Flow_Element: interface_.Flow_Element = ($) => p_.from.state($).dec
                                                                     switch ($[0]) {
                                                                         case 'th': return p_.option($, ($) => "th")
                                                                         case 'td': return p_.option($, ($) => "td")
-                                                                        default: return p_.au($[0])
+                                                                        default: return p_.exhaustive($[0])
                                                                     }
                                                                 }),
                                                             p_.literal.segmented_list([
@@ -254,7 +254,7 @@ export const Flow_Element: interface_.Flow_Element = ($) => p_.from.state($).dec
                     $.content
                 )
             ))
-            default: return p_.au($[0])
+            default: return p_.exhaustive($[0])
         }
     })
 
@@ -332,7 +332,7 @@ export const Phrasing_Element: interface_.Phrasing_Element = ($) => p_.from.stat
                             )))
                 ]
                 )))
-            default: return p_.au($[0])
+            default: return p_.exhaustive($[0])
         }
     }
 )

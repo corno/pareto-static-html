@@ -114,7 +114,7 @@ export const Flow_Element: signatures.Flow_Element = ($) => p_.from.state($).dec
                                         case 'header': return p_.option($, () => sh.ph.literal("<thead"))
                                         case 'body': return p_.option($, () => sh.ph.literal("<tbody"))
                                         case 'footer': return p_.option($, () => sh.ph.literal("<tfoot"))
-                                        default: return p_.au($[0])
+                                        default: return p_.exhaustive($[0])
                                     }
                                 }),
                             Classes($.classes),
@@ -143,7 +143,7 @@ export const Flow_Element: signatures.Flow_Element = ($) => p_.from.state($).dec
                                                                 switch ($[0]) {
                                                                     case 'td': return p_.option($, ($) => "td")
                                                                     case 'th': return p_.option($, ($) => "th")
-                                                                    default: return p_.au($[0])
+                                                                    default: return p_.exhaustive($[0])
                                                                 }
                                                             })),
                                                         Classes($.classes),
@@ -163,7 +163,7 @@ export const Flow_Element: signatures.Flow_Element = ($) => p_.from.state($).dec
                                                                 switch ($[0]) {
                                                                     case 'td': return p_.option($, ($) => "td")
                                                                     case 'th': return p_.option($, ($) => "th")
-                                                                    default: return p_.au($[0])
+                                                                    default: return p_.exhaustive($[0])
                                                                 }
                                                             })),
                                                         sh.ph.literal(">"),
@@ -186,7 +186,7 @@ export const Flow_Element: signatures.Flow_Element = ($) => p_.from.state($).dec
                                         case 'footer': return p_.option($, () => sh.ph.composed([
                                             sh.ph.literal("</tfoot>"),
                                         ]))
-                                        default: return p_.au($[0])
+                                        default: return p_.exhaustive($[0])
                                     }
                                 })
                         ])))),
@@ -252,7 +252,7 @@ export const Flow_Element: signatures.Flow_Element = ($) => p_.from.state($).dec
                 t_xml_to_prose.Mixed_Content($.content),
                 sh.ph.literal("</svg>")
             ]))
-            default: return p_.au($[0])
+            default: return p_.exhaustive($[0])
         }
     })
 
@@ -317,7 +317,7 @@ export const Phrasing_Element: signatures.Phrasing_Element = ($) => p_.from.stat
                 sh.ph.literal($.text),
                 sh.ph.literal("</p>")
             ]))
-            default: return p_.au($[0])
+            default: return p_.exhaustive($[0])
         }
     }
 )
@@ -364,7 +364,7 @@ export const Phrasing_Content: signatures.Phrasing_Content = ($) => sh.ph.indent
                             sh.ph.literal($.text),
                             sh.ph.literal("</p>")
                         ]))
-                        default: return p_.au($[0])
+                        default: return p_.exhaustive($[0])
                     }
                 }
             )
