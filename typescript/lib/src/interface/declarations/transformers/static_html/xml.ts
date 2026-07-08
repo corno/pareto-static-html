@@ -1,4 +1,4 @@
-import * as p_ from 'pareto-core/implementation/transformer'
+
 import type * as p_i from 'pareto-core/interface/transformer'
 
 //data types
@@ -13,7 +13,7 @@ import * as t_prose_to_text from "pareto-fountain-pen/implementation/manual/tran
 import * as sh from "../../../../modules/xml/shorthands/xml/target.js"
 import * as sh_fp from "pareto-fountain-pen/shorthands/prose/deprecated"
 
-export namespace interface_ {
+
 
     export type Document = p_i.Transformer<
         d_in.Document, d_out.Document
@@ -34,4 +34,4 @@ export namespace interface_ {
         d_in.Phrasing_Element, d_out.Element
     >
 
-}
+
