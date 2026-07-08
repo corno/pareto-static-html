@@ -1,5 +1,5 @@
 
-import type * as p_i from 'pareto-core/interface/transformer'
+import type * as p_ from 'pareto-core/interface/transformer'
 
 //data types
 import type * as d_in from "../../../generated/liana/schemas/static-html/data.js"
@@ -15,22 +15,22 @@ import * as sh_fp from "pareto-fountain-pen/shorthands/prose/deprecated"
 
 
 
-    export type Document = p_i.Transformer<
+    export type Document = p_.Transformer<
         d_in.Document, d_out.Document
     >
-    export type Flow_Element = p_i.Transformer<
+    export type Flow_Element = p_.Transformer<
         d_in.Flow_Element, d_out.Element.content_type.nodes_only.children.L
     >
-    export type Flow_Content = p_i.Transformer<
+    export type Flow_Content = p_.Transformer<
         d_in.Flow_Content, d_out.Element.content_type.nodes_only.children
     >
-    export type Classes = p_i.Transformer<
+    export type Classes = p_.Transformer<
         d_in.Classes, d_out.Element.attributes
     >
-    export type Phrasing_Content = p_i.Transformer<
+    export type Phrasing_Content = p_.Transformer<
         d_in.Phrasing_Content, d_out.Mixed_Content
     >
-    export type Phrasing_Element = p_i.Transformer<
+    export type Phrasing_Element = p_.Transformer<
         d_in.Phrasing_Element, d_out.Element
     >
 
