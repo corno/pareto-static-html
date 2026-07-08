@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core-shorthands/unconstrained_target'
 
-import * as d_target from "../../../../interface/generated/liana/schemas/xml/data.js"
+import type * as d_target from "../../../../interface/generated/liana/schemas/xml/data.js"
 
 export const document = (
     doc_type: null | string,
