@@ -5,7 +5,7 @@ import type * as d_loc from "pareto-fountain-pen/interface/generated/liana/schem
 
 import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
 
-import * as signatures from "../../../../interface/declarations/transformers/html/prose.js"
+import type * as interface_ from "../../../../interface/declarations/transformers/html/prose.js"
 
 //dependencies
 import * as t_xml_to_prose from "../../../../modules/xml/implementation/manual/transformers/xml/prose.js"
@@ -17,7 +17,7 @@ const temp_serialize_number = (n: number): d_loc.List_of_Characters => {
     )//convert number to string, then to list of characters
 }
 
-export const Document: signatures.Document = ($) => sh.pg.sentences([
+export const Document: interface_.Document = ($) => sh.pg.sentences([
     sh.sentence([
         sh.ph.literal("<!DOCTYPE html>"),
     ]),
@@ -63,7 +63,7 @@ export const Document: signatures.Document = ($) => sh.pg.sentences([
 ])
 
 
-export const Flow_Element: signatures.Flow_Element = ($) => p_.from.state($).decide(
+export const Flow_Element: interface_.Flow_Element = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'div': return p_.option($, ($) => sh.ph.composed([
@@ -257,12 +257,12 @@ export const Flow_Element: signatures.Flow_Element = ($) => p_.from.state($).dec
     })
 
 
-export const Flow_Content: signatures.Flow_Content = ($) => sh.ph.indent(
+export const Flow_Content: interface_.Flow_Content = ($) => sh.ph.indent(
     sh.pg.sentences(p_.from.list($).map(
         ($) => sh.sentence([Flow_Element($)])))
 )
 
-export const Classes: signatures.Classes = ($) => p_.from.list($).on_has_items(
+export const Classes: interface_.Classes = ($) => p_.from.list($).on_has_items(
     ($) => sh.ph.composed([
         sh.ph.literal(" class=\""),
         sh.ph.rich(
@@ -278,7 +278,7 @@ export const Classes: signatures.Classes = ($) => p_.from.list($).on_has_items(
     () => sh.ph.nothing()
 )
 
-export const Phrasing_Element: signatures.Phrasing_Element = ($) => p_.from.state($).decide(
+export const Phrasing_Element: interface_.Phrasing_Element = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'span': return p_.option($, ($) => sh.ph.composed([
@@ -322,7 +322,7 @@ export const Phrasing_Element: signatures.Phrasing_Element = ($) => p_.from.stat
     }
 )
 
-export const Phrasing_Content: signatures.Phrasing_Content = ($) => sh.ph.indent(
+export const Phrasing_Content: interface_.Phrasing_Content = ($) => sh.ph.indent(
     sh.pg.sentences(
         p_.from.list($).map(
             ($) => p_.from.state($).decide(
