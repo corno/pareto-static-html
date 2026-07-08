@@ -1,5 +1,5 @@
 
-import * as signatures from "../../../../interface/transformers/html/prose.js"
+import * as signatures from "../../../../interface/declarations/transformers/html/prose.js"
 
 //dependencies
 import * as t_xml_to_prose from "../../../../modules/xml/implementation/manual/transformers/xml/prose.js"

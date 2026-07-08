@@ -5,7 +5,7 @@ import * as d_loc from "pareto-fountain-pen/interface/generated/liana/schemas/li
 
 import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
 
-import * as signatures from "../../../../interface/transformers/html/prose.js"
+import * as signatures from "../../../../interface/declarations/transformers/html/prose.js"
 
 //dependencies
 import * as t_xml_to_prose from "../../../../modules/xml/implementation/manual/transformers/xml/prose.js"
