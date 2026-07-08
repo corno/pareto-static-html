@@ -35,6 +35,7 @@ export namespace interface_ {
     >
 
 }
+import * as temp_interface_ from "../../../../interface/declarations/transformers/static_html/xml.js"
 
 
 const temp_serialize_number = (n: number): d_text.Text => {
