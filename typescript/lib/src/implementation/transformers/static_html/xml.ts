@@ -6,7 +6,7 @@ import type * as interface_ from "../../../declarations/transformers/static_html
 import type * as d_text from "pareto-fountain-pen/interface/generated/liana/schemas/text/data"
 
 //dependencies
-import * as t_prose_to_text from "pareto-fountain-pen/implementation/manual/transformers/prose/text"
+import * as t_prose_to_text from "pareto-fountain-pen/implementation/transformers/prose/text"
 
 //shorthands
 import * as sh from "../../../modules/xml/shorthands/xml/target.js"
