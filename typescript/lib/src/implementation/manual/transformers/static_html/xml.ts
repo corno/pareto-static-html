@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 
-import type * as interface_ from "../../../../interface/declarations/transformers/static_html/xml.js"
+import type * as interface_ from "../../../../declarations/transformers/static_html/xml.js"
 
 //data types
 import type * as d_text from "pareto-fountain-pen/interface/generated/liana/schemas/text/data"
