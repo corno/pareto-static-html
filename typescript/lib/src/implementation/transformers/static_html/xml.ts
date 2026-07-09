@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 
-import type * as interface_ from "../../../../declarations/transformers/static_html/xml.js"
+import type * as interface_ from "../../../declarations/transformers/static_html/xml.js"
 
 //data types
 import type * as d_text from "pareto-fountain-pen/interface/generated/liana/schemas/text/data"
@@ -9,7 +9,7 @@ import type * as d_text from "pareto-fountain-pen/interface/generated/liana/sche
 import * as t_prose_to_text from "pareto-fountain-pen/implementation/manual/transformers/prose/text"
 
 //shorthands
-import * as sh from "../../../../modules/xml/shorthands/xml/target.js"
+import * as sh from "../../../modules/xml/shorthands/xml/target.js"
 import * as sh_fp from "pareto-fountain-pen/shorthands/prose/deprecated"
 
 
