@@ -2,8 +2,8 @@
 import type * as p_ from 'pareto-core/interface/transformer'
 
 //data types
-import type * as d_in from "../../../interface/generated/liana/schemas/static-html/data.js"
-import type * as d_out from "../../../interface/generated/liana/schemas/xml/data.js"
+import type * as d_in from "../../../interface/data/static_html.js"
+import type * as d_out from "../../../modules/xml/interface/data/xml.js"
 
 export type Document = p_.Transformer<
     d_in.Document, d_out.Document

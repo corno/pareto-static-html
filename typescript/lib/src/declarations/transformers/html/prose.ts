@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core/interface/transformer'
 
-import type * as d_in from "../../../interface/generated/liana/schemas/static-html/data.js"
+import type * as d_in from "../../../interface/data/static_html.js"
 import type * as d_out from "pareto-fountain-pen/interface/generated/liana/schemas/prose/data"
 
 export type Document = p_.Transformer<

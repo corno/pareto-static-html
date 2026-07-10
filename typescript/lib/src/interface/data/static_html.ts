@@ -1,8 +1,7 @@
 
-import * as p_i from 'pareto-core/interface/__internal/Abort'
 import * as p_di from 'pareto-core/interface/data'
 
-import * as i_imports_xml from "../xml/data.js"
+import * as i_imports_xml from "../../modules/xml/interface/data/xml.js"
 
 export namespace Document_ {
     
