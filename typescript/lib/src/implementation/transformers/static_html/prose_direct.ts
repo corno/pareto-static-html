@@ -1,7 +1,7 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 import p_list_from_text from 'pareto-core/implementation/refiner/specials/list_from_text'
 
-import type * as d_loc from "pareto-fountain-pen/interface/generated/liana/schemas/list_of_characters/data"
+import type * as d_loc from "pareto-fountain-pen/interface/data/list_of_characters"
 
 import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
 
