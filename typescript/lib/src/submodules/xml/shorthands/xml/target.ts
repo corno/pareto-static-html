@@ -1,11 +1,11 @@
 import * as p_ from 'pareto-core-shorthands/unconstrained_target'
 
-import type * as d_target from "../../interface/schemas/xml.js"
+import type * as s_target from "../../interface/schemas/xml.js"
 
 export const document = (
     doc_type: null | string,
-    root: d_target.Element,
-): d_target.Document => ({
+    root: s_target.Element,
+): s_target.Document => ({
     'doc type': doc_type === null
         ? p_.optional.not_set()
         : p_.optional.set({
@@ -17,7 +17,7 @@ export const document = (
 export const attribute = (
     name: string,
     value: string,
-): d_target.Element.attributes.L => ({
+): s_target.Element.attributes.L => ({
     'name': {
         'namespace prefix': p_.optional.not_set(),
         'local name': name,
@@ -29,8 +29,8 @@ export namespace e { //element
 
     export const empty = (
         name: string,
-        attributes: p_.Normal_List<d_target.Element.attributes.L>,
-    ): d_target.Element => ({
+        attributes: p_.Normal_List<s_target.Element.attributes.L>,
+    ): s_target.Element => ({
         'name': {
             'namespace prefix': p_.optional.not_set(),
             'local name': name,
@@ -41,9 +41,9 @@ export namespace e { //element
 
     export const text_only = (
         name: string,
-        attributes: p_.Normal_List<d_target.Element.attributes.L>,
+        attributes: p_.Normal_List<s_target.Element.attributes.L>,
         text: string,
-    ): d_target.Element => ({
+    ): s_target.Element => ({
         'name': {
             'namespace prefix': p_.optional.not_set(),
             'local name': name,
@@ -56,9 +56,9 @@ export namespace e { //element
 
     export const mixed = (
         name: string,
-        attributes: p_.Normal_List<d_target.Element.attributes.L>,
-        children: p_.Normal_List<d_target.Mixed_Content.L>,
-    ): d_target.Element => ({
+        attributes: p_.Normal_List<s_target.Element.attributes.L>,
+        children: p_.Normal_List<s_target.Mixed_Content.L>,
+    ): s_target.Element => ({
         'name': {
             'namespace prefix': p_.optional.not_set(),
             'local name': name,
@@ -69,9 +69,9 @@ export namespace e { //element
 
     export const nodes_only = (
         name: string,
-        attributes: p_.Normal_List<d_target.Element.attributes.L>,
-        children: p_.Normal_List<d_target.Element.content_type.nodes_only.children.L>,
-    ): d_target.Element => ({
+        attributes: p_.Normal_List<s_target.Element.attributes.L>,
+        children: p_.Normal_List<s_target.Element.content_type.nodes_only.children.L>,
+    ): s_target.Element => ({
         'name': {
             'namespace prefix': p_.optional.not_set(),
             'local name': name,
@@ -87,30 +87,30 @@ export namespace e { //element
 export namespace m { //mixed
 
     export const element = (
-        element: d_target.Element,
-    ): d_target.Mixed_Content.L => ['node', ['element', element]]
+        element: s_target.Element,
+    ): s_target.Mixed_Content.L => ['node', ['element', element]]
 
     export const text = (
         text: string,
-    ): d_target.Mixed_Content.L => ['text', {
+    ): s_target.Mixed_Content.L => ['text', {
         'value': text,
     }]
 
     export const node = (
-        node: d_target.Node,
-    ): d_target.Mixed_Content.L => ['node', node]
+        node: s_target.Node,
+    ): s_target.Mixed_Content.L => ['node', node]
 
 }
 
 export namespace no { //nodes only
 
     export const element = (
-        element: d_target.Element,
-    ): d_target.Element.content_type.nodes_only.children.L => ['element', element]
+        element: s_target.Element,
+    ): s_target.Element.content_type.nodes_only.children.L => ['element', element]
 
     // export const node = (
-    //     node: d_target.Node,
-    // ): d_target.Element.content_type.nodes_only.children.L => ['node', node]
+    //     node: s_target.Node,
+    // ): s_target.Element.content_type.nodes_only.children.L => ['node', node]
 
 }
 

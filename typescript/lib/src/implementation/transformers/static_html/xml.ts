@@ -3,7 +3,7 @@ import * as p_ from 'pareto-core/implementation/transformer'
 import type * as interface_ from "../../../declarations/transformers/static_html/xml.js"
 
 //data types
-import type * as d_text from "pareto-fountain-pen/interface/data/text"
+import type * as s_text from "pareto-fountain-pen/interface/data/text"
 
 //dependencies
 import * as t_prose_to_text from "pareto-fountain-pen/implementation/transformers/prose/text"
@@ -13,7 +13,7 @@ import * as sh from "../../../submodules/xml/shorthands/xml/target.js"
 import * as sh_fp from "pareto-fountain-pen/shorthands/prose/deprecated"
 
 
-const temp_serialize_number = (n: number): d_text.Text => {
+const temp_serialize_number = (n: number): s_text.Text => {
     return `${n}`
 }
 

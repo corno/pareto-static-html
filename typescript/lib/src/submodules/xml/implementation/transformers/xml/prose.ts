@@ -1,31 +1,31 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 import type * as p_i from 'pareto-core/interface/transformer'
 
-import type * as d_out from "pareto-fountain-pen/interface/data/prose"
-import type * as d_in from "../../../interface/schemas/xml.js"
+import type * as s_out from "pareto-fountain-pen/interface/data/prose"
+import type * as s_in from "../../../interface/schemas/xml.js"
 
 import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
 
 export namespace interface_ {
     export type Document = p_i.Transformer<
-        d_in.Document,
-        d_out.Paragraph
+        s_in.Document,
+        s_out.Paragraph
     >
     export type Element = p_i.Transformer<
-        d_in.Element,
-        d_out.Phrase
+        s_in.Element,
+        s_out.Phrase
     >
     export type Qualified_Name = p_i.Transformer<
-        d_in.Qualified_Name,
-        d_out.Phrase
+        s_in.Qualified_Name,
+        s_out.Phrase
     >
     export type Node = p_i.Transformer<
-        d_in.Node,
-        d_out.Phrase
+        s_in.Node,
+        s_out.Phrase
     >
     export type Mixed_Content = p_i.Transformer<
-        d_in.Mixed_Content,
-        d_out.Phrase
+        s_in.Mixed_Content,
+        s_out.Phrase
     >
 }
 
