@@ -8,7 +8,7 @@ import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
 import type * as interface_ from "../../../declarations/transformers/html/prose.js"
 
 //dependencies
-import * as t_xml_to_prose from "../../../modules/xml/implementation/transformers/xml/prose.js"
+import * as t_xml_to_prose from "../../../submodules/xml/implementation/transformers/xml/prose.js"
 
 const temp_serialize_number = (n: number): d_loc.List_of_Characters => {
     return p_list_from_text(

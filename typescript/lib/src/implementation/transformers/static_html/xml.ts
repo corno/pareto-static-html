@@ -9,7 +9,7 @@ import type * as d_text from "pareto-fountain-pen/interface/data/text"
 import * as t_prose_to_text from "pareto-fountain-pen/implementation/transformers/prose/text"
 
 //shorthands
-import * as sh from "../../../modules/xml/shorthands/xml/target.js"
+import * as sh from "../../../submodules/xml/shorthands/xml/target.js"
 import * as sh_fp from "pareto-fountain-pen/shorthands/prose/deprecated"
 
 

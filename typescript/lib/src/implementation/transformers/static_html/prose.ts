@@ -2,7 +2,7 @@
 import type * as interface_ from "../../../declarations/transformers/html/prose.js"
 
 //dependencies
-import * as t_xml_to_prose from "../../../modules/xml/implementation/transformers/xml/prose.js"
+import * as t_xml_to_prose from "../../../submodules/xml/implementation/transformers/xml/prose.js"
 import * as t_to_xml from "./xml.js"
 
 
