@@ -1,7 +1,7 @@
 
 import * as p_di from 'pareto-core/interface/data'
 
-import * as i_imports_xml from "../../submodules/xml/interface/data/xml.js"
+import * as i_imports_xml from "../../submodules/xml/interface/schemas/xml.js"
 
 export namespace Document_ {
     

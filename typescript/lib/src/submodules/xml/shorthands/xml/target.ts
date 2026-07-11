@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core-shorthands/unconstrained_target'
 
-import type * as d_target from "../../interface/data/xml.js"
+import type * as d_target from "../../interface/schemas/xml.js"
 
 export const document = (
     doc_type: null | string,

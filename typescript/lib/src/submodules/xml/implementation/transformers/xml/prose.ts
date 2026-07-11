@@ -2,7 +2,7 @@ import * as p_ from 'pareto-core/implementation/transformer'
 import type * as p_i from 'pareto-core/interface/transformer'
 
 import type * as d_out from "pareto-fountain-pen/interface/data/prose"
-import type * as d_in from "../../../interface/data/xml.js"
+import type * as d_in from "../../../interface/schemas/xml.js"
 
 import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
 
