@@ -1,9 +1,35 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 
-import type * as interface_ from "../../../declarations/transformers/static_html/xml.js"
-
 //schemas
-import type * as s_text from "pareto-fountain-pen/interface/data/text"
+import type * as s_in from "../../../interface/schemas/static_html.js"
+import type * as s_out from "../../../interface/schemas/xml.js"
+
+namespace declarations {
+    export type Document = p_.Transformer<
+        s_in.Document,
+        s_out.Document
+    >
+    export type Flow_Element = p_.Transformer<
+        s_in.Flow_Element,
+        s_out.Element.content_type.nodes_only.children.L
+    >
+    export type Flow_Content = p_.Transformer<
+        s_in.Flow_Content,
+        s_out.Element.content_type.nodes_only.children
+    >
+    export type Classes = p_.Transformer<
+        s_in.Classes,
+        s_out.Element.attributes
+    >
+    export type Phrasing_Content = p_.Transformer<
+        s_in.Phrasing_Content,
+        s_out.Mixed_Content
+    >
+    export type Phrasing_Element = p_.Transformer<
+        s_in.Phrasing_Element,
+        s_out.Element
+    >
+}
 
 //dependencies
 import * as t_prose_to_text from "pareto-fountain-pen/implementation/transformers/prose/text"
@@ -12,12 +38,12 @@ import * as t_prose_to_text from "pareto-fountain-pen/implementation/transformer
 import * as sh from "../../../submodules/xml/shorthands/xml/target.js"
 import * as sh_fp from "pareto-fountain-pen/shorthands/prose/deprecated"
 
-
+import type * as s_text from "pareto-fountain-pen/interface/schemas/text"
 const temp_serialize_number = (n: number): s_text.Text => {
     return `${n}`
 }
 
-export const Document: interface_.Document = ($) => sh.document(
+export const Document: declarations.Document = ($) => sh.document(
     "html",
     sh.e.nodes_only(
         "html",
@@ -63,7 +89,7 @@ export const Document: interface_.Document = ($) => sh.document(
     )
 )
 
-export const Flow_Element: interface_.Flow_Element = ($) => p_.from.state($).decide(
+export const Flow_Element: declarations.Flow_Element = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'div': return p_.option($, ($) => sh.no.element(
@@ -234,11 +260,11 @@ export const Flow_Element: interface_.Flow_Element = ($) => p_.from.state($).dec
         }
     })
 
-export const Flow_Content: interface_.Flow_Content = ($) => p_.from.list($).map(
+export const Flow_Content: declarations.Flow_Content = ($) => p_.from.list($).map(
     ($) => Flow_Element($)
 )
 
-export const Classes: interface_.Classes = ($) => p_.literal.list([
+export const Classes: declarations.Classes = ($) => p_.literal.list([
     sh.attribute("class", t_prose_to_text.Phrase(
         sh_fp.ph.rich(
             p_.from.list($).map(
@@ -255,11 +281,11 @@ export const Classes: interface_.Classes = ($) => p_.literal.list([
     )),
 ])
 
-export const Phrasing_Content: interface_.Phrasing_Content = ($) => p_.from.list($).map(
+export const Phrasing_Content: declarations.Phrasing_Content = ($) => p_.from.list($).map(
     ($) => sh.m.element(Phrasing_Element($))
 )
 
-export const Phrasing_Element: interface_.Phrasing_Element = ($) => p_.from.state($).decide(
+export const Phrasing_Element: declarations.Phrasing_Element = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'span': return p_.option($, ($) => sh.e.mixed(
