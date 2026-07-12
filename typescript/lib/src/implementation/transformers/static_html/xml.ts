@@ -2,7 +2,7 @@ import * as p_ from 'pareto-core/implementation/transformer'
 
 import type * as interface_ from "../../../declarations/transformers/static_html/xml.js"
 
-//data types
+//schemas
 import type * as s_text from "pareto-fountain-pen/interface/data/text"
 
 //dependencies
