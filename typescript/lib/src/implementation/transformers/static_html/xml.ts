@@ -266,7 +266,7 @@ export const Flow_Content: declarations.Flow_Content = ($) => p_.from.list($).ma
 
 export const Classes: declarations.Classes = ($) => p_.literal.list([
     sh.attribute("class", t_prose_to_text.Phrase(
-        sh_fp.ph.rich(
+        sh_fp.ph.rich_phrase(
             p_.from.list($).map(
                 ($) => sh_fp.ph.literal($)),
             sh_fp.ph.nothing(),

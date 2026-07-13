@@ -293,7 +293,7 @@ export const Flow_Content: declarations.Flow_Content = ($) => sh.ph.indent(
 export const Classes: declarations.Classes = ($) => p_.from.list($).on_has_items(
     ($) => sh.ph.composed([
         sh.ph.literal(" class=\""),
-        sh.ph.rich(
+        sh.ph.rich_phrase(
             p_.from.list($).map(
                 ($) => sh.ph.literal($)),
             sh.ph.nothing(),
