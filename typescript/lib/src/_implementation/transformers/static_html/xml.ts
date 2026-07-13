@@ -1,8 +1,9 @@
 import * as p_ from 'pareto-core/implementation/transformer'
+import * as p_s from 'pareto-core/implementation/serializer'
 
 //schemas
 import type * as s_in from "../../../interface/schemas/static_html.js"
-import type * as s_out from "../../../interface/schemas/xml.js"
+import type * as s_out from "../../../submodules/xml/interface/schemas/xml.js"
 
 namespace declarations {
     export type Document = p_.Transformer<
@@ -32,14 +33,12 @@ namespace declarations {
 }
 
 //dependencies
-import * as t_prose_to_text from "pareto-fountain-pen/implementation/transformers/prose/text"
 
 //shorthands
 import * as sh from "../../../submodules/xml/shorthands/xml/target.js"
 import * as sh_fp from "pareto-fountain-pen/shorthands/prose/deprecated"
 
-import type * as s_text from "pareto-fountain-pen/interface/schemas/text"
-const temp_serialize_number = (n: number): s_text.Text => {
+const temp_serialize_number = (n: number): string => {
     return `${n}`
 }
 
@@ -265,7 +264,7 @@ export const Flow_Content: declarations.Flow_Content = ($) => p_.from.list($).ma
 )
 
 export const Classes: declarations.Classes = ($) => p_.literal.list([
-    sh.attribute("class", t_prose_to_text.Phrase(
+    sh.attribute("class", p_s.text_from_phrase(
         sh_fp.ph.rich_phrase(
             p_.from.list($).map(
                 ($) => sh_fp.ph.literal($)),
@@ -274,10 +273,8 @@ export const Classes: declarations.Classes = ($) => p_.literal.list([
             sh_fp.ph.literal(" "),
             sh_fp.ph.nothing(),
         ),
-        {
-            'indentation': "    ",
-            'newline': "\n",
-        }
+        "    ", //should not occur
+        "\n", //should not occur
     )),
 ])
 

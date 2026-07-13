@@ -1,30 +1,23 @@
-import * as p_ from 'pareto-core/implementation/transformer'
-import type * as p_i from 'pareto-core/interface/transformer'
+import * as p_ from 'pareto-core/implementation/serializer'
 
 //schemas
-import type * as s_in from "../../../interface/schemas/xml.js"
-import type * as s_out from "../../../interface/schemas/prose.js"
+import type * as s_in from "../../interface/schemas/xml.js"
 
 namespace declarations {
-    export type Document = p_i.Transformer<
-        s_in.Document,
-        s_out.Paragraph
+    export type Document = p_.Paragraph_Serializer<
+        s_in.Document
     >
-    export type Element = p_i.Transformer<
-        s_in.Element,
-        s_out.Phrase
+    export type Element = p_.Phrase_Serializer<
+        s_in.Element
     >
-    export type Qualified_Name = p_i.Transformer<
-        s_in.Qualified_Name,
-        s_out.Phrase
+    export type Qualified_Name = p_.Phrase_Serializer<
+        s_in.Qualified_Name
     >
-    export type Node = p_i.Transformer<
-        s_in.Node,
-        s_out.Phrase
+    export type Node = p_.Phrase_Serializer<
+        s_in.Node
     >
-    export type Mixed_Content = p_i.Transformer<
-        s_in.Mixed_Content,
-        s_out.Phrase
+    export type Mixed_Content = p_.Phrase_Serializer<
+        s_in.Mixed_Content
     >
 }
 
