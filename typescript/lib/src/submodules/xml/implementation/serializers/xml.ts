@@ -21,7 +21,7 @@ namespace declarations {
     >
 }
 
-import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
+import * as sh from "pareto-fountain-pen/shorthands/prose_extended/deprecated"
 
 export const Document: declarations.Document = ($) => sh.pg.sentences(p_.literal.chain(
 

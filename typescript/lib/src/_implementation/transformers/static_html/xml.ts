@@ -36,7 +36,7 @@ namespace declarations {
 
 //shorthands
 import * as sh from "../../../submodules/xml/shorthands/xml/target.js"
-import * as sh_fp from "pareto-fountain-pen/shorthands/prose/deprecated"
+import * as sh_fp from "pareto-fountain-pen/shorthands/prose_simple_with_rich/deprecated"
 
 const temp_serialize_number = (n: number): string => {
     return `${n}`
@@ -268,10 +268,10 @@ export const Classes: declarations.Classes = ($) => p_.literal.list([
         sh_fp.ph.rich_phrase(
             p_.from.list($).map(
                 ($) => sh_fp.ph.literal($)),
-            sh_fp.ph.nothing(),
-            sh_fp.ph.nothing(),
+            null,
+            null,
             sh_fp.ph.literal(" "),
-            sh_fp.ph.nothing(),
+            null,
         ),
         "    ", //should not occur
         "\n", //should not occur
