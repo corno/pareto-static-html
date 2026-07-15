@@ -33,10 +33,11 @@ namespace declarations {
 }
 
 //dependencies
+import * as ser_rich_phrase from "pareto-fountain-pen/_implementation/serializers/rich_phrase"
 
 //shorthands
 import * as sh from "../../../submodules/xml/shorthands/xml/target.js"
-import * as sh_fp from "pareto-fountain-pen/shorthands/prose_simple_with_rich/deprecated"
+import * as sh_fp from "pareto-fountain-pen/shorthands/rich_phrase/deprecated"
 
 const temp_serialize_number = (n: number): string => {
     return `${n}`
@@ -264,17 +265,15 @@ export const Flow_Content: declarations.Flow_Content = ($) => p_.from.list($).ma
 )
 
 export const Classes: declarations.Classes = ($) => p_.literal.list([
-    sh.attribute("class", p_s.text_from_phrase(
+    sh.attribute("class", ser_rich_phrase.Phrase(
         sh_fp.ph.rich_phrase(
             p_.from.list($).map(
-                ($) => sh_fp.ph.literal($)),
+                ($) => sh_fp.ph.text($)),
             null,
             null,
-            sh_fp.ph.literal(" "),
+            sh_fp.ph.text(" "),
             null,
         ),
-        "    ", //should not occur
-        "\n", //should not occur
     )),
 ])
 
