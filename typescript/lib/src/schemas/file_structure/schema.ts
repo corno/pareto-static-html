@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core/interface/schema'
 
-import type * as s_static_html from "./static_html.js"
+import type * as s_static_html from "../static_html/schema.js"
 
 export type Directory = p_.Dictionary<Node>
 

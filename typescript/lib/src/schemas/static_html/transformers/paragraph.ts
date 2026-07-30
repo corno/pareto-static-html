@@ -1,8 +1,8 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 
 //schemas
-import type * as s_in from "../../../interface/schemas/static_html.js"
-import type * as s_out from "../../../interface/schemas/paragraph.js"
+import type * as s_in from "../schema.js"
+import type * as s_out from "pareto-fountain-pen/modules/paragraph/schemas/paragraph/schema"
 
 
 namespace declarations {
@@ -29,7 +29,7 @@ namespace declarations {
 }
 
 //dependencies
-import * as t_xml_to_prose from "../../../submodules/xml/implementation/transformers/xml/paragraph.js"
+import * as t_xml_to_prose from "../../../modules/xml/schemas/xml/transformers/paragraph.js"
 import * as t_to_xml from "./xml.js"
 
 

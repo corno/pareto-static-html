@@ -2,8 +2,8 @@ import * as p_ from 'pareto-core/implementation/transformer'
 import * as p_s from 'pareto-core/implementation/serializer'
 
 //schemas
-import type * as s_in from "../../../interface/schemas/static_html.js"
-import type * as s_out from "../../../submodules/xml/interface/schemas/xml.js"
+import type * as s_in from "../schema.js"
+import type * as s_out from "../../../modules/xml/schemas/xml/schema.js"
 
 namespace declarations {
     export type Document = p_.Transformer<
@@ -33,11 +33,11 @@ namespace declarations {
 }
 
 //dependencies
-import * as ser_rich_phrase from "pareto-fountain-pen/modules/rich_phrase/implementation/serializers/rich_phrase"
+import * as ser_rich_phrase from "pareto-fountain-pen/modules/rich_phrase/schemas/rich_phrase/serializers"
 
 //shorthands
-import * as sh from "../../../submodules/xml/shorthands/xml/target.js"
-import * as sh_fp from "pareto-fountain-pen/modules/rich_phrase/shorthands/deprecated"
+import * as sh from "../../../modules/xml/schemas/xml/shorthands/target.js"
+import * as sh_fp from "pareto-fountain-pen/modules/rich_phrase/schemas/rich_phrase/shorthands/deprecated"
 
 const temp_serialize_number = (n: number): string => {
     return `${n}`
