@@ -29,14 +29,14 @@ namespace declarations {
 }
 
 //dependencies
-import * as t_xml_to_prose from "../../../modules/xml/schemas/xml/transformers/paragraph.js"
+import * as t_xml_to_paragraph from "../../../modules/xml/schemas/xml/transformers/paragraph.js"
 import * as t_to_xml from "./xml.js"
 
 
-export const Document: declarations.Document = ($) => t_xml_to_prose.Document(
+export const Document: declarations.Document = ($) => t_xml_to_paragraph.Document(
     t_to_xml.Document($),
 )
 
-export const Phrasing_Element: declarations.Phrasing_Element = ($) => t_xml_to_prose.Element(
+export const Phrasing_Element: declarations.Phrasing_Element = ($) => t_xml_to_paragraph.Element(
     t_to_xml.Phrasing_Element($),
 )
