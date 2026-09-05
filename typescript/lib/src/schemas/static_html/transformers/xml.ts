@@ -1,5 +1,5 @@
-import * as p_ from 'pareto-core/implementation/transformer'
-import * as p_s from 'pareto-core/implementation/serializer'
+import * as p_ from 'pareto-core/transformer'
+import * as p_s from 'pareto-core/serializer'
 
 //schemas
 import type * as s_in from "../schema.js"
