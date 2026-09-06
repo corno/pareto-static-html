@@ -38,10 +38,7 @@ import * as ser_rich_phrase from "pareto-fountain-pen/modules/rich_phrase/schema
 //shorthands
 import * as sh from "../../../modules/xml/schemas/xml/shorthands/target.js"
 import * as sh_fp from "pareto-fountain-pen/modules/rich_phrase/schemas/rich_phrase/shorthands/deprecated"
-
-const temp_serialize_number = (n: number): string => {
-    return `${n}`
-}
+import * as ser from "../serializers.js"
 
 export const Document: declarations.Document = ($) => sh.document(
     "html",
@@ -104,13 +101,13 @@ export const Flow_Element: declarations.Flow_Element = ($) => p_.from.state($).d
                     p_.literal.segmented_list([
                         p_.from.optional($.width).decide(
                             ($) => p_.literal.list([
-                                sh.attribute("width", temp_serialize_number($)),
+                                sh.attribute("width", ser.Number($)),
                             ]),
                             () => p_.literal.list([])
                         ),
                         p_.from.optional($.height).decide(
                             ($) => p_.literal.list([
-                                sh.attribute("height", temp_serialize_number($)),
+                                sh.attribute("height", ser.Number($)),
                             ]),
                             () => p_.literal.list([])
                         )
@@ -149,7 +146,7 @@ export const Flow_Element: declarations.Flow_Element = ($) => p_.from.state($).d
                                                     Classes($.classes),
                                                     p_.from.optional($.height).decide(
                                                         ($) => p_.literal.list([
-                                                            sh.attribute("height", temp_serialize_number($)),
+                                                            sh.attribute("height", ser.Number($)),
                                                         ]),
                                                         () => p_.literal.list([])
                                                     ),
@@ -158,18 +155,19 @@ export const Flow_Element: declarations.Flow_Element = ($) => p_.from.state($).d
                                                     ($) => sh.no.element(
                                                         sh.e.nodes_only(
                                                             p_.from.state($.type).decide(
-                                                                ($): string => {
+                                                                ($) => {
                                                                     switch ($[0]) {
                                                                         case 'th': return p_.option($, ($) => "th")
                                                                         case 'td': return p_.option($, ($) => "td")
                                                                         default: return p_.exhaustive($[0])
                                                                     }
-                                                                }),
+                                                                }
+                                                            ),
                                                             p_.literal.segmented_list([
                                                                 Classes($.classes),
                                                                 p_.from.optional($.colspan).decide(
                                                                     ($) => p_.literal.list([
-                                                                        sh.attribute("colspan", temp_serialize_number($)),
+                                                                        sh.attribute("colspan", ser.Number($)),
                                                                     ]),
                                                                     () => p_.literal.list([])
                                                                 ),
@@ -222,13 +220,13 @@ export const Flow_Element: declarations.Flow_Element = ($) => p_.from.state($).d
                         ]),
                         p_.from.optional($.width).decide(
                             ($) => p_.literal.list([
-                                sh.attribute("width", temp_serialize_number($)),
+                                sh.attribute("width", ser.Number($)),
                             ]),
                             () => p_.literal.list([])
                         ),
                         p_.from.optional($.height).decide(
                             ($) => p_.literal.list([
-                                sh.attribute("height", temp_serialize_number($)),
+                                sh.attribute("height", ser.Number($)),
                             ]),
                             () => p_.literal.list([])
                         )
@@ -242,13 +240,13 @@ export const Flow_Element: declarations.Flow_Element = ($) => p_.from.state($).d
                         Classes($.classes),
                         p_.from.optional($.width).decide(
                             ($) => p_.literal.list([
-                                sh.attribute("width", temp_serialize_number($)),
+                                sh.attribute("width", ser.Number($)),
                             ]),
                             () => p_.literal.list([])
                         ),
                         p_.from.optional($.height).decide(
                             ($) => p_.literal.list([
-                                sh.attribute("height", temp_serialize_number($)),
+                                sh.attribute("height", ser.Number($)),
                             ]),
                             () => p_.literal.list([])
                         )
